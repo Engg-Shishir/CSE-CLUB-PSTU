@@ -1,0 +1,451 @@
+@import './Setting/settings';
+
+
+@include respond(mb-sm) {
+    body {
+        font-size: 1.1em !important;
+    }
+}
+
+.engg-shishir-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5em;
+    @include respond(lp-sm) {
+        width: 90%;
+    }
+    @include respond(lp-lg) {
+        // width: 85%;
+    }
+}
+
+.engg-shishir-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    @include respond(tb-sm) {
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+.engg-shishir-event-card {
+    flex: 0 0 100%;
+    max-width: 0 0 100%;
+    width: 100%;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    overflow: hidden;
+    padding: 1.5em;
+    color: $dark;
+    border-radius: 2em;
+    font-size: 1em;
+    margin: 10px auto;
+    box-shadow: $box-shadow-500;
+    cursor: pointer;
+
+    @include respond(tb-sm) {
+        flex-direction: row;
+        justify-content: space-between !important;
+    }
+    @include respond(tb-md) {
+        flex-direction: column;
+        flex: 0 0 45%;
+        max-width: 45%;
+        width: 45%;
+        padding: 1.5em;
+    }
+    @include respond(lp-sm) {
+        flex: 0 0 30%;
+        max-width: 30%;
+        width: 30%;
+    }
+
+
+    .engg-shishir-ec-left {
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        @include respond(tb-sm) {
+            flex: 0 0 60%;
+            max-width: 60%;
+            width: 60%;
+            padding: 1em;
+        }
+        @include respond(tb-md) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            width: 100%;
+            padding: 0em;
+        }
+
+        .engg-shishir-ecl-event-title {
+            align-self: flex-start;
+
+            h1 {
+                color: $Blueberry-300;
+                font-family: "Open Sans", sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 1.7em;
+                line-height: 105%;
+                position: relative;
+                text-align: left;
+                letter-spacing: 0.12em;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -7px;
+                    left: 0;
+                    background: $Blueberry-300;
+                    height: 7px;
+                    width: 7px;
+                    transition: all 0.5s ease;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $Blueberry-300;
+                }
+            }
+        }
+
+        .engg-shishir-ecl-event-sedule {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin: 2.5em 0;
+            @include respond(tb-sm) {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            hr{
+                height: 2px;
+                width: 50%;
+                border: none;
+                background-color: $Blueberry-300;
+                margin: 3px 0;
+                @include respond(tb-sm) {
+                    height: 3rem;
+                    width: 3px;
+                }
+            }
+            .engg-shishir-ecles-left {
+                position: relative;
+                .engg-shishir-eclesl-time {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 0;
+
+                    span:first-child {
+                        font-family: "Roboto", sans-serif;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 1.5em;
+                        letter-spacing: 0.015em;
+                        text-transform: capitalize;
+                        line-height: 130.18%;
+                        color: $Blueberry-300;
+                    }
+
+                    span:last-child {
+                        position: relative;
+                        margin-left: 1em;
+                        font-family: "Roboto", sans-serif;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 1.2em;
+                        line-height: 130.18%;
+                        text-transform: uppercase;
+                    }
+                }
+
+            }
+
+            .engg-shishir-ecles-right {
+                justify-self: end !important;
+                // border: 1px solid;
+                // padding-left: 20px;
+
+                p {
+                    font-size: 1.5em;
+                    color: $Blueberry-300;
+                    font-weight: 600;
+                    font-style: normal;
+                }
+            }
+        }
+
+        .engg-shishir-ecl-description {
+            margin-top: 2.5em;
+
+            h1 {
+                font-family: "Open Sans", sans-serif;
+                font-weight: 500;
+                font-size: 1.2em;
+                line-height: 105%;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: $Blueberry-300;
+            }
+
+            p {
+                color: black;
+                margin-top: 5px;
+                font-family: "Roboto", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 1.4em;
+                line-height: 145%;
+                letter-spacing: 0.015em;
+            }
+        }
+    }
+
+    .engg-shishir-ec-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 2;
+        @include respond(tb-sm) {
+            flex: 0 0 40%;
+            max-width: 40%;
+            width: 40%;
+        }
+        
+        @include respond(tb-md) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .engg-shishir-sponsor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 20px 0;
+            width: 100%;
+
+            h2 {
+                text-align: center;
+                margin-bottom: 0.5em;
+                width: 100%;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 500;
+                font-size: 1.2em;
+                line-height: 105%;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: $Blueberry-300;
+                @include respond(tb-sm) {
+                    text-align: center;
+                }
+                @include respond(tb-md) {
+                    text-align: center;
+                }
+            }
+
+            .engg-shishir-icon {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: flex-end;
+                object-fit: cover;
+                object-position: center;
+
+                @include respond(tb-sm) {
+                    justify-content: center;
+                }
+
+                img {
+                    margin: 0 5px;
+                    height: 50px;
+                    width: 50px;
+                    @include respond(tb-sm) {
+                        margin: 5px 2px;
+                    }
+                }
+            }
+        }
+
+        .engg-shishir-details-btn {
+            margin: 16px 0px;
+
+            a {
+                background-color: $Blueberry-300;
+                padding: 7px 10px;
+                border-radius: 20px;
+                color: $white;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5em;
+                line-height: 105%;
+            }
+        }
+    }
+
+    .engg-shishir-circle {
+        height: 200px;
+        width: 200px;
+        background-color: $Blueberry-300;
+
+        z-index: 1 !important;
+        position: absolute;
+        top: -170px;
+        right: -170px;
+        border-radius: 50%;
+        transition: all 0.8s ease;
+    }
+}
+
+.engg-shishir-event-card:hover {
+    .engg-shishir-ec-left {
+        .engg-shishir-ecl-event-title {
+            h1 {
+                color: $white;
+
+                &::after {
+                    background: $white;
+                }
+
+                &::before {
+                    background: $white;
+                    left: 100%;
+                }
+            }
+        }
+
+        .engg-shishir-ecl-event-sedule {
+            .engg-shishir-ecles-left {
+                position: relative;
+                .engg-shishir-eclesl-time {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 0;
+
+                    span:first-child,
+                    span:last-child {
+                        color: $white;
+                    }
+                }
+
+                &::after {
+                    background-color: $white;
+                }
+            }
+            hr{
+                background-color: $white;
+            }
+
+            .engg-shishir-ecles-right {
+                p {
+                    color: $white;
+                }
+            }
+        }
+
+        .engg-shishir-ecl-description {
+            h1 {
+                color: $white;
+            }
+
+            p {
+                color: $white;
+            }
+        }
+
+        .engg-shishir-ecl-details-btn {
+            a {
+                background-color: $white;
+                color: $Blueberry-300;
+            }
+        }
+    }
+
+    .engg-shishir-ec-right {
+        .engg-shishir-sponsor {
+            h2 {
+                color: $white;
+            }
+        }
+
+        .engg-shishir-details-btn {
+            margin-top: 16px;
+
+            a {
+                background-color: $white;
+                padding: 7px 10px;
+                border-radius: 20px;
+                color: $Blueberry-300;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .engg-shishir-circle {
+        -webkit-transform: scale(11);
+        -ms-transform: scale(11);
+        transform: scale(11);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: $lp-sm) {
+    .engg-shishir-container {
+    }
+
+}
