@@ -1,0 +1,47 @@
+// regular text  -- font-family: 'Roboto', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
+// Midd heading -- font-family: 'Open Sans', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+// Large Heading -- font-family: 'DM Serif Display', serif;
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+// Variable Setup
+$mb-sm: 320px;
+$mb-md: 375px;
+$mb-lg: 425px;
+$tb-sm: 576px;
+$tb-md: 768px;
+$lp-sm: 992px;
+$lp-md: 1280px;
+$lp-lg: 1440px;
+
+$Blueberry-300: #422e78;
+$dark: #000000;
+$box-shadow-500: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$white: #ffffff;
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+a{
+  text-decoration: none;
+  color: $white;
+}
+ul{
+  list-style: none;
+}
+
