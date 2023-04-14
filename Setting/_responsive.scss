@@ -1,4 +1,14 @@
 
+// Responsive Dimention
+$mb-sm: 320px;
+$mb-md: 375px;
+$mb-lg: 425px;
+$tb-sm: 576px;
+$tb-md: 768px;
+$lp-sm: 992px;
+$lp-md: 1280px;
+$lp-lg: 1440px;
+
 @mixin respond($breakpoint) {
     // ##############################################################   Mobile
     @if $breakpoint == mb-sm {
