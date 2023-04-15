@@ -1,13 +1,15 @@
 @import "../../Setting/settings";
 
 .container {
+  position: relative;
     padding: 0 7px;
     background-color: $blue;
+    padding: 0 16px;
     @include respond(tb-sm) {
-        padding: 0 16px;
+        // padding: 0 16px;
     }
     @include respond(lp-sm) {
-        width: 90%;
+        // width: 90%;
     }
 
     .engg-shishir-navbar {
@@ -128,7 +130,44 @@
                       transform: translateX(-21px) translateZ(0px);
                     }
                 }
+
+                &.open{
+                  .hamburger {
+                    .line:nth-child(1) {
+                      transform: translateY(11px) rotate(45deg) translateZ(0px) !important;
+                    }
+                  }
+                  .hamburger::before {
+                    transform: translateX(0px) translateY(0px) translateZ(0px) !important;
+                  }
+                  .hamburger::after {
+                    display: none !important;
+                  }
+                }
             }
         }
+    }
+    .engg-shishir-fullnav{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background: $indigo;
+  
+      clip-path: circle(0% at 50% 0);
+      z-index: -1 !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 20px;
+      &.active{
+        animation: circle 0.7s;
+        animation-fill-mode: forwards;
+      }
+    }
+    
+    @keyframes circle {
+        100% { clip-path: circle(150% at 50% 0); }
     }
 }
