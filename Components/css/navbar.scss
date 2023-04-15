@@ -24,11 +24,13 @@
                 height: 100%;
                 width: 150px;
             }
+           z-index: 1;
         }
         .engg-shishir-nav-right {
             display: flex;
             align-items: center;
             gap: 4rem;
+            z-index: 1;
             .engg-shishir-nav-right-event {
                 display: none;
                 transition: opacity 100ms ease 0s;
@@ -156,18 +158,31 @@
       background: $indigo;
   
       clip-path: circle(0% at 50% 0);
-      z-index: -1 !important;
       display: flex;
       align-items: center;
       justify-content: space-between;
       column-gap: 20px;
+      @keyframes circle {
+        100% { clip-path: circle(150% at 50% 0); }
+      }
+      @include respond(lp-sm) {
+        @keyframes circle {
+          100% { clip-path: circle(120% at 50% 0); }
+        }
+      }
       &.active{
         animation: circle 0.7s;
         animation-fill-mode: forwards;
       }
     }
-    
-    @keyframes circle {
-        100% { clip-path: circle(150% at 50% 0); }
+    .engg-shishir-fixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background: $blue-light;
+      z-index: -1;
     }
+    
 }
