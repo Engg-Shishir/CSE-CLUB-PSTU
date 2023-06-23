@@ -13,7 +13,7 @@
 
 
   <div class="container">
-    <div class="background" style='background-image: url("<?php echo assets("images/php.svg") ?>")'></div>
+    <div class="background" style='background-image: url("<?php echo assets("image/php.svg") ?>")'></div>
 
     <div class="row mt-4">
       <div class="col-md-12">
