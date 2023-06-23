@@ -1,0 +1,457 @@
+
+
+
+@include respond(mb-sm) {
+    body {
+        font-size: 1.1em !important;
+    }
+}
+
+.container.content{
+    margin-top: 66px;
+}
+
+.row.evnt-card-row{
+    padding: 0 16px;
+    position: relative;
+  &::before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://cdn.pixabay.com/photo/2017/02/15/20/33/floral-2069810__480.png");
+
+    // background-image: url("../Image/Pattern/3.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    content: "";
+    opacity: 0.1;
+  }
+}
+
+.engg-shishir-event-card {
+    flex: 0 0 100%;
+    max-width: 0 0 100%;
+    width: 100%;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+    overflow: hidden;
+    padding: 1.5em;
+    color: $dark;
+    transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+    border-radius: 2em;
+    font-size: 1em;
+    margin: 10px auto;
+    box-shadow: $box-shadow-500;
+    cursor: pointer;
+    @include respond(tb-sm) {
+        flex-direction: row;
+        justify-content: center !important;
+    }
+    @include respond(tb-md) {
+        flex-direction: column;
+        flex: 0 0 45%;
+        max-width: 45%;
+        width: 45%;
+        padding: 1.5em;
+    }
+    @include respond(lp-md) {
+        flex: 0 0 30%;
+        max-width: 30%;
+        width: 30%;
+    }
+
+
+    .engg-shishir-event-card-left {
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        // @include respond(tb-sm) {
+        //     flex: 0 0 60%;
+        //     max-width: 60%;
+        //     width: 60%;
+        //     padding: 1em;
+        // }
+        // @include respond(tb-md) {
+        //     flex: 0 0 100%;
+        //     max-width: 100%;
+        //     width: 100%;
+        //     padding: 0em;
+        // }
+
+        .engg-shishir-event-card-title {
+            align-self: flex-start;
+            h1 {
+                color: $blue;
+                transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                font-family: "Open Sans", sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 1.7em;
+                line-height: 105%;
+                position: relative;
+                text-align: left;
+                letter-spacing: 0.12em;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -7px;
+                    left: 0;
+                    background: $blue;
+                    height: 7px;
+                    width: 7px;
+                    transition: all 0.49s ease;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: $blue;
+                    transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                }
+            }
+        }
+
+        .engg-shishir-event-card-schedule {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin: 2.5em 0;
+            @include respond(tb-sm) {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            hr{
+                height: 2px;
+                width: 25%;
+                border: none;
+                background-color: $blue;
+                transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                margin: 3px 0;
+                @include respond(tb-sm) {
+                    height: 3rem;
+                    width: 3px;
+                }
+            }
+            .engg-shishir-event-card-schedule-left {
+                position: relative;
+                .engg-shishir-event-card-schedule-time {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 0;
+
+                    span:first-child {
+                        font-family: $roboto;
+                        font-weight: 600;
+                        font-size: $details-fs-sm;
+                        letter-spacing: 0.05em;
+                        text-transform: capitalize;
+                        line-height: $details-lh-sm;
+                        color: $blue;
+                        transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                    }
+
+                    span:last-child {
+                        position: relative;
+                        margin-left: 1em;
+                        font-family: $roboto;
+                        font-weight: 400;
+                        font-size: 1.2em;
+                        line-height: $details-lh-sm;
+                        text-transform: uppercase;
+                        color: $dark-hash;
+                        transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                    }
+                }
+
+            }
+
+            .engg-shishir-event-card-schedule-right {
+                justify-self: end !important;
+                // border: 1px solid;
+                // padding-left: 20px;
+
+                p {
+                    font-size: 1.5em;
+                    color: $blue;
+                    transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                    font-weight: 600;
+                    font-style: normal;
+                }
+            }
+        }
+
+        .engg-shishir-event-card-description {
+            h1 {
+                font-family: "Open Sans", sans-serif;
+                font-weight: 500;
+                font-size: 1.2em;
+                line-height: 105%;
+                letter-spacing: 0.06em;
+                text-transform: capitalize;
+                color: $blue;
+                transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+            }
+
+            p {
+                color: black;
+                margin-top: 5px;
+                font-family: $roboto;
+                font-weight: 400;
+                font-size: $details-fs-sm;
+                line-height: $details-lh-sm;
+                letter-spacing: 0.015em;
+                color: $dark-hash;
+                transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+            }
+        }
+    }
+
+    .engg-shishir-event-card-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 2;
+        // @include respond(tb-sm) {
+        //     flex: 0 0 40%;
+        //     max-width: 40%;
+        //     width: 40%;
+        // }
+        
+        // @include respond(tb-md) {
+        //     flex: 0 0 100%;
+        //     max-width: 100%;
+        //     width: 100%;
+        // }
+
+        .engg-shishir-event-card-sponsor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 20px 0;
+            width: 100%;
+
+            h2 {
+                text-align: center;
+                margin-bottom: 0.5em;
+                width: 100%;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 500;
+                font-size: 1.2em;
+                line-height: 105%;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: $blue;    
+                transition: color 490ms cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+                @include respond(tb-sm) {
+                    text-align: center;
+                }
+                @include respond(tb-md) {
+                    text-align: center;
+                }
+            }
+
+            .engg-shishir-event-card-sponsor-image {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: flex-end;
+                object-fit: cover;
+                object-position: center;
+
+                @include respond(tb-sm) {
+                    justify-content: center;
+                }
+
+                img {
+                    margin: 0 5px;
+                    height: 50px;
+                    width: 50px;
+                    @include respond(tb-sm) {
+                        margin: 5px 2px;
+                    }
+                }
+            }
+        }
+
+        .engg-shishir-event-card-details-btn {
+            margin: 16px 0px;
+
+            a {
+                background-color: $blue;
+                padding: 7px 10px;
+                border-radius: 20px;
+                color: $white;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5em;
+                transition: .2s ease-in-out;
+                box-shadow: $box-shadow-500;
+                border: none;
+            }
+        }
+    }
+
+    .eengg-shishir-event-card-hover-layer {
+        height: 200px;
+        width: 200px;
+        background-color: $blue;
+
+        z-index: 1 !important;
+        position: absolute;
+        top: -170px;
+        right: -170px;
+        border-radius: 50%;
+        transition: all 0.94s ease;
+    }
+}
+
+.engg-shishir-event-card:hover {
+    .engg-shishir-event-card-left {
+        .engg-shishir-event-card-title {
+            h1 {
+                color: $white;
+
+                &::after {
+                    background-color: $white;
+                }
+
+                &::before {
+                    background: $white;
+                    left: 100%;
+                }
+            }
+        }
+
+        .engg-shishir-event-card-schedule {
+            .engg-shishir-event-card-schedule-left {
+                position: relative;
+                .engg-shishir-event-card-schedule-time {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 0;
+
+                    span:first-child{
+                        color: $white;
+                    }
+                    span:last-child {
+                        color: #cacaca;
+                    }
+                }
+
+                &::after {
+                    background-color: $white;
+                }
+            }
+            hr{
+                background-color: #cacaca;
+            }
+
+            .engg-shishir-event-card-schedule-right {
+                p {
+                    color: $white;
+                }
+            }
+        }
+
+        .engg-shishir-event-card-description {
+            h1 {
+                color: $white;
+            }
+
+            p {
+                color: #cacaca;
+            }
+        }
+
+        .engg-shishir-ecl-details-btn {
+            a {
+                background-color: $white;
+                color: $blue;
+            }
+        }
+    }
+
+    .engg-shishir-event-card-right {
+        .engg-shishir-event-card-sponsor {
+            h2 {
+                color: $white;
+            }
+        }
+
+        .engg-shishir-event-card-details-btn {
+            margin-top: 16px;
+
+            a {
+                background-color: $white;
+                padding: 7px 10px;
+                border-radius: 20px;
+                color: $blue;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .eengg-shishir-event-card-hover-layer {
+        -webkit-transform: scale(11);
+        -ms-transform: scale(11);
+        transform: scale(11);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: $lp-sm) {
+}
