@@ -6,7 +6,7 @@ function shishirEnv(string $key): string
 }
 
 
-function view(string $path,array $data=[]): void
+function view(string $path, array $data = []): void
 {
   /**
    * extract() function get arrt data. Then make each array item into idividual item
@@ -22,16 +22,25 @@ function parray($data): void
   /**
    * extract() function get arrt data. Then make each array item into idividual item
    */
-  
-  echo"<h2 style='color:red;'>Associative array : </h2>";
-  echo"<pre>";
-    print_r($data);
-  echo"</pre>";
+
+  echo "<h2 style='color:red;'>Associative array : </h2>";
+  echo "<pre>";
+  print_r($data);
+  echo "</pre>";
 }
 
 
 function assets(string $path): string
 {
-  return ASSET_URL.'/'.$path;
+  return ASSET_URL . '/' . $path;
 }
 
+
+function redirect(string $path): void
+{?>
+  <script type="text/javascript">
+    window.location.href = <?php echo $path; ?> 
+  </script>
+
+<?php
+}

@@ -1,5 +1,6 @@
 <?php
 use App\Controllers\IndexController;
+use App\Controllers\LoginController;
 use App\master\Router;
 
 Router::get('/', function() {
@@ -10,5 +11,18 @@ Router::get('/', function() {
   return view("home.php",compact("compact"));
 });
 
-Router::get('alluser',[IndexController::class,"alluser"]);
-Router::get('specificuser',[IndexController::class,"specificuser"]);
+
+
+
+Router::group(['middleware' => \App\Middlewares\Guest::class], function () {
+  Router::get('login',[LoginController::class,"login"]);
+});
+
+
+
+Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
+  Router::get('admin',[LoginController::class,"index"]);
+});
+
+
+
