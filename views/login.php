@@ -12,7 +12,7 @@
     <div class="container">
       <div class="engg-shishir-navbar">
         <div class="engg-shishir-nav-left">
-          <a href="/"><img src="<?=  assets('image/Club-Logo-Blue.svg') ?>" alt="" /></a>
+          <a href="<?= url('/');?>"><img src="<?=  assets('image/Club-Logo-Blue.svg') ?>" alt="" /></a>
         </div>
         <div class="engg-shishir-nav-right">
           <a
@@ -163,10 +163,10 @@
           </ul>
         </div>
         <div class="reg-form">
-          <div class="title-box">
+          <!-- <div class="title-box">
             <span>Deep</span><br>
-            <span>Drive your dashboard</span>
-          </div>
+            <span>Deep Dive your dashboard</span>
+          </div> -->
           <form action="">
             <div class="row row-input">
               <input type="text" class="lg" placeholder="Email" />
@@ -175,6 +175,12 @@
               <input type="text" class="lg" placeholder="Password" />
             </div>
           </form>
+          <div class="row px-5">
+            <div class="flex-row">
+              <a href="">Password Reset</a>
+              <a href="">SignUp</a>
+            </div>
+          </div>
           <div class="reg-btn-box">
             <a href="">
               <button class="glowing-btn">
