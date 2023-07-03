@@ -15,7 +15,7 @@ class LoginController{
   }
 
   public function login(){
-    return view("login.php");
+    return view("pages/Login/index.php");
   }
 
 }
