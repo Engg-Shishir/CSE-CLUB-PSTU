@@ -1,0 +1,129 @@
+@use "../../components/mainBtn";
+
+.projects-row {
+  position: relative;
+  background-color: $white;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-height: 100vh;
+  &::before {
+    position: absolute;
+    right: 0;
+    top: -100px;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp");
+
+    // background-image: url("../Image/Pattern/3.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    content: "";
+    opacity: 0.6;
+  }
+  @include respond(tb-md) {
+    height: 100vh;
+  }
+  @include respond(tb-sm){
+    flex-direction: row !important;
+  }
+  &-left {
+    flex: 0 0 100%;
+    max-width: 0 0 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include respond(tb-sm){
+      flex: 0 0 50%;
+      max-width: 0 0 50%;
+      width: 50%;
+      align-items:flex-start;
+    }
+    @include respond(lp-sm){
+      flex: 0 0 40%;
+      max-width: 0 0 40%;
+      width: 40%;
+    }
+    @include respond(lp-md){
+      flex: 0 0 35%;
+      max-width: 0 0 35%;
+      width: 35%;
+    }
+
+    @include mainBtn.glowing-left;
+
+    h2 {
+      font-size: 3.2em;
+      font-weight: bold;
+      color: #313d4c;
+      margin-bottom: 15px;
+      width: 100%;
+      text-align: center;
+      @include respond(tb-md) {
+        text-align: left;
+        font-size: 70px;
+      }
+    }
+    p {
+      color: $dark;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      margin-bottom: 25px;
+      text-align: center;
+      @include respond(tb-md) {
+        text-align: left;
+      }
+    }
+  }
+  &-right {
+    flex: 0 0 100%;
+    max-width: 0 0 100%;
+    width: 100%;
+    @include respond(tb-sm){
+      flex: 0 0 50%;
+      max-width: 0 0 50%;
+      width: 50%;
+    }
+    @include respond(lp-sm){
+      flex: 0 0 40%;
+      max-width: 0 0 40%;
+      width: 40%;
+    }
+    @include respond(lp-md){
+      flex: 0 0 35%;
+      max-width: 0 0 35%;
+      width: 35%;
+    }
+    padding: 10px;
+    padding: 0 10px;
+    // border: 1px solid;
+    &-box{
+      width: 100%;
+      // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      padding: 10px;
+      &-item{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img{
+          height: 80px !important;
+          width: 80px !important;
+          margin-bottom: 20px;
+        }
+        p{
+          color: $dark;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+

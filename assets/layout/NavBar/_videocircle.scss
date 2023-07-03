@@ -1,0 +1,49 @@
+.video-circle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: $blue;
+  clip-path: circle(62% at 100% 0); 
+  display: none;
+  //-------------------------------------
+  @include respond(lp-sm) {
+    display: block;
+  }
+  .shishir-video-circle-nav {
+    position: relative;
+    height: 74px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 85px 0px 30px;
+    user-select: none;
+
+    .shishir-video-circle-nav-right {
+      position: relative;
+      top: -1px;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      z-index: 55 !important;
+      @import "./menu";
+    }
+  }
+  .shishir-top-video-circle-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 650px;
+    width: 650px;
+    #background-video {
+      width: 100%;
+      height: 100%;
+      border-radius: 100% 0% 0% 100% / 100% 1% 99% 0%;
+      object-fit: cover;
+    }
+  }
+}

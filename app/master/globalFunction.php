@@ -36,6 +36,11 @@ function assets(string $path): string
 }
 
 
+function url(string $path): string
+{
+  return "/".shishirEnv('BASE_URL'). $path;
+}
+
 function redirect(string $path): void
 {?>
   <script type="text/javascript">

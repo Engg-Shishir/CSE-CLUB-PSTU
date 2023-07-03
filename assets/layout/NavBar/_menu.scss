@@ -1,0 +1,80 @@
+.shishir-menu {
+  display: block;
+  
+  .shishir-mainSpan {
+    position: relative;
+    top: -1px;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    z-index: 7 !important;
+    .text {
+      position: relative;
+      top: 1px;
+      margin-right: 20px;
+      letter-spacing: 0.1px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      color: rgb(255, 255, 255);
+      z-index: 7 !important;
+    }
+    .shishir-hamburger {
+      position: relative;
+      top: 4px;
+      width: 26px;
+      padding: 5px 0px;
+      transform: translateZ(0px);
+      display: inline-block;
+      z-index: 7 !important;
+      .shishir-hamburger-line {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-top: 2px solid rgb(255, 255, 255);
+        border-right-color: rgb(255, 255, 255);
+        border-bottom-color: rgb(255, 255, 255);
+        border-left-color: rgb(255, 255, 255);
+        height: 0px;
+        margin-bottom: 5px;
+        transition: transform 200ms ease 0s, opacity 200ms ease 0s;
+        transform: translateY(0px) translateZ(0px);
+        box-sizing: content-box;
+        z-index: 7 !important;
+      }
+    }
+    .shishir-hamburger::after,
+    .shishir-hamburger::before {
+      content: "";
+      position: absolute;
+      z-index: 100;
+      width: 2px;
+      height: 2px;
+      background-color: rgb(0, 0, 0);
+      border: 2px solid rgb(255, 255, 255);
+      transition: transform 200ms ease 0s;
+      transform: translateX(0px) translateZ(0px);
+      box-sizing: content-box;
+    }
+    .shishir-hamburger::before {
+      top: 3px;
+      left: 0px;
+    }
+    .shishir-hamburger::after {
+      top: 17px;
+      right: 0px;
+    }
+  }
+  .shishir-mainSpan:hover {
+    .shishir-hamburger::before {
+      transform: translateX(21px) translateZ(0px);
+    }
+    .shishir-hamburger::after {
+      transform: translateX(-21px) translateZ(0px);
+    }
+  }
+}

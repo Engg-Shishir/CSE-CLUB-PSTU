@@ -26,7 +26,7 @@
         </div>
         <div class="footer-top-box-left">
           <div class="footer-logo-box">
-            <img src="./Image/Club-Logo-Blue.svg" alt="" />
+            <img src="<?=  assets("Image/Club-Logo-Blue.svg")  ?>" alt="" />
           </div>
           <div class="aboutText">
             <p>

@@ -8,7 +8,7 @@ Router::get('/', function() {
     "author"=>"Shishir Bhuiyan",
     "email"=>"shishir.cse.pstu@gmail.com"
   ];
-  return view("home.php",compact("compact"));
+  return view("pages/Home/Index.php",compact("compact"));
 });
 
 

@@ -6,7 +6,7 @@
     </div>
     <div class="engg-shishir-nav-right">
       <a target="_blank" href="./events" class="engg-shishir-nav-right-event">It carnival 2023</a>
-      <a href="" class="engg-shishir-nav-right-login">Login</a>
+      <a href="<?= url("/login") ?>" class="engg-shishir-nav-right-login">Login</a>
       <div class="engg-shishir-nav-right-menu" onclick="hamburger()">
         <span class="text">MENU</span>
         <span class="hamburger">
@@ -111,7 +111,7 @@
       </div>
     </div>
     <div class="engg-shishir-fullnav-content">
-      <!-- <button class="closenav"  onclick="hamburger()">Close X</button> -->
+    <!-- <button class="closenav"  onclick="hamburger()">Close X</button> -->
     </div>
   </div>
 </div>
