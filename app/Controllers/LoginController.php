@@ -8,7 +8,7 @@ class LoginController{
 
   public function index(){
     $compact = [
-      "Data" => "This text come from Controller"
+      "Data" => "This text come from Admin Controller"
     ];
     
     return view("admin/index.php",compact("compact"));
