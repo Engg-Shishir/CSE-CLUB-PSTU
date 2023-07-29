@@ -30,5 +30,19 @@ class AdminUser{
     }
   }
 
+  public function role(){
+    $user = new User();
+
+    $sql = "UPDATE users SET role = :role WHERE username=:username";
+    $pass = [
+        "role" =>$_POST["role"],
+        "username" => $_POST["username"]
+    ];
+    $data = $user->updateTable($sql,$pass);
+    if($data){
+      redirects("/admin/users/manage");
+    }
+  }
+
 }
 

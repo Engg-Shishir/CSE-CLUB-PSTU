@@ -37,5 +37,6 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin',[AdminController::class,"index"]);
   Router::get('admin/users/manage',[AdminUser::class,"manage"]);
   Router::post('admin/user/status',[AdminUser::class,"status"]);
+  Router::post('admin/user/role',[AdminUser::class,"role"]);
 });
 

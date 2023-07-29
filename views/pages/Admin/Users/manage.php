@@ -39,7 +39,7 @@
                   <td>
                     <form action="<?= url("/admin/user/role"); ?>" method="POST">
                       <input type="hidden" value="<?= $item["username"]?>" name="username">
-                      <select onchange="this.form.submit()">
+                      <select onchange="this.form.submit()" name="role">
                       <option value="1" <?=$item['role'] == '1' ? ' selected="selected"' : '';?> >Student</option>
                       <option value="3" <?=$item['role'] == '3' ? ' selected="selected"' : '';?> >Teacher</option>
                       <option value="4" <?=$item['role'] == '4' ? ' selected="selected"' : '';?> >Alumini</option>
