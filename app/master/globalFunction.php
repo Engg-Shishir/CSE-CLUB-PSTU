@@ -97,3 +97,11 @@ function isEmpty(string $name, string $value)
 
   return false;
 }
+
+
+function  token($length){
+  $token = 'abcdefghijklmnopqrstuvwxwzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  $token = str_shuffle($token);
+  $token = substr($token,0,$length);
+  return $token;
+}
