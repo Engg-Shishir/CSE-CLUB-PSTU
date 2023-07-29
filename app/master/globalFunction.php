@@ -1,5 +1,5 @@
 <?php
-
+require 'vendor/autoload.php';
 function shishirEnv(string $key): string
 {
   return isset($_ENV[$key]) ? $_ENV[$key] : "";
@@ -48,4 +48,10 @@ function redirect(string $path): void
   </script>
 
 <?php
+}
+
+
+function vendor(string $path): string
+{
+  return VENDOR_URL . '/' . $path;
 }

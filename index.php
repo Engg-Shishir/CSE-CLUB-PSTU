@@ -15,6 +15,7 @@ define('BASE_URL', isset($_ENV["BASE_URL"]) ? $_ENV["BASE_URL"] : "");
 define('VIEWS',ROOT.'/views'.'/');
 define('REQUEST', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.BASE_URL);
 define('ASSET_URL', REQUEST.'/assets');
+define('VENDOR_URL', REQUEST.'/vendor');
 
 /* Load external routes file */
 require_once 'routes/route.php';
