@@ -2,6 +2,7 @@
 use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
+use App\Controllers\MailController;
 use App\master\Router;
 
 Router::get('/', function() {
@@ -27,5 +28,7 @@ Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
   Router::get('admin',[LoginController::class,"index"]);
 });
 
+
+Router::get('mailverify/{sender}/{token}',[MailController::class,"emailVerification"],['defaultParameterRegex' => '[\w\-\@\#\.]+']);
 
 
