@@ -2,6 +2,7 @@
 
 namespace App\Master;
 
+use App\model\User;
 use Exception;
 use PDOException;
 
@@ -82,5 +83,17 @@ class Model
     $stmt = $this->execute($sql, [$data]);
     if($stmt->rowCount() > 0) return true;
     return false;
+  }
+
+  public function insert(string $query, array $BindParams = [])
+  {
+    $pdo = $this->connect();
+    $stmt = $pdo->prepare($query);
+    foreach ($BindParams as $key => &$value){
+      if($key != "cpassword") $stmt->bindParam(':'.$key, $value);
+    }
+    
+   $run =  $stmt->execute();
+   return $run;
   }
 }
