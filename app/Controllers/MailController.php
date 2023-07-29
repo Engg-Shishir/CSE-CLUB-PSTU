@@ -20,7 +20,7 @@ class MailController
           "token"=>null
       ];
       $user->updates($sql,$data);
-      $_SESSION["loginalert"] = "Acoount verification successfull !";
+      $_SESSION["success_message"] = "Acoount verification successfull !";
       redirects("/login");
     }
 

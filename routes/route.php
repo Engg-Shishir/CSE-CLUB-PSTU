@@ -22,22 +22,17 @@ Router::group(['middleware' => \App\Middlewares\Guest::class], function () {
   Router::get('joinus',[JoinusController::class,"joinus"]);
   Router::post('joinus',[JoinusController::class,"registration"]);
 });
-
-
-Router::get('logout',[LoginController::class,"logout"]);
-
 Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
-    Router::POST('admin/login',function(){
-      redirects("/admin");
-    });
+  Router::post('dashboard',[LoginController::class,"dashboard"]);
 });
 
+Router::get('logout',[LoginController::class,"logout"]);
 
 Router::get('mailverify/{sender}/{token}',[MailController::class,"emailVerification"],['defaultParameterRegex' => '[\w\-\@\#\.]+']);
 
 
 
 Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
-  Router::get('admin',[AdminController::class,"adminDashboard"]);
+  Router::get('admin',[AdminController::class,"index"]);
 });
 

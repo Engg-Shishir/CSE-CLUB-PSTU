@@ -6,7 +6,7 @@ use App\model\User;
 
 class AdminController
 {
-  public function adminDashboard(){
+  public function index(){
     return view("pages/Admin/Dashboard/index.php");
   }
 }

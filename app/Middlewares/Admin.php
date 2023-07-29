@@ -10,20 +10,18 @@ class Admin implements IMiddleware
 {
 	public function handle(Request $request): void
 	{
-		if(isset($_SESSION["auth_security_token"]) && isset($_SESSION["auth_user"])){
-			if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false) { 
+
+
+    if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !=="" && $_SESSION["auth_role"]==2){
+      if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false){
 				$request->authenticated = true;
-			}else {
-				$_SESSION["error_message"] = "Who are you ???";
-				$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"]."/login";
-				header("Location: " . $url, true, 301);
-				exit();
-			}
-		}else {
-			$_SESSION["error_message"] = "Who are you ???";
-			$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"]."/login";
-			header("Location: " . $url, true, 301);
-			exit();
-		}
+      }else{
+        $_SESSION["error_message"]= "You are not authenticated";
+        redirects("/login");
+      }
+    }else{
+      $_SESSION["error_message"]= "You should sign in first";
+      redirects("/login");
+    }
 	}
 }

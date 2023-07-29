@@ -22,26 +22,21 @@ class Auth implements IMiddleware
 
 				if (password_verify($_POST["password"], $data['password'])) {
 					$_SESSION["auth_user"] = $_POST["username"];
+					$_SESSION["auth_role"] = $data['role'];
 					$_SESSION["auth_security_token"]=$securityKey.$_POST["username"];
 					$request->authenticated = true;
 				} else {
-					$_SESSION["success_message"] = "credential is not match";
-					$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"] . "/login";
-					header("Location: " . $url, true, 301);
-					exit();
+					$_SESSION["error_message"] = "credential is not match";
+	        redirects("/login");
 				}
 			} else {
-				$_SESSION["success_message"] = "No username found";
-				$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"] . "/login";
-				header("Location: " . $url, true, 301);
-				exit();
+				$_SESSION["error_message"] = "No username found";
+				redirects("/login");
 			}
 
 		} else {
-			$_SESSION["success_message"] = "Cross site protection detected";
-			$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"] . "/login";
-			header("Location: " . $url, true, 301);
-			exit();
+			$_SESSION["error_message"] = "Cross site protection detected";
+			redirects("/login");
 		}
 	}
 }
