@@ -80,3 +80,20 @@ function redirects(string $path): string
   header("Location: ".$url);
   exit;
 }
+
+function isEmpty(string $name, string $value)
+{
+  if (is_int($value)) {
+    $_SESSION[$name] = intval($value);
+    if (intval($value) == 0) {
+      return true;
+    }
+  } else {
+    $_SESSION[$name] = $value;
+    if (strlen($value) <= 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
