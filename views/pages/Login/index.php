@@ -11,7 +11,7 @@
 <body>
   <!-- Navigation Part -->
   <?php view("./layout/navbar.php"); ?>
-  <div class="container content">
+  <div class="containers content">
     <div class="row support-row">
       <!-- Login Instruction -->
       <?php view("pages/Login/direction.php"); ?>

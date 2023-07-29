@@ -1,4 +1,5 @@
 <?php
+use App\Controllers\AdminController;
 use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
@@ -23,12 +24,20 @@ Router::group(['middleware' => \App\Middlewares\Guest::class], function () {
 });
 
 
+Router::get('logout',[LoginController::class,"logout"]);
 
 Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
-  Router::get('admin',[LoginController::class,"index"]);
+    Router::POST('admin/login',function(){
+      redirects("/admin");
+    });
 });
 
 
 Router::get('mailverify/{sender}/{token}',[MailController::class,"emailVerification"],['defaultParameterRegex' => '[\w\-\@\#\.]+']);
 
+
+
+Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
+  Router::get('admin',[AdminController::class,"adminDashboard"]);
+});
 

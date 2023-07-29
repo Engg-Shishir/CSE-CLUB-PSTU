@@ -3,7 +3,7 @@
 
 namespace App\Controllers;
 use App\model\User;
-
+session_start();
 class LoginController{
 
   public function index(){
@@ -17,5 +17,10 @@ class LoginController{
   public function login(){
     return view("pages/Login/index.php");
   }
+  public function logout(){
+    session_unset(); 
+    redirects("/login");
+  }
+  
 
 }

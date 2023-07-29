@@ -9,15 +9,19 @@ class Guest implements IMiddleware
 {
 	public function handle(Request $request): void
 	{
-		if(isset($_SESSION['auth']) && !empty($_SESSION['auth'])) {
-			$url = $_ENV["APP_URL"]."/".$_ENV["BASE_URL"];
-			?><script type="text/javascript">
-				window.location.href = "<?= $url; ?>";
-			</script><?php
-			die();
-	 }else{
-		$request->authenticated = true;
-	 }
+
+		if(isset($_SESSION["auth_security_token"]) && isset($_SESSION["auth_user"])){
+			if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false) {
+				$_SESSION["error_message"] = "Who are you ???";
+				$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"];
+				header("Location: " . $url, true, 301);
+				exit();
+			}else{
+				$request->authenticated = true;
+			}
+		}else{
+			$request->authenticated = true;
+		}
 
 
 	}

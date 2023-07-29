@@ -1,0 +1,122 @@
+//------------###############--------------
+.engg-shishir-fullnav {
+  //-------------------------------------
+  position: fixed;
+  top: 65px;
+  left: 0;
+  //-------------------------------------
+  display: flex;
+  flex-direction: column;
+  //-------------------------------------
+  z-index: 40 !important;
+  width: 100%;
+  min-height: 100vh;
+  background: $blue;
+  transition: all 500ms;
+  @include respond(mb-md) {
+    width: 80%;
+  }
+  @include respond(mb-lg) {
+    width: 60%;
+  }
+  @include respond(tb-sm) {
+    width: 40%;
+  }
+  @include respond(tb-md) {
+    width: 35%;
+  }
+  @include respond(lp-sm) {
+    width: 30%;
+  }
+  @include respond(lp-md) {
+    width: 25%;
+  }
+  @include respond(lp-lg) {
+    width: 20%;
+  }
+
+  padding: 10px 5px;
+  .accordion {
+    font-family: "Montserrat", sans-serif;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 768px;
+    font-size: 17px;
+    .accordion__item {
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin: 0 0;
+      overflow: hidden;
+      .accordion__toggle {
+        display: block;
+        padding: 10px 15px;
+        position: relative;
+        text-decoration: none;
+        color: #f7f0e3;
+        background-color: #2d3948;
+        font-weight: 500;
+        border-bottom: 1px solid #24303f;
+        text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.3);
+        .accordion__icon {
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          fill: #f7f0e3;
+          transition: all 450ms;
+        }
+      }
+      .accordion__content {
+        overflow: hidden;
+        background-color: #3d4c5f;
+        margin-top: 0;
+        margin-left: 0px;
+        margin-right: 0px;
+        color: #9c8f8e;
+        height: 0;
+        width: 100%;
+        border-right: none;
+        box-sizing: border-box;
+        font-weight: 300;
+        transition: 450ms ease;
+        .accordion__a {
+          padding: 5px 1rem;
+          margin: 0;
+          color: #ffffff;
+          font-weight: 300;
+          text-decoration: none;
+          font-size: 16px;
+          display: block;
+          width: 100%;
+          transition: 450ms ease;
+          border-bottom: 1px solid #354355;
+          &:last-child{
+            border: none !important;
+          }
+          &:hover{
+            background-color: #2d3948;
+          }
+        }
+
+      }
+    }
+    .accordion__item.active{
+      .accordion__icon {
+        transform: rotate(90deg);
+      }
+    }
+
+    .accordion__content.ac-active {
+      height: 150px;
+    }
+
+  }
+  .accordion .far, .accordion .fas {
+    padding-right: 0.75rem;
+  }
+}
+
+.engg-shishir-fullnav.active {
+  left: -100% !important;
+}
