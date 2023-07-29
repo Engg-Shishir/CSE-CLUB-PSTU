@@ -96,4 +96,14 @@ class Model
    $run =  $stmt->execute();
    return $run;
   }
+
+  public function updateTable(string $query, array $BindParams = [])
+  {
+    $pdo = $this->connect();
+    $stmt = $pdo->prepare($query);
+    foreach ($BindParams as $key => &$value){
+      $stmt->bindParam(':'.$key, $value);
+    }
+    return $stmt->execute();
+  }
 }
