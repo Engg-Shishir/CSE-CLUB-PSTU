@@ -68,11 +68,19 @@ class Model
   }
 
 
-  public function fetchById(string $table,string $column,string $data):mixed
+  public function fetchById(string $table,string $column,string $data)
   {
     $sql = "SELECT * FROM {$table} WHERE $column=?";
     $stmt = $this->execute($sql,[$data]);
     $response = $stmt->fetch();
     return $response;
+  }
+
+  public function exists(string $table, string $column, string $data)
+  {
+    $sql = "SELECT * FROM {$table} WHERE $column=?";
+    $stmt = $this->execute($sql, [$data]);
+    if($stmt->rowCount() > 0) return true;
+    return false;
   }
 }
