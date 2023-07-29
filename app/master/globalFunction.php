@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require 'vendor/autoload.php';
 function shishirEnv(string $key): string
 {
@@ -113,4 +116,32 @@ function passMatch($pass,$cpass){
     return false;
   }
   return true;
+}
+
+
+function mailVerify(string $sender,string $name, string $token)
+{
+  $mail = new PHPMailer(true);
+  try {
+    // $mail->SMTPDebug = 2;									
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com;';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'shishirbhuiyan83@gmail.com';
+    $mail->Password = 'bfvfojkgbiujpnuv';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    $mail->setFrom($sender, $name);
+    $mail->addAddress($sender, $name);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Verify Your Account';
+    $mail->Body="<h1 align=center>Please Click On The Link Bellow ::</h1><br><br>
+    <a align=center href='http://localhost/cseclub/mailverify/$sender/$token'>Verify</a>";
+  
+    $mail->send();
+  } catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+  }
 }
