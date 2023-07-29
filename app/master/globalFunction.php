@@ -72,3 +72,11 @@ function inputField(string $type,string $name="",string $value="",string $placeh
   }  
   return '<input type="'.$type.'" name="'.$name.'" placeholder="'.$placehlder.'" value="'.$value.'" class="'.$error.'" />';
 }
+
+
+function redirects(string $path): string
+{
+  $url = shishirEnv("APP_URL")."/".shishirEnv('BASE_URL'). $path;
+  header("Location: ".$url);
+  exit;
+}
