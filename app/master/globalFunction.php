@@ -55,3 +55,20 @@ function vendor(string $path): string
 {
   return VENDOR_URL . '/' . $path;
 }
+
+
+function unsetError(string $name): void
+{
+  unset($_SESSION[$name]);
+}
+function inputField(string $type,string $name="",string $value="",string $placehlder="pass your placeholder",string $class=""){
+  $error= "".$class;
+  if (isset($_SESSION[$name])){
+    $value =$_SESSION[$name];
+    if(strlen($_SESSION[$name])<=0){
+      $error = $error." inputError";
+    }
+    unsetError($name);
+  }  
+  return '<input type="'.$type.'" name="'.$name.'" placeholder="'.$placehlder.'" value="'.$value.'" class="'.$error.'" />';
+}
