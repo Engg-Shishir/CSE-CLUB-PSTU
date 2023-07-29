@@ -48,7 +48,14 @@
                     </form>
                 </td>
                   <td><?= $item["status"]  ?></td>
-                  <td><?= $item["last_login"]  ?></td>
+                  <td>
+                     
+                     <?php  
+                       $dt = new DateTime($item['last_login']);
+                       echo $dt->format('d/m/y');  
+                       echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$dt->format('H:i A'); 
+                     ?>
+                  </td>
                   <td colspan="2">
                      <div>
                       <form action="<?= url("/admin/user/status"); ?>" method="POST">
