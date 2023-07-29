@@ -1,5 +1,6 @@
 <?php
 use App\Controllers\AdminController;
+use App\Controllers\AdminUser;
 use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
@@ -34,5 +35,7 @@ Router::get('mailverify/{sender}/{token}',[MailController::class,"emailVerificat
 
 Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin',[AdminController::class,"index"]);
+  Router::get('admin/users/manage',[AdminUser::class,"manage"]);
+  Router::post('admin/user/status',[AdminUser::class,"status"]);
 });
 

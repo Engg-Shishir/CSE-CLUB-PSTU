@@ -3,7 +3,7 @@
   //-------------------------------------
   position: fixed;
   top: 65px;
-  left: 0;
+  right: -260px;
   //-------------------------------------
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@
   width: 100%;
   min-height: 100vh;
   background: $blue;
+  transform: rotate(0deg);
   transition: all 500ms;
   @include respond(mb-md) {
     width: 80%;
@@ -61,8 +62,6 @@
         .accordion__icon {
           position: absolute;
           right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
           fill: #f7f0e3;
           transition: all 450ms;
         }
@@ -118,5 +117,5 @@
 }
 
 .engg-shishir-fullnav.active {
-  left: -100% !important;
+  right: 0 !important;
 }

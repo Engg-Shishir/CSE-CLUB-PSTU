@@ -4,7 +4,7 @@ namespace App\model;
 use App\master\model;
 
 class User extends Model{
-  private $table = "user";
+  private $table = "users";
   public function all(): array|false
   {
    return $this->fetchall($this->table);

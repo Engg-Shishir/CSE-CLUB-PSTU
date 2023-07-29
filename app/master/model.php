@@ -68,6 +68,17 @@ class Model
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
   }
 
+  public function allexcept(string $table,string $colName,string $colVal)
+  {
+    $sql = "SELECT * FROM {$table} WHERE $colName !=:colName";
+    $BindParams = [
+      ":colName"=>$colVal
+    ];
+
+    $stmt = $this->execute($sql,$BindParams);
+    return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
 
   public function fetchById(string $table,string $column,string $data)
   {

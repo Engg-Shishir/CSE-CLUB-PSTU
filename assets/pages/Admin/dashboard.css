@@ -229,13 +229,14 @@ p {
 .engg-shishir-fullnav {
   position: fixed;
   top: 65px;
-  left: 0;
+  right: -260px;
   display: flex;
   flex-direction: column;
   z-index: 40 !important;
   width: 100%;
   min-height: 100vh;
   background: #313d4c;
+  transform: rotate(0deg);
   transition: all 500ms;
   padding: 10px 5px;
 }
@@ -302,8 +303,6 @@ p {
 .engg-shishir-fullnav .accordion .accordion__item .accordion__toggle .accordion__icon {
   position: absolute;
   right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
   fill: #f7f0e3;
   transition: all 450ms;
 }
@@ -350,5 +349,11 @@ p {
 }
 
 .engg-shishir-fullnav.active {
-  left: -100% !important;
+  right: 0 !important;
+}
+
+.content {
+  margin-top: 66px !important;
+  padding: 20px !important;
+  margin-right: 50px !important;
 }/*# sourceMappingURL=dashboard.css.map */
