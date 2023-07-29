@@ -105,3 +105,12 @@ function  token($length){
   $token = substr($token,0,$length);
   return $token;
 }
+
+
+function passMatch($pass,$cpass){
+  if ($pass != $cpass) {
+    $_SESSION["cpassword"] = $cpass;
+    return false;
+  }
+  return true;
+}
