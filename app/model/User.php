@@ -9,9 +9,14 @@ class User extends Model{
   {
    return $this->fetchall($this->table);
   }
-  public function byId(string $schema,string $column,string $data): array|false
+  public function byId(string $schema,string $column,string $data)
   {
    return $this->fetchById($schema,$column,$data);
+  }
+
+  public function isExists(string $data)
+  {
+   return $this->exists("users","username",$data);
   }
 
 }

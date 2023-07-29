@@ -13,7 +13,7 @@
         innovative content throughout our hackathons, workshops, training
         and social media.
       </p>
-      <a href="/registration">
+      <a href="<?= url("/joinus")  ?>">
         <button class="glowing-btn">
           <span></span>
           <span></span>

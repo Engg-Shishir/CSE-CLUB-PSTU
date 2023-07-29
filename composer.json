@@ -22,7 +22,8 @@
         "symfony/routing": "^5.2",
         "twig/twig": "^3.0",
         "pecee/simple-router": "dev-master",
-        "vlucas/phpdotenv": "5.5.x-dev"
+        "vlucas/phpdotenv": "5.5.x-dev",
+        "phpmailer/phpmailer": "dev-master"
     },
     "autoload": {
         "psr-4": {

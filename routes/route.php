@@ -1,5 +1,6 @@
 <?php
 use App\Controllers\IndexController;
+use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
 use App\master\Router;
 
@@ -16,6 +17,8 @@ Router::get('/', function() {
 
 Router::group(['middleware' => \App\Middlewares\Guest::class], function () {
   Router::get('login',[LoginController::class,"login"]);
+  Router::get('joinus',[JoinusController::class,"joinus"]);
+  Router::post('joinus',[JoinusController::class,"registration"]);
 });
 
 
