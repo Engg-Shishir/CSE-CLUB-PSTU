@@ -10,6 +10,9 @@
     html{
       font-size: 100%;
     }
+    table{
+      font-weight: 500;
+    }
   </style>
 </head>
 

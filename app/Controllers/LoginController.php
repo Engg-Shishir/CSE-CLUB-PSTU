@@ -34,20 +34,33 @@ class LoginController
     redirects("/login");
   }
 
-  public function dashboard(){
+  public function dashboard()
+  {
 
-    if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !==""){
-      if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false){
-          if($_SESSION["auth_role"]==2){
-            redirects("/admin");
-          }else{
-            return "Users logedin";
-          }
-      }else{
-        $_SESSION["error_message"]= "You are not authenticated";
-        redirects("/login");
+    if (isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !== "" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "" && isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !== "" && isset($_SESSION["auth_id"]) && $_SESSION["auth_id"] !== "" && strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false) {
+
+      $user = new User();
+      $sql = "SELECT ud.user_id FROM user_details AS ud WHERE user_id=?";
+      $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
+      if ($stmt->rowCount() > 0) {
+
+        if ($_SESSION["auth_role"] == 1) {
+          redirects("/user");
+        } else if ($_SESSION["auth_role"] == 2) {
+          redirects("/admin");
+        }else if ($_SESSION["auth_role"] == 3) {
+          redirects("/teacher");
+        }else if ($_SESSION["auth_role"] == 4) {
+          redirects("/alumini");
+        }
+        
+
+      } else {
+        $_SESSION["user_setails_status"] = "ON";
+        redirects("/userdetails");
       }
-    }else{
+
+    } else {
       $_SESSION["error_message"]= "You are not authenticated";
       redirects("/login");
     }

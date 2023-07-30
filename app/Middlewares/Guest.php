@@ -14,15 +14,5 @@ class Guest implements IMiddleware
 		}else{
 			redirects("/");
 		}
-		// if(isset($_SESSION["auth_security_token"]) && isset($_SESSION["auth_user"])){
-		// 	$_SESSION["error_message"] = "Who are you ???";
-		// 	$url = $_ENV["APP_URL"] . "/" . $_ENV["BASE_URL"]."/login";
-		// 	header("Location: " . $url, true, 301);
-		// 	exit();
-		// }else{
-			
-		// }
-
-		
 	}
 }
