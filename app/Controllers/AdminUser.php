@@ -44,5 +44,10 @@ class AdminUser{
     }
   }
 
+  public function partners(){
+    if(isset($_SESSION["auth_user"])){
+      return view("pages/Admin/Partners/index.php");
+    }
+  }
 }
 

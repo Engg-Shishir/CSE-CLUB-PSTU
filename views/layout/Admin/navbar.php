@@ -52,6 +52,18 @@
       </div>
       <div class="accordion__item">
         <a href="#" class="accordion__toggle">
+          <i class="fas fa-cog"></i> Partners
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+          <div class="accordion__content-container">
+            <a class="accordion__a" href="<?= url("/admin/partners") ?>">Partners Table</a>
+            <a class="accordion__a" href="#">Insert Partner</a>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <a href="<?= url("/logout") ?>" class="accordion__toggle">
           <i class="far fa-user"></i> Logout
         </a>
       </div>
