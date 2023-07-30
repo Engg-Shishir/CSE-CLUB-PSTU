@@ -157,3 +157,25 @@ function level(string $text="",string $name=""){
   }
   return '<label for="" style="font-size:16px;font-weight: 500 !important;'.$color.'">'.$text.'</label>';
 }
+
+
+function selectForm(array $datas=[],string $name="",string $class="",string $placehlder="Your placeholder",string $optionValue="",string $optionText=""){
+  $data = '<select class="'.$class.'" name="'.$name.'">';
+  $data = $data.'<option value="">Select your option</option>';
+  foreach ($datas as $key => $value) {
+    $data = $data.'<option value="'.$value[0].'"';
+    if (isset($_SESSION[$name])){
+      if(intval($_SESSION[$name])==intval($value[0])){
+        $data = $data.'selected="selected">'.$value[1].'</option>';
+      }else{
+      $data = $data.'>'.$value[1].'</option>';
+      }
+    }else{
+      $data = $data.'">'.$value[1].'</option>';
+    }
+  }
+  $data = $data.'</select>';
+  
+  unsetError($name);
+  return $data;
+}
