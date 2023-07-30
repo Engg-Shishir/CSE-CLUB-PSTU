@@ -145,3 +145,15 @@ function mailVerify(string $sender,string $name, string $token)
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
   }
 }
+
+function level(string $text="",string $name=""){
+  $color= "color: #757575 !important;";
+  if (isset($_SESSION[$name])){
+    if(intval($_SESSION[$name])==0){
+      $color =" color: red !important;";
+    }
+  }else{
+    $color= "color: #757575 !important;";
+  }
+  return '<label for="" style="font-size:16px;font-weight: 500 !important;'.$color.'">'.$text.'</label>';
+}
