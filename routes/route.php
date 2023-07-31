@@ -1,4 +1,5 @@
 <?php
+use App\Controllers\Admin\CityController;
 use App\Controllers\Admin\CountryController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
@@ -69,5 +70,10 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/country',[CountryController::class,"country"]);
   Router::post('admin/country',[CountryController::class,"insertCountry"]);
   Router::get('admin/country/delete/{code}',[CountryController::class,"deleteCountry"]);
+
+  
+  Router::get('admin/city',[CityController::class,"city"]);
+  Router::post('admin/city',[CityController::class,"insertCity"]);
+  Router::get('admin/city/delete/{code}',[CityController::class,"deleteCity"]);
 });
 

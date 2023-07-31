@@ -1,5 +1,7 @@
 
+
 @use "../../../components/mainBtn";
+@use "../../../components/select2";
 @import "../../../setting/settings";
 @import "../../../layout/NavBar/fixedTopbar";
 @import "../navbar";
@@ -20,5 +22,7 @@ table {
   width: 95% !important;
   margin-bottom: -50px;
 }
+
+
 
 

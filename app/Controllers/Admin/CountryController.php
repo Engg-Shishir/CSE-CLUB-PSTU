@@ -13,7 +13,7 @@ class CountryController
   {
     $user = new User();
     if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
-      $data = $user->fetchall("countrys");
+      $data = $user->allAssoc("countrys");
     }
     return view("pages/Admin/Static/country.php", compact("data"));
   }

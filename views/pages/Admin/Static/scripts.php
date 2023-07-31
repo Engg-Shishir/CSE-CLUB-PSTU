@@ -10,4 +10,13 @@
 <script>
   new DataTable('#example');
 </script>
+<script>
+    $(document).ready(function () {
+    $('.country-select').select2({
+      placeholder: 'Select Country',
+      closeOnSelect: true
+    });
+  });
+</script>
+
 

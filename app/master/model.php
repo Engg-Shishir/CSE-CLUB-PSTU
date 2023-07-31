@@ -61,11 +61,18 @@ class Model
   }
 
 
-  public function fetchall(string $table,array $BindParams = []) : array|false
+  public function allAssoc(string $table,array $BindParams = []) : array|false
   {
     $sql = "SELECT * FROM {$table}";
     $stmt = $this->execute($sql,$BindParams);
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+  }
+
+  public function all(string $table,array $BindParams = []) : array|false
+  {
+    $sql = "SELECT * FROM {$table}";
+    $stmt = $this->execute($sql,$BindParams);
+    return $stmt->fetchAll();
   }
 
   public function allexcept(string $table,string $colName,string $colVal)

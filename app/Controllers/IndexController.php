@@ -8,7 +8,7 @@ class IndexController{
 
   public function alluser(){
     $user = new User();
-    $compact = $user->fetchall("user");
+    $compact = $user->allAssoc("user");
     
     return view("admin/index.php",compact("compact"));
   }

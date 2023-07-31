@@ -160,6 +160,7 @@ function level(string $text="",string $name=""){
 
 
 function selectForm(array $datas=[],string $name="",string $class="",string $placehlder="Your placeholder",string $optionValue="",string $optionText=""){
+  
   $data = '<select class="'.$class.'" name="'.$name.'">';
   $data = $data.'<option value="">Select your option</option>';
   foreach ($datas as $key => $value) {
