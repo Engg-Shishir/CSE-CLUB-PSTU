@@ -80,5 +80,6 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   
   Router::get('admin/college',[CollegeController::class,"college"]);
   Router::post('admin/college',[CollegeController::class,"insertCollege"]);
+  Router::get('admin/college/delete/{code}',[CollegeController::class,"deleteCollege"]);
 });
 

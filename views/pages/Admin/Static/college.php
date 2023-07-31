@@ -7,7 +7,7 @@
   <title>Admin | College</title>
   <!-- CSS Part -->
   <?php view("pages/Admin/Static/links.php"); ?>
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/city.css'); ?>" />
+  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/college.css'); ?>" />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 
     <div class="card-header" style="background-color:none !important;">
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-8" style="border-right:2px solid #383d59;">
           <table id="example" class="table table-striped">
             <thead>
               <tr>
@@ -35,7 +35,7 @@
                 ?>
                 <tr>
                   <td>
-                    <?= $item["name"] ?>
+                    <a style="color:blue;" href="<?= $item["website"] ?>"><?= $item["name"] ?></a>
                   </td>
                   <td>
                     <?= $item["college_code"] ?>
@@ -45,7 +45,8 @@
                   </td>
                   <td>
                     <a href="<?= url("/admin/college/delete/" . $item["college_code"]) ?>"
-                      class="btn btn-danger btn-sm">Delete</a>
+                      class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
+                    <a onclick='collegeEdit(<?= $item["college_code"]  ?>);' class="btn btn-default btn-sm"><i class="fa-solid fa-pen"></i></a>
                   </td>
                 </tr>
                 <?php
@@ -54,7 +55,8 @@
             </tbody>
           </table>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
+          <div class="editBox"></div>
           <div class="reg-form">
             <?php view("components/flashMessage.php"); ?>
             <form action="<?= url("/admin/college"); ?>" method="POST" enctype="multipart/form-data">
@@ -65,6 +67,9 @@
               </div>
               <div class="row row-input">
                 <?= inputField("text", "college_code", "", "College Code", "lg postal-code-input"); ?>
+              </div>
+              <div class="row row-input">
+                <?= inputField("text", "website", "", "College Website Link", "lg"); ?>
               </div>
               <div class="row row-input">
                 <?= inputField("text", "name", "", "College name", "lg"); ?>
@@ -85,7 +90,7 @@
         </div>
       </div>
     </div>
-
+     
   </div>
   <!-- Javacript Part -->
   <?php view("pages/Admin/Static/scripts.php"); ?>

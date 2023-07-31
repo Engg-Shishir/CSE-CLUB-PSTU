@@ -11,12 +11,17 @@
   new DataTable('#example');
 </script>
 <script>
-    $(document).ready(function () {
+  $(document).ready(function () {
+    collegeEdit = function(x) {
+      // $(".editBox").slideToggle();
+   }
+   
     $('.country-select').select2({
       placeholder: 'Select Country',
       closeOnSelect: true
     });
   });
+
+
+  
 </script>
-
-

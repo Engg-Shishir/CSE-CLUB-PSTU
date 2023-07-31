@@ -16,7 +16,7 @@ class CollegeController
       
       $countrys = $user->all("countrys");
 
-      $sql = "SELECT c.name,c.college_code,countrys.name AS CN FROM colleges AS c
+      $sql = "SELECT c.name,c.college_code,c.website,countrys.name AS CN FROM colleges AS c
       INNER JOIN countrys ON c.country_code=countrys.country_code";
       $stmt = $user->execute($sql);
       $colleges = $stmt->fetchAll();
@@ -35,9 +35,9 @@ class CollegeController
   public function deleteCollege($code)
   {
     $objs = new User();
-    $res = $objs->delete("citys", "postal_code", $code);
-    $_SESSION["success_message"] = "City Delete Successfully";
-    redirects("/admin/city");
+    $res = $objs->delete("colleges", "college_code", $code);
+    $_SESSION["success_message"] = "College Delete Successfully";
+    redirects("/admin/college");
   }
 
 
@@ -63,7 +63,7 @@ class CollegeController
 
 
 
-    $sql = "INSERT INTO colleges (`college_code`,`country_code`,`name`) VALUES (:college_code,:country_code,:name)";
+    $sql = "INSERT INTO colleges (`college_code`,`country_code`,`name`,`website`) VALUES (:college_code,:country_code,:name,:website)";
 
     $run = $user->insert($sql, $_POST); // $run = 1 or 0
     if ($run) {
