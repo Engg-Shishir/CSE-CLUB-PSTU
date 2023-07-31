@@ -1,0 +1,121 @@
+
+@use "../../../components/mainBtn";
+@import "../../../setting/settings";
+@import "../../../layout/NavBar/fixedTopbar";
+@import "../navbar";
+.content{
+  margin-top:66px !important;
+  padding: 20px !important;
+  margin-right: 50px !important;
+}
+
+
+
+
+html {
+  font-size: 100% !important;
+}
+table{
+  font-weight: 500;
+}
+
+
+.reg-form {
+  margin: 50px 0;
+  flex: 0 0 100%;
+  max-width: 0 0 100%;
+  width: 100%;
+  @include respond(lp-sm) {
+    flex: 0 0 40%;
+    max-width: 0 0 40%;
+    // width: 40%;
+  }
+  .title-box {
+    padding: 10px 20px;
+    span:first-child {
+      font-size: 35px;
+      margin: 50px 0px;
+      font-weight: 900;
+      @include respond(lp-sm) {
+        font-size: 35px;
+        text-align: center;
+      }
+      color: $blue;
+    }
+    span:last-child {
+      font-size: 35px;
+      margin: 50px 0px;
+      font-weight: 900;
+      @include respond(lp-sm) {
+        font-size: 35px;
+        text-align: center;
+      }
+      color: $blue;
+    }
+  }
+  form {
+    width: 100%;
+    .row-input {
+      width: 100%;
+      flex-direction: column;
+      @include respond(lp-sm) {
+        flex-direction: row;
+      }
+      align-items: center;
+      justify-content: space-around;
+      input,
+      textarea {
+        writing-mode: horizontal-tb !important;
+        outline: none;
+        font-weight: bold;
+        font-family: "GilroyLight";
+        display: flex;
+
+        padding: 11px 15px 13px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 24px;
+        background: rgb(244, 244, 244);
+        border: 1px solid rgb(244, 244, 244);
+        font-weight: 300;
+        box-sizing: border-box;
+        border-radius: 3px;
+      }
+      .small {
+        width: 90%;
+        padding-left: 2%;
+        padding-right: 2%;
+        @include respond(lp-sm) {
+          width: 45%;
+        }
+      }
+      .lg {
+        width: 90%;
+        padding-left: 2%;
+        padding-right: 2%;
+        @include respond(lp-sm) {
+          width: 95%;
+        }
+      }
+    }
+  }
+  .flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 20px;
+    a {
+      color: blue;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+  }
+  .reg-btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @include mainBtn.glowing-left;
+}

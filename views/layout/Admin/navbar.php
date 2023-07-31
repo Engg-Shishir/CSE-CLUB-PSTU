@@ -50,6 +50,28 @@
           </div>
         </div>
       </div>
+
+      <div class="accordion__item">
+        <a href="#" class="accordion__toggle">
+          <i class="fas fa-cog"></i> Static
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+          <div class="accordion__content-container">
+            <a class="accordion__a" href="<?= url("/admin/country"); ?>">Country</a>
+            <a class="accordion__a" href="<?= url("/admin/city"); ?>">City</a>
+            <a class="accordion__a" href="<?= url("/admin/college"); ?>">College</a>
+            <a class="accordion__a" href="<?= url("/admin/faculty"); ?>">Faculty</a>
+            <a class="accordion__a" href="<?= url("/admin/session"); ?>">Session</a>
+            <a class="accordion__a" href="<?= url("/admin/course"); ?>">Course</a>
+            <a class="accordion__a" href="<?= url("/admin/faq"); ?>">Faqs</a>
+            <a class="accordion__a" href="<?= url("/admin/gallery"); ?>">Galary</a>
+            <a class="accordion__a" href="<?= url("/admin/notice"); ?>">Notice</a>
+            <a class="accordion__a" href="<?= url("/admin/aboutslider"); ?>">About Slider</a>
+          </div>
+        </div>
+      </div>
+
       <div class="accordion__item">
         <a href="#" class="accordion__toggle">
           <i class="fas fa-cog"></i> Partners

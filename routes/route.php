@@ -1,5 +1,6 @@
 <?php
 use App\Controllers\AdminController;
+use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
 use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
@@ -64,5 +65,8 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::post('admin/user/status',[AdminUser::class,"status"]);
   Router::post('admin/user/role',[AdminUser::class,"role"]);
   Router::get('admin/partners',[AdminUser::class,"partners"]);
+  Router::get('admin/country',[AdminStaticController::class,"country"]);
+  Router::post('admin/country',[AdminStaticController::class,"insertCountry"]);
+  Router::get('admin/country/delete/{code}',[AdminStaticController::class,"deleteCountry"]);
 });
 

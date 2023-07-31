@@ -88,6 +88,14 @@ class Model
     return $response;
   }
 
+  public function delete(string $table,string $column,string $data)
+  {
+    $sql = "DELETE FROM {$table} WHERE $column=?";
+    $stmt = $this->execute($sql,[$data]);
+    $response = $stmt->fetch();
+    return $response;
+  }
+
   public function exists(string $table, string $column, string $data)
   {
     $sql = "SELECT * FROM {$table} WHERE $column=?";
