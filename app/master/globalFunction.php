@@ -192,3 +192,62 @@ function textArea(string $name="",string $value="",string $placehlder="Your plac
   }  
   return '<textarea name="'.$name.'" placeholder="'.$placehlder.'"  class="'.$error.'">'.$value.'</textarea>';
 }
+
+
+function fileDetails($file,$fileName){
+  $file_name = $file[$fileName]['name'];
+  $file_type = $file[$fileName]['type'];
+  $file_size = $file[$fileName]['size'];
+  $tmp_name = $file[$fileName]['tmp_name'];
+  $file_explode = explode('.', $file_name);
+  $file_ext = strtolower(end($file_explode));
+
+  return [
+    "fname"=>$file_name,
+    "ftype"=>$file_type,
+    "fsize"=>$file_size,
+    "fext"=>$file_ext,
+    "source"=>$tmp_name
+  ];
+}
+
+function isImage($ext){
+  $extensions = ["jpeg", "png", "jpg","svg"];
+  if (in_array($ext, $extensions) === true) return true;
+  return false;
+}
+
+function fileMb($bytes){
+  $MB = number_format($bytes / 1048576, 2);
+  return $MB;
+}
+
+
+function unlinkFile($file)
+{
+  if (is_file($file)){
+    unlink($file); // delete file
+  }
+}
+
+function unlinkPath($path)
+{
+
+  if (!is_dir($path)) {
+    mkdir($path, 0777, true);
+  } else {
+    $files = glob($path . "*");
+    foreach ($files as $file) { // iterate files
+      if (is_file($file)) {
+        unlink($file); // delete file
+      }
+    }
+    rmdir($path);
+    mkdir($path, 0777, true);
+  }
+
+}
+
+function fileStore($source,$destination){
+  move_uploaded_file($source,$destination);
+}
