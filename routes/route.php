@@ -2,6 +2,7 @@
 use App\Controllers\Admin\CityController;
 use App\Controllers\Admin\CollegeController;
 use App\Controllers\Admin\CountryController;
+use App\Controllers\Admin\FacultyController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
@@ -81,5 +82,10 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/college',[CollegeController::class,"college"]);
   Router::post('admin/college',[CollegeController::class,"insertCollege"]);
   Router::get('admin/college/delete/{code}',[CollegeController::class,"deleteCollege"]);
+
+
+  Router::get('admin/faculty',[FacultyController::class,"faculty"]);
+  Router::post('admin/faculty',[FacultyController::class,"insertFaculty"]);
+  Router::get('admin/faculty/delete/{code}',[FacultyController::class,"deletefaculty"]);
 });
 
