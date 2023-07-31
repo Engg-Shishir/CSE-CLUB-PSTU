@@ -4,6 +4,7 @@ use App\Controllers\Admin\CollegeController;
 use App\Controllers\Admin\CountryController;
 use App\Controllers\Admin\CourseController;
 use App\Controllers\Admin\FacultyController;
+use App\Controllers\Admin\FaqController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
@@ -100,5 +101,12 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/course',[CourseController::class,"course"]);
   Router::post('admin/course',[CourseController::class,"insertCourse"]);
   Router::get('admin/course/delete/{code}',[CourseController::class,"deleteCourse"]);
+
+
+
+  Router::get('admin/faq',[FaqController::class,"faq"]);
+  Router::post('admin/faq',[FaqController::class,"insertFaq"]);
+  Router::get('admin/faq/delete/{code}',[FaqController::class,"deleteFaq"]);
+
 });
 
