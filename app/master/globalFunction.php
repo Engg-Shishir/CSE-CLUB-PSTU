@@ -180,3 +180,15 @@ function selectForm(array $datas=[],string $name="",string $class="",string $pla
   unsetError($name);
   return $data;
 }
+
+function textArea(string $name="",string $value="",string $placehlder="Your placeholder",string $class=""){
+  $error= "".$class;
+  if (isset($_SESSION[$name])){
+    $value =$_SESSION[$name];
+    if(strlen($_SESSION[$name])<=0){
+      $error = $error." inputError";
+    }
+    unsetError($name);
+  }  
+  return '<textarea name="'.$name.'" placeholder="'.$placehlder.'"  class="'.$error.'">'.$value.'</textarea>';
+}
