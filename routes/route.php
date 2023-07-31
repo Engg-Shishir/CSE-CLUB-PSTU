@@ -1,5 +1,6 @@
 <?php
 use App\Controllers\Admin\CityController;
+use App\Controllers\Admin\CollegeController;
 use App\Controllers\Admin\CountryController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
@@ -75,5 +76,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/city',[CityController::class,"city"]);
   Router::post('admin/city',[CityController::class,"insertCity"]);
   Router::get('admin/city/delete/{code}',[CityController::class,"deleteCity"]);
+
+  
+  Router::get('admin/college',[CollegeController::class,"college"]);
+  Router::post('admin/college',[CollegeController::class,"insertCollege"]);
 });
 
