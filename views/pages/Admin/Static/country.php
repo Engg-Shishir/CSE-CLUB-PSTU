@@ -32,7 +32,7 @@
                 ?>
                 <tr>
                   <td>
-                    <?= $item["country_code"] ?>
+                    <?= $item["identifier"] ?>
                   </td>
                   <td>
                     <?= $item["name"] ?>
