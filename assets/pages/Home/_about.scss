@@ -70,7 +70,7 @@
       @include respond(tb-md) {
         width: 350px;
         height: 220px;
-        padding: 20px;
+        // padding: 20px;
       }
       @include respond(lp-sm) {
         width: 405px;
@@ -86,8 +86,8 @@
         background-image: url("../../Image/team1.png");
         background-size: cover;
         background-position: center;
-        //   animation: fade 25s infinite;
-        //   border: 13px solid #fff;
+        animation: fade 45s infinite;
+        // border: 13px solid #fff;
       }
     }
     &-second {
@@ -105,7 +105,7 @@
         height: 270px;
       }
       margin-left: 11%;
-      padding: 20px;
+      // padding: 20px;
       z-index: 10;
       box-shadow: $blue 0px 0px 0px 3px, $blue 0px 0px 0px 6px, $blue-light 0px 0px 0px 9px, $blue 0px 0px 0px 12px,
         $blue-light 0px 0px 0px 15px;
@@ -116,8 +116,8 @@
         background-image: url("../../Image/team1.png");
         background-size: cover;
         background-position: center;
-        //   animation: fade 25s infinite;
-        //   border: 13px solid #fff;
+          animation: fade 45s infinite linear;
+          border: 13px solid #fff;
       }
     }
   }
@@ -171,35 +171,35 @@
 
 @keyframes fade {
   20% {
-    background-image: url("../img/team2.png");
+    background-image: url("../../Image/Gift/development.png");
   }
   40% {
-    background-image: url("../img/team3.png");
+    background-image: url("../../Image/Gift/event.png");
   }
   60% {
-    background-image: url("../img/team4.png");
+    background-image: url("../../Image/Gift/rooms.png");
   }
   80% {
-    background-image: url("../img/team5.png");
+    background-image: url("../../Image/Gift/sticker.png");
   }
   100% {
-    background-image: url("../img/team1.png");
+    background-image: url("../../Image/Gift/event.png");
   }
 }
 @keyframes fade2 {
-  20% {
-    background-image: url("../img/team4.png");
-  }
-  40% {
-    background-image: url("../img/team5.png");
-  }
-  60% {
-    background-image: url("../img/team1.png");
-  }
-  80% {
-    background-image: url("../img/team2.png");
-  }
-  100% {
-    background-image: url("../img/team3.png");
-  }
+  // 20% {
+  //   background-image: url("../../Image/Gift/event.png");
+  // }
+  // 40% {
+  //   background-image: url("../../Image/Gift/development.png");
+  // }
+  // 60% {
+  //   background-image: url("../../Image/Gift/sticker.png");
+  // }
+  // 80% {
+  //   background-image: url("../../Image/Gift/rooms.png");
+  // }
+  // 100% {
+  //   background-image: url("../../Image/Gift/event.png");
+  // }
 }

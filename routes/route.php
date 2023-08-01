@@ -122,6 +122,7 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/notice',[NoticeController::class,"notice"]);
   Router::get('admin/notice/insert',[NoticeController::class,"noticeInsertPage"]);
   Router::post('admin/notice',[NoticeController::class,"noticeInsert"]);
+  Router::get('admin/notice/delete/{code}',[NoticeController::class,"deleteNotice"]);
 
 });
 

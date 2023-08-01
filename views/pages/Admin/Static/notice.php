@@ -17,6 +17,8 @@
   <div class="containers content">
 
     <div class="card-header" style="">
+    
+    <?php view("components/flashMessage.php"); ?>
       <div class="row">
         <div class="col-md-12" style="">
           <!-- <nav aria-label="breadcrumb">

@@ -1030,7 +1030,6 @@ p {
   .about-row-image-first {
     width: 350px;
     height: 220px;
-    padding: 20px;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -1046,6 +1045,7 @@ p {
   background-image: url("../../Image/team1.png");
   background-size: cover;
   background-position: center;
+  animation: fade 45s infinite;
 }
 .about-row-image-second {
   transform: rotate(9deg);
@@ -1053,7 +1053,6 @@ p {
   width: 300px;
   height: 200px;
   margin-left: 11%;
-  padding: 20px;
   z-index: 10;
   box-shadow: #313d4c 0px 0px 0px 3px, #313d4c 0px 0px 0px 6px, #455a73 0px 0px 0px 9px, #313d4c 0px 0px 0px 12px, #455a73 0px 0px 0px 15px;
   display: none;
@@ -1077,6 +1076,8 @@ p {
   background-image: url("../../Image/team1.png");
   background-size: cover;
   background-position: center;
+  animation: fade 45s infinite linear;
+  border: 13px solid #fff;
 }
 .about-row-text {
   flex: 0 0 100%;
@@ -1133,38 +1134,22 @@ p {
 
 @keyframes fade {
   20% {
-    background-image: url("../img/team2.png");
+    background-image: url("../../Image/Gift/development.png");
   }
   40% {
-    background-image: url("../img/team3.png");
+    background-image: url("../../Image/Gift/event.png");
   }
   60% {
-    background-image: url("../img/team4.png");
+    background-image: url("../../Image/Gift/rooms.png");
   }
   80% {
-    background-image: url("../img/team5.png");
+    background-image: url("../../Image/Gift/sticker.png");
   }
   100% {
-    background-image: url("../img/team1.png");
+    background-image: url("../../Image/Gift/event.png");
   }
 }
-@keyframes fade2 {
-  20% {
-    background-image: url("../img/team4.png");
-  }
-  40% {
-    background-image: url("../img/team5.png");
-  }
-  60% {
-    background-image: url("../img/team1.png");
-  }
-  80% {
-    background-image: url("../img/team2.png");
-  }
-  100% {
-    background-image: url("../img/team3.png");
-  }
-}
+@keyframes fade2 {}
 .projects-row {
   position: relative;
   background-color: #ffffff;
