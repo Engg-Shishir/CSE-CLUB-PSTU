@@ -6,6 +6,7 @@ use App\Controllers\Admin\CourseController;
 use App\Controllers\Admin\FacultyController;
 use App\Controllers\Admin\FaqController;
 use App\Controllers\Admin\GalleryController;
+use App\Controllers\Admin\NoticeController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
@@ -115,6 +116,12 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/gallery',[GalleryController::class,"file"]);
   Router::post('admin/gallery',[GalleryController::class,"insertFile"]);
   Router::get('admin/gallery/delete/{code}',[GalleryController::class,"deleteFile"],['defaultParameterRegex' => '[\w\-\@\#\.]+']);
+
+
+
+  Router::get('admin/notice',[NoticeController::class,"notice"]);
+  Router::get('admin/notice/insert',[NoticeController::class,"noticeInsertPage"]);
+  Router::post('admin/notice',[NoticeController::class,"noticeInsert"]);
 
 });
 

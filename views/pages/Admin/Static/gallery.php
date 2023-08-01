@@ -18,7 +18,7 @@
 
     <div class="card-header" style="">
       <div class="row">
-        <div class="col-md-8" style="border-right:2px solid #383d59;">
+        <div class="col-md-9" style="border-right:2px solid #383d59;">
           <table id="example" class="table table-striped">
             <thead>
               <tr>
@@ -55,7 +55,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="imageBox">
             <div class="image">
               <img class="gallery" id="output"/>

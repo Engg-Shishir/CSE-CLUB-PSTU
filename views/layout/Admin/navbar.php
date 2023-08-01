@@ -1,8 +1,10 @@
 <div class="container">
   <div class="engg-shishir-navbar">
+
     <div class="engg-shishir-nav-left">
-      <a href="<?= url('/'); ?>"><img src="<?= assets('image/Club-Logo-Blue.svg') ?>" alt="" /></a>
+      <a  href="<?= url('/'); ?>"><img src="<?= assets('image/Club-Logo-Blue.svg') ?>" alt="" /></a>
     </div>
+
     <div class="engg-shishir-nav-right">
       <a href="<?= url("/logout") ?>" class="engg-shishir-nav-right-login">Logout</a>
       <div class="engg-shishir-nav-right-menu" onclick="hamburger()">
@@ -24,7 +26,7 @@
         </a>
       </div>
       <div class="accordion__item">
-        <a href="#" class="accordion__toggle">
+        <a  class="accordion__toggle">
           <i class="far fa-envelope"></i> Users
           <i class="fa-solid fa-chevron-right accordion__icon"></i>
         </a>
@@ -39,7 +41,7 @@
         </div>
       </div>
       <div class="accordion__item">
-        <a href="#" class="accordion__toggle">
+        <a  class="accordion__toggle">
           <i class="fas fa-cog"></i> Events
           <i class="fa-solid fa-chevron-right accordion__icon"></i>
         </a>
@@ -52,7 +54,7 @@
       </div>
 
       <div class="accordion__item">
-        <a href="#" class="accordion__toggle">
+        <a  class="accordion__toggle">
           <i class="fas fa-cog"></i> Static
           <i class="fa-solid fa-chevron-right accordion__icon"></i>
         </a>
@@ -66,14 +68,13 @@
             <a class="accordion__a" href="<?= url("/admin/course"); ?>">Course</a>
             <a class="accordion__a" href="<?= url("/admin/faq"); ?>">Faqs</a>
             <a class="accordion__a" href="<?= url("/admin/gallery"); ?>">Galary</a>
-            <a class="accordion__a" href="<?= url("/admin/notice"); ?>">Notice</a>
             <a class="accordion__a" href="<?= url("/admin/aboutslider"); ?>">About Slider</a>
           </div>
         </div>
       </div>
 
       <div class="accordion__item">
-        <a href="#" class="accordion__toggle">
+        <a class="accordion__toggle">
           <i class="fas fa-cog"></i> Partners
           <i class="fa-solid fa-chevron-right accordion__icon"></i>
         </a>
@@ -84,6 +85,22 @@
           </div>
         </div>
       </div>
+
+      <div class="accordion__item">
+        <a class="accordion__toggle">
+          <i class="fas fa-cog"></i> Notice
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+          <div class="accordion__content-container">
+            <a class="accordion__a" href="<?= url("/admin/notice") ?>">All notice</a>
+            <a class="accordion__a" href="<?= url("/admin/notice/insert") ?>">Insert Notice</a>
+          </div>
+        </div>
+      </div>
+
+
+
       <div class="accordion__item">
         <a href="<?= url("/logout") ?>" class="accordion__toggle">
           <i class="far fa-user"></i> Logout
