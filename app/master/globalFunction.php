@@ -217,6 +217,26 @@ function isImage($ext){
   return false;
 }
 
+
+function getFileType($ext){
+  $FileType = "";
+  $iamge = ["jpeg", "png", "jpg","svg","ai","webp","gif"];
+  $video = ["mp4", "mkv", "mov"];
+  $docs = ["pdf", "tex", "txt","doc","docx"];
+  if (in_array($ext,$iamge) === true) $FileType = "Image";
+  else if(in_array($ext,$video) === true) $FileType = "Video";
+  else if(in_array($ext,$docs) === true) $FileType = "Document";
+  return $FileType;
+}
+
+function isVideo($ext){
+  $extensions = ["mp4", "mkv", "mov"];
+  if (in_array($ext, $extensions) === true) return true;
+  return false;
+}
+
+
+
 function fileMb($bytes){
   $MB = number_format($bytes / 1048576, 2);
   return $MB;

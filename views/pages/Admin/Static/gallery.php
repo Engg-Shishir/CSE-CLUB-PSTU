@@ -45,6 +45,8 @@
                   <td>
                     <a href="<?= url("/admin/gallery/delete/" . $item["title"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
+                    <a target="_blank" href="<?= $item["source"] ?>"
+                      class="btn btn-default btn-sm text-success"><i class="fa-solid fa-eye"></i></a>
                   </td>
                 </tr>
                 <?php
@@ -56,7 +58,8 @@
         <div class="col-md-4">
           <div class="imageBox">
             <div class="image">
-              <img id="output" width="250" height="250" />
+              <img class="gallery" id="output"/>
+              <!-- <div class="gallery"></div> -->
             </div>
           </div>
           <div class="reg-form">
@@ -65,9 +68,10 @@
               <div class="form-group">
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" name="file" class="custom-file-input" id="exampleInputFile" accept="image/*"
-                      onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    <!-- <input type="file" name="file" class="custom-file-input" id="exampleInputFile" 
+                      onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0]); document.getElementById('output').style.width='250px';document.getElementById('output').style.height='250px';document.getElementById('output').style.display='block';"> -->
+                      <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
+                    <label id="fileLevel" class="custom-file-label" for="exampleInputFile">Choose file</label>
                   </div>
                 </div>
               </div>

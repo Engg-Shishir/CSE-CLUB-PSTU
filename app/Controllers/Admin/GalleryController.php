@@ -25,7 +25,9 @@ class GalleryController
   {
     $objs = new User();
     $res = $objs->delete("gallerys", "title", $code);
-    unlinkFile("assets/image/Gallery/" . $code);
+    unlinkFile("assets/Upload/Image/" . $code);
+    unlinkFile("assets/Upload/Video/" . $code);
+    unlinkFile("assets/Upload/Doc/" . $code);
     $_SESSION["success_message"] = "File Delete Successfully";
     redirects("/admin/gallery");
   }
@@ -34,78 +36,72 @@ class GalleryController
 
   public function insertFile()
   {
-    // foreach ($_POST as $key => $value) {
-    //   trim($value);
-    //   $this->errorCheck = isEmpty($key, $value);
-    // }
-
-
-
-    // if ($this->errorCheck == true) {
-    //   $_SESSION["error_message"] = "All field required";
-    //   redirects("/admin/gallery");
-    // }
-
-
-
-
-
-
-
-
 
 
     $imageDetails = fileDetails($_FILES, "file");
-    $newImage = "";
+    $NewFileName = "";
     if ($imageDetails["fname"] != null) {
-      if (isImage($imageDetails["fext"])) {
+      if ($_POST["title"] !== "") {
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
 
-        if ($_POST["title"] !== "") {
-          $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
+        if ($_POST["description"] !== "") {
+          $NewFileName = $slug . "." . $imageDetails["fext"];
 
-          if ($_POST["description"] !== "") {
-            $newImage = $slug . "." . $imageDetails["fext"];
+          $user = new User();
+          if ($user->exists("gallerys", "title", $NewFileName)) {
+            $_SESSION["error_message"] = "File alredy exists";
+            redirects("/admin/gallery");
+          } else {
 
-            $user = new User();
-            if ($user->exists("gallerys", "title", $newImage)) {
-              $_SESSION["error_message"] = "File alredy exists";
-              redirects("/admin/gallery");
-            } else {
-              unlinkFile("assets/image/Gallery/" . $newImage);
-              fileStore($imageDetails["source"], "assets/image/Gallery/" . $newImage);
-              $data = [
-                "title" => $newImage,
-                "description" => $_POST["description"],
-                "file_type" => "image"
-              ];
+            $fileType = getFileType($imageDetails["fext"]);
+            if($fileType=="Image"){
+              unlinkFile("assets/Upload/Image/" . $NewFileName);
+              fileStore($imageDetails["source"], "assets/Upload/Image/" . $NewFileName);
 
-              $sql = "INSERT INTO gallerys (`title`,`description`,`file_type`) VALUES (:title,:description,:file_type)";
+              $fileSource = assets("Upload/Image/".$NewFileName);
 
-              $run = $user->insert($sql, $data); // $run = 1 or 0
-              if ($run) {
-                $_SESSION["success_message"] = "File Inserted";
-              } else {
-                $_SESSION["error_message"] = "Something going wrong!";
-              }
-
-              redirects("/admin/gallery");
+            }else if($fileType=="Video"){
+              unlinkFile("assets/Upload/Video/" . $NewFileName);
+              fileStore($imageDetails["source"], "assets/Upload/Video/" . $NewFileName);
+              $fileSource = assets("Upload/Video/".$NewFileName);
+            }else if($fileType=="Document"){
+              unlinkFile("assets/Upload/Doc/" . $NewFileName);
+              fileStore($imageDetails["source"], "assets/Upload/Doc/" . $NewFileName);
+              $fileSource = assets("Upload/Doc/".$NewFileName);
             }
 
 
 
-          } else {
-            $_SESSION["error_message"] = "All field is required";
+            $data = [
+              "title" => $NewFileName,
+              "description" => $_POST["description"],
+              "file_type" => $fileType,
+              "source" => $fileSource
+            ];
+
+            $sql = "INSERT INTO gallerys (`title`,`description`,`file_type`,`source`) VALUES (:title,:description,:file_type,:source)";
+
+            $run = $user->insert($sql, $data); // $run = 1 or 0
+            if ($run) {
+              $_SESSION["success_message"] = "File Inserted";
+            } else {
+              $_SESSION["error_message"] = "Something going wrong!";
+            }
+
+            redirects("/admin/gallery");
           }
+
+
 
         } else {
           $_SESSION["error_message"] = "All field is required";
         }
 
       } else {
-        $_SESSION["error_message"] = "Wromg file selected";
+        $_SESSION["error_message"] = "All field is required";
       }
     } else {
-      $_SESSION["error_message"] = "No image selected";
+      $_SESSION["error_message"] = "No File selected";
     }
 
     redirects("/admin/gallery");
