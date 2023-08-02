@@ -93,7 +93,7 @@ function isEmpty(string $name, string $value)
     }
   } else {
     $_SESSION[$name] = $value;
-    if (strlen($value) <= 0) {
+    if (strlen(trim($value)) <= 0) {
       return true;
     }
   }
@@ -271,3 +271,31 @@ function unlinkPath($path)
 function fileStore($source,$destination){
   move_uploaded_file($source,$destination);
 }
+
+function slug($data){
+ return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data)));
+}
+
+function esc($str) 
+{ 
+ return htmlspecialchars($str ?? ''); 
+}
+
+function add_root_to_images($content) 
+{ 
+ 
+ preg_match_all("/<img[^>]+/", $content, $matches); 
+ 
+ if(is_array($matches[0]) && count($matches[0]) > 0) 
+ { 
+  foreach ($matches[0] as $img) { 
+ 
+   preg_match('/src="[^"]+/', $img, $match); 
+   $new_img = str_replace('src="', 'src="'.ROOT."/", $img); 
+   $content = str_replace($img, $new_img, $content); 
+ 
+  } 
+ } 
+ return $content; 
+}
+

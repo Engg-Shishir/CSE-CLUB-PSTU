@@ -42,7 +42,8 @@ class GalleryController
     $NewFileName = "";
     if ($imageDetails["fname"] != null) {
       if ($_POST["title"] !== "") {
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
+        // $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
+        $slug = slug($_POST["title"]);
 
         if ($_POST["description"] !== "") {
           $NewFileName = $slug . "." . $imageDetails["fext"];

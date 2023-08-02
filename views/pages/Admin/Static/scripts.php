@@ -27,7 +27,7 @@
 
   $(document).ready(function() {
       $('.summernote').summernote({
-        height: 150,
+        height: 100,
         toolbar: [
             [ 'style', [ 'style' ] ],
             [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
@@ -37,10 +37,7 @@
             [ 'para', [ 'ol', 'ul', 'paragraph' ] ],
             [ 'table', [ 'table' ] ],
             [ 'view', [ 'undo', 'redo', 'codeview', 'help' ] ]
-        ],
-        codemirror: { // codemirror options
-    theme: 'monokai'
-  }
+        ]
     });
 });
   

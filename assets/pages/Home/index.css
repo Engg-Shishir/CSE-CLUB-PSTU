@@ -1045,7 +1045,12 @@ p {
   background-image: url("../../Image/team1.png");
   background-size: cover;
   background-position: center;
-  animation: fade 45s infinite;
+  animation-direction: alternate-reverse;
+  animation-name: fade;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
 }
 .about-row-image-second {
   transform: rotate(9deg);
@@ -1076,8 +1081,13 @@ p {
   background-image: url("../../Image/team1.png");
   background-size: cover;
   background-position: center;
-  animation: fade 45s infinite linear;
-  border: 13px solid #fff;
+  animation-direction: alternate-reverse;
+  animation-name: fade;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-duration: 30s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
 }
 .about-row-text {
   flex: 0 0 100%;
@@ -1133,6 +1143,9 @@ p {
 }
 
 @keyframes fade {
+  0% {
+    background-image: url("../../Image/Gift/social.png");
+  }
   20% {
     background-image: url("../../Image/Gift/development.png");
   }
@@ -1149,7 +1162,6 @@ p {
     background-image: url("../../Image/Gift/event.png");
   }
 }
-@keyframes fade2 {}
 .projects-row {
   position: relative;
   background-color: #ffffff;

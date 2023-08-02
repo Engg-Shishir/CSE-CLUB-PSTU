@@ -30,8 +30,46 @@ class NoticeController
   public function deleteNotice($code)
   {
     $objs = new User();
+    $fetch = $objs->byId("notices","notice_id",$code);
+
+    unlinkFile("assets/Upload/Notice/".$fetch["file_source"]);
     $res = $objs->delete("notices", "notice_id", $code);
     $_SESSION["success_message"] = "Notice Delete Successfully";
+    redirects("/admin/notice");
+  }
+
+  public function editNotice($code){
+    $user = new User();
+    $data = $user->fetchById("notices","notice_id",$code);
+    return view("pages/Admin/Static/insertNotice.php",compact("data")); 
+  }
+
+  public function noticeUpdate(){
+    $DB = new User();
+      $sql="UPDATE notices set title=:title,des=:des,file_source=:file_source WHERE notice_id=:notice_id";
+    
+    $imageDetails = fileDetails($_FILES, "file");
+    
+    $NewFileName = $_POST["old_file"];
+    if($imageDetails["fname"] !==""){
+      if($_POST["old_file"]!==""){
+        unlinkFile("assets/Upload/Notice/".$_POST["old_file"]);
+      }
+      $slug = slug($_POST["title"]);
+      $NewFileName = $slug . "." . $imageDetails["fext"];
+      fileStore($imageDetails["source"], "assets/Upload/Notice/" . $NewFileName);
+    }
+
+    $data=[
+      "title"=>$_POST["title"],
+      "des"=>$_POST["des"],
+      "file_source"=>$NewFileName,
+      'notice_id' =>$_POST["notice_id"]
+    ];
+
+
+    $DB->updateTable($sql,$data);
+    $_SESSION["success_message"] = "Notice Updated";
     redirects("/admin/notice");
   }
 
@@ -59,21 +97,21 @@ class NoticeController
     }
 
     $imageDetails = fileDetails($_FILES, "file");
-    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
+    $slug = slug($_POST["title"]);
     $NewFileName = $slug . "." . $imageDetails["fext"];
     unlinkFile("assets/Upload/Notice/" . $NewFileName);
     fileStore($imageDetails["source"], "assets/Upload/Notice/" . $NewFileName);
     
 
     if ($imageDetails["fname"] != null){
-      $fileSource = assets("Upload/Notice/".$NewFileName);
+      $fileSource = $NewFileName;
     }else{
       $fileSource=null;
     }
     
 
     $data = [
-      "title" => $_POST["title"],
+      "title" => trim($_POST["title"]),
       "des" => $_POST["des"],
       "file_source" => $fileSource
     ];
