@@ -65,8 +65,6 @@
           <div class="reg-form">
             <?php view("components/flashMessage.php"); ?>
             <form action="<?= url("/admin/gallery"); ?>" method="POST" enctype="multipart/form-data">
-
-              
               <div class="form-group">
                 <div class="custom-file">
                   <input type="file" name="file" class="custom-file-input" id="exampleInputFile">

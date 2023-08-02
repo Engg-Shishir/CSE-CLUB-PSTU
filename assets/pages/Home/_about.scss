@@ -83,18 +83,18 @@
       &-box {
         height: 100%;
         width: 100%;
-        background-image: url("../../Image/team1.png");
+        background-image: url("../../Upload/About/one.jpg");
         background-size: cover;
         background-position: center;
-        // animation: fade 45s infinite;
+        animation: fade 40s infinite;
         // border: 13px solid #fff;
-        animation-direction: alternate-reverse;
-        animation-name: fade;
-        animation-play-state: running;
-        animation-timing-function: ease-in-out;
-        animation-duration: 30s;
-        // animation-fill-mode: forwards;
-        animation-iteration-count: infinite;
+        // animation-direction: alternate-reverse;
+        // animation-name: fade;
+        // animation-play-state: running;
+        // animation-timing-function: ease-in-out;
+        // animation-duration: 30s;
+        // // animation-fill-mode: forwards;
+        // animation-iteration-count: infinite;
       }
     }
     &-second {
@@ -121,16 +121,17 @@
       &-box {
         height: 100%;
         width: 100%;
-        background-image: url("../../Image/team1.png");
+        background-image: url("../../Upload/About/two.jpg");
         background-size: cover;
         background-position: center;
-        animation-direction: alternate-reverse;
-        animation-name: fade;
-        animation-play-state: running;
-        animation-timing-function: ease-in-out;
-        animation-duration: 30s;
-        animation-fill-mode: forwards;
-        animation-iteration-count: infinite;
+        animation: fade 40s infinite;
+        // animation-direction: alternate-reverse;
+        // animation-name: fade1;
+        // animation-play-state: running;
+        // animation-timing-function: ease-in-out;
+        // animation-duration: 30s;
+        // // animation-fill-mode: forwards;
+        // animation-iteration-count: infinite;
       }
     }
   }
@@ -183,23 +184,40 @@
 }
 
 @keyframes fade {
-  0% {
-    background-image: url("../../Image/Gift/social.png");
-  }
   20% {
-    background-image: url("../../Image/Gift/development.png");
+    background-image: url("../../Upload/About/two.jpg");
   }
   40% {
-    background-image: url("../../Image/Gift/event.png");
+    background-image: url("../../Upload/About/three.jpg");
   }
   60% {
-    background-image: url("../../Image/Gift/rooms.png");
+    background-image: url("../../Upload/About/four.jpg");
   }
   80% {
-    background-image: url("../../Image/Gift/sticker.png");
+    background-image: url("../../Upload/About/five.jpg");
   }
   100% {
-    background-image: url("../../Image/Gift/event.png");
+    background-image: url("../../Upload/About/one.jpg");
   }
 }
 
+
+
+
+@keyframes fade1 {
+  20% {
+    background-image: url("../../Upload/About/one.jpg");
+  }
+  40% {
+    background-image: url("../../Upload/About/four.jpg");
+  }
+  60% {
+    background-image: url("../../Upload/About/three.jpg");
+  }
+  80% {
+    background-image: url("../../Upload/About/five.jpg");
+  }
+  100% {
+    background-image: url("../../Upload/About/one.jpg");
+  }
+}

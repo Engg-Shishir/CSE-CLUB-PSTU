@@ -130,6 +130,8 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
   Router::get('admin/home/about',[HomeController::class,"about"]);
+  Router::post('admin/home/about',[HomeController::class,"insertAbout"]);
+  Router::get('admin/home/about/delete/{code}',[HomeController::class,"homeAboutDelete"]);
 
 });
 
