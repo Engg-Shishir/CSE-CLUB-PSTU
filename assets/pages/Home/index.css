@@ -824,7 +824,6 @@ p {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, #363951, #fff, #363951);
 }
 .engg-shishir-fixed .engg-shishir-fixed-content .engg-shishir-fixed-content-left .glowing-btn span:nth-child(2) {
   position: absolute;
@@ -832,7 +831,6 @@ p {
   right: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(0, #363951, #fff, #363951);
 }
 .engg-shishir-fixed .engg-shishir-fixed-content .engg-shishir-fixed-content-left .glowing-btn span:nth-child(3) {
   position: absolute;
@@ -840,7 +838,6 @@ p {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #363951, #fff, #363951);
 }
 .engg-shishir-fixed .engg-shishir-fixed-content .engg-shishir-fixed-content-left .glowing-btn span:nth-child(4) {
   position: absolute;
@@ -848,7 +845,6 @@ p {
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(0, #363951, #fff, #363951);
 }
 @keyframes animateTop {
   0% {
@@ -1279,7 +1275,6 @@ p {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, #363951, #fff, #363951);
 }
 .projects-row-left .glowing-btn span:nth-child(2) {
   position: absolute;
@@ -1287,7 +1282,6 @@ p {
   right: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(0, #363951, #fff, #363951);
 }
 .projects-row-left .glowing-btn span:nth-child(3) {
   position: absolute;
@@ -1295,7 +1289,6 @@ p {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #363951, #fff, #363951);
 }
 .projects-row-left .glowing-btn span:nth-child(4) {
   position: absolute;
@@ -1303,7 +1296,6 @@ p {
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(0, #363951, #fff, #363951);
 }
 @keyframes animateTop {
   0% {
@@ -1571,7 +1563,6 @@ p {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, #363951, #fff, #363951);
 }
 .partner-row .glowing-btn span:nth-child(2) {
   position: absolute;
@@ -1579,7 +1570,6 @@ p {
   right: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(0, #363951, #fff, #363951);
 }
 .partner-row .glowing-btn span:nth-child(3) {
   position: absolute;
@@ -1587,7 +1577,6 @@ p {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #363951, #fff, #363951);
 }
 .partner-row .glowing-btn span:nth-child(4) {
   position: absolute;
@@ -1595,7 +1584,6 @@ p {
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(0, #363951, #fff, #363951);
 }
 @keyframes animateTop {
   0% {

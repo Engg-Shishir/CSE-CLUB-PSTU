@@ -1,11 +1,8 @@
 <div class="row projects-row">
   <div class="projects-row-left">
-    <h2>Projects 2023</h2>
+    <h2>CSE's Projects</h2>
     <p>
-      At CSE, we never cease learning and working on projects, that help
-      us unleash our creativity and gather all of our brilliant ideas to
-      create great projects! Do you want to take a look at what we've
-      built? Well, click on this button!
+    At CSE, we never cease learning and working on projects, that help us unleash our creativity and gather all of our brilliant ideas to create great projects!At CSE, innovation knows no bounds, and we are excited to share our passion with you. Do you want to take a look at what we've built? Well, click on this button!
     </p>
     <a href="https://github.com/Engg-Shishir">
       <button class="glowing-btn">
