@@ -69,6 +69,9 @@ class GalleryController
               unlinkFile("assets/Upload/Doc/" . $NewFileName);
               fileStore($imageDetails["source"], "assets/Upload/Doc/" . $NewFileName);
               $fileSource = assets("Upload/Doc/".$NewFileName);
+            }else{
+              $_SESSION["error_message"] = "Wrong file selected!";
+              redirects("/admin/gallery");
             }
 
 
