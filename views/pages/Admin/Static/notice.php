@@ -17,17 +17,10 @@
   <div class="containers content">
 
     <div class="card-header" style="">
-    
-    <?php view("components/flashMessage.php"); ?>
+
+      <?php view("components/flashMessage.php"); ?>
       <div class="row">
         <div class="col-md-12" style="">
-          <!-- <nav aria-label="breadcrumb">
-            <ol class="breadcrumb float-end" style="display:flex;align-item:center;justify-content:end;">
-              <li class=" float-end">
-                 <a href="<?= url("/admin/notice/insert"); ?>" class="btn btn-md btn-light  float-end">Insert</a>
-              </li>
-            </ol>
-          </nav> -->
           <table id="example" class="table table-hoverable">
             <thead>
               <tr>
@@ -45,13 +38,15 @@
                     <?= $item["title"] ?>
                   </td>
                   <td>
-                    <?= $item["des"] ?>
+                    <p class="card-text mb-auto"><?=nl2br(add_root_to_images($item["des"]))?></p>
                   </td>
                   <td>
                     <a href="<?= url("/admin/notice/delete/" . $item["notice_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
-                    <a target="_blank" href="<?= $item["file_source"] ?>" class="btn btn-default btn-sm text-success"><i
-                        class="fa-solid fa-eye"></i></a>
+                    <a target="_blank" href="<?= url("/admin/notice/edit/" . $item["notice_id"]) ?>"
+                      class="btn btn-default btn-sm text-success"><i class="fa-solid fa-pen"></i></a>
+                    <a target="_blank" href="<?= assets("Upload/Notice/".$item["file_source"]) ?>"
+                      class="btn btn-default btn-sm text-success"><i class="fa-solid fa-file"></i></a>
                   </td>
                 </tr>
                 <?php

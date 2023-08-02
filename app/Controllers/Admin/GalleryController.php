@@ -42,7 +42,8 @@ class GalleryController
     $NewFileName = "";
     if ($imageDetails["fname"] != null) {
       if ($_POST["title"] !== "") {
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
+        // $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_POST["title"])));
+        $slug = slug($_POST["title"]);
 
         if ($_POST["description"] !== "") {
           $NewFileName = $slug . "." . $imageDetails["fext"];
@@ -68,6 +69,9 @@ class GalleryController
               unlinkFile("assets/Upload/Doc/" . $NewFileName);
               fileStore($imageDetails["source"], "assets/Upload/Doc/" . $NewFileName);
               $fileSource = assets("Upload/Doc/".$NewFileName);
+            }else{
+              $_SESSION["error_message"] = "Wrong file selected!";
+              redirects("/admin/gallery");
             }
 
 

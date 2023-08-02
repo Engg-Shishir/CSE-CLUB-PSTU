@@ -17,8 +17,13 @@
 
     <div class="card-header" style="">
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="col-md-7">
+          <div class="imagebox" style="height:220px; width:220px;position:relative;">
+             <img src="<?=  assets("Upload/About/passport.jpg")  ?>" alt="" width="200" height="200" tyle="color:red; text-align:center; position:absolute; left:100%; top:50%;">
+             <a href="" style="color:black; text-align:center; position:absolute; right:0; top:0; background-color:red; font-weight:500;">Delete</a>
+          </div>
+        </div>
+        <div class="col-md-5">
           <div class="reg-form">
             <?php view("components/flashMessage.php"); ?>
             <?php
@@ -30,22 +35,15 @@
               <div class="form-group">
                 <?php
                 if (isset($data["title"]) && $data["title"] !== "")
-                  echo '<input type="hidden" name="old_file" value="'.$data["file_source"].'">';
+                  echo '<input type="hidden" name="old_file" value="'.$data["title"].'">';
                 ?>
-                <?php
-                if (isset($data["notice_id"]) && $data["notice_id"] !== "")
-                  echo '<input type="hidden" name="notice_id" value="'.$data["notice_id"].'">';
-                ?>
+                
+                <div class="input-group">
+
+                </div>
               </div>
               <div class="form-group">
-                  <level><b>Notice File</b></level>
-                  <div class="custom-file">
-                    <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
-                    <label id="fileLevel" class="custom-file-label" for="exampleInputFile">Choose file</label>
-                  </div>
-              </div>
-              <div class="form-group">
-                <level><b>Notice Title</b></level>
+                <level><b>About Text</b></level>
                 <?php
                   if (isset($data["title"]) && $data["title"] !==""){
                     echo"<textarea name='title' class='form-control' name='title'>".$data["title"]."</textarea>";
@@ -53,16 +51,6 @@
                     echo"<textarea name='title' class='form-control' name='title'></textarea>";
                   }
                 ?>
-                
-              </div>
-              <div class="form-group">
-                <level><b>Notice Description</b></level>
-                <textarea name="des" class="form-control summernote" name="description">
-                    <?php
-                    if (isset($data["title"]) && $data["title"] !== "")
-                      echo $data["des"];
-                    ?>
-                  </textarea>
               </div>
 
               <div class="reg-btn-box">
@@ -84,7 +72,6 @@
             </form>
           </div>
         </div>
-        <div class="col-md-1"></div>
       </div>
     </div>
 

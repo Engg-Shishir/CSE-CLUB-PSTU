@@ -68,7 +68,7 @@
             <a class="accordion__a" href="<?= url("/admin/course"); ?>">Course</a>
             <a class="accordion__a" href="<?= url("/admin/faq"); ?>">Faqs</a>
             <a class="accordion__a" href="<?= url("/admin/gallery"); ?>">Galary</a>
-            <a class="accordion__a" href="<?= url("/admin/aboutslider"); ?>">About Slider</a>
+            <a class="accordion__a" href="<?= url("/admin/home/about"); ?>">About Slider</a>
           </div>
         </div>
       </div>

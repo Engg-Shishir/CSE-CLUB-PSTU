@@ -65,14 +65,12 @@
           <div class="reg-form">
             <?php view("components/flashMessage.php"); ?>
             <form action="<?= url("/admin/gallery"); ?>" method="POST" enctype="multipart/form-data">
+
+              
               <div class="form-group">
-                <div class="input-group">
-                  <div class="custom-file">
-                    <!-- <input type="file" name="file" class="custom-file-input" id="exampleInputFile" 
-                      onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0]); document.getElementById('output').style.width='250px';document.getElementById('output').style.height='250px';document.getElementById('output').style.display='block';"> -->
-                      <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
-                    <label id="fileLevel" class="custom-file-label" for="exampleInputFile">Choose file</label>
-                  </div>
+                <div class="custom-file">
+                  <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
+                  <label id="fileLevel" class="custom-file-label" for="exampleInputFile">Choose file</label>
                 </div>
               </div>
               <div class="form-group">

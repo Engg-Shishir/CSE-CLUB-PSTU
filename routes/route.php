@@ -6,6 +6,7 @@ use App\Controllers\Admin\CourseController;
 use App\Controllers\Admin\FacultyController;
 use App\Controllers\Admin\FaqController;
 use App\Controllers\Admin\GalleryController;
+use App\Controllers\Admin\HomeController;
 use App\Controllers\Admin\NoticeController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\AdminController;
@@ -123,6 +124,12 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/notice/insert',[NoticeController::class,"noticeInsertPage"]);
   Router::post('admin/notice',[NoticeController::class,"noticeInsert"]);
   Router::get('admin/notice/delete/{code}',[NoticeController::class,"deleteNotice"]);
+  Router::get('admin/notice/edit/{code}',[NoticeController::class,"editNotice"]);
+  Router::post('admin/notice/update',[NoticeController::class,"noticeUpdate"]);
+
+
+
+  Router::get('admin/home/about',[HomeController::class,"about"]);
 
 });
 
