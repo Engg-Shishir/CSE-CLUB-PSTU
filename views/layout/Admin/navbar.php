@@ -41,16 +41,9 @@
         </div>
       </div>
       <div class="accordion__item">
-        <a  class="accordion__toggle">
+        <a  class="accordion__toggle" href="<?= url("/admin/events"); ?>">
           <i class="fas fa-cog"></i> Events
-          <i class="fa-solid fa-chevron-right accordion__icon"></i>
         </a>
-        <div class="accordion__content">
-          <div class="accordion__content-container">
-            <a class="accordion__a" href="#">All events</a>
-            <a class="accordion__a" href="#">Insert</a>
-          </div>
-        </div>
       </div>
 
       <div class="accordion__item">

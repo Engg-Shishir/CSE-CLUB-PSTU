@@ -3,6 +3,7 @@ use App\Controllers\Admin\CityController;
 use App\Controllers\Admin\CollegeController;
 use App\Controllers\Admin\CountryController;
 use App\Controllers\Admin\CourseController;
+use App\Controllers\Admin\EventController;
 use App\Controllers\Admin\FacultyController;
 use App\Controllers\Admin\FaqController;
 use App\Controllers\Admin\GalleryController;
@@ -63,6 +64,9 @@ Router::get('logout',[LoginController::class,"logout"]);
  */
 Router::get('mailverify/{sender}/{token}',[MailController::class,"emailVerification"],['defaultParameterRegex' => '[\w\-\@\#\.]+']);
 
+
+
+Router::get('events',[EventController::class,"events"]);
 
 /**
  * Only authenticated admin user can access this route
@@ -149,6 +153,12 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   
   Router::get('admin/setting',[SettingController::class,"setting"]);
   Router::post('admin/setting',[SettingController::class,"updateSetting"]);
+
+  
+  
+  Router::get('admin/events',[EventController::class,"events"]);
+  Router::post('admin/event',[EventController::class,"insertEvents"]);
+  Router::get('admin/event/status/{id}',[EventController::class,"statusEvent"]);
 
 });
 
