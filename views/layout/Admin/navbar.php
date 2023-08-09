@@ -79,9 +79,10 @@
           <i class="far fa-user"></i> Partners
         </a>
       </div>
+      
       <div class="accordion__item">
-        <a href="<?= url("/admin/projects") ?>" class="accordion__toggle">
-          <i class="far fa-user"></i> Projects
+        <a href="<?= url("/admin/setting") ?>" class="accordion__toggle">
+          <i class="far fa-user"></i> Settings
         </a>
       </div>
 

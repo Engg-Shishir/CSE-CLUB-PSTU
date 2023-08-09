@@ -9,14 +9,14 @@
     <div class="partner-logo-slide">
       <?php foreach ($partners as $key => $value) {
         if ($value["status"] == 1) { ?>
-          <img src="<?= assets('Upload/Partners/' . $value["image"]) ?>" alt="" />
+          <a href="<?= $value["web"] ?>"><img src="<?= assets('Upload/Partners/' . $value["image"]) ?>" alt="" /></a>
         <?php }
       } ?>
     </div>
     <div class="partner-logo-slide">
       <?php foreach ($partners as $key => $value) {
         if ($value["status"] == 1) { ?>
-          <img src="<?= assets('Upload/Partners/' . $value["image"]) ?>" alt="" />
+          <a href="<?= $value["web"] ?>"><img src="<?= assets('Upload/Partners/' . $value["image"]) ?>" alt="" /></a>
         <?php }
       } ?>
     </div>

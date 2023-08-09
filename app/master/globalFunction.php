@@ -268,7 +268,8 @@ function unlinkPath($path)
 
 }
 
-function fileStore($source,$destination){
+function fileStore(string $source, string $destination):void
+{
   move_uploaded_file($source,$destination);
 }
 
@@ -310,7 +311,8 @@ function ietp(string $name){
 }
 
 
-function isBlank(array $data = []){
+function isBlank(array $data = []):bool
+{
   $errorCheck = 0;
   foreach ($data as $key => $value) {
     $_SESSION[$key] = $value;

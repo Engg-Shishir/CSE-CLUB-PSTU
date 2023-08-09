@@ -11,6 +11,7 @@ use App\Controllers\Admin\NoticeController;
 use App\Controllers\Admin\partnerController;
 use App\Controllers\Admin\ProjectController;
 use App\Controllers\Admin\SessionController;
+use App\Controllers\Admin\SettingController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
@@ -143,6 +144,11 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/projects',[ProjectController::class,"projects"]);
   Router::post('admin/project',[ProjectController::class,"insertProject"]);
   Router::get('admin/project/status/{id}',[ProjectController::class,"statusProject"]);
+
+
+  
+  Router::get('admin/setting',[SettingController::class,"setting"]);
+  Router::post('admin/setting',[SettingController::class,"updateSetting"]);
 
 });
 
