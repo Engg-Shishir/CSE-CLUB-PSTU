@@ -9,6 +9,7 @@ use App\Controllers\Admin\GalleryController;
 use App\Controllers\Admin\HomeController;
 use App\Controllers\Admin\NoticeController;
 use App\Controllers\Admin\partnerController;
+use App\Controllers\Admin\ProjectController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
@@ -137,6 +138,11 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/partners',[partnerController::class,"partners"]);
   Router::post('admin/partner',[partnerController::class,"insertPartner"]);
   Router::get('admin/partner/status/{id}',[partnerController::class,"statusPartner"]);
+
+  
+  Router::get('admin/projects',[ProjectController::class,"projects"]);
+  Router::post('admin/project',[ProjectController::class,"insertProject"]);
+  Router::get('admin/project/status/{id}',[ProjectController::class,"statusProject"]);
 
 });
 
