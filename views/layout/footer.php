@@ -26,15 +26,10 @@
         </div>
         <div class="footer-top-box-left">
           <div class="footer-logo-box">
-            <img src="<?=  assets("Image/Club-Logo-Blue.svg")  ?>" alt="" />
+            <img src="<?=  assets("Upload/Settings/".$footer["navLogo"])  ?>" alt="" />
           </div>
           <div class="aboutText">
-            <p>
-              CSE club is one of the largest scientific clubs in Algeria.
-              Working since 2008, our main goal is to offer original and
-              innovative content throughout our hackathons, workshops,
-              training and social media.
-            </p>
+            <p><?= $footer["short_des"] ?> </p>
           </div>
           <ul>
             <li><a href="">Privacy Policy</a></li>
@@ -49,7 +44,7 @@
     </div>
     <hr />
     <div class="footer-botom">
-      <p>© 2023 CSE CLUB PSTU. All rights reserved.</p>
+      <p><?= $footer["copyright"] ?></p>
     </div>
   </footer>
 </div>

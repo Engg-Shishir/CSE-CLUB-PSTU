@@ -1,20 +1,16 @@
 <div class="row partner-row">
   <h2>Trusted Collaborators</h2>
-  <p>
-    We work with the world’s most progressive companies and visionaries
-    with the same aspirations as us from different parts of the universe.
-
-  </p>
+  <p><?= $partners["text"] ?></p>
   <div class="partner-logo">
     <div class="partner-logo-slide">
-      <?php foreach ($partners as $key => $value) {
+      <?php foreach ($partners["image"] as $key => $value) {
         if ($value["status"] == 1) { ?>
           <a href="<?= $value["web"] ?>"><img src="<?= assets('Upload/Partners/' . $value["image"]) ?>" alt="" /></a>
         <?php }
       } ?>
     </div>
     <div class="partner-logo-slide">
-      <?php foreach ($partners as $key => $value) {
+      <?php foreach ($partners["image"] as $key => $value) {
         if ($value["status"] == 1) { ?>
           <a href="<?= $value["web"] ?>"><img src="<?= assets('Upload/Partners/' . $value["image"]) ?>" alt="" /></a>
         <?php }
