@@ -299,3 +299,33 @@ function add_root_to_images($content)
  return $content; 
 }
 
+
+// if Exist Then Print
+function ietp(string $name){
+   if(isset($_SESSION[$name])&& $_SESSION[$name]!==""){
+    return $_SESSION[$name];
+   }else{
+    return "";
+   }
+}
+
+
+function isBlank(array $data = []){
+  $errorCheck = 0;
+  foreach ($data as $key => $value) {
+    $_SESSION[$key] = $value;
+    if (strlen(trim($value)) <= 0) {
+      $errorCheck = 1;
+    }
+  }
+
+  if($errorCheck==1) return true;
+  else return false;
+}
+
+function unsetAll(array $data = []): void
+{
+  foreach ($data as $key => $value) {
+    unset($_SESSION[$key]);
+  }
+}

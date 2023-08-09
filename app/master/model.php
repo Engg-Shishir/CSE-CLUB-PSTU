@@ -116,7 +116,7 @@ class Model
     $pdo = $this->connect();
     $stmt = $pdo->prepare($query);
     foreach ($BindParams as $key => &$value){
-      if($key != "cpassword") $stmt->bindParam(':'.$key, $value);
+      if($key !=="cpassword") $stmt->bindParam(':'.$key, $value);
     }
     
    $run =  $stmt->execute();
@@ -130,7 +130,7 @@ class Model
     foreach ($BindParams as $key => &$value){
       $stmt->bindParam(':'.$key, $value);
     }
-    // parray($BindParams);
+    parray($BindParams);
     return $stmt->execute();
   }
 }

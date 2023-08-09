@@ -16,7 +16,10 @@
   <div class="container content">
     <?php view("pages/Home/about.php") ?>
     <?php view("pages/Home/projects.php") ?>
-    <?php view("pages/Home/partner.php") ?>
+    <?php 
+      $partners = $compact["partners"];
+       view("pages/Home/partner.php",compact("partners")) 
+    ?>
     <?php view("layout/footer.php") ?>
   </div>
 

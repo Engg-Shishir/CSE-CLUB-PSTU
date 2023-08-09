@@ -6,17 +6,15 @@ use App\model\User;
 
 class IndexController{
 
-  public function alluser(){
+  public function home(){
     $user = new User();
-    $compact = $user->allAssoc("user");
-    
-    return view("admin/index.php",compact("compact"));
-  }
+    $sql = "SELECT c.image,c.web,c.status FROM collaborators AS c";
+    $stmt = $user->execute($sql);
+    $partners = $stmt->fetchAll();
 
-  public function specificuser(){
-    $user = new User();
-    $compact = $user->byId("user","id","1");
-    return view("admin/index.php",compact("compact"));
+    $compact=["partners"=>$partners];
+
+    return view("pages/Home/Index.php",compact("compact"));
   }
 
 }

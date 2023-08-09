@@ -8,23 +8,20 @@ use App\Controllers\Admin\FaqController;
 use App\Controllers\Admin\GalleryController;
 use App\Controllers\Admin\HomeController;
 use App\Controllers\Admin\NoticeController;
+use App\Controllers\Admin\partnerController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
+use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
 use App\Controllers\MailController;
 use App\Controllers\UserController;
 use App\master\Router;
 
-Router::get('/', function() {
-  $compact=[
-    "author"=>"Shishir Bhuiyan",
-    "email"=>"shishir.cse.pstu@gmail.com"
-  ];
-  return view("pages/Home/Index.php",compact("compact"));
-});
+
+Router::get('/', [IndexController::class,"home"]);
 
 
 
@@ -73,7 +70,6 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/users/manage',[AdminUser::class,"manage"]);
   Router::post('admin/user/status',[AdminUser::class,"status"]);
   Router::post('admin/user/role',[AdminUser::class,"role"]);
-  Router::get('admin/partners',[AdminUser::class,"partners"]);
 
   Router::get('admin/country',[CountryController::class,"country"]);
   Router::post('admin/country',[CountryController::class,"insertCountry"]);
@@ -132,6 +128,15 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/home/about',[HomeController::class,"about"]);
   Router::post('admin/home/about',[HomeController::class,"insertAbout"]);
   Router::get('admin/home/about/delete/{code}',[HomeController::class,"homeAboutDelete"]);
+
+
+
+
+
+  
+  Router::get('admin/partners',[partnerController::class,"partners"]);
+  Router::post('admin/partner',[partnerController::class,"insertPartner"]);
+  Router::get('admin/partner/status/{id}',[partnerController::class,"statusPartner"]);
 
 });
 
