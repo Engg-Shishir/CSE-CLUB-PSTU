@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $(".projects-row-right-box").owlCarousel({
+    autoplayHoverPause:true,
     rtl: false,
     dots: true,
     slideSpeed: 30,
@@ -8,7 +9,7 @@ $(document).ready(function () {
     autoplay: true,
     loop: true,
     autoplaySpeed: 1500,
-    items: 1,
+    items: 1
   });
 
   $(".partner-owl").owlCarousel({

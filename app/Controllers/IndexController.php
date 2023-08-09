@@ -12,7 +12,10 @@ class IndexController{
     $stmt = $user->execute($sql);
     $partners = $stmt->fetchAll();
 
-    $compact=["partners"=>$partners];
+    $sql = "SELECT * FROM projects";
+    $stmt = $user->execute($sql);
+    $projects = $stmt->fetchAll();
+    $compact=["partners"=>$partners,"projects"=>$projects];
 
     return view("pages/Home/Index.php",compact("compact"));
   }
