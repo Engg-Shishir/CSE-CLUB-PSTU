@@ -416,3 +416,16 @@ CREATE TABLE `course_materials` (
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
   FOREIGN KEY (`course_id`) REFERENCES `courses`(`course_id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
+
+
+
+
+
+CREATE TABLE `support_category_image` (
+  `id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
+  `title` VARCHAR(300),
+  `iamge_name` varchar(255) NOT NULL,
+  primary key (id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

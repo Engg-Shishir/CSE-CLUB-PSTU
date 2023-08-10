@@ -10,6 +10,7 @@ use App\Controllers\Admin\GalleryController;
 use App\Controllers\Admin\HomeController;
 use App\Controllers\Admin\NoticeController;
 use App\Controllers\Admin\partnerController;
+use App\Controllers\Admin\PartnerPageController;
 use App\Controllers\Admin\ProjectController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\Admin\SettingController;
@@ -160,6 +161,14 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/events',[EventController::class,"events"]);
   Router::post('admin/event',[EventController::class,"insertEvents"]);
   Router::get('admin/event/status/{id}',[EventController::class,"statusEvent"]);
+
+
+  Router::get('admin/partnerpage',[PartnerPageController::class,"partnerPage"]);
+  Router::post('admin/partnerpage',[PartnerPageController::class,"insertSpnsorCategory"]);
+  Router::get('admin/event/category/status/{id}',[PartnerPageController::class,"statusEventCategory"]);
+  Router::get('admin/event/category/delete/{id}',[PartnerPageController::class,"deleteEventCategory"]);
+
+
 
 });
 
