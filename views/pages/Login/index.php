@@ -9,8 +9,18 @@
   <?php view("pages/Login/links.php"); ?>
 </head>
 <body>
+  <?php  ;
+    $footer=[
+      "navLogo"=>$settings["navLogo"],
+      "short_des"=>$settings["short_des"],
+      "copyright"=>$settings["copyright"]
+    ];
+    $navbar=[
+      "navLogo"=>$settings["navLogo"]
+    ];
+  ?>
   <!-- Navigation Part -->
-  <?php view("./layout/navbar.php"); ?>
+  <?php view("./layout/navbar.php",compact("navbar")); ?>
   <div class="containers content">
     <div class="row support-row">
       <!-- Login Instruction -->
@@ -19,7 +29,7 @@
       <?php view("pages/Login/form.php"); ?>
     </div>
     <!-- Footer Part -->
-    <?php view("layout/footer.php"); ?>
+    <?php view("layout/footer.php",compact("footer")); ?>
   </div>
   <!-- Javacript Part -->
   <?php view("pages/Login/scripts.php"); ?>

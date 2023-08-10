@@ -4,7 +4,7 @@
     <p>
       <?= $projects["text"] ?>
     </p>
-    <a href="https://github.com/Engg-Shishir">
+    <a href="https://github.com/Engg-Shishir" target="_blank">
       <button class="glowing-btn">
         <span></span>
         <span></span>

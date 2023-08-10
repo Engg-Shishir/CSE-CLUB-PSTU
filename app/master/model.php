@@ -133,4 +133,13 @@ class Model
     parray($BindParams);
     return $stmt->execute();
   }
+
+  public function settings()
+  {
+    $sql = "SELECT s.navLogo,s.favicon,s.short_des,s.meta_author,s.meta_keywords,s.copyright FROM settings AS s";
+
+    $stmt = $this->execute($sql);
+    $settings = $stmt->fetchAll();
+    return $settings[0];
+  }
 }

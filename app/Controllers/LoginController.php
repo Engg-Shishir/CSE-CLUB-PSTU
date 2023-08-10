@@ -19,7 +19,13 @@ class LoginController
 
   public function login()
   {
-    return view("pages/Login/index.php");
+    /*************************************************************
+     *?  Linkedin     : engg-shishir
+     *!  Purpose      : fetch site settings info
+     *************************************************************/
+    $user = new User();
+    $settings = $user->settings();
+    return view("pages/Login/index.php",compact("settings"));
   }
   public function logout()
   {
@@ -48,12 +54,12 @@ class LoginController
           redirects("/user");
         } else if ($_SESSION["auth_role"] == 2) {
           redirects("/admin");
-        }else if ($_SESSION["auth_role"] == 3) {
+        } else if ($_SESSION["auth_role"] == 3) {
           redirects("/teacher");
-        }else if ($_SESSION["auth_role"] == 4) {
+        } else if ($_SESSION["auth_role"] == 4) {
           redirects("/alumini");
         }
-        
+
 
       } else {
         // $_SESSION["user_setails_status"] = "ON";
@@ -62,15 +68,15 @@ class LoginController
           redirects("/user");
         } else if ($_SESSION["auth_role"] == 2) {
           redirects("/admin");
-        }else if ($_SESSION["auth_role"] == 3) {
+        } else if ($_SESSION["auth_role"] == 3) {
           redirects("/teacher");
-        }else if ($_SESSION["auth_role"] == 4) {
+        } else if ($_SESSION["auth_role"] == 4) {
           redirects("/alumini");
         }
       }
 
     } else {
-      $_SESSION["error_message"]= "You are not authenticated";
+      $_SESSION["error_message"] = "You are not authenticated";
       redirects("/login");
     }
 

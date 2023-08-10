@@ -30,12 +30,15 @@
     "image" => $compact["partners"],
     "text" => $settings["partners_section_text"]
   ];
+  $navbar=[
+    "navLogo"=>$settings["navLogo"]
+  ];
   // Footer variable
   $footer = $settings;
   ?>
 
   <div class="container">
-    <?php view("layout/navbar.php") ?>
+    <?php view("layout/navbar.php",compact("navbar")) ?>
     <?php view("pages/Home/fixedHero.php", compact("heroSec")) ?>
     <?php view("pages/Home/videoCircle.php",compact("circle")) ?>
   </div>

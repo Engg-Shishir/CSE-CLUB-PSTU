@@ -2,7 +2,7 @@
 <div class="container">
   <div class="engg-shishir-navbar">
     <div class="engg-shishir-nav-left">
-      <a href="<?= url('/'); ?>"><img src="<?= assets('image/Club-Logo-Blue.svg') ?>" alt="" /></a>
+      <a href="<?= url('/'); ?>"><img src="<?= assets('Upload/Settings/'.$navbar["navLogo"]) ?>" alt="" /></a>
     </div>
     <div class="engg-shishir-nav-right">
       <a target="_blank" href="./events" class="engg-shishir-nav-right-event">It carnival 2023</a>

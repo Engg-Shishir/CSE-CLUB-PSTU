@@ -1,7 +1,8 @@
-<?php  
+<?php
 
 
 namespace App\Controllers;
+
 use App\model\User;
 
 class JoinusController
@@ -10,8 +11,14 @@ class JoinusController
   private bool $errorCheck = false;
   public function joinus()
   {
+    /*************************************************************
+     *?  Linkedin     : engg-shishir
+     *!  Purpose      : fetch site settings info
+     *************************************************************/
+    $user = new User();
+    $settings = $user->settings();
     $table = new User();
-    return view("pages/Joinus/index.php");
+    return view("pages/Joinus/index.php",compact("settings"));
   }
   public function registration()
   {
@@ -32,7 +39,7 @@ class JoinusController
 
     $user = new User();
 
-    
+
     if ($user->isExists($_POST["username"])) {
       $_SESSION["error_message"] = "Username alredy exists";
       redirects("/joinus");
@@ -42,17 +49,17 @@ class JoinusController
 
 
     $tokenCode = token(5);
-    mailVerify($_POST["username"],"Shishir",$tokenCode);
+    mailVerify($_POST["username"], "Shishir", $tokenCode);
 
 
 
     $sql = "INSERT INTO users (`username`,`password`,`token`) VALUES (:username,:password,:token)";
     $_POST += ["token" => $tokenCode];
     $_POST["password"] = password_hash($_POST["password"], PASSWORD_BCRYPT);
-    $run  = $user->insert($sql,$_POST); // $run = 1 or 0
-    if($run){
+    $run = $user->insert($sql, $_POST); // $run = 1 or 0
+    if ($run) {
       $_SESSION["success_message"] = "You are Rgister! Please Verify Your Email";
-    }else{
+    } else {
       $_SESSION["error_message"] = "Something going wrong!";
     }
     redirects("/joinus");
