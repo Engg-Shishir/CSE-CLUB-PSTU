@@ -11,6 +11,7 @@
 
 <body>
   <?php ;
+  $settings = $compact["settings"];
   $footer = [
     "navLogo" => $settings["navLogo"],
     "short_des" => $settings["short_des"],
@@ -19,11 +20,14 @@
   $navbar = [
     "navLogo" => $settings["navLogo"]
   ];
+  $category = $compact["category"];
+  $count = $compact["count"];
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
-    <?php view("pages/Partner/statistics.php"); ?>
+    <?php view("pages/Partner/statistics.php",compact("count")); ?>
     <div class="row partner-reason-row">
+
       <div class="reson-title-box">
         <h1>How do sponsors partner with us?</h1>
         <p>
@@ -33,7 +37,9 @@
           us:
         </p>
       </div>
-      <?php view("pages/Partner/reasonCard.php"); ?>
+
+      <?php view("pages/Partner/reasonCard.php",compact("category")); ?>
+
     </div>
 
     <?php view("pages/Partner/form.php"); ?>
