@@ -11,12 +11,12 @@
     <div class="row px-5">
       <div class="flex-row">
         <a href="">Password Reset</a>
-      <a href="<?= url("/joinus")  ?>">SignUp</a>
+        <a href="<?= url("/joinus") ?>">SignUp</a>
       </div>
     </div>
     <div class="reg-btn-box">
       <a href="">
-      <button class="glowing-btn"  type="submit">
+        <button class="glowing-btn" type="submit">
           <span></span>
           <span></span>
           <span></span>

@@ -25,6 +25,7 @@ use App\master\Router;
 
 
 Router::get('/', [IndexController::class,"home"]);
+Router::get('welcome/partner', [IndexController::class,"welcomePartner"]);
 
 
 

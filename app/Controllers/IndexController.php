@@ -53,5 +53,16 @@ class IndexController{
     return view("pages/Home/Index.php",compact("compact"));
   }
 
+
+  public function welcomePartner()
+  {
+    /*************************************************************
+     *?  Linkedin     : engg-shishir
+     *!  Purpose      : fetch site settings info
+     *************************************************************/
+    $user = new User();
+    $settings = $user->settings();
+    return view("pages/Partner/index.php",compact("settings"));
+  }
 }
 

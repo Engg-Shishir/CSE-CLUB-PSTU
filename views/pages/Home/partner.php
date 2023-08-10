@@ -17,7 +17,7 @@
       } ?>
     </div>
   </div>
-  <a href="./support">
+  <a href="<?= url("/welcome/partner") ?>">
     <button class="glowing-btn">
       <span></span>
       <span></span>

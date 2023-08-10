@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="engg-shishir-fullnav" onMouseOver="this.style.right='0'" onMouseOut="this.style.right='-260px'">
+  <div class="engg-shishir-fullnav" onMouseOver="this.style.right='0'" onMouseOut="this.style.right='-300px'">
     <div class="accordion">
 
       <div class="accordion__item">
@@ -92,6 +92,17 @@
         </div>
       </div>
 
+      <div class="accordion__item">
+        <a class="accordion__toggle">
+          <i class="far fa-envelope"></i> Pages
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+          <div class="accordion__content-container">
+            <a class="accordion__a" href="<?= url("/admin/partnerpage"); ?>">Partner</a>
+          </div>
+        </div>
+      </div>
 
 
       <div class="accordion__item">
