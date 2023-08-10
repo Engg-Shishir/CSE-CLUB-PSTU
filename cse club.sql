@@ -259,15 +259,9 @@ CREATE TABLE `faqs` (
   PRIMARY KEY(faq_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
-DROP TABLE IF EXISTS messages;
 
-CREATE TABLE `messages` (
-  `mess_id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
-  `sender_email` varchar(200) NOT NULL,
-  `subject` varchar(200) NOT NULL,
-  `message` text NOT NULL,
-  PRIMARY KEY(mess_id)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
 
 DROP TABLE IF EXISTS aluminis;
 
@@ -419,13 +413,25 @@ CREATE TABLE `course_materials` (
 
 
 
-
-
-
-
+DROP TABLE IF EXISTS support_category_image;
 CREATE TABLE `support_category_image` (
   `id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
   `title` VARCHAR(300),
   `iamge_name` varchar(255) NOT NULL,
+  primary key (id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
+
+
+DROP TABLE IF EXISTS messages;
+CREATE TABLE `message` (
+  `id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
+  `fname` VARCHAR(300) DEFAULT NULL,
+  `laname` VARCHAR(300) DEFAULT NULL,
+  `email` VARCHAR(300) DEFAULT NULL,
+  `company` VARCHAR(300) DEFAULT NULL,
+  `subject` VARCHAR(300) DEFAULT NULL,
+  `des` varchar(255) NOT NULL,
   primary key (id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

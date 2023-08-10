@@ -7,10 +7,13 @@
   <title>CLUB | Joinus</title>
   <!-- CSS Part -->
   <?php view("pages/Partner/links.php"); ?>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+    integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-  <?php ;
+  <?php
   $settings = $compact["settings"];
   $footer = [
     "navLogo" => $settings["navLogo"],
@@ -25,7 +28,8 @@
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
-    <?php view("pages/Partner/statistics.php",compact("count")); ?>
+
+    <?php view("pages/Partner/statistics.php", compact("count")); ?>
     <div class="row partner-reason-row">
 
       <div class="reson-title-box">
@@ -38,7 +42,7 @@
         </p>
       </div>
 
-      <?php view("pages/Partner/reasonCard.php",compact("category")); ?>
+      <?php view("pages/Partner/reasonCard.php", compact("category")); ?>
 
     </div>
 
@@ -46,6 +50,42 @@
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
   <?php view("pages/Partner/scripts.php"); ?>
+  <script>
+    $(document).ready(function () {
+      $("#messageFormBtn").click(function (e) {
+        e.preventDefault();
+
+        let fname = $("input[name=fname]").val();
+        let lname = $("input[name=lname]").val();
+        let email = $("input[name=email]").val();
+        let company = $("input[name=company]").val();
+        let subject = $("input[name=subject]").val();
+        let des = $("input[name=des]").val();
+
+        if (fname !== "" && lname !== "" && email !== "" && company !== "" && subject !== "" && des !== "") {
+          toastr.success('Successfully Created.') ;
+
+          setTimeout(() => {
+            $("#messageForm").submit();
+          }, 2000);
+        } else {
+          var Toast = Swal.mixin({
+            toast: true,
+            position: 'toast-bottom-full-width',
+            showConfirmButton: false,
+            timer: 3000,
+            progressBar: true,
+          });
+          Toast.fire({
+            icon: 'error', // error, info, warning
+            title: 'Fill up all field'
+          })
+        }
+
+      });
+    });
+  </script>
+
 </body>
 
 </html>

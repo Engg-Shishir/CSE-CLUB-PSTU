@@ -8,6 +8,7 @@ use App\Controllers\Admin\FacultyController;
 use App\Controllers\Admin\FaqController;
 use App\Controllers\Admin\GalleryController;
 use App\Controllers\Admin\HomeController;
+use App\Controllers\Admin\MessageController;
 use App\Controllers\Admin\NoticeController;
 use App\Controllers\Admin\partnerController;
 use App\Controllers\Admin\PartnerPageController;
@@ -27,6 +28,7 @@ use App\master\Router;
 
 Router::get('/', [IndexController::class,"home"]);
 Router::get('welcome/partner', [IndexController::class,"welcomePartner"]);
+Router::post('message', [MessageController::class,"send"]);
 
 
 
