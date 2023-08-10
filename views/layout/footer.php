@@ -34,7 +34,7 @@
           <ul>
             <li><a href="">Privacy Policy</a></li>
             <li><a href="">Terms & Condition</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="<?= url("/contact") ?>">Contact</a></li>
             <li><a href="">Blog</a></li>
             <li><a href="">FAQ</a></li>
             <li><a href="">Developers</a></li>

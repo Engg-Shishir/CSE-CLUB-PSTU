@@ -29,6 +29,7 @@ use App\master\Router;
 Router::get('/', [IndexController::class,"home"]);
 Router::get('welcome/partner', [IndexController::class,"welcomePartner"]);
 Router::post('message', [MessageController::class,"send"]);
+Router::get('contact', [MessageController::class,"conatctPage"]);
 
 
 

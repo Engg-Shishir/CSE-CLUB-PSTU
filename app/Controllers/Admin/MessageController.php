@@ -40,4 +40,10 @@ class MessageController
 
   }
 
+  public function conatctPage(){
+    $user = new User();
+    $settings = $user->settings();
+    return view("pages/Contact/index.php",compact("settings"));
+  }
+
 }
