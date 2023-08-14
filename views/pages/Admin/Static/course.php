@@ -11,9 +11,11 @@
 </head>
 
 <body>
-
-  <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+  <?php
+    $navbar = $compact["settings"];
+    $data = $compact["data"];
+  ?>
+  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header" style="">
@@ -44,12 +46,13 @@
                     <?= $item["credit"] ?>
                   </td>
                   <td>
-                    <?php echo substr($item["course_des"],0,30)."....."; ?>
+                    <?php echo substr($item["course_des"], 0, 30) . "....."; ?>
                   </td>
                   <td>
                     <a href="<?= url("/admin/course/delete/" . $item["course_code"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
-                    <a onclick='courseEdit(<?= $item["course_code"]  ?>);' class="btn btn-default btn-sm"><i class="fa-solid fa-pen"></i></a>
+                    <a onclick='courseEdit(<?= $item["course_code"] ?>);' class="btn btn-default btn-sm"><i
+                        class="fa-solid fa-pen"></i></a>
                   </td>
                 </tr>
                 <?php
@@ -92,7 +95,7 @@
         </div>
       </div>
     </div>
-     
+
   </div>
   <!-- Javacript Part -->
   <?php view("pages/Admin/Static/scripts.php"); ?>

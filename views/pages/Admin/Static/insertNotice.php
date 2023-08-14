@@ -11,8 +11,10 @@
 </head>
 
 <body>
-  <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+<?php
+    $navbar = $compact["settings"];
+  ?>
+  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header" style="">

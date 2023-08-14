@@ -435,3 +435,29 @@ CREATE TABLE `message` (
   `des` varchar(255) NOT NULL,
   primary key (id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
+
+DROP TABLE IF EXISTS messages;
+CREATE TABLE `event_sponsor` (
+  `id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
+  `event_id` int UNSIGNED,
+  `colla_id` integer UNSIGNED,
+  `function` VARCHAR(300) DEFAULT NULL,
+  primary key (id),
+  FOREIGN KEY (`event_id`) REFERENCES `events`(`event_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`colla_id`) REFERENCES `collaborators`(`colla_id`)  ON DELETE SET NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
+
+
+
+CREATE TABLE `carnivals` (
+  `carnival_id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
+  `title` VARCHAR(300) DEFAULT NULL,
+  `banner` VARCHAR(300) DEFAULT NULL,
+  `start` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `end` timestamp DEFAULT CURRENT_TIMESTAMP,
+  primary key (carnival_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

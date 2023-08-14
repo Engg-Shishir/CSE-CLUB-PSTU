@@ -9,9 +9,13 @@ class AdminUser{
   public function manage(){
     $user = new User();
     if(isset($_SESSION["auth_user"])){
-      $data = $user->allexcept("users","username",$_SESSION["auth_user"]);
+      $data = $user->allexcept("users","username",$_SESSION["auth_user"]);$settings = $user->settings();
+      $comapact=[
+        "data"=>$data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Users/manage.php",compact("data"));
+    return view("pages/Admin/Users/manage.php",compact("comapact"));
   }
 
   public function status(){

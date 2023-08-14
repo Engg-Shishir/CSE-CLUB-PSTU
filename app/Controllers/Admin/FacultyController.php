@@ -17,8 +17,14 @@ class FacultyController
       $sql = "SELECT * FROM facultys";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
+
+      $settings = $user->settings();
+      $compact = [
+        "data" => $data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/faculty.php", compact("data"));
+    return view("pages/Admin/Static/faculty.php", compact("compact"));
   }
 
   public function deleteFaculty($code)

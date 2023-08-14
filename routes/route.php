@@ -18,6 +18,7 @@ use App\Controllers\Admin\SettingController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
+use App\Controllers\EventsController;
 use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
@@ -30,6 +31,7 @@ Router::get('/', [IndexController::class,"home"]);
 Router::get('welcome/partner', [IndexController::class,"welcomePartner"]);
 Router::post('message', [MessageController::class,"send"]);
 Router::get('contact', [MessageController::class,"conatctPage"]);
+Router::get('events', [EventsController::class,"events"]);
 
 
 
@@ -164,6 +166,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/events',[EventController::class,"events"]);
   Router::post('admin/event',[EventController::class,"insertEvents"]);
   Router::get('admin/event/status/{id}',[EventController::class,"statusEvent"]);
+  Router::get('admin/carnivals', [EventController::class,"carnivals"]);
+  Router::post('admin/carnivals', [EventController::class,"insertCarnivals"]);
+  Router::get('admin/carnivals/delete/{id}',[EventController::class,"deleteCarnival"]);
 
 
   Router::get('admin/partnerpage',[PartnerPageController::class,"partnerPage"]);

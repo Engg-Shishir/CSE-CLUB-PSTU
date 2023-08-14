@@ -22,14 +22,15 @@ class CollegeController
       $colleges = $stmt->fetchAll();
 
     }
-
-    $data = [
+    $settings = $user->settings();
+    $compact = [
       "colleges" => $colleges,
-      "countrys" => $countrys
+      "countrys" => $countrys,
+      "settings"=>$settings
     ];
     
 
-    return view("pages/Admin/Static/college.php", compact("data"));
+    return view("pages/Admin/Static/college.php", compact("compact"));
   }
 
   public function deleteCollege($code)

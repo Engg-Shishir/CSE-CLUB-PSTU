@@ -9,12 +9,32 @@
   <?php view("pages/Admin/Events/partials/links.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
   <link rel="stylesheet" href="<?= assets('pages/Admin/Events/eventsCard.css'); ?>" />
+  <style>
+    .select2.select2-container {
+      width: 100% !important;
+    }
+
+    .editBox {
+      height: 500px;
+      width: 100%;
+      background-color: red;
+      display: none;
+      transition: all 650ms;
+    }
+  </style>
 </head>
 
 <body>
-
+  <?php
+  $settings = $compact["settings"];
+  $navbar = [
+    "navLogo" => $settings["navLogo"]
+  ];
+  $data = $compact["data"];
+  // echo"<h1>".$carnivals[0][0]."</h1>";
+  ?>
   <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header">
@@ -38,7 +58,7 @@
               <div class="card-header d-flex justify-content-between">
                 <div class="d-flex flex-md-column">
                   <strong>
-                    <?= $value["event_name"] ?>
+                    <?= $value["carnival"] ?>
                   </strong>
                 </div>
                 <div>
@@ -61,16 +81,18 @@
                     <div class="eengg-shishir-event-card-hover-layer"></div>
                     <div class="engg-shishir-event-card-left">
                       <div class="engg-shishir-event-card-title">
-                        <h1><?= $value["event_name"] ?></h1>
+                        <h1>
+                          <?= $value["event_name"] ?>
+                        </h1>
                       </div>
                       <div class="engg-shishir-event-card-schedule">
                         <div class="engg-shishir-event-card-schedule-left">
                           <div class="engg-shishir-event-card-schedule-time">
-                            <span>Start Date</span> 
+                            <span>Start Date</span>
                             <span>
                               <?php
-                                   $dt = new DateTime($value['event_date']);
-                                   echo $dt->format('d/m/Y');  
+                              $dt = new DateTime($value['event_date']);
+                              echo $dt->format('d/m/Y');
                               ?>
                             </span>
                           </div>
@@ -78,25 +100,29 @@
                             <span>Start Time</span>
                             <span>
                               <?php
-                                   $dt = new DateTime($value['event_time']);
-                                   echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$dt->format('H:i A');   
+                              $dt = new DateTime($value['event_time']);
+                              echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $dt->format('H:i A');
                               ?>
                             </span>
                           </div>
                         </div>
                         <hr />
                         <div class="engg-shishir-event-card-schedule-right">
-                          <p><?= $value["event_loc"] ?></p>
+                          <p>
+                            <?= $value["event_loc"] ?>
+                          </p>
                         </div>
                       </div>
                       <div class="engg-shishir-event-card-description">
                         <h1>Description</h1>
-                        <p><?php echo substr($value["event_des"],0,300)."....."; ?></p>
+                        <p>
+                          <?php echo substr($value["event_des"], 0, 300) . "....."; ?>
+                        </p>
                       </div>
                     </div>
                     <div class="engg-shishir-event-card-right">
                       <div class="engg-shishir-event-card-details-btn">
-                        <a href="<?= url("/admin/event/".$value["event_id"]) ?>">View Details</a>
+                        <a href="<?= url("/admin/event/" . $value["event_id"]) ?>">View Details</a>
                       </div>
                     </div>
                   </div>
@@ -127,7 +153,11 @@
   ?>
 
 
-  <?php view("pages/Admin/Events/partials/addEvents.php"); ?>
+  <?php 
+   
+    view("pages/Admin/Events/partials/addEvents.php",compact("carnivals")); 
+    
+  ?>
 
 
 

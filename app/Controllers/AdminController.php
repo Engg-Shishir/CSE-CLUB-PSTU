@@ -7,6 +7,8 @@ use App\model\User;
 class AdminController
 {
   public function index(){
-    return view("pages/Admin/Dashboard/index.php");
+    $user = new User();
+    $settings = $user->settings();
+    return view("pages/Admin/Dashboard/index.php",compact("settings"));
   }
 }

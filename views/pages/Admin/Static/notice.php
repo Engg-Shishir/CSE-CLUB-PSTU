@@ -12,8 +12,11 @@
 
 <body>
 
-  <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+  <?php
+    $navbar = $compact["settings"];
+    $data = $compact["data"];
+  ?>
+  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header" style="">
@@ -38,14 +41,16 @@
                     <?= $item["title"] ?>
                   </td>
                   <td>
-                    <p class="card-text mb-auto"><?=nl2br(add_root_to_images($item["des"]))?></p>
+                    <p class="card-text mb-auto">
+                      <?= nl2br(add_root_to_images($item["des"])) ?>
+                    </p>
                   </td>
                   <td>
                     <a href="<?= url("/admin/notice/delete/" . $item["notice_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
                     <a target="_blank" href="<?= url("/admin/notice/edit/" . $item["notice_id"]) ?>"
                       class="btn btn-default btn-sm text-success"><i class="fa-solid fa-pen"></i></a>
-                    <a target="_blank" href="<?= assets("Upload/Notice/".$item["file_source"]) ?>"
+                    <a target="_blank" href="<?= assets("Upload/Notice/" . $item["file_source"]) ?>"
                       class="btn btn-default btn-sm text-success"><i class="fa-solid fa-file"></i></a>
                   </td>
                 </tr>

@@ -7,16 +7,25 @@
           <form action="<?= url("/admin/event"); ?>" method="POST" enctype="multipart/form-data">
             <div class="card-body">
               <div class="row">
+                <div class="col-md-12 mb-5">
+                  <div class="form-group">
+                    <?= selectForm($carnivals, "carnival_id", "select2 carnival-select"); ?>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Event Name</label>
-                    <input type="text" class="form-control" name="event_name" placeholder="Enter event name" value="<?= ietp("event_name") ?>">
+                    <input type="text" class="form-control" name="event_name" placeholder="Enter event name"
+                      value="<?= ietp("event_name") ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Event Description</label>
-                    <textarea class="form-control" name="event_loc" rows="1" placeholder="Event Location"><?= ietp("event_loc") ?></textarea>
+                    <textarea class="form-control" name="event_loc" rows="1"
+                      placeholder="Event Location"><?= ietp("event_loc") ?></textarea>
                   </div>
                 </div>
               </div>
@@ -24,19 +33,22 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Registration Date</label>
-                    <input type="date" class="form-control" name="reg_date" placeholder="Event registration Date" value="<?= ietp("reg_date") ?>">
+                    <input type="date" class="form-control" name="reg_date" placeholder="Event registration Date"
+                      value="<?= ietp("reg_date") ?>">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Event Start Date</label>
-                    <input type="date" class="form-control" name="event_date" placeholder="Event Time" value="<?= ietp("event_date") ?>">
+                    <input type="date" class="form-control" name="event_date" placeholder="Event Time"
+                      value="<?= ietp("event_date") ?>">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Event Start Time</label>
-                    <input type="time" class="form-control" name="event_time" placeholder="Event Time" value="<?= ietp("event_time") ?>">
+                    <input type="time" class="form-control" name="event_time" placeholder="Event Time"
+                      value="<?= ietp("event_time") ?>">
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -52,11 +64,12 @@
                 </div>
               </div>
 
-              <div class="row">               
+              <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Event Location</label>
-                    <textarea class="form-control" name="event_des" rows="3" placeholder="Event Description"></textarea><?= ietp("event_des") ?></textarea>
+                    <textarea class="form-control" name="event_des" rows="3" placeholder="Event Description"></textarea>
+                    <?= ietp("event_des") ?></textarea>
                   </div>
                 </div>
               </div>

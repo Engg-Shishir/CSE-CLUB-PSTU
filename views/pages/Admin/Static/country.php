@@ -11,9 +11,11 @@
 </head>
 
 <body>
-
-  <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+  <?php
+    $navbar = $comapact["settings"];
+    $data = $comapact["data"];
+  ?>
+  <?php view("./layout/Admin/navbar.php",compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header">
@@ -39,7 +41,8 @@
                     <?= $item["name"] ?>
                   </td>
                   <td>
-                    <a href="<?=  url("/admin/country/delete/".$item["country_code"]) ?>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="<?= url("/admin/country/delete/" . $item["country_code"]) ?>"
+                      class="btn btn-danger btn-sm">Delete</a>
                   </td>
                 </tr>
                 <?php

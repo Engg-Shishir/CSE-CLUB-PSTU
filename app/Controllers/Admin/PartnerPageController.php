@@ -17,7 +17,14 @@ class PartnerPageController
       $sql = "SELECT * FROM support_category_image";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
-      return view("pages/Admin/Page/support.php",compact("data"));
+
+      $settings = $user->settings();
+      $compact = [
+        "data"=>$data,
+        "settings"=>$settings
+      ];
+
+      return view("pages/Admin/Page/support.php",compact("compact"));
     }
   }
 

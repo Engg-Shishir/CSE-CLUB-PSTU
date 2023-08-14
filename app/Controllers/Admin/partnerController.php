@@ -18,7 +18,14 @@ class partnerController
       $sql = "SELECT * FROM collaborators";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
-      return view("pages/Admin/Partners/index.php",compact("data"));
+      
+      $settings = $user->settings();
+      $compact = [
+        "data"=>$data,
+        "settings"=>$settings
+      ];
+
+      return view("pages/Admin/Partners/index.php",compact("compact"));
     }
   }
 

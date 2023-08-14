@@ -2,7 +2,7 @@
   <div class="engg-shishir-navbar">
 
     <div class="engg-shishir-nav-left">
-      <a  href="<?= url('/'); ?>"><img src="<?= assets('image/Club-Logo-Blue.svg') ?>" alt="" /></a>
+      <a  href="<?= url('/'); ?>"><img src="<?= assets('Upload/Settings/'.$navbar["navLogo"]) ?>" alt="" /></a>
     </div>
 
     <div class="engg-shishir-nav-right">
@@ -39,11 +39,6 @@
             <a class="accordion__a" href="#">Partners</a>
           </div>
         </div>
-      </div>
-      <div class="accordion__item">
-        <a  class="accordion__toggle" href="<?= url("/admin/events"); ?>">
-          <i class="fas fa-cog"></i> Events
-        </a>
       </div>
 
       <div class="accordion__item">
@@ -103,6 +98,27 @@
           </div>
         </div>
       </div>
+
+      
+      <div class="accordion__item">
+        <a  class="accordion__toggle">
+          <i class="far fa-envelope"></i> Events
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+          <div class="accordion__content-container">
+            <a class="accordion__a" href="<?= url("/admin/carnivals"); ?>">Main Event</a>
+            <a class="accordion__a" href="<?= url("/admin/events"); ?>">Sub Event</a>
+            <a class="accordion__a" href="#">Sponsor</a>
+            <a class="accordion__a" href="#">Alumini</a>
+            <a class="accordion__a" href="#">Volenter</a>
+            <a class="accordion__a" href="#">Partners</a>
+          </div>
+        </div>
+      </div>
+
+
+      
 
 
       <div class="accordion__item">

@@ -14,8 +14,14 @@ class CountryController
     $user = new User();
     if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
       $data = $user->allAssoc("countrys");
+      $settings = $user->settings();
+      $comapact=[
+        "data"=>$data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/country.php", compact("data"));
+
+    return view("pages/Admin/Static/country.php", compact("comapact"));
   }
 
   public function deleteCountry($code)

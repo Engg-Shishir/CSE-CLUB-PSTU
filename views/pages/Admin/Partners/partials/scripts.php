@@ -22,6 +22,12 @@
       closeOnSelect: true
     });
 
+    $('.carnival-select').select2({
+      placeholder: 'Select Carnival',
+      closeOnSelect: true
+    });
+    
+
 
   });
 

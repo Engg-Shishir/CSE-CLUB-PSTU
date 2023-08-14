@@ -17,8 +17,14 @@ class GalleryController
       $sql = "SELECT * FROM gallerys";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
+
+      $settings = $user->settings();
+      $compact = [
+        "data" => $data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/gallery.php", compact("data"));
+    return view("pages/Admin/Static/gallery.php", compact("compact"));
   }
 
   public function deleteFile($code)

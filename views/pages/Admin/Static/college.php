@@ -12,8 +12,12 @@
 
 <body>
 
-  <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+  <?php
+    $navbar = $compact["settings"];
+    $colleges = $compact["colleges"];
+    $countrys = $compact["countrys"];
+  ?>
+  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header" style="background-color:none !important;">
@@ -30,7 +34,7 @@
             </thead>
             <tbody>
               <?php
-              foreach ($data["colleges"] as $key => $item) {
+              foreach ( $colleges as $key => $item) {
                   
                 ?>
                 <tr>
@@ -61,9 +65,8 @@
             <?php view("components/flashMessage.php"); ?>
             <form action="<?= url("/admin/college"); ?>" method="POST" enctype="multipart/form-data">
 
-               <?php  $data[2] = $data["countrys"]; ?>
               <div class="form-group small p-0">
-                <?= selectForm($data[2], "country_code", "select2 country-select"); ?>
+                <?= selectForm($countrys, "country_code", "select2 country-select"); ?>
               </div>
               <div class="row row-input">
                 <?= inputField("text", "college_code", "", "College Code", "lg postal-code-input"); ?>

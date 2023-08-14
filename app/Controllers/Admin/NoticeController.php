@@ -17,14 +17,28 @@ class NoticeController
       $sql = "SELECT * FROM notices";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
+
+      $settings = $user->settings();
+      $compact = [
+        "data" => $data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/notice.php", compact("data"));
+    return view("pages/Admin/Static/notice.php", compact("compact"));
   }
 
 
   public function noticeInsertPage()
   {
-    return view("pages/Admin/Static/insertNotice.php");
+    $user = new User();
+    if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
+
+      $settings = $user->settings();
+      $compact = [
+        "settings"=>$settings
+      ];
+    }
+    return view("pages/Admin/Static/insertNotice.php", compact("compact"));
   }
 
   public function deleteNotice($code)

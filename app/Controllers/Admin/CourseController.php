@@ -17,8 +17,14 @@ class CourseController
       $sql = "SELECT * FROM courses";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
+
+      $settings = $user->settings();
+      $compact = [
+        "data" => $data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/course.php", compact("data"));
+    return view("pages/Admin/Static/course.php", compact("compact"));
   }
 
   public function deleteCourse($code)

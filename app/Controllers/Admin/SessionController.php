@@ -17,8 +17,14 @@ class SessionController
       $sql = "SELECT * FROM sessions";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
+
+      $settings = $user->settings();
+      $compact = [
+        "data" => $data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/session.php", compact("data"));
+    return view("pages/Admin/Static/session.php", compact("compact"));
   }
 
   public function deleteSession($code)

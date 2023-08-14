@@ -17,7 +17,14 @@ class SettingController
       $sql = "SELECT * FROM settings";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
-      return view("pages/Admin/Settings/index.php",compact("data"));
+
+      $settings = $user->settings();
+      $compact = [
+        "data"=>$data,
+        "settings"=>$settings
+      ];
+
+      return view("pages/Admin/Settings/index.php",compact("compact"));
     }
   }
 

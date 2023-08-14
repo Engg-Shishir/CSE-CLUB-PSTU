@@ -17,8 +17,14 @@ class FaqController
       $sql = "SELECT * FROM faqs";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
+
+      $settings = $user->settings();
+      $compact = [
+        "data" => $data,
+        "settings"=>$settings
+      ];
     }
-    return view("pages/Admin/Static/faq.php", compact("data"));
+    return view("pages/Admin/Static/faq.php", compact("compact"));
   }
 
   public function deleteFaq($code)

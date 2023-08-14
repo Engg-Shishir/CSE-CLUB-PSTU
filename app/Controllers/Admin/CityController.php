@@ -22,19 +22,14 @@ class CityController
       $citys = $stmt->fetchAll();
 
     }
-
-
-
-
-
-    $data = [
+    $settings = $user->settings();
+    $compact = [
       "citys" => $citys,
-      "countrys" => $countrys
+      "countrys" => $countrys,
+      "settings"=>$settings
     ];
 
-    // parray($countrys);
-
-    return view("pages/Admin/Static/city.php", compact("data"));
+    return view("pages/Admin/Static/city.php", compact("compact"));
   }
 
   public function deleteCity($code)

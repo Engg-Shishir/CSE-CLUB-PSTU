@@ -12,8 +12,11 @@
 
 <body>
 
-  <!-- Navigation Part -->
-  <?php view("./layout/Admin/navbar.php"); ?>
+  <?php
+    $navbar = $compact["settings"];
+    $data = $compact["data"];
+  ?>
+  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header" style="background-color:none !important;">
@@ -37,7 +40,8 @@
                   <td>
                     <a href="<?= url("/admin/session/delete/" . $item["session_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
-                    <a onclick='sessionEdit(<?= $item["session_id"]  ?>);' class="btn btn-default btn-sm"><i class="fa-solid fa-pen"></i></a>
+                    <a onclick='sessionEdit(<?= $item["session_id"] ?>);' class="btn btn-default btn-sm"><i
+                        class="fa-solid fa-pen"></i></a>
                   </td>
                 </tr>
                 <?php
@@ -71,7 +75,7 @@
         </div>
       </div>
     </div>
-     
+
   </div>
   <!-- Javacript Part -->
   <?php view("pages/Admin/Static/scripts.php"); ?>

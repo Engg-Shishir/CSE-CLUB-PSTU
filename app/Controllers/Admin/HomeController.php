@@ -15,7 +15,14 @@ class HomeController
     $sql = "SELECT * FROM sliders";
     $stmt = $user->execute($sql);
     $data = $stmt->fetchAll();
-    return view("pages/Admin/Static/homeAbout.php", compact("data"));
+    
+    $settings = $user->settings();
+    $compact = [
+      "data"=>$data,
+      "settings"=>$settings
+    ];
+
+    return view("pages/Admin/Static/homeAbout.php", compact("compact"));
   }
   public function insertAbout()
   {
