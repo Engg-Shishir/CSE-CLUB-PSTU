@@ -1,5 +1,4 @@
-<div class="row card">
-  <footer>
+<footer>
     <div class="footer-top">
       <div class="footer-top-box">
         <div class="footer-top-box-right">
@@ -46,4 +45,3 @@
       <p><?= $footer["copyright"] ?></p>
     </div>
   </footer>
-</div>

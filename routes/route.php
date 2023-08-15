@@ -23,6 +23,7 @@ use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
 use App\Controllers\MailController;
+use App\Controllers\Student\StudentController;
 use App\Controllers\UserController;
 use App\master\Router;
 
@@ -47,7 +48,6 @@ Router::group(['middleware' => \App\Middlewares\Guest::class], function () {
 
 
 
-
 /**
  * user LoginAuth. This middleware apply token verification, usally for Cross site protection
  */
@@ -59,6 +59,8 @@ Router::group(['middleware' => \App\Middlewares\LoginAuth::class], function () {
 // This url only can access when any user logedin but his profile information
 // is not compleated yet. Without loged in no one can access this route.because a session protection added here. This session only set when user loged in.
 Router::get('userdetails',[UserController::class,"userdetails"]);
+Router::post('userdetails',[UserController::class,"insertDetails"]);
+Router::get('user',[StudentController::class,"index"]);
 
 /**
  * User Logout syatem
@@ -74,6 +76,14 @@ Router::get('mailverify/{sender}/{token}',[MailController::class,"emailVerificat
 
 
 Router::get('events',[EventController::class,"events"]);
+
+
+
+
+
+
+
+
 
 /**
  * Only authenticated admin user can access this route
@@ -192,4 +202,7 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
 });
+
+
+
 

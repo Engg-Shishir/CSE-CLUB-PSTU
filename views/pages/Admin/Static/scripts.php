@@ -17,6 +17,11 @@
       closeOnSelect: true
     });
 
+    $('.details-select').select2({
+      placeholder: 'Select Option',
+      closeOnSelect: true
+    });
+
     $('.carnival-select').select2({
       placeholder: 'Select Carnival',
       closeOnSelect: true,

@@ -77,17 +77,8 @@ class LoginController
 
 
       } else {
-        // $_SESSION["user_setails_status"] = "ON";
-        // redirects("/userdetails");
-        if ($_SESSION["auth_role"] == 1) {
-          redirects("/user");
-        } else if ($_SESSION["auth_role"] == 2) {
-          redirects("/admin");
-        } else if ($_SESSION["auth_role"] == 3) {
-          redirects("/teacher");
-        } else if ($_SESSION["auth_role"] == 4) {
-          redirects("/alumini");
-        }
+        $_SESSION["user_setails_status"] = "ON";
+        redirects("/userdetails");
       }
 
     } else {

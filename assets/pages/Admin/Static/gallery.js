@@ -24,7 +24,7 @@ $("document").ready(function () {
       var KB = Math.ceil(fileSize / 1024);
       var MB = Math.ceil(fileSize / 1024000);
       var ext = getExtension(fileName);
-      $("#fileLevel").text(fileName + "~~~~~ Size: " + KB + " KB");
+      $("#fileLevel").text(KB + " KB, ");
 
       var extentionBox = ["png", "jpg", "jpeg", "svg", "gif"];
       if ($.inArray(ext, extentionBox) >= 0) {

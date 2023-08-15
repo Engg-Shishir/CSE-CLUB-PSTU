@@ -1,6 +1,6 @@
 <div class="engg-shishir-fixed">
   <div class="fixed-left-logo">
-    <a href="/"><img src="<?= assets('Upload/Settings/'.$heroSec["logo"]) ?>" alt="" /></a>
+    <a href="<?= url("/") ?>"><img src="<?= assets('Upload/Settings/'.$heroSec["logo"]) ?>" alt="" /></a>
   </div>
   <div class="engg-shishir-fixed-content">
     <div class="engg-shishir-fixed-content-left">
