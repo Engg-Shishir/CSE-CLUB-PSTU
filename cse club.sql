@@ -438,15 +438,15 @@ CREATE TABLE `message` (
 
 
 
-DROP TABLE IF EXISTS messages;
+
 CREATE TABLE `event_sponsor` (
   `id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
-  `event_id` int UNSIGNED,
+  `carnival_id` int UNSIGNED,
   `colla_id` integer UNSIGNED,
   `function` VARCHAR(300) DEFAULT NULL,
   primary key (id),
-  FOREIGN KEY (`event_id`) REFERENCES `events`(`event_id`) ON DELETE CASCADE,
-  FOREIGN KEY (`colla_id`) REFERENCES `collaborators`(`colla_id`)  ON DELETE SET NULL
+  FOREIGN KEY (`carnival_id`) REFERENCES `carnivals`(`carnival_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`colla_id`) REFERENCES `collaborators`(`colla_id`)  ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 
@@ -460,4 +460,17 @@ CREATE TABLE `carnivals` (
   `start` timestamp DEFAULT CURRENT_TIMESTAMP,
   `end` timestamp DEFAULT CURRENT_TIMESTAMP,
   primary key (carnival_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
+
+DROP TABLE IF EXISTS event_sponsor;
+CREATE TABLE `event_sponsor` (
+  `id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
+  `carnival_id` int UNSIGNED,
+  `colla_id` integer UNSIGNED,
+  `function` VARCHAR(300) DEFAULT NULL,
+  primary key (id),
+  FOREIGN KEY (`carnival_id`) REFERENCES `carnivals`(`carnival_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`colla_id`) REFERENCES `collaborators`(`colla_id`)  ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

@@ -31,7 +31,7 @@ Router::get('/', [IndexController::class,"home"]);
 Router::get('welcome/partner', [IndexController::class,"welcomePartner"]);
 Router::post('message', [MessageController::class,"send"]);
 Router::get('contact', [MessageController::class,"conatctPage"]);
-Router::get('events', [EventsController::class,"events"]);
+Router::get('event/{carnival}', [EventsController::class,"events"]);
 
 
 
@@ -164,17 +164,30 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   
   
   Router::get('admin/events',[EventController::class,"events"]);
+  Router::get('admin/events/sponsor',[EventController::class,"eventSponsor"]);
+  Router::post('admin/events/sponsor',[EventController::class,"eventSponsorAdd"]);
   Router::post('admin/event',[EventController::class,"insertEvents"]);
   Router::get('admin/event/status/{id}',[EventController::class,"statusEvent"]);
   Router::get('admin/carnivals', [EventController::class,"carnivals"]);
   Router::post('admin/carnivals', [EventController::class,"insertCarnivals"]);
-  Router::get('admin/carnivals/delete/{id}',[EventController::class,"deleteCarnival"]);
+  Router::get('admin/carnival/delete/{id}',[EventController::class,"deleteCarnival"]);
+  Router::get('admin/carnival/showoff/{id}',[EventController::class,"showOffCarnival"]);
+  Router::get('admin/carnival/status/{id}',[EventController::class,"statusCarnival"]);
+
+
+
+
 
 
   Router::get('admin/partnerpage',[PartnerPageController::class,"partnerPage"]);
   Router::post('admin/partnerpage',[PartnerPageController::class,"insertSpnsorCategory"]);
   Router::get('admin/event/category/status/{id}',[PartnerPageController::class,"statusEventCategory"]);
   Router::get('admin/event/category/delete/{id}',[PartnerPageController::class,"deleteEventCategory"]);
+
+
+
+
+
 
 
 

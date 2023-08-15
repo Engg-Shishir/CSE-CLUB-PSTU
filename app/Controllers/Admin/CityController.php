@@ -34,6 +34,7 @@ class CityController
 
   public function deleteCity($code)
   {
+    
     $objs = new User();
     $res = $objs->delete("citys", "postal_code", $code);
     $_SESSION["success_message"] = "City Delete Successfully";

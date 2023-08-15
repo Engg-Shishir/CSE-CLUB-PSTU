@@ -29,7 +29,6 @@
               <tr>
                 <th>Carnival</th>
                 <th>Start Date</th>
-                <th>End Date</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -48,13 +47,23 @@
                     <?= $item["start"] ?>
                   </td>
                   <td>
-                    <?= $item["end"] ?>
-                  </td>
-                  <td>
-                    <a href="<?= url("/admin/carnivals/delete/" . $item["carnival_id"]) ?>"
+                    <a href="<?= url("/admin/carnival/delete/" . $item["carnival_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
                     <a onclick='collegeEdit(<?= $item["carnival_id"] ?>);' class="btn btn-default btn-sm"><i
                         class="fa-solid fa-pen"></i></a>
+                    <?php
+                    if ($item["status"] == 1) {
+                      ?>
+                      <a href="<?= url("/admin/carnival/status/" . $item["carnival_id"]) ?>"
+                        class="btn btn-default btn-sm"><i class="fa-solid fa-circle-check text-success" ></i></a>
+                      <?php
+                    } else {
+                      ?>
+                      <a href="<?= url("/admin/carnival/status/" . $item["carnival_id"]) ?>"
+                        class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-circle-check"></i></a>
+                      <?php
+                    }
+                    ?>
                   </td>
                 </tr>
                 <?php

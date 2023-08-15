@@ -4,29 +4,16 @@
     <span class="line"></span>
   </div>
   <div class="sponsor-card-box">
-    <a href="">
-      <img src="https://cseclub.netlify.app/Image/sponsor/vibasoft.svg" alt="">
-      <span>Title Sponsor</span>
-    </a>
-    <a href="">
-      <img src="https://cseclub.netlify.app/Image/sponsor/appscode.svg" alt="">
-      <span>Co-Sponsor</span>
-    </a>
-    <a href="">
-      <img src="https://cseclub.netlify.app/Image/sponsor/brain.svg" alt="">
-      <span>Title Sponsor</span>
-    </a>
-    <a href="">
-      <img src="https://cseclub.netlify.app/Image/sponsor/nescafe.png" alt="">
-      <span>Co-Sponsor</span>
-    </a>
-    <a href="">
-      <img src="https://cseclub.netlify.app/Image/sponsor/robi.png" alt="">
-      <span>Title Sponsor</span>
-    </a>
-    <a href="">
-      <img src="https://cseclub.netlify.app/Image/sponsor/brain.svg" alt="">
-      <span>Co-Sponsor</span>
-    </a>
+     <?php   
+       foreach ($sponsor as $key => $value) {
+        ?>
+          <a href="<?= $value["web"] ?>">
+            <img src="<?= assets("Upload/Partners/".$value["image"]) ?>" alt="">
+            <span><?= $value["function"] ?></span>
+          </a>
+        <?php
+       }
+     
+     ?>
   </div>
 </div>

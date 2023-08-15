@@ -8,12 +8,14 @@
   <!-- CSS Part -->
   <?php view("pages/Admin/Settings/partials/links.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
+  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/college.css'); ?>" />
 </head>
 
 <body>
 <?php
     $navbar = $compact["settings"];
     $data = $compact["data"];
+    $carnivals = $compact["carnivals"];
   ?>
   <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
@@ -21,12 +23,11 @@
       <div class="row">
         <div class="col-md-12">
           <?php 
-            if(isset($data[0])){
-              $formData = $data[0];
-            }else{
-              $formData=[];
-            }
-            view("pages/Admin/Settings/Partials/settingForm.php",compact("formData"))  
+              $compact=[
+                "formData"=>$data[0],
+                "carnivals"=>$carnivals
+              ];
+            view("pages/Admin/Settings/Partials/settingForm.php",compact("compact"))  
           ?>
         </div>
       </div>

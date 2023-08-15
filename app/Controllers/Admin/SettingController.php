@@ -18,11 +18,17 @@ class SettingController
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
 
+      $sql = "SELECT * FROM carnivals";
+      $stmt = $user->execute($sql);
+      $carnivals = $stmt->fetchAll();
+
       $settings = $user->settings();
       $compact = [
         "data"=>$data,
-        "settings"=>$settings
+        "settings"=>$settings,
+        "carnivals"=>$carnivals
       ];
+      
 
       return view("pages/Admin/Settings/index.php",compact("compact"));
     }
@@ -50,7 +56,7 @@ class SettingController
       "video" => trim($video["fname"]),
       "favicon" => trim($favicon["fname"]),
       "notice_status" => trim($_POST["notice_status"]),
-      "event_status" => trim($_POST["event_status"]),
+      "nav_carnival_id" => trim($_POST["nav_carnival_id"]),
       "project_section_text" => trim($_POST["project_section_text"]),
       "partners_section_text" => trim($_POST["partners_section_text"]),
       "short_des" => trim($_POST["short_des"]),
@@ -58,7 +64,6 @@ class SettingController
       "meta_author" => trim($_POST["meta_author"]),
       "meta_keywords" => trim($_POST["meta_keywords"])
     ];
-
 
 
     /*************************************************************
@@ -103,7 +108,7 @@ class SettingController
           fileStore($video["source"], "assets/Upload/Settings/" . $data["video"]);
   
           
-          $sql = "INSERT INTO settings (`title`,`logo`,`navLogo`,`video`,`favicon`,`notice_status`,`event_status`,`project_section_text`,`partners_section_text`,`short_des`,`description`,`meta_author`,`meta_keywords`) VALUES (:title,:logo,:navLogo,:video,:favicon,:notice_status,:event_status,:project_section_text,:partners_section_text,:short_des,:description,:meta_author,:meta_keywords)";
+          $sql = "INSERT INTO settings (`title`,`logo`,`navLogo`,`video`,`favicon`,`notice_status`,`nav_carnival_id`,`project_section_text`,`partners_section_text`,`short_des`,`description`,`meta_author`,`meta_keywords`) VALUES (:title,:logo,:navLogo,:video,:favicon,:notice_status,:nav_carnival_id,:project_section_text,:partners_section_text,:short_des,:description,:meta_author,:meta_keywords)";
         
           
           $run = $user->insert($sql, $data); // $run = 1 or 0
@@ -114,6 +119,8 @@ class SettingController
           }
           redirects("/admin/setting");
         }else{
+
+
           
           /*************************************************************
           *?  Linkedin     : engg-shishir
@@ -143,7 +150,7 @@ class SettingController
               video = :video,
               favicon = :favicon,
               notice_status = :notice_status,
-              event_status = :event_status,
+              nav_carnival_id = :nav_carnival_id,
               project_section_text = :project_section_text,
               partners_section_text = :partners_section_text,
               short_des = :short_des,

@@ -1,28 +1,57 @@
-<?php  
+<?php
 
 
 namespace App\Controllers;
+
 use App\model\User;
 
-class EventsController{
+class EventsController
+{
 
-  public function events(){
+  public function events($carnival)
+  {
 
     $user = new User();
-    $sql = "SELECT * FROM events";
-    $stmt = $user->execute($sql);
+
+    $sql = "SELECT events.*,c.*
+    FROM events INNER JOIN carnivals AS c ON c.carnival_id =events.carnival_id
+    WHERE c.slug=? AND events.status=?";
+    $stmt = $user->execute($sql,[$carnival,1]);
     $events = $stmt->fetchAll();
 
-    $settings = $user->settings();
+    $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
+    FROM settings
+    LEFT JOIN carnivals AS ca
+    ON settings.nav_carnival_id = ca.carnival_id";
+    $stmt = $user->execute($sql);
+    $settings = $stmt->fetchAll();
 
-    $compact=["events"=>$events,"settings"=>$settings];
+
+    $user = new User();
+    $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=?";
+    $stmt = $user->execute($sql,[1]);
+    $carnivals = $stmt->fetchAll();
 
 
-    return view("pages/Event/index.php",compact("compact"));
+
+    $sql = "SELECT * FROM collaborators AS c
+            INNER JOIN event_sponsor AS es ON es.colla_id= c.colla_id
+            WHERE es.carnival_id=?";
+    $stmt = $user->execute($sql,[$events[0]["carnival_id"]]);
+    $sponsor = $stmt->fetchAll();
+
+
+
+
+
+
+    $compact = ["events" => $events, "settings" => $settings,"carnivals" => $carnivals,"sponsor" => $sponsor];
+
+    return view("pages/Event/index.php", compact("compact"));
   }
 
 
-  
+
 
 
   public function welcomePartner()
@@ -44,11 +73,10 @@ class EventsController{
     (SELECT COUNT(*) FROM collaborators) AS colla_count";
     $stmt = $user->execute($sql);
     $count = $stmt->fetchAll();
-    
 
-    $compact=["category"=>$eventCategorys,"settings"=>$settings,"count"=>$count];
 
-    return view("pages/Partner/index.php",compact("compact"));
+    $compact = ["category" => $eventCategorys, "settings" => $settings, "count" => $count];
+
+    return view("pages/Partner/index.php", compact("compact"));
   }
 }
-

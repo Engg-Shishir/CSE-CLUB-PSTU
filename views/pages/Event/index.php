@@ -9,22 +9,29 @@
   <?php view("pages/Event/partials/links.php"); ?>
 </head>
 
-<body>
+<body> 
   <?php
-  $settings = $compact["settings"];
+  $settings = $compact["settings"][0];
   $footer = [
     "navLogo" => $settings["navLogo"],
     "short_des" => $settings["short_des"],
     "copyright" => $settings["copyright"]
   ];
-  $navbar = [
-    "navLogo" => $settings["navLogo"]
+  $navbar=[
+    "navLogo"=>$settings["navLogo"],
+    "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
+    "carnivals"=>$compact["carnivals"]
   ];
+
+  $sponsor = $compact["sponsor"];
+  $events = $compact["events"];
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
 
-    <?php view("pages/Event/partials/sponsor.php"); ?>
+    <?php view("pages/Event/partials/sponsor.php",compact("sponsor")); ?>
+    <?php view("pages/Event/partials/eventCard.php",compact("events")); ?>
+
 
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>

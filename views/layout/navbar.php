@@ -1,11 +1,15 @@
-
 <div class="container">
   <div class="engg-shishir-navbar">
     <div class="engg-shishir-nav-left">
-      <a href="<?= url('/'); ?>"><img src="<?= assets('Upload/Settings/'.$navbar["navLogo"]) ?>" alt="" /></a>
+      <a href="<?= url('/'); ?>"><img src="<?= assets('Upload/Settings/' . $navbar["navLogo"]) ?>" alt="" /></a>
     </div>
     <div class="engg-shishir-nav-right">
-      <a target="_blank" href="./events" class="engg-shishir-nav-right-event">It carnival 2023</a>
+      <?php
+
+      if ($navbar["carnival"][0] !== null) { ?>
+        <a target="_blank" href="<?= url("/event/" . $navbar["carnival"][1]) ?>" class="engg-shishir-nav-right-event"><?= $navbar["carnival"][0] ?></a>
+      <?php }
+      ?>
       <a href="<?= url("/login") ?>" class="engg-shishir-nav-right-login">Login</a>
       <div class="engg-shishir-nav-right-menu" onclick="hamburger()">
         <span class="text">MENU</span>
@@ -27,36 +31,16 @@
       </div>
       <div class="tab-content">
         <ul class="tab-li-content engg-shishir-fullnav-left-ul tab-li-content-active">
-          <li class="shishir-navitem">
-            <a target="_blank" href="./events" class="shishir-navLink">
-              <p>IT Carinival 2023</p>
-              <p>IT Carinival 2023</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
-              <p>UI UX Development</p>
-              <p>UI UX Development</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
-              <p>Cyber Security</p>
-              <p>Cyber Security</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
-              <p>Digital Marketing</p>
-              <p>Digital Marketing</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
-              <p>ICPC Bootcamp</p>
-              <p>ICPC Bootcamp</p>
-            </a>
-          </li>
+          <?php
+          foreach ($navbar["carnivals"] as $key => $value) { ?>
+            <li class="shishir-navitem">
+              <a target="_blank" href="<?= url("/event/".$value["slug"]) ?>" class="shishir-navLink">
+                <p><?= $value["title"] ?></p>
+                <p><?= $value["title"] ?></p>
+              </a>
+            </li>
+          <?php }
+          ?>
         </ul>
         <ul class="tab-li-content engg-shishir-fullnav-right-ul">
           <li class="shishir-navitem">
@@ -111,7 +95,7 @@
       </div>
     </div>
     <div class="engg-shishir-fullnav-content">
-    <!-- <button class="closenav"  onclick="hamburger()">Close X</button> -->
+      <!-- <button class="closenav"  onclick="hamburger()">Close X</button> -->
     </div>
   </div>
 </div>

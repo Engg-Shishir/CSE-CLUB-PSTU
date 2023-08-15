@@ -27,15 +27,57 @@ class EventController
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
 
-      $sql = "SELECT title As carnival FROM carnivals";
+      $sql = "SELECT * FROM carnivals";
       $stmt = $user->execute($sql);
       $carnivals = $stmt->fetchAll();
       
       $settings = $user->settings();
 
-      $compact = ["data" => $data, "settings" => $settings];
-
+      $compact = ["data" => $data, "settings" => $settings,"carnivals" => $carnivals];
       return view("pages/Admin/Events/index.php", compact("compact"));
+    } else {
+      redirects("/");
+    }
+  }
+  public function eventSponsor()
+  {
+    $user = new User();
+    if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
+
+      $sql = "SELECT 
+              es.function,
+              co.name,
+              co.web,
+              co.image,
+              ca.title,
+              ca.slug,
+              ca.start,
+              ca.end
+              FROM event_sponsor AS es 
+              INNER JOIN carnivals AS ca ON ca.carnival_id =es.carnival_id
+              INNER JOIN collaborators AS co ON co.colla_id=es.colla_id";
+      $stmt = $user->execute($sql);
+      $data = $stmt->fetchAll();
+      
+
+      $sql = "SELECT * FROM carnivals";
+      $stmt = $user->execute($sql);
+      $carnivals = $stmt->fetchAll();
+
+      $sql = "SELECT colla_id,name FROM collaborators";
+      $stmt = $user->execute($sql);
+      $collaborators = $stmt->fetchAll();
+
+
+      $settings = $user->settings();
+      $compact = [
+                   "data" => $data, 
+                   "settings" => $settings, 
+                   "carnivals" => $carnivals,
+                   "collaborators" => $collaborators
+                 ];
+
+      return view("pages/Admin/Events/eventSponsor.php", compact("compact"));
     } else {
       redirects("/");
     }
@@ -137,9 +179,10 @@ class EventController
 
 
         $user = new User();
-        $sql = "INSERT INTO carnivals (`title`,`start`,`end`,`banner`) VALUES (:title,:start,:end,:banner)";
+        $sql = "INSERT INTO carnivals (`title`,`start`,`end`,`banner`,`slug`) VALUES (:title,:start,:end,:banner,:slug)";
 
         $data["banner"] = $NewFileName;
+        $data +=["slug"=>$slug];
 
         $run = $user->insert($sql, $data); // $run = 1 or 0
         if ($run) {
@@ -154,6 +197,38 @@ class EventController
     }
 
   }
+  public function eventSponsorAdd()
+  {
+
+    $data = [
+      "carnival_id" => $_POST["carnival_id"],
+      "colla_id" => $_POST["colla_id"],
+      "function" => $_POST["function"]
+    ];
+
+    if (isBlank($data)) {
+      $_SESSION["error_message"] = "All field required";
+      redirects("/admin/events/sponsor");
+    } else {
+      $user = new User();
+      $sql = "INSERT INTO event_sponsor (`carnival_id`,`colla_id`,`function`) VALUES (:carnival_id,:colla_id,:function)";
+
+
+
+      $run = $user->insert($sql, $data); // $run = 1 or 0
+      if ($run) {
+        $_SESSION["success_message"] = "Sponsor Added Successully";
+        unsetAll($data);
+      } else {
+        $_SESSION["error_message"] = "Something going wrong!";
+      }
+
+      redirects("/admin/events/sponsor");
+    }
+
+  }
+
+  
 
 
   function statusEvent($id)
@@ -178,6 +253,30 @@ class EventController
     redirects("/admin/events");
   }
 
+  function statusCarnival($id)
+  {
+
+    $objs = new User();
+    $fetch = $objs->byId("carnivals", "carnival_id", $id);
+
+    if ($fetch["status"] == 1) {
+      $status = 0;
+    } else {
+      $status = 1;
+    }
+
+    $DB = new User();
+    $sql = "UPDATE carnivals set status=:status WHERE carnival_id=:carnival_id";
+    $data = ["status" => $status, "carnival_id" => $id];
+    // unlinkFile("assets/Upload/Partners/".$fetch["image"]);
+    // $res = $objs->delete("collaborators", "colla_id", $id);
+    $DB->updateTable($sql, $data);
+    $_SESSION["success_message"] = "Status Updated";
+    redirects("/admin/carnivals");
+  }
+
+  
+
   function deleteCarnival($id){
     $objs = new User();
     $fetch = $objs->byId("carnivals","carnival_id",$id);
@@ -187,5 +286,27 @@ class EventController
     $_SESSION["success_message"] = "Delete Successfully";
     redirects("/admin/carnivals");
   }
+
+  function showOffCarnival($id){
+
+    $objs = new User();
+    $fetch = $objs->byId("carnivals", "carnival_id", $id);
+
+    if ($fetch["run"] == 1) {
+      $run = 0;
+    } else {
+      $run = 1;
+    }
+
+    $DB = new User();
+    $sql = "UPDATE carnivals set run=:run WHERE carnival_id=:carnival_id";
+    $data = ["run" => $run, "carnival_id" => $id];
+
+    $DB->updateTable($sql, $data);
+    $_SESSION["success_message"] = "Updated";
+    redirects("/admin/carnivals");
+  }
+
+  
 
 }

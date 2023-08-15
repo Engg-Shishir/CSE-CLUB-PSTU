@@ -9,14 +9,17 @@
   <?php view("pages/Login/links.php"); ?>
 </head>
 <body>
-  <?php  ;
+  <?php 
+    $settings = $compact["settings"][0];
     $footer=[
       "navLogo"=>$settings["navLogo"],
       "short_des"=>$settings["short_des"],
       "copyright"=>$settings["copyright"]
     ];
     $navbar=[
-      "navLogo"=>$settings["navLogo"]
+      "navLogo"=>$settings["navLogo"],
+      "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
+      "carnivals"=>$compact["carnivals"]
     ];
   ?>
   <!-- Navigation Part -->

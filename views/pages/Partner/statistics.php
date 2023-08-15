@@ -1,5 +1,5 @@
 <?php  
-$count = $count[0];
+ $count = $count[0];
 ?>
 
 <div class="row row-statistics">

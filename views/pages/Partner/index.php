@@ -14,15 +14,19 @@
 
 <body>
   <?php
-  $settings = $compact["settings"];
-  $footer = [
-    "navLogo" => $settings["navLogo"],
-    "short_des" => $settings["short_des"],
-    "copyright" => $settings["copyright"]
+  $settings = $compact["settings"][0];
+  $footer=[
+    "navLogo"=>$settings["navLogo"],
+    "short_des"=>$settings["short_des"],
+    "copyright"=>$settings["copyright"]
   ];
-  $navbar = [
-    "navLogo" => $settings["navLogo"]
+  $navbar=[
+    "navLogo"=>$settings["navLogo"],
+    "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
+    "carnivals"=>$compact["carnivals"]
   ];
+
+
   $category = $compact["category"];
   $count = $compact["count"];
   ?>
@@ -49,7 +53,7 @@
     <?php view("pages/Partner/form.php"); ?>
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
-  <?php view("pages/Partner/scripts.php"); ?>
+  <?php view("pages/Partner/scripts.php",compact("count")); ?>
   <script>
     $(document).ready(function () {
       $("#messageFormBtn").click(function (e) {

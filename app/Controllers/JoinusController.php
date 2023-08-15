@@ -16,9 +16,23 @@ class JoinusController
      *!  Purpose      : fetch site settings info
      *************************************************************/
     $user = new User();
-    $settings = $user->settings();
-    $table = new User();
-    return view("pages/Joinus/index.php",compact("settings"));
+    $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
+    FROM settings
+    LEFT JOIN carnivals AS ca
+    ON settings.nav_carnival_id = ca.carnival_id";
+    $stmt = $user->execute($sql);
+    $settings = $stmt->fetchAll();
+
+
+    $user = new User();
+    $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=1";
+    $stmt = $user->execute($sql);
+    $carnivals = $stmt->fetchAll();
+
+
+    $compact=["settings"=>$settings,"carnivals"=>$carnivals];
+
+    return view("pages/Joinus/index.php",compact("compact"));
   }
   public function registration()
   {

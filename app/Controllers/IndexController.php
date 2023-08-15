@@ -31,9 +31,22 @@ class IndexController{
     *!  Purpose      : fetch site settings info
     *   Details      : 
     *************************************************************/
-    $sql = "SELECT * FROM settings";
+
+
+    $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
+    FROM settings
+    LEFT JOIN carnivals AS ca
+    ON settings.nav_carnival_id = ca.carnival_id";
     $stmt = $user->execute($sql);
     $settings = $stmt->fetchAll();
+
+
+    $user = new User();
+    $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=1";
+    $stmt = $user->execute($sql);
+    $carnivals = $stmt->fetchAll();
+
+
 
 
     /*************************************************************
@@ -41,7 +54,7 @@ class IndexController{
     *!  Purpose      : Bind all fetching array in a single array
     *   Details      : since compact support single variable
     *************************************************************/
-    $compact=["partners"=>$partners,"projects"=>$projects,"settings"=>$settings];
+    $compact=["partners"=>$partners,"projects"=>$projects,"settings"=>$settings,"carnivals"=>$carnivals];
 
 
 
@@ -61,7 +74,19 @@ class IndexController{
      *!  Purpose      : fetch site settings info
      *************************************************************/
     $user = new User();
-    $settings = $user->settings();
+
+    $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
+    FROM settings
+    LEFT JOIN carnivals AS ca
+    ON settings.nav_carnival_id = ca.carnival_id";
+    $stmt = $user->execute($sql);
+    $settings = $stmt->fetchAll();
+
+
+    $user = new User();
+    $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=1";
+    $stmt = $user->execute($sql);
+    $carnivals = $stmt->fetchAll();
 
     $sql = "SELECT * FROM support_category_image";
     $stmt = $user->execute($sql);
@@ -75,7 +100,7 @@ class IndexController{
     $count = $stmt->fetchAll();
     
 
-    $compact=["category"=>$eventCategorys,"settings"=>$settings,"count"=>$count];
+    $compact=["category"=>$eventCategorys,"settings"=>$settings,"carnivals"=>$carnivals,"count"=>$count];
 
     return view("pages/Partner/index.php",compact("compact"));
   }

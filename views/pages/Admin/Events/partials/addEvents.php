@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Event Description</label>
+                    <label for="exampleInputPassword1">Event Location</label>
                     <textarea class="form-control" name="event_loc" rows="1"
                       placeholder="Event Location"><?= ietp("event_loc") ?></textarea>
                   </div>
@@ -67,7 +67,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Event Location</label>
+                    <label for="exampleInputPassword1">Event Description</label>
                     <textarea class="form-control" name="event_des" rows="3" placeholder="Event Description"></textarea>
                     <?= ietp("event_des") ?></textarea>
                   </div>

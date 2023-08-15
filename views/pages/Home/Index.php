@@ -30,8 +30,12 @@
     "image" => $compact["partners"],
     "text" => $settings["partners_section_text"]
   ];
+
+  
   $navbar=[
-    "navLogo"=>$settings["navLogo"]
+    "navLogo"=>$settings["navLogo"],
+    "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
+    "carnivals"=>$compact["carnivals"]
   ];
   // Footer variable
   $footer = $settings;

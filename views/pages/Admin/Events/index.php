@@ -31,7 +31,7 @@
     "navLogo" => $settings["navLogo"]
   ];
   $data = $compact["data"];
-  // echo"<h1>".$carnivals[0][0]."</h1>";
+  $carnivals=$compact["carnivals"];
   ?>
   <!-- Navigation Part -->
   <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
@@ -139,7 +139,7 @@
     <!-- Javacript Part -->
   </div>
 
-  <?php view("pages/Admin/Partners/partials/scripts.php"); ?>
+  <?php view("pages/Admin/Static/scripts.php"); ?>
 
   <?php
   if (isset($_SESSION["error_message"]) && $_SESSION["error_message"] !== "") { ?>
@@ -153,12 +153,7 @@
   ?>
 
 
-  <?php 
-   
-    view("pages/Admin/Events/partials/addEvents.php",compact("carnivals")); 
-    
-  ?>
-
+  <?php view("pages/Admin/Events/partials/addEvents.php",compact("carnivals")); ?>
 
 
 

@@ -18,7 +18,7 @@
     </div>
     <div class="row px-5">
       <div class="flex-row">
-        <p>Already account ? please </p>
+        <h3>Already account ? please </h3>
         <a href="<?= url("/login") ?>">Signin</a>
       </div>
     </div>

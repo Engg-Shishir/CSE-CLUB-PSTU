@@ -5,7 +5,6 @@
 <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-<script src="<?= vendor("adminlte/dist/js/adminlte.js"); ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 <script>
@@ -13,32 +12,42 @@
 </script>
 <script>
   $(document).ready(function () {
-    collegeEdit = function (x) {
-      // $(".editBox").slideToggle();
-    }
-
-    $('.country-select').select2({
+   
+    $('.carnival-select').select2({
       placeholder: 'Select Country',
       closeOnSelect: true
     });
 
-
-  });
-
-  $(document).ready(function () {
-    $('.summernote').summernote({
-      height: 100,
-      toolbar: [
-        ['style', ['style']],
-        ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-        // [ 'fontname', [ 'fontname' ] ],
-        ['fontsize', ['fontsize']],
-        ['color', ['color']],
-        ['para', ['ol', 'ul', 'paragraph']],
-        ['table', ['table']],
-        ['view', ['undo', 'redo', 'codeview', 'help']]
-      ]
+    $('.carnival-select').select2({
+      placeholder: 'Select Carnival',
+      closeOnSelect: true,
+      // This line add for select2 working properly in
+      dropdownParent: $("#eventAddModal")
     });
+
+    $('.select2').select2({
+      placeholder: '',
+      closeOnSelect: true
+    });
+
+
+    
   });
 
+  $(document).ready(function() {
+      $('.summernote').summernote({
+        height: 100,
+        toolbar: [
+            [ 'style', [ 'style' ] ],
+            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+            // [ 'fontname', [ 'fontname' ] ],
+            [ 'fontsize', [ 'fontsize' ] ],
+            [ 'color', [ 'color' ] ],
+            [ 'para', [ 'ol', 'ul', 'paragraph' ] ],
+            [ 'table', [ 'table' ] ],
+            [ 'view', [ 'undo', 'redo', 'codeview', 'help' ] ]
+        ]
+    });
+});
+  
 </script>

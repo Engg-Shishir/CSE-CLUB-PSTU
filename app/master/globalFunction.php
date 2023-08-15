@@ -172,7 +172,7 @@ function selectForm(array $datas=[],string $name="",string $class="",string $pla
       $data = $data.'>'.$value[1].'</option>';
       }
     }else{
-      $data = $data.'">'.$value[1].'</option>';
+      $data = $data.'>'.$value[1].'</option>';
     }
   }
   $data = $data.'</select>';
