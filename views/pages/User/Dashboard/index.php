@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLUB | User</title>
+  <title>User | Dashboard</title>
   <!-- CSS Part -->
   <?php view("pages/Admin/Dashboard/links.php"); ?>
 </head>

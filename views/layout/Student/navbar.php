@@ -21,7 +21,7 @@
     <div class="accordion">
 
       <div class="accordion__item">
-        <a href="#" class="accordion__toggle">
+        <a href="<?= url("/user/profile") ?>" class="accordion__toggle">
           <i class="far fa-user"></i> Profile
         </a>
       </div>

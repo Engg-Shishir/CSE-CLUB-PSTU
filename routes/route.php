@@ -60,7 +60,11 @@ Router::group(['middleware' => \App\Middlewares\LoginAuth::class], function () {
 // is not compleated yet. Without loged in no one can access this route.because a session protection added here. This session only set when user loged in.
 Router::get('userdetails',[UserController::class,"userdetails"]);
 Router::post('userdetails',[UserController::class,"insertDetails"]);
-Router::get('user',[StudentController::class,"index"]);
+
+Router::group(['middleware' => \App\Middlewares\Student::class], function (){
+  Router::get('user',[StudentController::class,"index"]);
+  Router::get('user/profile',[StudentController::class,"profile"]);
+});
 
 /**
  * User Logout syatem

@@ -14,7 +14,17 @@ class Student implements IMiddleware
 
     if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !=="" && $_SESSION["auth_role"]==1){
       if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false){
-				$request->authenticated = true;
+        $user = new User();
+        $sql = "SELECT ud.user_id FROM user_details AS ud WHERE user_id=?";
+        $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
+    
+        if ($stmt->rowCount() > 0){
+          $request->authenticated = true;
+        }else{
+          $_SESSION["error_message"] = "You should login first";
+          redirects("/login");
+        }
+        
       }else{
         $_SESSION["error_message"]= "You are not authenticated";
         redirects("/login");

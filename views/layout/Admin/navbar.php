@@ -21,11 +21,6 @@
     <div class="accordion">
 
       <div class="accordion__item">
-        <a href="#" class="accordion__toggle">
-          <i class="far fa-user"></i> Profile
-        </a>
-      </div>
-      <div class="accordion__item">
         <a  class="accordion__toggle">
           <i class="far fa-envelope"></i> Users
           <i class="fa-solid fa-chevron-right accordion__icon"></i>
