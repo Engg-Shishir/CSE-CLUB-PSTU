@@ -26,6 +26,11 @@
         </a>
       </div>
       <div class="accordion__item">
+        <a href="<?= url("/user/projects") ?>" class="accordion__toggle">
+          <i class="far fa-user"></i> Projects
+        </a>
+      </div>
+      <div class="accordion__item">
         <a href="<?= url("/logout") ?>" class="accordion__toggle">
           <i class="far fa-user"></i> Logout
         </a>

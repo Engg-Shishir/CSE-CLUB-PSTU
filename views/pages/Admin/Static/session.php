@@ -66,7 +66,7 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                    Faculty
+                    Session
                   </button>
                 </a>
               </div>

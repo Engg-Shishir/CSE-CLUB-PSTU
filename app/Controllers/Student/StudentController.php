@@ -68,5 +68,42 @@ class StudentController
     return view("pages/User/Dashboard/profile.php", compact("compact"));
   }
 
+  public function projects()
+  {
+    $user = new User();
+    $settings = $user->settings();
+
+    $sql = "SELECT 
+    u.username,
+    ud.*
+    FROM user_details AS ud 
+    INNER JOIN users AS u ON u.user_id =ud.user_id
+    WHERE u.user_id =?";
+    $stmt = $user->execute($sql,[$_SESSION['auth_id']]);
+    $data = $stmt->fetchAll();
+
+    $sql = "SELECT * FROM carnivals";
+    $stmt = $user->execute($sql);
+    $carnivals = $stmt->fetchAll();
+
+    // $sql = "SELECT * FROM projects";
+    // $stmt = $user->execute($sql);
+    // $carnivals = $stmt->fetchAll();
+
+
+    $settings = $user->settings();
+
+    $compact = [
+      "data" => $data, 
+      "settings" => $settings, 
+      "carnivals" => $carnivals
+    ];
+
+
+    return view("pages/User/Dashboard/projects.php", compact("compact"));
+  }
+
+  
+
 
 }

@@ -34,6 +34,10 @@ Router::post('message', [MessageController::class,"send"]);
 Router::get('contact', [MessageController::class,"conatctPage"]);
 Router::get('event/{carnival}', [EventsController::class,"events"]);
 
+/**
+ * User Logout syatem
+ */
+Router::get('logout',[LoginController::class,"logout"]);
 
 
 /**
@@ -62,14 +66,11 @@ Router::get('userdetails',[UserController::class,"userdetails"]);
 Router::post('userdetails',[UserController::class,"insertDetails"]);
 
 Router::group(['middleware' => \App\Middlewares\Student::class], function (){
-  Router::get('user',[StudentController::class,"index"]);
+  Router::get('user',[StudentController::class,"profile"]);
   Router::get('user/profile',[StudentController::class,"profile"]);
+  Router::get('user/projects',[StudentController::class,"projects"]);
 });
 
-/**
- * User Logout syatem
- */
-Router::get('logout',[LoginController::class,"logout"]);
 
 /**
  * 
