@@ -1,3 +1,8 @@
+
+-- Setup Commit signature : https://www.youtube.com/watch?v=xj9OiJL56pM
+
+
+
 CREATE TABLE `users` (
   `user_id` INTEGER UNSIGNED AUTO_INCREMENT NOT NULL,
   `username` VARCHAR(50) UNIQUE NOT NULL,
