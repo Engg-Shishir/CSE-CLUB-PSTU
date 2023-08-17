@@ -103,7 +103,7 @@
         <div class="accordion__content">
           <div class="accordion__content-container">
             <a class="accordion__a" href="<?= url("/admin/carnivals"); ?>">Main Event</a>
-            <a class="accordion__a" href="<?= url("/admin/events"); ?>">Sub Event</a>
+            <a class="accordion__a" href="<?= url("/admin/events"); ?>">All Sub Event</a>
             <a class="accordion__a" href="<?= url("/admin/events/sponsor"); ?>">Event Sponsor</a>
             <a class="accordion__a" href="#">Alumini</a>
             <a class="accordion__a" href="#">Volenter</a>

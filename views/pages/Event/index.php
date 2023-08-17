@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +10,7 @@
   <?php view("pages/Event/partials/links.php"); ?>
 </head>
 
-<body> 
+<body>
   <?php
   $settings = $compact["settings"][0];
   $footer = [
@@ -17,10 +18,10 @@
     "short_des" => $settings["short_des"],
     "copyright" => $settings["copyright"]
   ];
-  $navbar=[
-    "navLogo"=>$settings["navLogo"],
-    "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
-    "carnivals"=>$compact["carnivals"]
+  $navbar = [
+    "navLogo" => $settings["navLogo"],
+    "carnival" => [$settings["carTitle"], $settings["carSlug"]],
+    "carnivals" => $compact["carnivals"]
   ];
 
   $sponsor = $compact["sponsor"];
@@ -28,10 +29,13 @@
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
+    <div class="row row-banner"
+      style='background-image: url(<?= assets("Upload/Carnivals/" . $events[0]["banner"]) ?>);'>
+    </div>
 
-    <?php view("pages/Event/partials/sponsor.php",compact("sponsor")); ?>
-    <?php view("pages/Event/partials/eventCard.php",compact("events")); ?>
 
+    <?php view("pages/Event/partials/sponsor.php", compact("sponsor")); ?>
+    <?php view("pages/Event/partials/eventCard.php", compact("events")); ?>
 
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>

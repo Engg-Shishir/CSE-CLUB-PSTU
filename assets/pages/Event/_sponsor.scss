@@ -27,14 +27,14 @@
   .sponsor-title{
     position: relative;
     padding: 20px;
-    color: rgb(38, 37, 37);
+    color: #00156a;
     span{
       font-size: 2.50rem;
       @include respond(tb-md){
         font-size: 4.25rem;
       }
       @include respond(lp-sm){
-        font-size: 5.25rem;
+        font-size: 3.25rem;
       }
       line-height: 2.5rem;
       font-weight: 700;

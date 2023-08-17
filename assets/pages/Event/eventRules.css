@@ -1,0 +1,39 @@
+.event-rules {
+  height: 50vh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://i.postimg.cc/pXMn7QZ8/alt-top-border-background-removebg-preview.png");
+  background-size: cover;
+}
+.event-rules .box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  background-color: white;
+}
+.event-rules .box .title {
+  padding: 10px !important;
+  width: 100%;
+}
+.event-rules .box .title h2 {
+  font-size: 30px;
+  color: #483d99;
+}
+.event-rules .box .title.center {
+  text-align: center;
+}
+.event-rules .box .title.fancy {
+  border-radius: 158px 0px 133px 0px;
+  -webkit-border-radius: 158px 0px 133px 0px;
+  -moz-border-radius: 158px 0px 133px 0px;
+}
+.event-rules .box p {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+}/*# sourceMappingURL=eventRules.css.map */

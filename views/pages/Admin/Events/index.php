@@ -5,21 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Events</title>
-  <!-- CSS Part -->
-  <?php view("pages/Admin/Events/partials/links.php"); ?>
+
+
+  <script src="https://kit.fontawesome.com/4b35f5bfb9.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
   <link rel="stylesheet" href="<?= assets('pages/Admin/Events/eventsCard.css'); ?>" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+
+
+
+
+<script src="<?= assets('js/adminSidebar.js') ?>"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
   <style>
+    html{
+      font-size: 100% !important;
+    }
     .select2.select2-container {
       width: 100% !important;
-    }
-
-    .editBox {
-      height: 500px;
-      width: 100%;
-      background-color: red;
-      display: none;
-      transition: all 650ms;
     }
   </style>
 </head>
@@ -31,7 +42,7 @@
     "navLogo" => $settings["navLogo"]
   ];
   $data = $compact["data"];
-  $carnivals=$compact["carnivals"];
+  $carnivals = $compact["carnivals"];
   ?>
   <!-- Navigation Part -->
   <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
@@ -139,8 +150,6 @@
     <!-- Javacript Part -->
   </div>
 
-  <?php view("pages/Admin/Static/scripts.php"); ?>
-
   <?php
   if (isset($_SESSION["error_message"]) && $_SESSION["error_message"] !== "") { ?>
     <script>
@@ -153,7 +162,7 @@
   ?>
 
 
-  <?php view("pages/Admin/Events/partials/addEvents.php",compact("carnivals")); ?>
+  <?php view("pages/Admin/Events/partials/addEvents.php", compact("carnivals")); ?>
 
 
 
@@ -163,7 +172,28 @@
       $('#ok').on("click", function () {
         $("#eventAddModal").modal("toggle");
       })
+      $('.carnival-select').select2({
+        placeholder: 'Select Option',
+        closeOnSelect: true,
+        dropdownParent: $("#eventAddModal")
+      });
     })
+
+    $(document).ready(function () {
+      $('.summernote').summernote({
+        // height: 150,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+          // [ 'fontname', [ 'fontname' ] ],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ol', 'ul', 'paragraph']],
+          ['table', ['table']],
+          ['view', ['undo', 'redo', 'codeview', 'help']]
+        ]
+      });
+    });
   </script>
 
 </body>

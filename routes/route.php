@@ -32,7 +32,8 @@ Router::get('/', [IndexController::class,"home"]);
 Router::get('welcome/partner', [IndexController::class,"welcomePartner"]);
 Router::post('message', [MessageController::class,"send"]);
 Router::get('contact', [MessageController::class,"conatctPage"]);
-Router::get('event/{carnival}', [EventsController::class,"events"]);
+Router::get('carnival/{carnival}', [EventsController::class,"carnival"]);
+Router::get('event/{event}', [EventsController::class,"event"]);
 
 /**
  * User Logout syatem

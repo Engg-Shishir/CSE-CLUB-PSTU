@@ -7,7 +7,7 @@
       <?php
 
       if ($navbar["carnival"][0] !== null) { ?>
-        <a target="_blank" href="<?= url("/event/" . $navbar["carnival"][1]) ?>" class="engg-shishir-nav-right-event"><?= $navbar["carnival"][0] ?></a>
+        <a target="_blank" href="<?= url("/carnival/" . $navbar["carnival"][1]) ?>" class="engg-shishir-nav-right-event"><?= $navbar["carnival"][0] ?></a>
       <?php }
       ?>
       <a href="<?= url("/login") ?>" class="engg-shishir-nav-right-login">Login</a>
@@ -34,7 +34,7 @@
           <?php
           foreach ($navbar["carnivals"] as $key => $value) { ?>
             <li class="shishir-navitem">
-              <a target="_blank" href="<?= url("/event/".$value["slug"]) ?>" class="shishir-navLink">
+              <a target="_blank" href="<?= url("carnival/".$value["slug"]) ?>" class="shishir-navLink">
                 <p><?= $value["title"] ?></p>
                 <p><?= $value["title"] ?></p>
               </a>

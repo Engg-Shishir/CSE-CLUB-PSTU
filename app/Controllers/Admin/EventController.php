@@ -39,6 +39,11 @@ class EventController
       redirects("/");
     }
   }
+  
+  
+  
+
+
   public function eventSponsor()
   {
     $user = new User();
@@ -107,7 +112,9 @@ class EventController
   public function insertEvents()
   {
     $imageDetails = fileDetails($_FILES, "event_image");
-
+    
+    // return $_POST["event_des"];
+     
     $data = [
       "event_name" => $_POST["event_name"],
       "event_loc" => $_POST["event_loc"],
@@ -116,8 +123,10 @@ class EventController
       "event_time" => $_POST["event_time"],
       "carnival_id" => $_POST["carnival_id"],
       "event_image" => $imageDetails["fname"],
-      "event_des" => $_POST["event_des"]
+      "event_des" => $_POST["event_des"],
     ];
+
+    // parray($data);
 
     if (isBlank($data)) {
       $_SESSION["error_message"] = "All field required";
@@ -134,10 +143,18 @@ class EventController
         fileStore($imageDetails["source"], "assets/Upload/Events/" . $NewFileName);
 
 
-        $user = new User();
-        $sql = "INSERT INTO events (`event_name`,`event_loc`,`reg_date`,`event_date`,`event_time`,`event_image`,`event_des`,`carnival_id`) VALUES (:event_name,:event_loc,:reg_date,:event_date,:event_time,:event_image,:event_des,:carnival_id)";
-
+  
         $data["event_image"] = $NewFileName;
+        $data["video"] = $_POST["video"];
+        $data["event_slug"] = $slug;
+        $data["event_schedule"] = $_POST["event_schedule"];
+        $data["event_roles"] = $_POST["event_roles"];
+
+        $user = new User();
+        $sql = "INSERT INTO events (`event_name`,`event_slug`,`event_loc`,`reg_date`,`event_date`,`event_time`,`event_image`,`event_des`,`carnival_id`,`video`,`event_schedule`,`event_roles`)
+                VALUES (:event_name,:event_slug,:event_loc,:reg_date,:event_date,:event_time,:event_image,:event_des,:carnival_id,:video,:event_schedule,:event_roles)";
+
+
 
         $run = $user->insert($sql, $data); // $run = 1 or 0
         if ($run) {
@@ -151,7 +168,12 @@ class EventController
       }
     }
 
+    
+
   }
+
+
+
   public function insertCarnivals()
   {
     $imageDetails = fileDetails($_FILES, "banner");

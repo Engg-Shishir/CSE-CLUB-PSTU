@@ -66,7 +66,7 @@
       </div>
       <div class="engg-shishir-event-card-right">
         <div class="engg-shishir-event-card-details-btn">
-          <a href="">View Details</a>
+          <a href="<?= url("/event/".$value["event_slug"]) ?>">View Details</a>
         </div>
       </div>
     </div>
