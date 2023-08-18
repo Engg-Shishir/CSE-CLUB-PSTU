@@ -1,5 +1,5 @@
 <div class="row eventTitleRow">
-<div class="sponsor-title">
+  <div class="sponsor-title">
     <span class="text">Our Events</span>
     <span class="line"></span>
   </div>
@@ -66,7 +66,7 @@
       </div>
       <div class="engg-shishir-event-card-right">
         <div class="engg-shishir-event-card-details-btn">
-          <a href="<?= url("/event/".$value["event_slug"]) ?>">View Details</a>
+          <a href="<?= url("/event/" . $value["event_slug"]) ?>">View Details</a>
         </div>
       </div>
     </div>

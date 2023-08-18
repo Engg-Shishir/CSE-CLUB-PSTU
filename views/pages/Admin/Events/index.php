@@ -7,28 +7,31 @@
   <title>Admin | Events</title>
 
 
-  <script src="https://kit.fontawesome.com/4b35f5bfb9.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
   <link rel="stylesheet" href="<?= assets('pages/Admin/Events/eventsCard.css'); ?>" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" /> -->
+
+  <?php view("layout/partials/backendLink.php"); ?>
 
 
 
+  <!-- <script src="<?= assets('js/adminSidebar.js') ?>"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
 
+  
 
-<script src="<?= assets('js/adminSidebar.js') ?>"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 
   <style>
-    html{
+    html {
       font-size: 100% !important;
     }
+
     .select2.select2-container {
       width: 100% !important;
     }
@@ -166,35 +169,8 @@
 
 
 
+  <?php view("layout/partials/backendScript.php"); ?>
 
-  <script>
-    $(document).ready(function () {
-      $('#ok').on("click", function () {
-        $("#eventAddModal").modal("toggle");
-      })
-      $('.carnival-select').select2({
-        placeholder: 'Select Option',
-        closeOnSelect: true,
-        dropdownParent: $("#eventAddModal")
-      });
-    })
-
-    $(document).ready(function () {
-      $('.summernote').summernote({
-        // height: 150,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-          // [ 'fontname', [ 'fontname' ] ],
-          ['fontsize', ['fontsize']],
-          ['color', ['color']],
-          ['para', ['ol', 'ul', 'paragraph']],
-          ['table', ['table']],
-          ['view', ['undo', 'redo', 'codeview', 'help']]
-        ]
-      });
-    });
-  </script>
 
 </body>
 

@@ -11,6 +11,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="<?= assets('pages/UserDetails/details.css'); ?>" />
+  <style>
+    .footerBox{
+      margin-top: 300px ;
+    }
+  </style>
 </head>
 
 <body>
@@ -182,6 +187,9 @@
           </form>
       </div>
     </div>
+  </div>
+  <div class="footerBox">
+    <?php view("layout/footer.php", compact("footer")); ?>
   </div>
   <?php view("layout/footer.php", compact("footer")); ?>
   <!-- Javacript Part -->

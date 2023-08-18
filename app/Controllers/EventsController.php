@@ -16,7 +16,7 @@ class EventsController
     $sql = "SELECT events.*,c.*
     FROM events INNER JOIN carnivals AS c ON c.carnival_id =events.carnival_id
     WHERE c.slug=? AND events.status=?";
-    $stmt = $user->execute($sql,[$carnival,1]);
+    $stmt = $user->execute($sql, [$carnival, 1]);
     $events = $stmt->fetchAll();
 
 
@@ -30,23 +30,26 @@ class EventsController
 
     $user = new User();
     $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=?";
-    $stmt = $user->execute($sql,[1]);
+    $stmt = $user->execute($sql, [1]);
     $carnivals = $stmt->fetchAll();
 
+    $sponsor=[];
+    if (count($events)) {
+
+      $sql = "SELECT * FROM collaborators AS c
+      INNER JOIN event_sponsor AS es ON es.colla_id= c.colla_id
+      WHERE es.carnival_id=?";
+      $stmt = $user->execute($sql, [$events[0]["carnival_id"]]);
+      $sponsor = $stmt->fetchAll();
+    }
 
 
-    $sql = "SELECT * FROM collaborators AS c
-            INNER JOIN event_sponsor AS es ON es.colla_id= c.colla_id
-            WHERE es.carnival_id=?";
-    $stmt = $user->execute($sql,[$events[0]["carnival_id"]]);
-    $sponsor = $stmt->fetchAll();
 
 
 
 
 
-
-    $compact = ["events" => $events, "settings" => $settings,"carnivals" => $carnivals,"sponsor" => $sponsor];
+    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor];
 
     return view("pages/Event/index.php", compact("compact"));
   }
@@ -60,7 +63,7 @@ class EventsController
     $sql = "SELECT events.*,c.*
     FROM events INNER JOIN carnivals AS c ON c.carnival_id =events.carnival_id
     WHERE events.event_slug=? AND events.status=?";
-    $stmt = $user->execute($sql,[$event,1]);
+    $stmt = $user->execute($sql, [$event, 1]);
     $events = $stmt->fetch();
 
     $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
@@ -73,7 +76,7 @@ class EventsController
 
     $user = new User();
     $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=?";
-    $stmt = $user->execute($sql,[1]);
+    $stmt = $user->execute($sql, [1]);
     $carnivals = $stmt->fetchAll();
 
 
@@ -81,10 +84,10 @@ class EventsController
     $sql = "SELECT * FROM collaborators AS c
             INNER JOIN event_sponsor AS es ON es.colla_id= c.colla_id
             WHERE es.carnival_id=?";
-    $stmt = $user->execute($sql,[$events["carnival_id"]]);
+    $stmt = $user->execute($sql, [$events["carnival_id"]]);
     $sponsor = $stmt->fetchAll();
 
-    $compact = ["events" => $events, "settings" => $settings,"carnivals" => $carnivals,"sponsor" => $sponsor];
+    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor];
 
     return view("pages/Event/event.php", compact("compact"));
   }

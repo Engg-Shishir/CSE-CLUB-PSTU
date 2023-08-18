@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSE CLUB</title>
   <!-- CSS Part -->
-  <?php view("pages/Event/partials/links.php"); ?>
+  <?php view("layout/partials/frontendLink.php") ?>
+  <link rel="stylesheet" href="<?= assets('pages/Event/events.css'); ?>" />
 </head>
 
 <body>
@@ -26,12 +27,11 @@
 
   $sponsor = $compact["sponsor"];
   $events = $compact["events"];
+
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
-    <div class="row row-banner"
-      style='background-image: url(<?= assets("Upload/Carnivals/" . $events[0]["banner"]) ?>);'>
-    </div>
+    <div class="row row-banner" style='background-image: url(<?= assets("Upload/Carnivals/" . $events[0]["banner"]) ?>);'> </div>
 
 
     <?php view("pages/Event/partials/sponsor.php", compact("sponsor")); ?>
@@ -39,8 +39,7 @@
 
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
-  <?php view("pages/Event/partials/scripts.php"); ?>
-
+  <?php view("layout/partials/frontendScript.php") ?>
 
 </body>
 

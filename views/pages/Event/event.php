@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSE CLUB</title>
   <!-- CSS Part -->
-  <?php view("pages/Event/partials/links.php"); ?>
+  <?php view("layout/partials/frontendLink.php") ?>
+  <link rel="stylesheet" href="<?= assets('pages/Event/events.css'); ?>" />
 </head>
 
 <body>
@@ -100,23 +101,22 @@
         d="M0,288L80,282.7C160,277,320,267,480,240C640,213,800,171,960,170.7C1120,171,1280,213,1360,234.7L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
       </path>
     </svg> -->
-  <a href="" class="eventRegistrationBtn">
-  <button class="glowing-btn" type="submit">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      SignUp
-    </button>
-  </a>
-    
+    <a href="<?=  url("/event/registration")  ?>" class="eventRegistrationBtn">
+      <button class="glowing-btn" type="submit">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Registration
+      </button>
+    </a>
+
   </div>
 
 
   <?php view("layout/footer.php", compact("footer")); ?>
   </div>
-  <?php view("pages/Event/partials/scripts.php"); ?>
-
+  <?php view("layout/partials/frontendScript.php") ?>
 
 </body>
 

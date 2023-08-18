@@ -1404,6 +1404,7 @@ p {
   margin: 0 auto;
   min-height: 100vh;
   position: relative;
+  margin-bottom: 200px;
 }
 @media only screen and (min-width: 768px) {
   .partner-row {
@@ -1498,7 +1499,10 @@ p {
 .partner-row .partner-logo:hover .partner-logo-slide {
   animation-play-state: paused;
 }
-.partner-row .glowing-btn {
+.partner-row .becomePartner {
+  margin-bottom: 150px;
+}
+.partner-row .becomePartner .glowing-btn {
   margin-top: 10px;
   margin-top: 0.5rem !important;
   font-family: "Open Sans", sans-serif;
@@ -1520,20 +1524,20 @@ p {
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
 @media only screen and (min-width: 768px) {
-  .partner-row .glowing-btn {
+  .partner-row .becomePartner .glowing-btn {
     height: 55px;
     min-width: 250px;
     font-size: 1.6rem;
   }
 }
 @media only screen and (min-width: 992px) {
-  .partner-row .glowing-btn {
+  .partner-row .becomePartner .glowing-btn {
     height: 66px;
     min-width: 300px;
     font-size: 2rem;
   }
 }
-.partner-row .glowing-btn::before {
+.partner-row .becomePartner .glowing-btn::before {
   content: "";
   position: absolute;
   top: 1px;
@@ -1544,28 +1548,28 @@ p {
   transform: rotate(24deg);
   height: 100%;
 }
-.partner-row .glowing-btn span:nth-child(1) {
+.partner-row .becomePartner .glowing-btn span:nth-child(1) {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 1px;
 }
-.partner-row .glowing-btn span:nth-child(2) {
+.partner-row .becomePartner .glowing-btn span:nth-child(2) {
   position: absolute;
   top: 0;
   right: 0;
   width: 1px;
   height: 100%;
 }
-.partner-row .glowing-btn span:nth-child(3) {
+.partner-row .becomePartner .glowing-btn span:nth-child(3) {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
 }
-.partner-row .glowing-btn span:nth-child(4) {
+.partner-row .becomePartner .glowing-btn span:nth-child(4) {
   position: absolute;
   top: 0;
   left: 0;

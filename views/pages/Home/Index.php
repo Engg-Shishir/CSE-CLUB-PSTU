@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSE CLUB</title>
-  <?php view("pages/Home/links.php") ?>
+  <?php view("layout/partials/frontendLink.php") ?>
+  <link rel="stylesheet" href="<?= assets('pages/Home/index.css') ?>">
 </head>
 
 <body>
@@ -61,7 +62,8 @@
     <?php view("layout/footer.php", compact("footer")) ?>
   </div>
 
-  <?php view("pages/Home/scripts.php") ?>
+  <?php view("layout/partials/frontendScript.php") ?>
+  <script src="<?= assets('js/Frontend/homepage.js') ?>"></script>
 </body>
 
 </html>

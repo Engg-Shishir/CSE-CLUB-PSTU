@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Session</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Static/links.php"); ?>
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/college.css'); ?>" />
+  <?php view("layout/partials/backendLink.php"); ?>
+  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/city.css'); ?>" />
 </head>
 
 <body>
@@ -77,8 +77,7 @@
     </div>
 
   </div>
-  <!-- Javacript Part -->
-  <?php view("pages/Admin/Static/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
 </body>
 
 </html>

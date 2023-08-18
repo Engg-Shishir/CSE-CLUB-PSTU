@@ -6,24 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLUB | Joinus</title>
   <!-- CSS Part -->
-  <?php view("pages/Partner/links.php"); ?>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
-    integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <?php view("layout/partials/frontendLink.php") ?>
+  <link rel="stylesheet" href="<?= assets('pages/Partner/support.css'); ?>" />
 </head>
 
 <body>
   <?php
   $settings = $compact["settings"][0];
-  $footer=[
-    "navLogo"=>$settings["navLogo"],
-    "short_des"=>$settings["short_des"],
-    "copyright"=>$settings["copyright"]
+  $footer = [
+    "navLogo" => $settings["navLogo"],
+    "short_des" => $settings["short_des"],
+    "copyright" => $settings["copyright"]
   ];
-  $navbar=[
-    "navLogo"=>$settings["navLogo"],
-    "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
-    "carnivals"=>$compact["carnivals"]
+  $navbar = [
+    "navLogo" => $settings["navLogo"],
+    "carnival" => [$settings["carTitle"], $settings["carSlug"]],
+    "carnivals" => $compact["carnivals"]
   ];
 
 
@@ -53,7 +51,11 @@
     <?php view("pages/Partner/form.php"); ?>
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
-  <?php view("pages/Partner/scripts.php",compact("count")); ?>
+
+
+
+
+  <?php view("layout/partials/frontendScript.php") ?>
   <script>
     $(document).ready(function () {
       $("#messageFormBtn").click(function (e) {
@@ -67,7 +69,7 @@
         let des = $("input[name=des]").val();
 
         if (fname !== "" && lname !== "" && email !== "" && company !== "" && subject !== "" && des !== "") {
-          toastr.success('Successfully Created.') ;
+          toastr.success('Successfully Created.');
 
           setTimeout(() => {
             $("#messageForm").submit();

@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLUB | Login</title>
   <!-- CSS Part -->
-  <?php view("pages/Login/links.php"); ?>
+  <?php view("layout/partials/frontendLink.php") ?>
+  <link rel="stylesheet" href="<?= assets('pages/Login/index.css'); ?>" />
 </head>
 <body>
   <?php 
@@ -23,7 +24,7 @@
     ];
   ?>
   <!-- Navigation Part -->
-  <?php view("./layout/navbar.php",compact("navbar")); ?>
+  <?php view("layout/navbar.php",compact("navbar")); ?>
   <div class="containers content">
     <div class="row support-row">
       <!-- Login Instruction -->
@@ -35,6 +36,6 @@
     <?php view("layout/footer.php",compact("footer")); ?>
   </div>
   <!-- Javacript Part -->
-  <?php view("pages/Login/scripts.php"); ?>
+  <?php view("layout/partials/frontendScript.php") ?>
 </body>
 </html>

@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Support</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Events/partials/links.php"); ?>
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Events/eventsCard.css'); ?>" />
 </head>
 
 <body>
@@ -69,7 +68,7 @@
     <!-- Javacript Part -->
   </div>
 
-  <?php view("pages/Admin/Page/partials/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
 
   <?php
   if (isset($_SESSION["error_message"]) && $_SESSION["error_message"] !== "") { ?>

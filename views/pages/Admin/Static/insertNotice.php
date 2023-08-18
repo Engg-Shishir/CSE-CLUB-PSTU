@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notice | Insert</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Static/links.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/gallery.css'); ?>" />
+  <?php view("layout/partials/backendLink.php"); ?>
+
+
 </head>
 
 <body>
-<?php
-    $navbar = $compact["settings"];
+  <?php
+  $navbar = $compact["settings"];
   ?>
   <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
@@ -32,30 +34,30 @@
               <div class="form-group">
                 <?php
                 if (isset($data["title"]) && $data["title"] !== "")
-                  echo '<input type="hidden" name="old_file" value="'.$data["file_source"].'">';
+                  echo '<input type="hidden" name="old_file" value="' . $data["file_source"] . '">';
                 ?>
                 <?php
                 if (isset($data["notice_id"]) && $data["notice_id"] !== "")
-                  echo '<input type="hidden" name="notice_id" value="'.$data["notice_id"].'">';
+                  echo '<input type="hidden" name="notice_id" value="' . $data["notice_id"] . '">';
                 ?>
               </div>
               <div class="form-group">
-                  <level><b>Notice File</b></level>
-                  <div class="custom-file">
-                    <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
-                    <label id="fileLevel" class="custom-file-label" for="exampleInputFile">Choose file</label>
-                  </div>
+                <level><b>Notice File</b></level>
+                <div class="custom-file">
+                  <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
+                  <label id="fileLevel" class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
               </div>
               <div class="form-group">
                 <level><b>Notice Title</b></level>
                 <?php
-                  if (isset($data["title"]) && $data["title"] !==""){
-                    echo"<textarea name='title' class='form-control' name='title'>".$data["title"]."</textarea>";
-                  }else{
-                    echo"<textarea name='title' class='form-control' name='title'></textarea>";
-                  }
+                if (isset($data["title"]) && $data["title"] !== "") {
+                  echo "<textarea name='title' class='form-control' name='title'>" . $data["title"] . "</textarea>";
+                } else {
+                  echo "<textarea name='title' class='form-control' name='title'></textarea>";
+                }
                 ?>
-                
+
               </div>
               <div class="form-group">
                 <level><b>Notice Description</b></level>
@@ -91,9 +93,8 @@
     </div>
 
   </div>
-  <!-- Javacript Part -->
-  <?php view("pages/Admin/Static/scripts.php"); ?>
   <script src="<?= assets('pages/Admin/Static/gallery.js'); ?>"></script>
+  <?php view("layout/partials/backendScript.php"); ?>
 
 </body>
 

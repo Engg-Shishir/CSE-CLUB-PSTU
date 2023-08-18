@@ -111,7 +111,7 @@ class UserController{
           $_SESSION["error_message"] = "Something going wrong!";
         }
 
-        redirects("/userdetails");
+        redirects("/user");
       }
     }
 

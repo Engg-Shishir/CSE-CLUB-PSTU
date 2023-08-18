@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | City</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Static/links.php"); ?>
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/city.css'); ?>" />
 </head>
 
@@ -89,8 +89,7 @@
     </div>
 
   </div>
-  <!-- Javacript Part -->
-  <?php view("pages/Admin/Static/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
 </body>
 
 </html>

@@ -12,8 +12,8 @@ class Admin implements IMiddleware
 	{
 
 
-    if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !=="" && $_SESSION["auth_role"]==2){
-      if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false){
+    if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !=="" && $_SESSION["auth_role"]=="admin"){
+      if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== ""){
 				$request->authenticated = true;
       }else{
         $_SESSION["error_message"]= "You are not authenticated";

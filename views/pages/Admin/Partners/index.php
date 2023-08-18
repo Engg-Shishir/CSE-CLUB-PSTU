@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Country</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Partners/partials/links.php"); ?>
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
 </head>
 
@@ -86,14 +86,13 @@
 
 
 
-
-  <?php view("pages/Admin/Partners/partials/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
 
   <?php
   if (isset($_SESSION["error_message"]) && $_SESSION["error_message"] !== "") { ?>
     <script>
       $(function () {
-        $('#exampleModal').modal('show');
+        $('#addPartnerModal').modal('show');
       });
     </script>
     <?php
@@ -101,7 +100,7 @@
   ?>
 
 
-  <?php view("pages/Admin/Partners/partials/addPartner.php"); ?>
+  <?php view("pages/Admin/Partners/addPartner.php"); ?>
 
 
 
@@ -110,7 +109,7 @@
   <script>
     $(document).ready(function () {
       $('#ok').on("click", function () {
-        $("#exampleModal").modal("toggle");
+        $("#addPartnerModal").modal("toggle");
       })
     })
   </script>

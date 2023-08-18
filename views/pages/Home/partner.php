@@ -17,6 +17,7 @@
       } ?>
     </div>
   </div>
+  <div class="becomePartner">
   <a href="<?= url("/welcome/partner") ?>">
     <button class="glowing-btn">
       <span></span>
@@ -26,4 +27,5 @@
       Become Partners
     </button>
   </a>
+  </div>
 </div>

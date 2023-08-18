@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Events</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Events/partials/links.php"); ?>
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/college.css'); ?>" />
   <style>
     .select2{
@@ -116,7 +115,8 @@
       </div>
     </div>
   </div>
-  <?php view("pages/Admin/Events/partials/scripts.php"); ?>
+
+<?php view("layout/partials/backendScript.php"); ?>
 
 </body>
 

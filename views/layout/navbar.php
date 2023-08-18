@@ -34,7 +34,7 @@
           <?php
           foreach ($navbar["carnivals"] as $key => $value) { ?>
             <li class="shishir-navitem">
-              <a target="_blank" href="<?= url("carnival/".$value["slug"]) ?>" class="shishir-navLink">
+              <a target="_blank" href="<?= url("/carnival/".$value["slug"]) ?>" class="shishir-navLink">
                 <p><?= $value["title"] ?></p>
                 <p><?= $value["title"] ?></p>
               </a>

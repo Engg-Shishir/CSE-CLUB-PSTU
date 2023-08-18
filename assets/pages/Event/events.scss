@@ -1,15 +1,15 @@
 
 @use "../../components/mainBtn";
-@use "../../components/select2";
+// @use "../../components/select2";
 @import "../../setting/settings";
 @import "../../layout/NavBar/fixedTopbar";
+@import "../../layout/NavBar/fullNav";
 @import "./sponsor";
 @import "./event-card";
 @import "./eventDes.scss";
 @import "./eventCalender.scss";
 @import "./eventRules.scss";
 @import "../../components/banner";
-
 @import "../../layout/Footer/footer";
 
 
@@ -18,7 +18,6 @@
     @include respond(lp-sm) {
         height: 50vh;
     }
-    border: 2px solid red;
     display: flex;
     align-items: center;
     justify-content: center;

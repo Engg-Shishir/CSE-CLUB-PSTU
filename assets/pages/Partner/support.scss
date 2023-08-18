@@ -1,7 +1,9 @@
 @use "../../components/mainBtn";
 @import "../../setting/settings";
 @import "../../layout/NavBar/fixedTopbar";
+@import "../../layout/NavBar/fullNav";
 @import "../../layout/Footer/footer";
+
 
 // Initialy it is hidden
 .glowing-btn.becomePartnerBtn {
@@ -143,7 +145,7 @@
       margin: 0 20px;
     }
     border-radius: 20px;
-    box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.3), inset -1px -1px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 1px 1px 6px rgb(0 0 0), inset -1px -1px 6px rgb(0 0 0);
     border-radius: 100%;
 
     display: flex;
@@ -223,8 +225,11 @@
       }
     }
   }
-
-  @include mainBtn.glowing-left;
+  .btnbox{
+    margin-bottom: 250px !important;
+    z-index: 9;
+    @include mainBtn.glowing-left;
+  }
 }
 
 .partner-reason-row {

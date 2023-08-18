@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Faculty</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Static/links.php"); ?>
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/college.css'); ?>" />
 </head>
 
 <body>
 
-<?php
-    $navbar = $compact["settings"];
-    $data = $compact["data"];
+  <?php
+  $navbar = $compact["settings"];
+  $data = $compact["data"];
   ?>
   <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
 
@@ -45,7 +45,8 @@
                   <td>
                     <a href="<?= url("/admin/faculty/delete/" . $item["fac_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
-                    <a onclick='facultyEdit(<?= $item["fac_id"]  ?>);' class="btn btn-default btn-sm"><i class="fa-solid fa-pen"></i></a>
+                    <a onclick='facultyEdit(<?= $item["fac_id"] ?>);' class="btn btn-default btn-sm"><i
+                        class="fa-solid fa-pen"></i></a>
                   </td>
                 </tr>
                 <?php
@@ -82,10 +83,9 @@
         </div>
       </div>
     </div>
-     
+
   </div>
-  <!-- Javacript Part -->
-  <?php view("pages/Admin/Static/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
 </body>
 
 </html>

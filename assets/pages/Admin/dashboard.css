@@ -229,7 +229,7 @@ p {
 .engg-shishir-fullnav {
   position: fixed;
   top: 65px;
-  right: -300px;
+  right: -260px;
   display: flex;
   flex-direction: column;
   z-index: 40 !important;
@@ -350,6 +350,10 @@ p {
 
 .engg-shishir-fullnav.active {
   right: 0 !important;
+}
+
+html {
+  font-size: 100%;
 }
 
 .content {

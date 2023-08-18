@@ -58,26 +58,28 @@ class LoginController
   public function dashboard()
   {
 
-    if (isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !== "" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "" && isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !== "" && isset($_SESSION["auth_id"]) && $_SESSION["auth_id"] !== "" && strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== false) {
+    if (isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !== "" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "" && isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !== "" && isset($_SESSION["auth_id"]) && $_SESSION["auth_id"] !== "" && strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== "") {
 
       $user = new User();
       $sql = "SELECT ud.user_id FROM user_details AS ud WHERE user_id=?";
       $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
       if ($stmt->rowCount() > 0) {
 
-        if ($_SESSION["auth_role"] == 1) {
+        if ($_SESSION["auth_role"] == "user") {
           redirects("/user");
-        } else if ($_SESSION["auth_role"] == 2) {
+        } else if ($_SESSION["auth_role"] == "admin") {
           redirects("/admin");
-        } else if ($_SESSION["auth_role"] == 3) {
+        } else if ($_SESSION["auth_role"] == "teacher") {
           redirects("/teacher");
-        } else if ($_SESSION["auth_role"] == 4) {
+        } else if ($_SESSION["auth_role"] == "alumini") {
           redirects("/alumini");
         }
 
 
       } else {
-        redirects("/login");
+        $_SESSION["user_setails_status"] = "ON";
+        $_SESSION["error_message"] = "Please complete your profile";
+        redirects("/userdetails");
       }
 
     } else {

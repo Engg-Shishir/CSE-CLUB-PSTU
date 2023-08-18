@@ -16,7 +16,7 @@
       <textarea name="des" class="lg" placeholder="Describe your support"
         style="padding:5px; align-items:center;"></textarea>
     </div>
-    <div class="row row-input">
+    <div class="row row-input btnbox">
       <a href="">
         <button class="glowing-btn" type="button" id="messageFormBtn">
           <span></span>

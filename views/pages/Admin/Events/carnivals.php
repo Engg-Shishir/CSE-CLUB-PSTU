@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Events</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Events/partials/links.php"); ?>
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Events/eventsCard.css'); ?>" />
 </head>
 
 <body>
@@ -119,7 +118,7 @@
       </div>
     </div>
   </div>
-  <?php view("pages/Admin/Static/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
 
 </body>
 

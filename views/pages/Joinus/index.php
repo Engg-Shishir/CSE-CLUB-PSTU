@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLUB | Joinus</title>
   <!-- CSS Part -->
-  <?php view("pages/Joinus/links.php"); ?>
+  <?php view("layout/partials/frontendLink.php") ?>
+  <link rel="stylesheet" href="<?= assets('pages/Login/index.css'); ?>" />
 </head>
 
 <body>
@@ -37,7 +38,7 @@
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
   <!-- Javacript Part -->
-  <?php view("pages/Joinus/scripts.php"); ?>
+  <?php view("layout/partials/frontendScript.php") ?>
 </body>
 
 </html>

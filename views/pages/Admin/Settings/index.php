@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin | Projects</title>
   <!-- CSS Part -->
-  <?php view("pages/Admin/Settings/partials/links.php"); ?>
+  <?php view("layout/partials/backendLink.php"); ?>
   <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/college.css'); ?>" />
 </head>
 
 <body>
@@ -39,7 +38,7 @@
 
 
 
-  <?php view("pages/Admin/Projects/partials/scripts.php"); ?>
+  <?php view("layout/partials/backendScript.php"); ?>
   <script src="<?= assets('pages/Admin/Settings/image.js'); ?>"></script>
 </body>
 

@@ -20,9 +20,11 @@ class MailController
           "token"=>null
       ];
       $user->updates($sql,$data);
-      $_SESSION["user_setails_status"] = "ON";
-      $_SESSION["success_message"] = "Please Complete your profile now, to login !";
-      redirects("/userdetails");
+      $_SESSION["success_message"] = "Account verified ! After review your account you can login. If any emmergency please contact +01925696314";
+      redirects("/login");
+    }else{
+      $_SESSION["success_message"] = "Account alredy verified ! Please Login";
+      redirects("/login");
     }
 
 
