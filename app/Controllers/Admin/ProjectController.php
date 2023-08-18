@@ -19,7 +19,7 @@ class ProjectController
               INNER JOIN user_details AS u ON p.user_id= u.user_id";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
-      return view("pages/Admin/Projects/index.php",compact("data"));
+      return view("Backend/Admin/Projects/index.php",compact("data"));
     }
   }
 

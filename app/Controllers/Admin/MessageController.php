@@ -63,7 +63,7 @@ class MessageController
 
     $compact=["settings"=>$settings,"carnivals"=>$carnivals];
 
-    return view("pages/Contact/index.php",compact("compact"));
+    return view("Frontend/Contact/index.php",compact("compact"));
   }
 
 }

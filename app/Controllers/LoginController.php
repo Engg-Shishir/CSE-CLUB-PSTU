@@ -40,7 +40,7 @@ class LoginController
 
     $compact=["settings"=>$settings,"carnivals"=>$carnivals];
 
-    return view("pages/Login/index.php",compact("compact"));
+    return view("Frontend/Login/login.php",compact("compact"));
   }
   public function logout()
   {

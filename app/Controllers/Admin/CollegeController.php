@@ -30,7 +30,7 @@ class CollegeController
     ];
     
 
-    return view("pages/Admin/Static/college.php", compact("compact"));
+    return view("Backend/Admin/Static/college.php", compact("compact"));
   }
 
   public function deleteCollege($code)

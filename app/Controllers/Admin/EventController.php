@@ -34,7 +34,7 @@ class EventController
       $settings = $user->settings();
 
       $compact = ["data" => $data, "settings" => $settings,"carnivals" => $carnivals];
-      return view("pages/Admin/Events/index.php", compact("compact"));
+      return view("Backend/Admin/Events/index.php", compact("compact"));
     } else {
       redirects("/");
     }
@@ -82,7 +82,7 @@ class EventController
                    "collaborators" => $collaborators
                  ];
 
-      return view("pages/Admin/Events/eventSponsor.php", compact("compact"));
+      return view("Backend/Admin/Events/eventSponsor.php", compact("compact"));
     } else {
       redirects("/");
     }
@@ -100,7 +100,7 @@ class EventController
     $compact = ["carnivals" => $carnivals, "settings" => $settings];
 
 
-    return view("pages/Admin/Events/carnivals.php", compact("compact"));
+    return view("Backend/Admin/Events/carnivals.php", compact("compact"));
   }
 
 

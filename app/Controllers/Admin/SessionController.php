@@ -24,7 +24,7 @@ class SessionController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/session.php", compact("compact"));
+    return view("Backend/Admin/Static/session.php", compact("compact"));
   }
 
   public function deleteSession($code)

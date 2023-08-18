@@ -21,7 +21,7 @@ class CountryController
       ];
     }
 
-    return view("pages/Admin/Static/country.php", compact("comapact"));
+    return view("Backend/Admin/Static/country.php", compact("comapact"));
   }
 
   public function deleteCountry($code)

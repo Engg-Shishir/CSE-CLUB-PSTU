@@ -25,7 +25,7 @@ class partnerController
         "settings"=>$settings
       ];
 
-      return view("pages/Admin/Partners/index.php",compact("compact"));
+      return view("Backend/Admin/Partners/index.php",compact("compact"));
     }
   }
 
