@@ -4,6 +4,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 .select2.select2-container {
   width: 100% !important;
 }
@@ -453,6 +456,7 @@ p {
 .row.evnt-card-row {
   padding: 0 16px;
   position: relative;
+  margin-bottom: 170px;
 }
 .row.evnt-card-row::before {
   position: absolute;
@@ -926,11 +930,11 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 @media only screen and (min-width: 992px) {
   .event-schedule {
     padding: 20px;
-    height: 50vh;
   }
 }
 .event-schedule .box {
@@ -969,7 +973,6 @@ p {
   padding: 10px;
 }
 .event-schedule .image {
-  background-image: url("https://cdn.freebiesupply.com/images/large/1x/events-j53.jpg");
   background-size: cover;
   background-position: center center;
   width: 0;
@@ -982,6 +985,51 @@ p {
   }
 }
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  pointer-events: none !important;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .event-rules {
   width: 100%;
   padding: 5px;
@@ -989,12 +1037,19 @@ p {
   align-items: center;
   justify-content: center;
   background-size: cover;
+  position: relative;
+  background-color: #ecebf1;
+}
+.event-rules .w-full {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: -1;
 }
 @media only screen and (min-width: 992px) {
   .event-rules {
     padding: 20px;
     height: 50vh;
-    background-image: url("https://i.postimg.cc/pXMn7QZ8/alt-top-border-background-removebg-preview.png");
   }
 }
 .event-rules .box {
@@ -1004,7 +1059,6 @@ p {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: white;
 }
 @media only screen and (min-width: 992px) {
   .event-rules .box {
@@ -1078,7 +1132,20 @@ footer {
   background-color: #313d4c;
   width: 100%;
   margin: 0 auto;
-  margin-top: 30px !important;
+  margin-top: 100px !important;
+  position: relative;
+}
+footer .w-full {
+  position: absolute;
+  width: 100%;
+  bottom: 100%;
+  left: 0;
+  z-index: 4;
+}
+@media only screen and (min-width: 992px) {
+  footer .w-full {
+    bottom: 100%;
+  }
 }
 footer hr {
   margin: 20px 0;
@@ -1256,6 +1323,141 @@ footer .footer-botom p {
 footer:hover .footer-top .footer-top-box-left .footer-logo-box:after {
   left: 120%;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.banner-btn {
+  height: 20vh;
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+  margin-bottom: 180px !important;
+  background-color: #ecebf1;
+  background-size: cover;
+}
+@media only screen and (min-width: 992px) {
+  .banner-btn {
+    height: 50vh;
+  }
+}
+.banner-btn::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: #ecebf1;
+  height: 176px;
+}
+@media only screen and (min-width: 992px) {
+  .banner-btn::after {
+    height: 180px;
+  }
+}
+.banner-btn .w-full {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+}
+.banner-btn .eventRegistrationBtn {
+  z-index: 5;
+}
+.banner-btn .glowing-btn {
+  margin-top: 10px;
+  margin-top: 0.5rem !important;
+  font-family: "Open Sans", sans-serif;
+  height: 49px;
+  min-width: 220px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 1.125rem;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  background-color: #383d59;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  transition: all 650ms;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+}
+.banner-btn .glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.banner-btn .glowing-btn span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  animation: animateTop 2s linear infinite running;
+}
+.banner-btn .glowing-btn span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  animation: animateRight 2s linear infinite running;
+}
+.banner-btn .glowing-btn span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  animation: animateBottom 2s linear infinite running;
+}
+.banner-btn .glowing-btn span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  animation: animateLeft 2s linear infinite running;
+}
+@keyframes animateTop {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes animateRight {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes animateBottom {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes animateLeft {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
 .container.content {

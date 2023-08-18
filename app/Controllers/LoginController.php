@@ -77,8 +77,7 @@ class LoginController
 
 
       } else {
-        $_SESSION["user_setails_status"] = "ON";
-        redirects("/userdetails");
+        redirects("/login");
       }
 
     } else {

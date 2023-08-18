@@ -8,7 +8,7 @@ class MailController
 {
   public function emailVerification($sender,$token)
   {
-
+    session_start();
     $user = new User();
     $sql = "SELECT * FROM users WHERE username=? AND token=?";
     $stmt = $user->execute($sql, [$sender,$token]);
@@ -20,8 +20,9 @@ class MailController
           "token"=>null
       ];
       $user->updates($sql,$data);
-      $_SESSION["success_message"] = "Acoount verification successfull !";
-      redirects("/login");
+      $_SESSION["user_setails_status"] = "ON";
+      $_SESSION["success_message"] = "Please Complete your profile now, to login !";
+      redirects("/userdetails");
     }
 
 
