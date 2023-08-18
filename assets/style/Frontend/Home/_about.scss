@@ -1,0 +1,223 @@
+.content {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: -1 !important;
+}
+
+.about-row {
+  background-color: $white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  // &::before {
+  //   position: absolute;
+  //   left: 0;
+  //   top: -100px;
+  //   height: 100%;
+  //   width: 100%;
+  //   background-image: url("https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp");
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-size: cover;
+  //   content: "";
+  //   opacity: 0.6;
+  // }
+  min-height: 100vh;
+  @include respond(tb-md) {
+    height: 100vh;
+  }
+  &-image {
+    flex: 0 0 100%;
+    min-width: 0 0 100%;
+    width: 100%;
+    @include respond(tb-md) {
+      flex-direction: column;
+      flex: 0 0 50%;
+      min-width: 0 0 50%;
+      width: 50%;
+    }
+    @include respond(lp-sm) {
+      flex: 0 0 40%;
+      min-width: 0 0 40%;
+      width: 40%;
+    }
+    @include respond(lp-md) {
+      flex: 0 0 50%;
+      min-width: 0 0 50%;
+      width: 50%;
+    }
+    // background-color: $cc-blue;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    &-first {
+      transform: rotate(0deg);
+      // width: 300px;
+      // height: 200px;
+      width: 264px;
+      height: 189px;
+      @include respond(mb-lg) {
+        width: 450px;
+        height: 250px;
+      }
+      @include respond(tb-md) {
+        width: 350px;
+        height: 220px;
+        // padding: 20px;
+      }
+      @include respond(lp-sm) {
+        width: 405px;
+        height: 270px;
+        margin-left: 40px;
+      }
+      // box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      box-shadow: $blue 0px 0px 0px 3px, $blue 0px 0px 0px 6px,
+        $blue-light 0px 0px 0px 9px, $blue 0px 0px 0px 12px,
+        $blue-light 0px 0px 0px 15px;
+      &-box {
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../Upload/About/one.jpg");
+        background-size: cover;
+        background-position: center;
+        animation: fade 40s infinite;
+        // border: 13px solid #fff;
+        // animation-direction: alternate-reverse;
+        // animation-name: fade;
+        // animation-play-state: running;
+        // animation-timing-function: ease-in-out;
+        // animation-duration: 30s;
+        // // animation-fill-mode: forwards;
+        // animation-iteration-count: infinite;
+      }
+    }
+    &-second {
+      transform: rotate(9deg);
+      margin-top: -38px;
+      width: 300px;
+      height: 200px;
+      @include respond(tb-md) {
+        display: block;
+        width: 350px;
+        height: 220px;
+      }
+      @include respond(lp-sm) {
+        width: 405px;
+        height: 270px;
+      }
+      margin-left: 11%;
+      // padding: 20px;
+      z-index: 10;
+      box-shadow: $blue 0px 0px 0px 3px, $blue 0px 0px 0px 6px,
+        $blue-light 0px 0px 0px 9px, $blue 0px 0px 0px 12px,
+        $blue-light 0px 0px 0px 15px;
+      display: none;
+      &-box {
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../Upload/About/two.jpg");
+        background-size: cover;
+        background-position: center;
+        animation: fade 40s infinite;
+        // animation-direction: alternate-reverse;
+        // animation-name: fade1;
+        // animation-play-state: running;
+        // animation-timing-function: ease-in-out;
+        // animation-duration: 30s;
+        // // animation-fill-mode: forwards;
+        // animation-iteration-count: infinite;
+      }
+    }
+  }
+  &-text {
+    flex: 0 0 100%;
+    min-width: 0 0 100%;
+    width: 100%;
+    padding: 5% 2%;
+    @include respond(tb-md) {
+      flex: 0 0 50%;
+      min-width: 0 0 50%;
+      width: 50%;
+    }
+    @include respond(lp-md) {
+      flex: 0 0 50%;
+      min-width: 0 0 50%;
+      width: 50%;
+      padding: 5%;
+      // background-color: $cc-blue;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      margin-top: 18px;
+      @include respond(lp-md) {
+        margin-top: 0px;
+      }
+      align-self: flex-start;
+      font-size: $open-sans;
+      font-weight: 800;
+      font-size: 3.2em;
+      @include respond(lp-md) {
+        font-size: 50px;
+      }
+      font-weight: bold;
+      color: $blue;
+    }
+
+    p {
+      text-align: left;
+      line-height: 2;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      margin-top: 15px;
+    }
+  }
+}
+
+@keyframes fade {
+  20% {
+    background-image: url("../../../Upload/About/two.jpg");
+  }
+  40% {
+    background-image: url("../../../Upload/About/three.jpg");
+  }
+  60% {
+    background-image: url("../../../Upload/About/four.jpg");
+  }
+  80% {
+    background-image: url("../../../Upload/About/five.jpg");
+  }
+  100% {
+    background-image: url("../../../Upload/About/one.jpg");
+  }
+}
+
+
+
+
+@keyframes fade1 {
+  20% {
+    background-image: url("../../../Upload/About/one.jpg");
+  }
+  40% {
+    background-image: url("../../../Upload/About/four.jpg");
+  }
+  60% {
+    background-image: url("../../../Upload/About/three.jpg");
+  }
+  80% {
+    background-image: url("../../../Upload/About/five.jpg");
+  }
+  100% {
+    background-image: url("../../../Upload/About/one.jpg");
+  }
+}

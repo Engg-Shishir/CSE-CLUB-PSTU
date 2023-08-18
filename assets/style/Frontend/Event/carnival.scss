@@ -1,0 +1,62 @@
+
+@use "../../../components/mainBtn";
+// @use "../../../components/select2";
+@import "../../../setting/settings";
+@import "../../../layout/NavBar/fixedTopbar";
+@import "../../../layout/NavBar/fullNav";
+@import "./sponsor";
+@import "./event-card";
+@import "./eventDes.scss";
+@import "./eventCalender.scss";
+@import "./eventRules.scss";
+@import "../../../components/banner";
+@import "../../../layout/Footer/footer";
+
+
+.banner-btn{
+    height: 20vh;
+    @include respond(lp-sm) {
+        height: 50vh;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100%;
+        top: 100%;
+        left: 0;
+        background-color: #ecebf1;
+        height: 176px;
+        @include respond(lp-sm) {
+            height: 180px;
+        }
+    }
+    z-index: 4;
+    margin-bottom: 180px !important;
+    // background-image: url("https://buetcsefest2023.com/assets/hero.jpg");
+    background-color: #ecebf1;
+    background-size: cover;
+    .w-full{
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        z-index: 1;
+    }
+
+    .eventRegistrationBtn{
+        z-index: 5;
+    }
+
+    
+    @include mainBtn.glowing-lg;
+}
+
+.container.content{
+    margin-top: 60px;
+    @include respond(lp-sm) {
+        margin-top: 66px;
+    }
+}

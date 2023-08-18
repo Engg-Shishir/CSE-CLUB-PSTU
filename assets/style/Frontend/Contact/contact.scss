@@ -1,0 +1,88 @@
+@use "../../../components/mainBtn";
+@import "../../../setting/settings";
+@import "../../../layout/NavBar/fixedTopbar";
+@import "../../../layout/NavBar/fullNav";
+@import "../../../layout/Footer/footer";
+
+.support-row {
+    width: 100%;
+
+    @include respond(lp-sm) {
+        width: 90%;
+    }
+
+    margin: 0 auto;
+    min-height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px !important;
+
+    h2 {
+        text-align: center;
+        font-size: 35px;
+        margin: 50px 0px;
+        font-weight: 900;
+
+        @include respond(lp-sm) {
+            font-size: 50px;
+        }
+
+        color: $blue;
+    }
+
+    form {
+        width: 100%;
+
+        .row-input {
+            width: 100%;
+            flex-direction: column;
+
+            @include respond(lp-sm) {
+                flex-direction: row;
+            }
+
+            align-items: center;
+            justify-content: space-around;
+
+            input,
+            textarea {
+                background: transparent;
+                border-radius: 5px;
+                border-style: solid;
+                border-color: grey;
+                border-width: 2px;
+                height: 80px;
+                margin: 2%;
+                font-size: 20px;
+                font-weight: bold;
+                font-family: "GilroyLight";
+                display: flex;
+            }
+
+            .small {
+                width: 90%;
+                padding-left: 2%;
+                padding-right: 2%;
+
+                @include respond(lp-sm) {
+                    width: 45%;
+                }
+            }
+
+            .lg {
+                width: 90%;
+                padding-left: 2%;
+                padding-right: 2%;
+            }
+        }
+    }
+
+    .btnbox {
+        margin-bottom: 250px !important;
+        z-index: 9;
+        @include mainBtn.glowing-left;
+    }
+}
