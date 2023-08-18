@@ -63,7 +63,7 @@ class IndexController{
     *!  Purpose       : return home page with all associated data
     *   Details      : 
     *************************************************************/
-    return view("pages/Home/Index.php",compact("compact"));
+    return view("Frontend/Home/Index.php",compact("compact"));
   }
 
 
@@ -102,7 +102,7 @@ class IndexController{
 
     $compact=["category"=>$eventCategorys,"settings"=>$settings,"carnivals"=>$carnivals,"count"=>$count];
 
-    return view("pages/Partner/index.php",compact("compact"));
+    return view("Frontend/Partner/index.php",compact("compact"));
   }
 }
 

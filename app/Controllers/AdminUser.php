@@ -15,7 +15,7 @@ class AdminUser{
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Users/manage.php",compact("comapact"));
+    return view("Backend/Admin/Users/manage.php",compact("comapact"));
   }
 
   public function status(){

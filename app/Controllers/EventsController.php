@@ -44,14 +44,9 @@ class EventsController
     }
 
 
-
-
-
-
-
     $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor];
 
-    return view("pages/Event/index.php", compact("compact"));
+    return view("Frontend/Event/carnival.php", compact("compact"));
   }
 
 
@@ -89,7 +84,7 @@ class EventsController
 
     $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor];
 
-    return view("pages/Event/event.php", compact("compact"));
+    return view("Frontend/Event/event.php", compact("compact"));
   }
 
 
