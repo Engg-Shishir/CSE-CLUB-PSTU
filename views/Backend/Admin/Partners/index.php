@@ -7,7 +7,7 @@
   <title>Admin | Country</title>
   <!-- CSS Part -->
   <?php view("layout/partials/backendLink.php"); ?>
-  <link rel="stylesheet" href="<?= assets('pages/Admin/Static/country.css'); ?>" />
+  <link rel="stylesheet" href="<?= assets('style/Backend/Admin/Static/country.css'); ?>" />
 </head>
 
 <body>
@@ -100,7 +100,7 @@
   ?>
 
 
-  <?php view("pages/Admin/Partners/addPartner.php"); ?>
+  <?php view("Backend/Admin/Partners/addPartner.php"); ?>
 
 
 

@@ -16,7 +16,8 @@
   $navbar = $comapact["settings"];
   $data = $comapact["data"];
   ?>
-  <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
+  <?php view("layout/Admin/navbar.php", compact("navbar")); ?>
+
   <div class="containers content">
 
     <div class="card-header">
