@@ -62,10 +62,9 @@ class StudentController
 
 
 
-     
 
 
-    return view("pages/User/Dashboard/profile.php", compact("compact"));
+    return view("Backend/Dashboard/profile.php", compact("compact"));
   }
 
   public function projects()

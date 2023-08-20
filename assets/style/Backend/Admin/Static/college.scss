@@ -1,0 +1,36 @@
+
+
+@use "../../../components/mainBtn";
+@use "../../../components/select2";
+@import "../../../setting/settings";
+@import "../../../layout/NavBar/fixedTopbar";
+@import "../navbar";
+@import "../../../components/form";
+.content {
+  margin-top: 66px !important;
+  padding: 20px !important;
+  margin-right: 50px !important;
+}
+
+html {
+  font-size: 100% !important;
+}
+table {
+  font-weight: 500;
+}
+.select2.select2-container {
+  width: 95% !important;
+  margin-bottom: -30px;
+}
+
+.editBox{
+  height: 500px;
+  width: 100%;
+  background-color: red;
+  display: none;
+  transition: all 650ms;
+}
+
+
+
+

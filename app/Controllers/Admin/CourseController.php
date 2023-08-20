@@ -24,7 +24,7 @@ class CourseController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/course.php", compact("compact"));
+    return view("Backend/Admin/Static/course.php", compact("compact"));
   }
 
   public function deleteCourse($code)

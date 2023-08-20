@@ -9,6 +9,6 @@ class AdminController
   public function index(){
     $user = new User();
     $settings = $user->settings();
-    return view("pages/Admin/Dashboard/index.php",compact("settings"));
+    return view("Backend/Admin/Dashboard/index.php",compact("settings"));
   }
 }

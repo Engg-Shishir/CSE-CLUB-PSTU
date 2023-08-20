@@ -24,7 +24,7 @@ class FacultyController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/faculty.php", compact("compact"));
+    return view("Backend/Admin/Static/faculty.php", compact("compact"));
   }
 
   public function deleteFaculty($code)

@@ -24,7 +24,7 @@ class FaqController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/faq.php", compact("compact"));
+    return view("Backend/Admin/Static/faq.php", compact("compact"));
   }
 
   public function deleteFaq($code)

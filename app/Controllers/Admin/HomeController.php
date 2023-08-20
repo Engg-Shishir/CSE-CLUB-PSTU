@@ -22,7 +22,7 @@ class HomeController
       "settings"=>$settings
     ];
 
-    return view("pages/Admin/Static/homeAbout.php", compact("compact"));
+    return view("Backend/Admin/Static/homeAbout.php", compact("compact"));
   }
   public function insertAbout()
   {

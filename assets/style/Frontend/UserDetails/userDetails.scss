@@ -1,0 +1,26 @@
+@use "../../../components/mainBtn";
+@use "../../../components/select2";
+@import "../../../setting/settings";
+@import "../../../layout/NavBar/fixedTopbar";
+@import "../../../layout/NavBar/fullNav";
+@import "../../../layout/Footer/footer";
+
+.content{
+  // padding: 20px !important;
+}
+
+.must{
+  color: red;
+  font-weight: 600;
+}
+
+html {
+  font-size: 100% !important;
+}
+table {
+  font-weight: 500;
+}
+.select2.select2-container {
+  width: 100% !important;
+  margin-bottom: -30px;
+}

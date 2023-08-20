@@ -30,7 +30,7 @@ class SettingController
       ];
       
 
-      return view("pages/Admin/Settings/index.php",compact("compact"));
+      return view("Backend/Admin/Settings/index.php",compact("compact"));
     }
   }
 

@@ -32,7 +32,7 @@ class JoinusController
 
     $compact=["settings"=>$settings,"carnivals"=>$carnivals];
 
-    return view("pages/Joinus/index.php",compact("compact"));
+    return view("Frontend/Joinus/joinus.php",compact("compact"));
   }
   public function registration()
   {

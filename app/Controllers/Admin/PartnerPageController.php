@@ -24,7 +24,7 @@ class PartnerPageController
         "settings"=>$settings
       ];
 
-      return view("pages/Admin/Page/support.php",compact("compact"));
+      return view("Backend/Admin/Support/support.php",compact("compact"));
     }
   }
 

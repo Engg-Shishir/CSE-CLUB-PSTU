@@ -1,0 +1,62 @@
+
+.event-description {
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    @include respond(lp-sm) {
+        padding: 20px;
+        height: 50vh;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        @include respond(lp-sm) {
+            width: 60%;
+            margin-left: 150px;
+        }
+        &::after{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: -400px;
+            content: url("https://cdni.iconscout.com/illustration/premium/thumb/man-uploading-file-on-cloud-8949512-7314180.png");
+            
+            @include respond(lp-sm) {
+                opacity: 1;
+            }
+        }
+        .title {
+            padding: 10px !important;
+            // background-color: #ffeab9;
+            width: 100%;
+
+            h2 {
+                font-size: 30px;
+                color: #483d99;
+            }
+        }
+        .title.center{
+            text-align: center;
+        }
+        .title.fancy{
+            border-radius: 158px 0px 133px 0px;
+            -webkit-border-radius: 158px 0px 133px 0px;
+            -moz-border-radius: 158px 0px 133px 0px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px;
+        }
+    }
+}

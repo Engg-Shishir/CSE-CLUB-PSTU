@@ -1,0 +1,301 @@
+@use "../../../components/mainBtn";
+
+.engg-shishir-fixed {
+  // ------------------------------
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  opacity: 1;
+  // ------------------------------
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  background-image: url("https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  .fixed-left-logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // background-color: $blue;
+    @include respond(lp-sm) {
+      margin-top: 15px;
+    }
+    padding: 0 20px;
+    transform: translate3d(0px, 0px, 0px);
+    transition: top 350ms cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    img {
+      height: 100%;
+      width: 200px;
+      @include respond(lp-sm) {
+        height: 100%;
+        width: 300px;
+      }
+    }
+  }
+  .engg-shishir-fixed-content {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    @include respond(lp-sm) {
+      justify-content: space-between;
+    }
+    .engg-shishir-fixed-content-left {
+      flex: 0 0 100%;
+      max-width: 0 0 100%;
+      width: 100%;
+      border: 5px solid white;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 10px;
+
+      @include respond(tb-md) {
+        margin-top: 0px;
+        flex: 0 0 80%;
+        max-width: 0 0 80%;
+        width: 80%;
+        margin: 0 auto;
+      }
+      @include respond(lp-sm) {
+        margin: 0 0;
+        flex: 0 0 60%;
+        max-width: 0 0 60%;
+        width: 60%;
+        padding:0 50px;
+      }
+      @include respond(lp-lg) {
+        padding:0 100px;
+      }
+      .title {
+        width: 100%;
+        font-family: $open-sans;
+        font-size: 1.6rem;
+        color: $blue;
+        text-align: center;
+        text-transform: uppercase;
+        @include respond(tb-md) {
+          font-size: 1.8rem;
+        }
+        @include respond(lp-sm) {
+          font-size: 2rem;
+        }
+      }
+      .title-des {
+        text-align: center;
+        @include respond(lp-sm) {
+          // padding-right: 50px;
+        }
+        line-height: 2;
+        font-size: $details-fs-sm;
+        font-weight: 400;
+        line-height: $details-lh-sm;
+        margin: 10px 0px;
+      }
+
+      // .link_wrapper{
+      //   margin-top: 15px;
+      //   position: relative;
+      //   font-family: 'Lato', sans-serif;
+      //   // align-self: flex-start;
+      //   a{
+      //     display: block;
+      //     width: 150px;
+      //     height: 40px;
+      //     @include respond(lp-sm) {
+      //       // padding-right: 50px;
+      //     }
+      //     line-height: 40px;
+      //     font-weight: bold;
+      //     text-decoration: none;
+      //     background: $blue;
+      //     text-align: center;
+      //     color: #fff;
+      //     text-transform: uppercase;
+      //     letter-spacing: 1px;
+      //     border: 3px solid $blue;
+      //     transition: all .35s;
+      //   }
+      //   .icon{
+      //     width: 30px;
+      //     height: 30px;
+      //     @include respond(lp-sm) {
+      //       // padding-right: 50px;
+      //     }
+      //     border: 3px solid transparent;
+      //     position: absolute;
+      //     transform: rotate(45deg);
+      //     right: 0;
+      //     top: 5px;
+      //     z-index: -1;
+      //     transition: all .35s;
+      //     svg{
+      //       width: 30px;
+      //       position: absolute;
+      //       top: calc(50% - 15px);
+      //       left: calc(50% - 15px);
+      //       transform: rotate(-45deg);
+      //       fill: $blue;
+      //       transition: all .35s;
+      //     }
+  
+      //   } 
+      //   a:hover{
+      //     width: 200px;
+      //     border: 3px solid $blue;
+      //     background: transparent;
+      //     color: $blue;
+      //   }
+        
+      //   a:hover + .icon{
+      //     border: 3px solid $blue;
+      //     right: -15%;
+      //   }
+      // }
+
+      @include mainBtn.glowing-left;
+
+      .scroll-indicator{
+        position: relative;
+        margin-top: 50px !important;
+        width: 23px;
+        height: 34px;
+        @include respond(lp-sm) {
+          // width: 50px;
+          // height: 60px;
+          // border-radius: 40px;
+        }
+        margin-left: -14px;
+        border-radius: 13px;
+        border: 2px solid rgb(126, 126, 126);
+        opacity: 1;
+        transition: opacity 200ms ease 0s;
+        &::before{
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 8px;
+          width: 3px;
+          height: 6px;
+          border-radius: 2px;
+          background-color: rgb(126, 126, 126);
+          // animation: 1.5s linear 0s infinite normal none running wheel-up-down;
+          animation: bounce 2s infinite;
+          transform-origin: 50% 0%;
+        }
+        &::after{
+          content: "Scroll";
+          display: block;
+          position: absolute;
+          top: 100%;
+          right: -50px;
+          left: -50px;
+          margin-top: 11px;
+          font-size: 18px;
+          line-height: 1;
+          text-align: center;
+          font-weight: 500;
+          color: $blue-light;
+        }
+      }
+    }
+    .engg-shishir-fixed-content-right {
+      display: none;
+      @include respond(lp-sm) {
+        flex: 0 0 30%;
+        max-width: 0 0 30%;
+        width: 30%;
+        padding: 40px;
+      }
+    }
+  }
+
+  // &::before {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   // background-image: url("https://www.esri.com/arcgis-blog/wp-content/uploads/2022/12/dallas-wurman.png");
+
+  //   background-image: url("https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp");
+  //   background-repeat: no-repeat;
+  //   background-position: center center;
+  //   background-size: cover;
+  //   content: "";
+  //   opacity: 0.6;
+  // }
+  // &::after {
+  //   position: absolute;
+  //   right: 0;
+  //   bottom: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   // background-image: url("https://www.esri.com/arcgis-blog/wp-content/uploads/2022/12/dallas-wurman.png");
+
+  //   background-image: url("https://github.githubassets.com/images/modules/site/home-campaign/bg-stars-1.webp");
+  //   background-repeat: no-repeat;
+  //   background-position: center center;
+  //   background-size: cover;
+  //   content: "";
+  //   opacity: 0.6;
+  // }
+}
+
+.opacityChange{
+  opacity: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes wheel-up-down {
+	0% {
+	    margin-top: 2px;
+	    opacity: 0;
+	}
+	30% {
+	    opacity: 1;
+	}
+	100% {
+	    margin-top: 20px;
+	    opacity: 0;
+	}
+}
+
+
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-7px);
+  }
+  60% {
+    transform: translateY(7px);
+  }
+}

@@ -24,7 +24,7 @@ class NoticeController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/notice.php", compact("compact"));
+    return view("Backend/Admin/Notice/notice.php", compact("compact"));
   }
 
 
@@ -38,7 +38,7 @@ class NoticeController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/insertNotice.php", compact("compact"));
+    return view("Backend/Admin/Notice/insertNotice.php", compact("compact"));
   }
 
   public function deleteNotice($code)

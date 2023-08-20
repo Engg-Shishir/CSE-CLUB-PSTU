@@ -49,7 +49,7 @@ class UserController{
         "colleges"=>$colleges,
         "facultys"=>$facultys
       ];
-      return view("pages/details.php",compact("compact"));
+      return view("Frontend/UserDetails/userDetails.php",compact("compact"));
 
     }else{
       $_SESSION["error_message"]= "You should sign in first";

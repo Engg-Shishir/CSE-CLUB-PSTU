@@ -29,7 +29,7 @@ class CityController
       "settings"=>$settings
     ];
 
-    return view("pages/Admin/Static/city.php", compact("compact"));
+    return view("Backend/Admin/Static/city.php", compact("compact"));
   }
 
   public function deleteCity($code)

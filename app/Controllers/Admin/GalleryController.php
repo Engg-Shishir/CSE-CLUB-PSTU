@@ -24,7 +24,7 @@ class GalleryController
         "settings"=>$settings
       ];
     }
-    return view("pages/Admin/Static/gallery.php", compact("compact"));
+    return view("Backend/Admin/Static/gallery.php", compact("compact"));
   }
 
   public function deleteFile($code)
