@@ -13,10 +13,10 @@ CREATE TABLE `users` (
   `token` VARCHAR(255) DEFAULT NULL,
   `is_verified` boolean DEFAULT false,
   `two_factor` boolean DEFAULT false,
-  `registration_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `last_login` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `registration_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `last_login` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   primary key (user_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -86,7 +86,7 @@ CREATE TABLE `educations` (
   `user_id` INTEGER UNSIGNED COMMENT 'Foreign key',
   `session_id` INTEGER UNSIGNED COMMENT 'Foreign key',
   `result` VARCHAR(100) DEFAULT NULL,
-  `graduation_year` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `graduation_year` datetime DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
   FOREIGN KEY (`college_id`) REFERENCES `colleges`(`college_id`) ON DELETE
   SET
@@ -134,7 +134,7 @@ CREATE TABLE `blog_categories` (
   `category_id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
   `name` varchar(200) UNIQUE NOT NULL,
   `description` text,
-  `creation_date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `creation_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(category_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -146,7 +146,7 @@ CREATE TABLE `blogs` (
   `user_id` integer UNSIGNED,
   `title` varchar(255) NOT NULL,
   `details` text NOT NULL,
-  `creation_date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `creation_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(blog_id),
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
   FOREIGN KEY (`category_id`) REFERENCES `blog_categories`(`category_id`) ON DELETE
@@ -192,8 +192,8 @@ CREATE TABLE `projects` (
   `user_id` integer UNSIGNED,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `start_date` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `end_date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `start_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `end_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(project_id),
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
@@ -206,7 +206,7 @@ CREATE TABLE `collaborators` (
   `phone` varchar(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
-  `start` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `start` datetime DEFAULT CURRENT_TIMESTAMP,
   `image` varchar(255) NOT NULL,
   `address` text NOT NULL,
   PRIMARY KEY(colla_id)
@@ -218,8 +218,8 @@ CREATE TABLE `events` (
   `event_id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
   `event_name` varchar(255) NOT NULL,
   `event_des` text NOT NULL,
-  `event_date` date NOT NULL,
-  `event_time` time NOT NULL,
+  `event_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `event_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `event_loc` text NOT NULL,
   `event_image` varchar(255) NOT NULL,
   `participants` int DEFAULT NULL,
@@ -303,7 +303,7 @@ CREATE TABLE `committees` (
   `user_id` int UNSIGNED,
   `role_title` varchar(200) NOT NULL,
   `role_des` varchar(200) NOT NULL,
-  `duration` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `duration` datetime DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -320,8 +320,8 @@ CREATE TABLE `polls` (
   `option6` varchar(100) DEFAULT NULL,
   `option7` varchar(100) DEFAULT NULL,
   `option8` varchar(100) DEFAULT NULL,
-  `begin_date` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `end_date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `begin_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `end_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(poll_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -341,7 +341,7 @@ CREATE TABLE `complaints` (
   `complaint_id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
   `user_id` int UNSIGNED,
   `subject` varchar(255) NOT NULL,
-  `complaint_date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `complaint_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `complaint_description` text DEFAULT NULL,
   PRIMARY KEY(complaint_id),
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
@@ -368,8 +368,8 @@ CREATE TABLE `abouts` (
   `fax` varchar(191) DEFAULT NULL,
   `pabx` varchar(191) DEFAULT NULL,
   `email` varchar(191) NOT NULL,
-  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(abouts_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -386,8 +386,8 @@ CREATE TABLE `settings` (
   `meta_description` text DEFAULT NULL,
   `meta_keywords` varchar(191) DEFAULT 'Patuakhali Science and Technology University, PSTU',
   `notice_status` tinyint(1) NOT NULL DEFAULT 1 COMMENT ' 1 = Notice Visible in Front Page | 0 = Invisible',
-  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
@@ -409,8 +409,8 @@ CREATE TABLE `course_materials` (
   `course_id` int UNSIGNED,
   `title` varchar(191) NOT NULL,
   `file` varchar(191) NOT NULL,
-  `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(id),
   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
   FOREIGN KEY (`course_id`) REFERENCES `courses`(`course_id`) ON DELETE CASCADE
@@ -462,8 +462,8 @@ CREATE TABLE `carnivals` (
   `carnival_id` integer UNSIGNED AUTO_INCREMENT NOT NULL,
   `title` VARCHAR(300) DEFAULT NULL,
   `banner` VARCHAR(300) DEFAULT NULL,
-  `start` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `end` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `start` datetime DEFAULT CURRENT_TIMESTAMP,
+  `end` datetime DEFAULT CURRENT_TIMESTAMP,
   primary key (carnival_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
