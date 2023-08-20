@@ -33,7 +33,7 @@
       <div class="row">
         <?php
         foreach ($data as $key => $value) { ?>
-          <div class="col-md-4 mb-4">
+          <div class="col-md-3 mb-3">
             <div class="card">
               <div class="card-header d-flex justify-content-between">
                 <div class="d-flex flex-md-column">
@@ -54,8 +54,8 @@
                   <a href="<?= url("/admin/event/category/delete/" . $value["id"]) ?>" class="text-danger btn btn-default"><i class="fa-solid fa-trash"></i></a>
                 </div>
               </div>
-              <div class="card-body d-flex justify-content-center" style="background-color:#f7f7f7;">
-                  <img src="<?= assets("Upload/Sponsor-Category/".$value["image"]) ?>" alt="" height="250px" width="250px">
+              <div class="card-body d-flex justify-content-center p-0" style="background-color:#f7f7f7; ">
+                  <img src="<?= assets("Upload/Sponsor-Category/".$value["image"]) ?>" alt="" height="250px" width="100%" style="object-fit: cover;">
               </div>
             </div>
           </div>

@@ -32,7 +32,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Event Location</label>
-                    <textarea class="form-control" name="event_loc" rows="1"
+                    <textarea class="form-control" name="event_loc" rows="3"
                       placeholder="Event Location"><?= ietp("event_loc") ?></textarea>
                   </div>
                 </div>
@@ -76,7 +76,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Event Description</label>
-                    <textarea class="form-control summernote" name="event_des" rows="1" placeholder="Event Description"></textarea>
+                    <textarea class="form-control" name="event_des" rows="3" placeholder="Event Description"></textarea>
                   </div>
                 </div>
               </div>
@@ -85,7 +85,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">event_schedule</label>
-                    <textarea class="form-control summernote" name="event_schedule" rows="1" placeholder="event_schedule"></textarea>
+                    <textarea class="form-control" name="event_schedule" rows="3" placeholder="event_schedule"></textarea>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">event_roles</label>
-                    <textarea class="form-control summernote" name="event_roles" rows="1" placeholder="event_roles"></textarea>
+                    <textarea class="form-control" name="event_roles" rows="3" placeholder="event_roles"></textarea>
                   </div>
                 </div>
               </div>

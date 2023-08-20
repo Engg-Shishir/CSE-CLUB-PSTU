@@ -9,9 +9,6 @@
 
   <link rel="stylesheet" href="<?= assets('style/Backend/Admin/Static/country.css'); ?>" />
   <link rel="stylesheet" href="<?= assets('style/Backend/Admin/Events/eventsCard.css'); ?>" />
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" /> -->
 
   <?php view("layout/partials/backendLink.php"); ?>
 

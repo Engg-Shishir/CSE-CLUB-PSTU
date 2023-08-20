@@ -16,6 +16,7 @@
     </div>
   </div>
 </div>
+
 <div class="engg-shishir-fullnav" onMouseOver="this.style.right='0'" onMouseOut="this.style.right='-260px'">
   <div class="accordion">
 
@@ -65,16 +66,17 @@
     </div>
 
     <div class="accordion__item">
-      <a class="accordion__toggle">
-        <i class="fas fa-cog"></i> Notice
-        <i class="fa-solid fa-chevron-right accordion__icon"></i>
-      </a>
-      <div class="accordion__content">
-        <div class="accordion__content-container">
-          <a class="accordion__a" href="<?= url("/admin/notice") ?>">All notice</a>
-          <a class="accordion__a" href="<?= url("/admin/notice/insert") ?>">Insert Notice</a>
+        <a class="accordion__toggle">
+          <i class="fas fa-cog"></i> Notice
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+            <div class="accordion__content-container">
+              <a class="accordion__a" href="<?= url("/admin/notice") ?>">All notice</a>
+              <a class="accordion__a" href="<?= url("/admin/notice/insert") ?>">Insert Notice</a>
+            </div>
         </div>
-      </div>
+     </div>
 
       <div class="accordion__item">
         <a href="<?= url("/admin/projects") ?>" class="accordion__toggle">
@@ -98,10 +100,10 @@
         </a>
         <div class="accordion__content">
           <div class="accordion__content-container">
-            <a class="accordion__a" href="<?= url("/admin/partnerpage"); ?>">Add Support Type</a>
+            <a class="accordion__a" href="<?= url("/admin/support/category"); ?>">Support Category</a>
             <a class="accordion__a" href="<?= url("/admin/carnivals"); ?>">Carnival</a>
+            <a class="accordion__a" href="<?= url("/admin/events/sponsor"); ?>">Sponsor</a>
             <a class="accordion__a" href="<?= url("/admin/events"); ?>">Events</a>
-            <a class="accordion__a" href="<?= url("/admin/events/sponsor"); ?>">Event Sponsor</a>
           </div>
         </div>
       </div>
@@ -115,6 +117,6 @@
           <i class="far fa-user"></i> Logout
         </a>
       </div>
+
     </div>
-  </div>
 </div>

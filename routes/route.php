@@ -195,8 +195,8 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
 
-  Router::get('admin/partnerpage',[PartnerPageController::class,"partnerPage"]);
-  Router::post('admin/partnerpage',[PartnerPageController::class,"insertSpnsorCategory"]);
+  Router::get('admin/support/category',[PartnerPageController::class,"partnerPage"]);
+  Router::post('admin/partnerpage',[PartnerPageController::class,"insertSpnsortCategory"]);
   Router::get('admin/event/category/status/{id}',[PartnerPageController::class,"statusEventCategory"]);
   Router::get('admin/event/category/delete/{id}',[PartnerPageController::class,"deleteEventCategory"]);
 

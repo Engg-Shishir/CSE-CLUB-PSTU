@@ -28,7 +28,7 @@ class PartnerPageController
     }
   }
 
-  public function insertSpnsorCategory()
+  public function insertSpnsortCategory()
   {
     $imageDetails = fileDetails($_FILES, "image");
 
@@ -39,11 +39,11 @@ class PartnerPageController
 
     if (isBlank($data)) {
       $_SESSION["error_message"] = "All field required";
-      redirects("/admin/partnerpage");
+      redirects("/admin/support/category");
     } else {
       if (!isImage($imageDetails["fext"])) {
         $_SESSION["error_message"] = "Wrong file selected";
-        redirects("/admin/partnerpage");
+        redirects("/admin/support/category");
       } else {
 
         $slug = slug($data["title"]);
@@ -65,7 +65,7 @@ class PartnerPageController
           $_SESSION["error_message"] = "Something going wrong!";
         }
 
-        redirects("/admin/partnerpage");
+        redirects("/admin/support/category");
       }
     }
 
@@ -88,7 +88,7 @@ class PartnerPageController
     // unlinkFile("assets/Upload/Partners/".$fetch["image"]);
     // $res = $objs->delete("collaborators", "colla_id", $id);
     $DB->updateTable($sql,$data);
-    redirects("/admin/partnerpage");
+    redirects("/admin/support/category");
   }
 
   function deleteEventCategory($id){
@@ -98,7 +98,7 @@ class PartnerPageController
     unlinkFile("assets/Upload/Sponsor-Category/".$fetch["image"]);
     $res = $objs->delete("support_category_image", "id", $id);
     $_SESSION["success_message"] = "Delete Successfully";
-    redirects("/admin/partnerpage");
+    redirects("/admin/support/category");
   }
 
 }

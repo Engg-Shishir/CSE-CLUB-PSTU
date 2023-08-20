@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User | Profile</title>
   <!-- CSS Part -->
-  <link rel="stylesheet" href="<?= assets('pages/Admin/dashboard.css'); ?>" />
+  <link rel="stylesheet" href="<?= assets('style/Backend/Admin/Static/country.css'); ?>" />
   <link rel="stylesheet" href="<?= assets('pages/User/profile.css'); ?>" />
+  <?php view("layout/partials/backendLink.php"); ?>
 </head>
 
 <body>
@@ -68,7 +69,7 @@
             <span style="font-size :16px;font-weight :600;">Blood Group :</span>
             <span style="font-size :15px;font-weight :500;"><?= $data["blood"] ?><br>
             <span style="font-size :16px;font-weight :600;">Print :</span>
-            <a id="print" href="" style="font-size: 16px; font-weight: 500; margin-top: 5px; color:green"><i class="fa-solid fa-print"></i></a>
+            <a  href="" style="font-size: 16px; font-weight: 500; margin-top: 5px; color:green"><i class="fa-solid fa-print"></i></a>
           </div>
         </div>
       </div>

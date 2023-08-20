@@ -128,7 +128,7 @@ function mailVerify(string $sender,string $name, string $token)
     $mail->Host = 'smtp.gmail.com;';
     $mail->SMTPAuth = true;
     $mail->Username = 'shishirbhuiyan83@gmail.com';
-    $mail->Password = 'bfvfojkgbiujpnuv';
+    $mail->Password = 'xnurkqtbzprwjkui';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
