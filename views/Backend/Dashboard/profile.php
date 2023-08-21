@@ -69,7 +69,7 @@
             <span style="font-size :16px;font-weight :600;">Blood Group :</span>
             <span style="font-size :15px;font-weight :500;"><?= $data["blood"] ?><br>
             <span style="font-size :16px;font-weight :600;">Print :</span>
-            <a  href="" style="font-size: 16px; font-weight: 500; margin-top: 5px; color:green"><i class="fa-solid fa-print"></i></a>
+            <a  href="<?= url('/profile/print/'.$data["user_id"]) ?>" style="font-size: 16px; font-weight: 500; margin-top: 5px; color:green"><i class="fa-solid fa-print"></i></a>
           </div>
         </div>
       </div>

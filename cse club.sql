@@ -468,6 +468,15 @@ CREATE TABLE `carnivals` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 
+CREATE TABLE `printTable` (
+  `pid` integer UNSIGNED AUTO_INCREMENT NOT NULL,
+  `print_code` VARCHAR(300) DEFAULT NULL,
+  `user_id` int UNSIGNED,
+  primary key (pid),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+
 
 DROP TABLE IF EXISTS event_sponsor;
 CREATE TABLE `event_sponsor` (

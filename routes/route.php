@@ -23,6 +23,7 @@ use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
 use App\Controllers\MailController;
+use App\Controllers\PrintController;
 use App\Controllers\Student\StudentController;
 use App\Controllers\UserController;
 use App\master\Router;
@@ -70,6 +71,7 @@ Router::group(['middleware' => \App\Middlewares\Student::class], function (){
   Router::get('user',[StudentController::class,"profile"]);
   Router::get('user/profile',[StudentController::class,"profile"]);
   Router::get('user/projects',[StudentController::class,"projects"]);
+  Router::get('profile/print/{id}',[PrintController::class,"profile"]);
 });
 
 
@@ -200,15 +202,6 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/event/category/status/{id}',[PartnerPageController::class,"statusEventCategory"]);
   Router::get('admin/event/category/delete/{id}',[PartnerPageController::class,"deleteEventCategory"]);
 
-
-
-
-
-
-
-
 });
-
-
 
 
