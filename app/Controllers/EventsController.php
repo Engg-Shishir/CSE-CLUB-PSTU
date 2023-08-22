@@ -102,7 +102,7 @@ class EventsController
 
 
     $user = new User();
-    $sql = "SELECT * FROM colleges";
+    $sql = "SELECT college_code,name FROM colleges";
     $stmt = $user->execute($sql);
     $colleges = $stmt->fetchAll();
 
@@ -129,13 +129,10 @@ class EventsController
     $cid = $stmt->fetchColumn();
 
 
-    $sql = "SELECT event_slug,event_name FROM `events` WHERE `carnival_id`=? AND `status`=?";
+    $sql = "SELECT event_id,event_name FROM `events` WHERE `carnival_id`=? AND `status`=?";
     $stmt = $user->execute($sql, [$cid, 1]);
     $events = $stmt->fetchAll();
 
-    // $sql = "SELECT * FROM events";
-    // $stmt = $user->execute($sql);
-    // $events = $stmt->fetchAll();
 
     return json_encode($events);
   }
@@ -167,5 +164,64 @@ class EventsController
     $compact = ["category" => $eventCategorys, "settings" => $settings, "count" => $count];
 
     return view("pages/Partner/index.php", compact("compact"));
+  }
+
+
+
+
+
+
+
+
+  public function insertEventRegData(){
+    session_start();
+    $imageDetails = fileDetails($_FILES, "image");
+    		
+
+    $data = [
+      "event_id" => $_POST["event_id"],
+      "college_code" => $_POST["college_code"],
+      "student_id" => $_POST["student_id"],
+      "name" => $_POST["name"],
+      "email" => $_POST["email"],
+      "image" => $imageDetails["fname"],
+      "current_edu" => $_POST["current_edu"],
+      "password" => $_POST["password"],
+      "tranjection" => $_POST["tranjection"]
+    ];
+
+    if (isBlank($data)) {
+      $_SESSION["error_message"] = "All field is required";
+      redirects("/signup/event");
+    } else {
+      if (!isImage($imageDetails["fext"])) {
+        $_SESSION["error_message"] = "Wrong file selected";
+        redirects("/signup/event");
+      } else {
+
+        $slug = slug($data["name"]);
+        $NewFileName = $slug . "." . $imageDetails["fext"];
+        unlinkFile("assets/Upload/EventRegister/" . $NewFileName);
+        fileStore($imageDetails["source"], "assets/Upload/EventRegister/" . $NewFileName);
+
+
+        $user = new User();
+        $sql = "INSERT INTO event_reg ( `event_id`, `college_code`, `student_id`, `name`, `email`, `current_edu`, `password`, `image`,`tranjection`) VALUES (:event_id,:college_code,:student_id,:name,:email,:current_edu,:password,:image,:tranjection)";
+
+        $data["image"] = $NewFileName;
+
+        parray($data);
+
+        $run = $user->insert($sql, $data); // $run = 1 or 0
+        if ($run) {
+          $_SESSION["success_message"] = "You Registered Successfully";
+          unsetAll($data);
+        } else {
+          $_SESSION["error_message"] = "Something going wrong!";
+        }
+
+        redirects("/signup/event");
+      }
+    }
   }
 }

@@ -40,6 +40,7 @@ Router::get('event/{event}', [EventsController::class,"event"]);
 
 Router::get('signup/event', [EventsController::class,"eventReg"]);
 Router::post('fetch/event', [EventsController::class,"fetchEvent"]);
+Router::post('signup/event', [EventsController::class,"insertEventRegData"]);
 
 /**
  * User Logout syatem

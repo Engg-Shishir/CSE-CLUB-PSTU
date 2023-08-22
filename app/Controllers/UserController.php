@@ -115,20 +115,7 @@ class UserController{
       }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
   }
 }
 

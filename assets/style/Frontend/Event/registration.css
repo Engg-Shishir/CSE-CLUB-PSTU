@@ -769,6 +769,10 @@ html {
   font-size: 100% !important;
 }
 
+label {
+  font-weight: 700 !important;
+}
+
 .select2.select2-container {
   width: 100% !important;
   margin-bottom: -10px;
@@ -779,219 +783,18 @@ html {
   margin: 0 auto;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 66px;
   margin-bottom: 100px;
   border: 2px solid red;
-  min-height: 100vh;
+  min-height: 110vh;
 }
-.support-row .reg-form {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  width: 60%;
+
+.submit-btn {
+  background-color: #313d4c;
+  color: white;
 }
-.support-row .reg-form .title-box {
-  padding: 10px 20px;
-}
-.support-row .reg-form .title-box span:first-child {
-  font-size: 35px;
-  margin: 50px 0px;
-  font-weight: 900;
-  color: #313d4c;
-}
-@media only screen and (min-width: 992px) {
-  .support-row .reg-form .title-box span:first-child {
-    font-size: 35px;
-    text-align: center;
-  }
-}
-.support-row .reg-form .title-box span:last-child {
-  font-size: 35px;
-  margin: 50px 0px;
-  font-weight: 900;
-  color: #313d4c;
-}
-@media only screen and (min-width: 992px) {
-  .support-row .reg-form .title-box span:last-child {
-    font-size: 35px;
-    text-align: center;
-  }
-}
-.support-row .reg-form form {
-  width: 100%;
-}
-.support-row .reg-form form .row-input {
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-@media only screen and (min-width: 992px) {
-  .support-row .reg-form form .row-input {
-    flex-direction: row;
-  }
-}
-.support-row .reg-form form .row-input input,
-.support-row .reg-form form .row-input textarea {
-  writing-mode: horizontal-tb !important;
-  outline: none;
-  font-weight: bold;
-  font-family: "GilroyLight";
-  display: flex;
-  padding: 11px 15px 13px;
-  margin-bottom: 20px;
-  font-size: 20px;
-  line-height: 24px;
-  background: rgb(244, 244, 244);
-  border: 1px solid rgb(244, 244, 244);
-  font-weight: 300;
-  box-sizing: border-box;
-  border-radius: 3px;
-}
-.support-row .reg-form form .row-input .small {
-  width: 90%;
-  padding-left: 2%;
-  padding-right: 2%;
-}
-@media only screen and (min-width: 992px) {
-  .support-row .reg-form form .row-input .small {
-    width: 45%;
-  }
-}
-.support-row .reg-form form .row-input .lg {
-  width: 90%;
-  padding-left: 2%;
-  padding-right: 2%;
-}
-@media only screen and (min-width: 992px) {
-  .support-row .reg-form form .row-input .lg {
-    width: 95%;
-  }
-}
-.support-row .reg-form .flex-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 5px 20px;
-}
-.support-row .reg-form .flex-row a {
-  color: blue;
-  font-weight: 500;
-  font-size: 14px;
-  text-decoration: underline;
-}
-.support-row .reg-form .reg-btn-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.support-row .reg-form .reg-btn-box .glowing-btn {
-  margin-top: 10px;
-  margin-top: 0.5rem !important;
-  font-family: "Open Sans", sans-serif;
-  height: 49px;
-  min-width: 190px;
-  font-size: 1.125rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  color: #fff;
-  border: none;
-  font-weight: bold;
-  background-color: #383d59;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  outline: none;
-  transition: all 650ms;
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-}
-@media only screen and (min-width: 768px) {
-  .support-row .reg-form .reg-btn-box .glowing-btn {
-    height: 55px;
-    min-width: 250px;
-    font-size: 1.6rem;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .support-row .reg-form .reg-btn-box .glowing-btn {
-    height: 66px;
-    min-width: 300px;
-    font-size: 2rem;
-  }
-}
-.support-row .reg-form .reg-btn-box .glowing-btn::before {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  bottom: 1px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  transform: rotate(24deg);
-  height: 100%;
-}
-.support-row .reg-form .reg-btn-box .glowing-btn span:nth-child(1) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-}
-.support-row .reg-form .reg-btn-box .glowing-btn span:nth-child(2) {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1px;
-  height: 100%;
-}
-.support-row .reg-form .reg-btn-box .glowing-btn span:nth-child(3) {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-}
-.support-row .reg-form .reg-btn-box .glowing-btn span:nth-child(4) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 100%;
-}
-@keyframes animateTop {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-@keyframes animateRight {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-@keyframes animateBottom {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-@keyframes animateLeft {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+.submit-btn :hover {
+  color: white !important;
 }/*# sourceMappingURL=registration.css.map */
