@@ -87,7 +87,41 @@ class EventsController
     return view("Frontend/Event/event.php", compact("compact"));
   }
 
+  public function eventReg()
+  {
 
+    $user = new User();
+
+
+    $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
+    FROM settings
+    LEFT JOIN carnivals AS ca
+    ON settings.nav_carnival_id = ca.carnival_id";
+    $stmt = $user->execute($sql);
+    $settings = $stmt->fetchAll();
+
+
+    $user = new User();
+    $sql = "SELECT * FROM colleges";
+    $stmt = $user->execute($sql);
+    $colleges = $stmt->fetchAll();
+
+    $user = new User();
+    $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=1";
+    $stmt = $user->execute($sql);
+    $carnivals = $stmt->fetchAll();
+
+
+
+
+    $compact = [ "settings" => $settings, "colleges" => $colleges, "carnivals" => $carnivals];
+
+    // parray($compact);
+
+    return view("Frontend/Event/registration.php", compact("compact"));
+  }
+
+  
 
 
   public function welcomePartner()

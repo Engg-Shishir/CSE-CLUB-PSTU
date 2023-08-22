@@ -1,34 +1,28 @@
 <?php
 
-$formData=$compact["formData"];
+$formData = $compact["formData"];
 $carnivals = $compact["carnivals"];
 
 ?>
 
 <form action="<?= url("/admin/setting"); ?>" method="POST" enctype="multipart/form-data">
   <div class="card-body">
-    <div class="row">
-      <?php view("components/flashMessage.php"); ?>
-      <div class="col-md-12">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Title</label>
-          <input type="text" class="form-control" name="title" placeholder="Enter Project Name"
-            value="<?php if (isset($formData["title"]) && $formData["title"] !== null)
-              echo $formData["title"]; ?>">
-        </div>
+    <?php view("components/flashMessage.php"); ?>
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-3 ">
+        <img  class="gallery" id="output">
       </div>
     </div>
-
-
     <div class="row">
       <div class="col-md-4">
         <div class="imageBox">
           <div class="image">
             <?php
             if (isset($formData["logo"]) && $formData["logo"] !== null) { ?>
-              <img src="<?= assets("Upload/Settings/" . $formData["logo"]) ?>" id="logo" style="height:150px; width:150px;">
+              <img src="<?= assets("Upload/Settings/" . $formData["logo"]) ?>" id="logo"
+                style="height:150px; width:150px;">
             <?php } else { ?>
-              <img id="logo">
+              <img height="100px" width="100px" class="gallery" id="output">
             <?php }
             ?>
           </div>
@@ -94,6 +88,30 @@ $carnivals = $compact["carnivals"];
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
+          <label for="exampleInputEmail1">Title</label>
+          <input type="text" class="form-control" name="title" placeholder="Enter Project Name" value="<?php if (isset($formData["title"]) && $formData["title"] !== null)
+            echo $formData["title"]; ?>">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Developer</label>
+          <input type="text" class="form-control" name="meta_author" placeholder="Developer Name" value="<?php if (isset($formData["meta_author"]) && $formData["meta_author"] !== null)
+            echo $formData["meta_author"]; ?>">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Meta Keywords</label>
+          <input type="text" class="form-control" name="meta_keywords" placeholder="Enter Project Name" value="<?php if (isset($formData["meta_keywords"]) && $formData["meta_keywords"] !== null)
+            echo $formData["title"]; ?>">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
           <label for="exampleInputFile">Home Video</label>
           <div class="input-group">
             <div class="custom-file">
@@ -122,25 +140,19 @@ $carnivals = $compact["carnivals"];
       </div>
     </div>
 
-
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="exampleInputPassword1">Prject Section Text</label>
-          <textarea class="form-control" name="project_section_text">
-            <?php if (isset($formData["project_section_text"]) && $formData["project_section_text"] !== null)
-              echo $formData["project_section_text"]; ?>
-          </textarea>
+          <textarea class="form-control" name="project_section_text"
+            rows="4"><?= $formData["project_section_text"]; ?> </textarea>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="description">Partner Section Text</label>
-          <textarea class="form-control" name="partners_section_text">
-            <?php if (isset($formData["partners_section_text"]) && $formData["partners_section_text"] !== null)
-              echo $formData["partners_section_text"]; ?>
-          </textarea>
+          <textarea class="form-control" name="partners_section_text"
+            rows="4"><?= $formData["partners_section_text"]; ?> </textarea>
         </div>
       </div>
     </div>
@@ -149,42 +161,17 @@ $carnivals = $compact["carnivals"];
       <div class="col-md-6">
         <div class="form-group">
           <label for="exampleInputPassword1">Short Description</label>
-          <textarea class="form-control" name="short_des">
-            <?php if (isset($formData["short_des"]) && $formData["short_des"] !== null)
-              echo $formData["short_des"]; ?>
-          </textarea>
+          <textarea class="form-control" name="short_des" rows="4"><?= $formData["short_des"]; ?> </textarea>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="description">Long description</label>
-          <textarea class="form-control" name="description">
-            <?php if (isset($formData["description"]) && $formData["description"] !== null)
-              echo $formData["description"]; ?>
-          </textarea>
+          <textarea class="form-control" name="description" rows="4"><?= $formData["description"]; ?> </textarea>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="exampleInputPassword1">Owners</label>
-          <input type="text" class="form-control" name="meta_author" placeholder="Owners"
-            value="<?php if (isset($formData["meta_author"]) && $formData["meta_author"] !== null)
-              echo $formData["meta_author"]; ?>">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="description">Mete keywords</label>
-          <textarea class="form-control" name="meta_keywords">
-            <?php if (isset($formData["meta_keywords"]) && $formData["meta_keywords"] !== null)
-              echo $formData["meta_keywords"]; ?>
-          </textarea>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="card-footer">
     <div class="row">

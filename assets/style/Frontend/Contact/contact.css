@@ -511,19 +511,18 @@ footer {
   background-color: #313d4c;
   width: 100%;
   margin: 0 auto;
-  margin-top: 100px !important;
   position: relative;
 }
 footer .w-full {
   position: absolute;
   width: 100%;
-  bottom: 100%;
+  bottom: 95%;
   left: 0;
   z-index: 4;
 }
 @media only screen and (min-width: 992px) {
   footer .w-full {
-    bottom: 100%;
+    bottom: 98%;
   }
 }
 footer hr {

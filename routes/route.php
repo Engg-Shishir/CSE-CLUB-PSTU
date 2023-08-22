@@ -36,6 +36,10 @@ Router::get('contact', [MessageController::class,"conatctPage"]);
 Router::get('carnival/{carnival}', [EventsController::class,"carnival"]);
 Router::get('event/{event}', [EventsController::class,"event"]);
 
+
+
+Router::get('signup/event', [EventsController::class,"eventReg"]);
+
 /**
  * User Logout syatem
  */

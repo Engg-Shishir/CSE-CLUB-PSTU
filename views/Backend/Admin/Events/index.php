@@ -11,20 +11,6 @@
   <link rel="stylesheet" href="<?= assets('style/Backend/Admin/Events/eventsCard.css'); ?>" />
 
   <?php view("layout/partials/backendLink.php"); ?>
-
-  
-
-
-<!-- 
-  <style>
-    html {
-      font-size: 100% !important;
-    }
-
-    .select2.select2-container {
-      width: 100% !important;
-    }
-  </style> -->
 </head>
 
 <body>
@@ -155,8 +141,6 @@
 
 
   <?php view("Backend/Admin/Events/partials/addEvents.php", compact("carnivals")); ?>
-
-
 
   <?php view("layout/partials/backendScript.php"); ?>
 

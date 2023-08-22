@@ -1,11 +1,11 @@
 
 
-@use "../../../components/mainBtn";
-@use "../../../components/select2";
-@import "../../../setting/settings";
-@import "../../../layout/NavBar/fixedTopbar";
-@import "../navbar";
-@import "../../../components/form";
+@use "../../../../components/mainBtn";
+@use "../../../../components/select2";
+@import "../../../../setting/settings";
+@import "../../../../layout/NavBar/fixedTopbar";
+@import "../../navbar";
+@import "../../../../components/form";
 .content {
   margin-top: 66px !important;
   padding: 20px !important;

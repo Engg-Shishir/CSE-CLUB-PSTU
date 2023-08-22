@@ -21,7 +21,6 @@
             placeholder: 'Select Option',
             closeOnSelect: true,
             // dropdownParent: $("#actionddModal1")
-            // dropdownParent: $("#actionddModal2")
         });
 
         $('.country-select').select2({

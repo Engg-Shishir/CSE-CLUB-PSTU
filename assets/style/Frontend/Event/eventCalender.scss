@@ -5,10 +5,10 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    margin-bottom: 200px;
 
     @include respond(lp-sm) {
         padding: 20px;
-        // height: 50vh;
     }
 
     .box {

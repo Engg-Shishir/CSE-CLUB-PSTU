@@ -93,8 +93,9 @@
     </div>
 
   </div>
-  <script src="<?= assets('Backend/Admin/Static/gallery.js'); ?>"></script>
+
   <?php view("layout/partials/backendScript.php"); ?>
+<script src="<?= assets('js/gallery.js'); ?>"></script>
 
 </body>
 

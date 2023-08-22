@@ -37,6 +37,18 @@
     <?php view("Frontend/Event/partials/sponsor.php", compact("sponsor")); ?>
     <?php view("Frontend/Event/partials/eventCard.php", compact("events")); ?>
 
+    <div class="row banner-btn">
+    <a href="<?=  url("/signup/event")  ?>" class="eventRegistrationBtn">
+      <button class="glowing-btn" type="submit">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Registration
+      </button>
+    </a>
+  </div>
+
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
   <?php view("layout/partials/frontendScript.php") ?>

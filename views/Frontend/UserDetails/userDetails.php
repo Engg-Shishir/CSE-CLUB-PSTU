@@ -6,15 +6,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLUB | Login</title>
+  <title>User | Details</title>
 
-  <link rel="stylesheet" href="<?= assets('style/Frontend/UserDetails/userDetails.css'); ?>" />
   <?php view("layout/partials/backendLink.php") ?>
-  <style>
-    .footerBox{
-      margin-top: 300px ;
-    }
-  </style>
+  <link rel="stylesheet" href="<?= assets('style/Frontend/UserDetails/userDetails.css'); ?>" />
 </head>
 
 <body>
@@ -171,7 +166,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="exampleInputPassword1">About Yourself <span class="must">*</span></label>
-                    <textarea class="form-control summernote" name="bio" rows="3" placeholder="About yourself"><?= ietp("bio") ?></textarea>
+                    <textarea class="form-control" name="bio" rows="3" placeholder="About yourself"><?= ietp("bio") ?></textarea>
                   </div>
                 </div>
               </div>
@@ -195,7 +190,7 @@
   <?php view("layout/partials/backendScript.php") ?>
 
 
-  <script src="<?= assets('pages/Admin/Static/gallery.js'); ?>"></script>
+  <script src="<?= assets('js/gallery.js'); ?>"></script>
 </body>
 
 </html>

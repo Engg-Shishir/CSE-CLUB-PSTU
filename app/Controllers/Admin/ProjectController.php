@@ -8,7 +8,6 @@ use App\model\User;
 class ProjectController
 {
 
-  private bool $errorCheck = false;
   public function Projects()
   {  
     
@@ -34,7 +33,7 @@ class ProjectController
 
     $user = new User();
     $sql = "SELECT * FROM user_details  WHERE user_id=?";
-    $stmt = $user->execute($sql, [$_POST["user_id"]]);
+    $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
 
 
 
