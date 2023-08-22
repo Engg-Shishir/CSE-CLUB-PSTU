@@ -107,7 +107,7 @@ class EventsController
     $colleges = $stmt->fetchAll();
 
     $user = new User();
-    $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=1";
+    $sql = "SELECT slug,title FROM carnivals WHERE `status`=1";
     $stmt = $user->execute($sql);
     $carnivals = $stmt->fetchAll();
 
@@ -119,6 +119,25 @@ class EventsController
     // parray($compact);
 
     return view("Frontend/Event/registration.php", compact("compact"));
+  }
+
+  public function fetchEvent(){
+    $user = new User();
+
+    $sql = "SELECT carnival_id FROM `carnivals` WHERE `slug`=?";
+    $stmt = $user->execute($sql, [$_POST["carnival_slug"]]);
+    $cid = $stmt->fetchColumn();
+
+
+    $sql = "SELECT event_slug,event_name FROM `events` WHERE `carnival_id`=? AND `status`=?";
+    $stmt = $user->execute($sql, [$cid, 1]);
+    $events = $stmt->fetchAll();
+
+    // $sql = "SELECT * FROM events";
+    // $stmt = $user->execute($sql);
+    // $events = $stmt->fetchAll();
+
+    return json_encode($events);
   }
 
   
