@@ -65,8 +65,6 @@
                   <td>
                     <a href="<?= url("/admin/event/registration/delete/" . $item["reg_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
-                    <a onclick='collegeEdit(<?= $item["reg_id"] ?>);' class="btn btn-default btn-sm"><i
-                        class="fa-solid fa-pen"></i></a>
                     <?php
                     if ($item["status"] == 1) {
                       ?>

@@ -1,13 +1,6 @@
 <div class="reg-form">
   <?php view("components/flashMessage.php"); ?>
   <form action="<?= url("/joinus"); ?>" method="POST" enctype="multipart/form-data">
-    <!--inputField();
-    * @param mixed $type
-    * @param mixed $name
-    * @param mixed $value
-    * @param mixed $placeholder
-    * @param mixed $class -->
-    
     <div class="row row-input">
       <?= inputField("email", "username", "", "Email", "lg"); ?>
     </div>

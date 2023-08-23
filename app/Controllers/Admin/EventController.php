@@ -390,6 +390,4 @@ class EventController
     redirects("/admin/event/registration");
   }
 
-  
-
 }

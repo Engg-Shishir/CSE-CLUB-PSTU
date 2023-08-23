@@ -1,29 +1,34 @@
 <div class="direction">
   <div class="instruction-title-box">
-    <span>Login Instruction</span>
+    <span>Get ready for take-off</span>
   </div>
   <ul>
     <li>
-      <img src="./Image/Icon/file-signature-solid.svg" alt="">
-      <span>Enter your username and password in the fields provided.</span>
+      <img src="<?= assets('Image/Icon/file-signature-solid.svg')?>" alt="">
+      <span>Complete the form on the left to begin your journey to Harbour.Space</span>
     </li>
     <li>
-      <img src="./Image/Icon/paper-plane-solid.svg" alt="">
-      <span>Make sure that you are using the correct username and password.</span>
+      <img src="<?= assets('Image/Icon/paper-plane-solid.svg')?>" alt="">
+      <span>Confirm it's really you with your email</span>
     </li>
     <li>
-      <img src="./Image/Icon/archway-solid.svg" alt="">
-      <span>Check that your caps lock key is not on, as passwords are case-sensitive.</span>
+      <img src="<?= assets('Image/Icon/archway-solid.svg')?>" alt="">
+      <span>Log in to get your application ready to fly our way</span>
     </li>
     <li>
-      <img src="./Image/Icon/paper-plane-solid.svg" alt="">
-      <span>If you have forgotten your password, click on the "forgot password" link and follow the prompts to
-        reset it.</span>
+      <img src="<?= assets('Image/Icon/archway-solid.svg')?>" alt="">
+      <span>Before submit the form check properly, everything should well insert or not, otherwise it takes extra time for again insert all of them</span>
     </li>
-    <li>
-      <img src="./Image/Icon/archway-solid.svg" alt="">
-      <span>Once you have entered your correct login credentials, click the "Login" button to access your
-        account.</span>
-    </li>
+  </ul>
+
+  <ul>
+  <?php   
+    if(isset($_SESSION["formError"])){
+      foreach ($_SESSION["formError"] as $key => $value) {
+        echo "<li>".$value."</li>";
+      }
+    }
+  
+  ?>
   </ul>
 </div>

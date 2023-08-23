@@ -4,19 +4,20 @@
     <?= inputField("hidden", "_token", shishirEnv("APP_KEY")); ?>
 
     <div class="form-group">
-      <label for=""><strong>Education</strong></label>
       <select name="role" class="select2  form-control">
-        <option value="">Your role</option>
+        <option value=""></option>
         <?php
-        $edu = [
+        $role = [
           "admin" => "Admin",
+          "accountent" => "Accountent",
+          "alumini" => "Alumini",
           "student" => "Student",
           "teacher" => "Teacher",
-          "event-partcipant" => "Event Partcipant",
+          "participant" => "Participant",
           "partner" => "Partner"
         ];
 
-        foreach ($edu as $key => $value) {
+        foreach ($role as $key => $value) {
           echo "<option value='" . $key . "'>" . $value . "</option>";
         }
         ?>

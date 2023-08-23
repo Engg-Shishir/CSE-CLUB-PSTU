@@ -140,7 +140,13 @@ function mailVerify(string $sender,string $name, string $token)
     $mail->Body="<h1 align=center>Please Click On The Link Bellow ::</h1><br><br>
     <a align=center href='http://localhost/cseclub/mailverify/$sender/$token'>Verify</a>";
   
-    $mail->send();
+    $send = $mail->send();
+    if($send){
+      return true;
+    }
+    else{
+      return false;
+    }
   } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
   }

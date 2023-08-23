@@ -16,6 +16,11 @@ class User extends Model{
    return $this->exists("users","username",$data);
   }
 
+  public function isExist(string $table,string $column,string $data)
+  {
+   return $this->exists($table,$column,$data);
+  }
+
   public function updates(string $query, array $BindParams = [])
   {
     return $this->updateTable($query,$BindParams);

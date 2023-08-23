@@ -43,10 +43,13 @@
                 <form action="<?= url("/admin/user/role"); ?>" method="POST">
                   <input type="hidden" value="<?= $item["username"] ?>" name="username">
                   <select onchange="this.form.submit()" name="role">
-                    <option value="1" <?= $item['role'] == '1' ? ' selected="selected"' : ''; ?>>Student</option>
-                    <option value="3" <?= $item['role'] == '3' ? ' selected="selected"' : ''; ?>>Teacher</option>
-                    <option value="4" <?= $item['role'] == '4' ? ' selected="selected"' : ''; ?>>Alumini</option>
-                    <option value="5" <?= $item['role'] == '5' ? ' selected="selected"' : ''; ?>>Committee</option>
+                    <option value="admin" <?= $item['role'] == '1' ? ' selected="selected"' : ''; ?>>Admin</option>
+                    <option value="accountent" <?= $item['role'] == '1' ? ' selected="selected"' : ''; ?>>Accountent</option>
+                    <option value="student" <?= $item['role'] == '1' ? ' selected="selected"' : ''; ?>>Student</option>
+                    <option value="teacher" <?= $item['role'] == '3' ? ' selected="selected"' : ''; ?>>Teacher</option>
+                    <option value="alumini" <?= $item['role'] == '4' ? ' selected="selected"' : ''; ?>>Alumini</option>
+                    <option value="partcipant" <?= $item['role'] == '5' ? ' selected="selected"' : ''; ?>>Participant</option>
+                    <option value="Partner" <?= $item['role'] == '5' ? ' selected="selected"' : ''; ?>>Partner</option>
                   </select>
                 </form>
               </td>

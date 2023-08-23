@@ -15,8 +15,11 @@ class LoginAuth implements IMiddleware
 		if ($securityKey == ($_POST["_token"].base64_encode($_ENV["SECURITY_KEY"]))) {
 			$role= $_POST["role"];
 
-           if($role!=="" && $role=="event-partcipant"){
-
+           if($role!=="" && $role=="participant"){
+				$user = new User();
+				$sql = "SELECT * FROM `event_reg` WHERE `email`=? && `role`=?";
+				$stmt = $user->execute($sql, [$_POST["username"],$role]);
+				$data = $stmt->fetch(\PDO::FETCH_ASSOC);
 		   }else if($role!=="" && $role=="partner"){
 
 		   }else{
@@ -30,7 +33,7 @@ class LoginAuth implements IMiddleware
 						if ($data['status']!==0) {
 							$_SESSION["auth_user"] = $_POST["username"];
 							$_SESSION["auth_id"] = $data['user_id'];
-							$_SESSION["auth_role"] = $data['role'];
+							$_SESSION["auth_role"] = $role;
 							$_SESSION["auth_security_token"]=$securityKey.$_POST["username"];
 							$request->authenticated = true;
 						}else {
