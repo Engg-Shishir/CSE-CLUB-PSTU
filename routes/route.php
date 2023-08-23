@@ -197,6 +197,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/carnival/delete/{id}',[EventController::class,"deleteCarnival"]);
   Router::get('admin/carnival/showoff/{id}',[EventController::class,"showOffCarnival"]);
   Router::get('admin/carnival/status/{id}',[EventController::class,"statusCarnival"]);
+  Router::get('admin/event/registration',[EventController::class,"manageRegistraton"]);
+  Router::get('admin/event/registration/status/{id}',[EventController::class,"manageRegistratonStatus"]);
+  Router::get('admin/event/registration/delete/{id}',[EventController::class,"deleteRegistraton"]);
 
 
 

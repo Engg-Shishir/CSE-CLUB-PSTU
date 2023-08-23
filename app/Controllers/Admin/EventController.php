@@ -44,7 +44,7 @@ class EventController
   
 
 
-  public function eventSponsor()
+  public  function eventSponsor()
   {
     $user = new User();
     if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
@@ -87,7 +87,7 @@ class EventController
       redirects("/");
     }
   }
-  public function carnivals()
+  public  function carnivals()
   {
 
     $user = new User();
@@ -109,7 +109,7 @@ class EventController
 
 
 
-  public function insertEvents()
+  public  function insertEvents()
   {
     $imageDetails = fileDetails($_FILES, "event_image");
     
@@ -253,7 +253,7 @@ class EventController
   
 
 
-  function statusEvent($id)
+ public function statusEvent($id)
   {
 
     $objs = new User();
@@ -275,7 +275,33 @@ class EventController
     redirects("/admin/events");
   }
 
-  function statusCarnival($id)
+
+  public function manageRegistratonStatus($id)
+  {
+    session_start();
+    $objs = new User();
+    $fetch = $objs->byId("event_reg", "reg_id", $id);
+
+    if ($fetch["status"] == 1) {
+      $status = 0;
+    } else {
+      $status = 1;
+    }
+
+    $DB = new User();
+    $sql = "UPDATE event_reg set status=:status WHERE reg_id=:reg_id";
+    $data = ["status" => $status, "reg_id" => $id];
+    // unlinkFile("assets/Upload/Partners/".$fetch["image"]);
+    // $res = $objs->delete("collaborators", "colla_id", $id);
+    $DB->updateTable($sql, $data);
+    $_SESSION["success_message"] = "Status Updated";
+    redirects("/admin/event/registration");
+  }
+
+
+
+
+ public function statusCarnival($id)
   {
 
     $objs = new User();
@@ -299,7 +325,7 @@ class EventController
 
   
 
-  function deleteCarnival($id){
+ public function deleteCarnival($id){
     $objs = new User();
     $fetch = $objs->byId("carnivals","carnival_id",$id);
 
@@ -309,7 +335,7 @@ class EventController
     redirects("/admin/carnivals");
   }
 
-  function showOffCarnival($id){
+ public function showOffCarnival($id){
 
     $objs = new User();
     $fetch = $objs->byId("carnivals", "carnival_id", $id);
@@ -327,6 +353,41 @@ class EventController
     $DB->updateTable($sql, $data);
     $_SESSION["success_message"] = "Updated";
     redirects("/admin/carnivals");
+  }
+
+
+  public function manageRegistraton(){
+    $user = new User();
+    if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
+
+      $sql = "SELECT  e.event_name, er.*,c.title FROM events AS e
+              INNER JOIN event_reg AS er ON er.event_id =e.event_id 
+              INNER JOIN carnivals AS c ON c.carnival_id =e.carnival_id 
+              WHERE e.status=?";
+      $stmt = $user->execute($sql,[1]);
+      $data = $stmt->fetchAll();
+
+      $sql = "SELECT * FROM carnivals";
+      $stmt = $user->execute($sql);
+      $carnivals = $stmt->fetchAll();
+      
+      $settings = $user->settings();
+
+      $compact = ["data" => $data, "settings" => $settings,"carnivals" => $carnivals];
+      return view("Backend/Admin/Events/registration.php", compact("compact"));
+    } else {
+      redirects("/");
+    }
+  }
+
+  public function deleteRegistraton($id){
+    $objs = new User();
+    $fetch = $objs->byId("event_reg","reg_id",$id);
+
+    unlinkFile("assets/Upload/EventRegister/".$fetch["image"]);
+    $res = $objs->delete("event_reg", "reg_id", $id);
+    $_SESSION["success_message"] = "Delete Successfully";
+    redirects("/admin/event/registration");
   }
 
   

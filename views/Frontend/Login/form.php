@@ -2,10 +2,30 @@
   <?php view("components/flashMessage.php"); ?>
   <form action="<?= url("/dashboard"); ?>" method="POST" enctype="multipart/form-data">
     <?= inputField("hidden", "_token", shishirEnv("APP_KEY")); ?>
-    <div class="row row-input">
+
+    <div class="form-group">
+      <label for=""><strong>Education</strong></label>
+      <select name="role" class="select2  form-control">
+        <option value="">Your role</option>
+        <?php
+        $edu = [
+          "admin" => "Admin",
+          "student" => "Student",
+          "teacher" => "Teacher",
+          "event-partcipant" => "Event Partcipant",
+          "partner" => "Partner"
+        ];
+
+        foreach ($edu as $key => $value) {
+          echo "<option value='" . $key . "'>" . $value . "</option>";
+        }
+        ?>
+      </select>
+    </div>
+    <div class="row row-input m-0">
       <?= inputField("email", "username", "", "Email", "lg"); ?>
     </div>
-    <div class="row row-input">
+    <div class="row row-input m-0">
       <?= inputField("password", "password", "", "Password", "lg"); ?>
     </div>
     <div class="row px-5">

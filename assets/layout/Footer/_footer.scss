@@ -6,10 +6,9 @@ footer {
   .w-full{
     position: absolute;
     width: 100%;
-    bottom: 95%;
+    bottom: 99%;
     
     @include respond(lp-sm) {
-      // margin-top: 66px;
       bottom: 98%;
     }
     left: 0;

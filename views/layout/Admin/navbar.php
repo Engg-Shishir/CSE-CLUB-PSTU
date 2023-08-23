@@ -104,6 +104,7 @@
             <a class="accordion__a" href="<?= url("/admin/carnivals"); ?>">Carnival</a>
             <a class="accordion__a" href="<?= url("/admin/events/sponsor"); ?>">Sponsor</a>
             <a class="accordion__a" href="<?= url("/admin/events"); ?>">Events</a>
+            <a class="accordion__a" href="<?= url("/admin/event/registration"); ?>">Registration</a>
           </div>
         </div>
       </div>

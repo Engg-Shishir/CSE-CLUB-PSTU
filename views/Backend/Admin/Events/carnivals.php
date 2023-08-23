@@ -19,7 +19,6 @@
   ?>
   <?php view("layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
-
     <div class="card-header" style="background-color:none !important;">
       <div class="row">
         <div class="col-md-8" style="border-right:2px solid #383d59;">

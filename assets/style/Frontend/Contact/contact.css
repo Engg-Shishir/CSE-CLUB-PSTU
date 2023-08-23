@@ -516,7 +516,7 @@ footer {
 footer .w-full {
   position: absolute;
   width: 100%;
-  bottom: 95%;
+  bottom: 99%;
   left: 0;
   z-index: 4;
 }

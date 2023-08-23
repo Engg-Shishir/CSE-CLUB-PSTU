@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CLUB | Login</title>
   <!-- CSS Part -->
-  <?php view("layout/partials/frontendLink.php") ?>
+  <?php view("layout/partials/backendLink.php") ?>
   <link rel="stylesheet" href="<?= assets('style/Frontend/Login/login.css'); ?>" />
 </head>
 <body>
@@ -36,6 +36,6 @@
     <?php view("layout/footer.php",compact("footer")); ?>
   </div>
   <!-- Javacript Part -->
-  <?php view("layout/partials/frontendScript.php") ?>
+  <?php view("layout/partials/backendScript.php") ?>
 </body>
 </html>
