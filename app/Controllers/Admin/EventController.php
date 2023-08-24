@@ -22,8 +22,11 @@ class EventController
                   e.event_loc,
                   e.status,
                   e.event_id,
-                  c.title AS carnival
-                  FROM events AS e INNER JOIN carnivals AS c ON e.carnival_id =c.carnival_id";
+                  c.title AS carnival,
+                  
+                  FROM events AS e 
+                  INNER JOIN carnivals AS c ON e.carnival_id =c.carnival_id
+                  INNER JOIN event_reg AS er ON er.event_id =e.event_id";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
 

@@ -15,6 +15,7 @@ use App\Controllers\Admin\PartnerPageController;
 use App\Controllers\Admin\ProjectController;
 use App\Controllers\Admin\SessionController;
 use App\Controllers\Admin\SettingController;
+use App\Controllers\Admin\TranjectionController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
@@ -213,5 +214,16 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::post('admin/partnerpage', [PartnerPageController::class, "insertSpnsortCategory"]);
   Router::get('admin/event/category/status/{id}', [PartnerPageController::class, "statusEventCategory"]);
   Router::get('admin/event/category/delete/{id}', [PartnerPageController::class, "deleteEventCategory"]);
+
+
+
+
+
+
+
+
+  
+  Router::get('admin/tranjection', [TranjectionController::class, "tranjection"]);
+  Router::post('admin/tranjection', [TranjectionController::class, "tranjectionInsert"]);
 
 });

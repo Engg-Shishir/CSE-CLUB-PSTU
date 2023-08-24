@@ -11,5 +11,133 @@ html {
 .content {
   margin-top: 66px !important;
   padding: 20px !important;
-  margin-right: 50px !important;
+  @include respond(lp-sm) {
+    margin-right: 50px;
+  }
+  min-height: 200vh;
 }
+
+.row{
+  margin: 0 !important;
+}
+
+
+.small-box {
+  color: white;
+
+  .small-box-footer {
+    background-color: rgba(0, 0, 0, .1);
+    color: rgba(255, 255, 255, .8);
+    display: block;
+    padding: 3px 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+  }
+
+  .inner {
+    padding: 10px;
+  }
+
+  h3 {
+    font-weight: 700;
+    margin: 0 0 10px;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  p {
+    font-weight: 700;
+    margin: 0 0 10px;
+    padding: 0;
+    white-space: nowrap;
+  }
+}
+
+.info-box {
+  box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+  border-radius: 0.25rem;
+  background-color: #343a40;
+  display: flex;
+  min-height: 80px;
+  padding: 0.5rem;
+  position: relative;
+  width: 100%;
+
+  .info-box-icon {
+    border-radius: 0.25rem;
+    align-items: center;
+    display: flex;
+    font-size: 1.875rem;
+    justify-content: center;
+    text-align: center;
+    width: 70px;
+  }
+
+  .info-box-content {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    line-height: 1.8;
+    flex: 1;
+    padding: 0 10px;
+    overflow: hidden;
+    color: white;
+
+    .info-box-text,
+    .info-box .progress-description {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .info-box-number {
+      display: block;
+      margin-top: .25rem;
+      font-weight: 700;
+    }
+
+  }
+}
+
+
+
+.card-header {
+  .header-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+    text-align: center;
+    cursor: pointer;
+    p {
+      font-weight: 900 !important;
+      color: white !important;
+      line-height: 1.2;
+      color: inherit;
+      margin-bottom: -4px;
+    }
+    i{
+      color: white !important;
+    }
+  }
+}
+
+.card-success {
+  background-color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

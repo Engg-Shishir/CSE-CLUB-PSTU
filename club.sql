@@ -741,6 +741,20 @@ CREATE TABLE `projects` (
   `sourcecode` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+CREATE TABLE `payment` (
+  `tid` int(11) NOT NULL AUTO_INCREMENT,
+  `tno` varchar(50) NOT NULL UNIQUE,
+  `pay_type` varchar(50) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `tr_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+
+
 --
 -- Dumping data for table `projects`
 --

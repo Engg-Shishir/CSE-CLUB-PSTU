@@ -359,5 +359,108 @@ html {
 .content {
   margin-top: 66px !important;
   padding: 20px !important;
-  margin-right: 50px !important;
+  min-height: 200vh;
+}
+@media only screen and (min-width: 992px) {
+  .content {
+    margin-right: 50px;
+  }
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.small-box {
+  color: white;
+}
+.small-box .small-box-footer {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  padding: 3px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  z-index: 10;
+}
+.small-box .inner {
+  padding: 10px;
+}
+.small-box h3 {
+  font-weight: 700;
+  margin: 0 0 10px;
+  padding: 0;
+  white-space: nowrap;
+}
+.small-box p {
+  font-weight: 700;
+  margin: 0 0 10px;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.info-box {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  background-color: #343a40;
+  display: flex;
+  min-height: 80px;
+  padding: 0.5rem;
+  position: relative;
+  width: 100%;
+}
+.info-box .info-box-icon {
+  border-radius: 0.25rem;
+  align-items: center;
+  display: flex;
+  font-size: 1.875rem;
+  justify-content: center;
+  text-align: center;
+  width: 70px;
+}
+.info-box .info-box-content {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  line-height: 1.8;
+  flex: 1;
+  padding: 0 10px;
+  overflow: hidden;
+  color: white;
+}
+.info-box .info-box-content .info-box-text,
+.info-box .info-box-content .info-box .progress-description {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info-box .info-box-content .info-box-number {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 700;
+}
+
+.card-header .header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid red;
+  text-align: center;
+  cursor: pointer;
+}
+.card-header .header-card p {
+  font-weight: 900 !important;
+  color: white !important;
+  line-height: 1.2;
+  color: inherit;
+  margin-bottom: -4px;
+}
+.card-header .header-card i {
+  color: white !important;
+}
+
+.card-success {
+  background-color: green;
 }/*# sourceMappingURL=dashboard.css.map */

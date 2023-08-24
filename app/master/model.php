@@ -130,7 +130,6 @@ class Model
     foreach ($BindParams as $key => &$value){
       $stmt->bindParam(':'.$key, $value);
     }
-    parray($BindParams);
     return $stmt->execute();
   }
 

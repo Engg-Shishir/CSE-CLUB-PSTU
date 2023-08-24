@@ -181,55 +181,73 @@ class EventsController
     $stmt = $user->execute($sql, [$_POST["email"],$_POST["token"]]);
 
 
+    $sql1 = "SELECT * FROM payment WHERE tno=? && status=?";
+    $stmt1 = $user->execute($sql1, [$_POST["tranjection"],0]);
+
+
     if ($stmt->rowCount() > 0) {
-      $imageDetails = fileDetails($_FILES, "image");
-      $data = [
-        "event_id" => $_POST["event_id"],
-        "college_code" => $_POST["college_code"],
-        "student_id" => $_POST["student_id"],
-        "name" => $_POST["name"],
-        "current_edu" => $_POST["current_edu"],
-        "password" => $_POST["password"],
-        "image" => $imageDetails["fname"],
-        "tranjection" => $_POST["tranjection"],
-        "token" => $_POST["token"],
-        "email" => $_POST["email"],
-      ];
-      if (isBlank($data)) {
-        $_SESSION["error_message"] = "All field is required";
-        redirects("/signup/event");
-      } else {
-        if (!isImage($imageDetails["fext"])) {
-          $_SESSION["error_message"] = "Wrong file selected";
+      if($stmt1->rowCount() > 0){
+
+        $sqls = "UPDATE payment SET status =:status WHERE tno=:tno";
+        $pass = [
+          "status" =>1,
+          "tno" => $_POST["tranjection"]
+        ];
+        $user->updateTable($sqls,$pass);
+        
+
+        $imageDetails = fileDetails($_FILES, "image");
+        $data = [
+          "event_id" => $_POST["event_id"],
+          "college_code" => $_POST["college_code"],
+          "student_id" => $_POST["student_id"],
+          "name" => $_POST["name"],
+          "current_edu" => $_POST["current_edu"],
+          "password" => $_POST["password"],
+          "image" => $imageDetails["fname"],
+          "tranjection" => $_POST["tranjection"],
+          "token" => $_POST["token"],
+          "email" => $_POST["email"],
+        ];
+        if (isBlank($data)) {
+          $_SESSION["error_message"] = "All field is required";
           redirects("/signup/event");
         } else {
-  
-          $slug = slug($data["student_id"]);
-          $NewFileName = $slug . "." . $imageDetails["fext"];
-          unlinkFile("assets/Upload/EventRegister/" . $NewFileName);
-          fileStore($imageDetails["source"], "assets/Upload/EventRegister/" . $NewFileName);
-  
-  
-          $data["image"]=$NewFileName;
-
-
-          $data["token"]=null;
-          $data +=["verified"=>1];
-
-          $sql="UPDATE event_reg SET event_id=:event_id,college_code=:college_code,student_id=:student_id,name=:name,
-                         current_edu=:current_edu,password=:password,image=:image,tranjection=:tranjection,token=:token,verified=:verified WHERE email=:email";
-                         
-
-          $run = $user->updateTable($sql,$data);
-          if ($run) {
-            $_SESSION["success_message"] = "You Registered Successfully";
-            unsetAll($data);
+          if (!isImage($imageDetails["fext"])) {
+            $_SESSION["error_message"] = "Wrong file selected";
             redirects("/signup/event");
           } else {
-            $_SESSION["error_message"] = "Something going wrong!";
-            redirects("/signup/event");
+    
+            $slug = slug($data["student_id"]);
+            $NewFileName = $slug . "." . $imageDetails["fext"];
+            unlinkFile("assets/Upload/EventRegister/" . $NewFileName);
+            fileStore($imageDetails["source"], "assets/Upload/EventRegister/" . $NewFileName);
+    
+    
+            $data["image"]=$NewFileName;
+  
+  
+            $data["token"]=null;
+            $data +=["verified"=>1];
+  
+            $sql="UPDATE event_reg SET event_id=:event_id,college_code=:college_code,student_id=:student_id,name=:name,
+                           current_edu=:current_edu,password=:password,image=:image,tranjection=:tranjection,token=:token,verified=:verified WHERE email=:email";
+                           
+  
+            $run = $user->updateTable($sql,$data);
+            if ($run) {
+              $_SESSION["success_message"] = "You Registered Successfully";
+              unsetAll($data);
+              redirects("/signup/event");
+            } else {
+              $_SESSION["error_message"] = "Something going wrong!";
+              redirects("/signup/event");
+            }
           }
         }
+      }else{
+        $_SESSION["error_message"] = "Invalid tranjection number";
+        redirects("/signup/event");
       }
     }else{
       $_SESSION["error_message"] = "Email and Verification code is not match";
