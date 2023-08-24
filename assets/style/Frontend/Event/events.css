@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Lilita+One&family=Noto+Sans:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans&display=swap");
 *,
 *::after,
 *::before {
@@ -533,14 +534,14 @@ p {
 @media only screen and (min-width: 992px) {
   .event-description .box {
     width: 60%;
-    margin-left: 150px;
+    margin-left: 350px;
   }
 }
 .event-description .box::after {
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: -400px;
+  top: 87px;
+  left: -398px;
   content: url("https://cdni.iconscout.com/illustration/premium/thumb/man-uploading-file-on-cloud-8949512-7314180.png");
 }
 @media only screen and (min-width: 992px) {
@@ -553,8 +554,10 @@ p {
   width: 100%;
 }
 .event-description .box .title h2 {
-  font-size: 30px;
+  font-size: 48px;
   color: #483d99;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
 }
 .event-description .box .title.center {
   text-align: center;
@@ -565,8 +568,9 @@ p {
   -moz-border-radius: 158px 0px 133px 0px;
 }
 .event-description .box p {
+  font-family: "PT Sans", sans-serif !important;
+  font-weight: 400;
   font-size: 16px;
-  font-weight: 500;
   padding: 10px;
 }
 
@@ -603,8 +607,10 @@ p {
   width: 100%;
 }
 .event-schedule .box .title h2 {
-  font-size: 30px;
+  font-size: 48px;
   color: #483d99;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
 }
 .event-schedule .box .title.center {
   text-align: center;
@@ -615,8 +621,9 @@ p {
   -moz-border-radius: 158px 0px 133px 0px;
 }
 .event-schedule .box p {
+  font-family: "PT Sans", sans-serif !important;
+  font-weight: 400;
   font-size: 16px;
-  font-weight: 500;
   padding: 10px;
 }
 .event-schedule .image {
@@ -673,8 +680,10 @@ p {
   width: 100%;
 }
 .event-rules .box .title h2 {
-  font-size: 30px;
+  font-size: 48px;
   color: #483d99;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
 }
 .event-rules .box .title.center {
   text-align: center;
@@ -685,8 +694,9 @@ p {
   -moz-border-radius: 158px 0px 133px 0px;
 }
 .event-rules .box p {
+  font-family: "PT Sans", sans-serif !important;
+  font-weight: 400;
   font-size: 16px;
-  font-weight: 500;
   padding: 10px;
 }
 
