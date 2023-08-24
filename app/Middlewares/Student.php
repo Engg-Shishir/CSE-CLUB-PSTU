@@ -12,7 +12,7 @@ class Student implements IMiddleware
 	{
 
 
-    if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !=="" && $_SESSION["auth_role"]=="user"){
+    if(isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !=="" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !=="" &&  isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !=="" && $_SESSION["auth_role"]=="student"){
       if (strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== ""){
         $user = new User();
         $sql = "SELECT ud.user_id FROM user_details AS ud WHERE user_id=?";

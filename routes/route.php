@@ -24,6 +24,7 @@ use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
 use App\Controllers\LoginController;
 use App\Controllers\MailController;
+use App\Controllers\Participant\ParticipantController;
 use App\Controllers\PrintController;
 use App\Controllers\Student\StudentController;
 use App\Controllers\UserController;
@@ -77,11 +78,21 @@ Router::group(['middleware' => \App\Middlewares\LoginAuth::class], function () {
 Router::get('userdetails', [UserController::class, "userdetails"]);
 Router::post('userdetails', [UserController::class, "insertDetails"]);
 
+
+
+// Student route group
 Router::group(['middleware' => \App\Middlewares\Student::class], function () {
-  Router::get('user', [StudentController::class, "profile"]);
+  Router::get('student', [StudentController::class, "profile"]);
   Router::get('user/profile', [StudentController::class, "profile"]);
   Router::get('user/projects', [StudentController::class, "projects"]);
   Router::get('profile/print/{id}', [PrintController::class, "profile"]);
+});
+
+
+
+// Participant route group
+Router::group(['middleware' => \App\Middlewares\Participant::class], function () {
+  Router::get('participant', [ParticipantController::class, "dashboard"]);
 });
 
 
@@ -222,8 +233,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
 
-  
+
   Router::get('admin/tranjection', [TranjectionController::class, "tranjection"]);
   Router::post('admin/tranjection', [TranjectionController::class, "tranjectionInsert"]);
+
 
 });

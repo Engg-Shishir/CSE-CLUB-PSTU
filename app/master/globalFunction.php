@@ -123,7 +123,8 @@ function mailVerify(string $sender,string $name, string $token)
 {
   $mail = new PHPMailer(true);
   try {
-    // $mail->SMTPDebug = 2;									
+    // $mail->SMTPDebug = 2;	
+    $app = shishirEnv("BASE_URL");								
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com;';
     $mail->SMTPAuth = true;
@@ -138,7 +139,7 @@ function mailVerify(string $sender,string $name, string $token)
     $mail->isHTML(true);
     $mail->Subject = 'Verify Your Account';
     $mail->Body="<h1 align=center>Please Click On The Link Bellow ::</h1><br><br>
-    <a align=center href='http://localhost/cseclub/mailverify/$sender/$token'>Verify</a>";
+    <a align=center href='http://localhost/".$app."/mailverify/$sender/$token'>Verify</a>";
   
     $send = $mail->send();
     if($send){

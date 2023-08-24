@@ -17,6 +17,15 @@
   $navbar = [
     "navLogo" => $settings["navLogo"]
   ];
+  if(count($compact["data"]) > 0){
+    $total = $compact["data"][0]["sum"];
+  }else{
+     $total=0;
+  }
+
+  $eventMoney = ($compact["eventMoney"]>0) ? $compact["eventMoney"] : 0;
+
+
   ?>
   <?php view("layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
@@ -28,7 +37,7 @@
             <div class="info-box-content">
               <span class="info-box-text">Total</span>
               <span class="info-box-number">
-                <?php echo $compact["data"][0]["sum"] ?>
+                <?= $total ?>
                 <small> Taka</small>
               </span>
             </div>
@@ -40,7 +49,7 @@
             <div class="info-box-content">
               <span class="info-box-text">Event</span>
               <span class="info-box-number">
-                <?php echo $compact["eventMoney"] ?>
+                <?= $eventMoney ?>
                 <small> Taka</small>
               </span>
             </div>
@@ -57,7 +66,6 @@
                 <th>Reason</th>
                 <th>Amount</th>
                 <th>Date</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -82,10 +90,6 @@
                   </td>
                   <td>
                     <?= $item["tr_date"] ?>
-                  </td>
-                  <td>
-                    <a href="<?= url("/admin/event/registration/delete/" . $item["tid"]) ?>"
-                      class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
                   </td>
                 </tr>
                 <?php

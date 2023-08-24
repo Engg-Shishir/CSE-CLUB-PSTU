@@ -180,9 +180,12 @@ class EventsController
     $sql = "SELECT * FROM event_reg  WHERE email=?  && token=?";
     $stmt = $user->execute($sql, [$_POST["email"],$_POST["token"]]);
 
+    $sql2 = "SELECT reg_fee FROM events WHERE event_id=?";
+    $stmt2 = $user->execute($sql2, [$_POST["event_id"]]);
+    $fee = $stmt2->fetchColumn();
 
-    $sql1 = "SELECT * FROM payment WHERE tno=? && status=?";
-    $stmt1 = $user->execute($sql1, [$_POST["tranjection"],0]);
+    $sql1 = "SELECT * FROM payment WHERE tno=? && status=? && amount>=?";
+    $stmt1 = $user->execute($sql1, [$_POST["tranjection"],0,$fee]);
 
 
     if ($stmt->rowCount() > 0) {

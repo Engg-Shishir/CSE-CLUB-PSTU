@@ -38,9 +38,9 @@ class LoginController
     $carnivals = $stmt->fetchAll();
 
 
-    $compact=["settings"=>$settings,"carnivals"=>$carnivals];
+    $compact = ["settings" => $settings, "carnivals" => $carnivals];
 
-    return view("Frontend/Login/login.php",compact("compact"));
+    return view("Frontend/Login/login.php", compact("compact"));
   }
   public function logout()
   {
@@ -60,28 +60,33 @@ class LoginController
 
     if (isset($_SESSION["auth_security_token"]) && $_SESSION["auth_security_token"] !== "" && isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "" && isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !== "" && isset($_SESSION["auth_id"]) && $_SESSION["auth_id"] !== "" && strpos($_SESSION["auth_security_token"], $_SESSION["auth_user"]) !== "") {
 
-      $user = new User();
-      $sql = "SELECT ud.user_id FROM user_details AS ud WHERE user_id=?";
-      $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
-      if ($stmt->rowCount() > 0) {
-
-        if ($_SESSION["auth_role"] == "user") {
-          redirects("/user");
-        } else if ($_SESSION["auth_role"] == "admin") {
-          redirects("/admin");
-        } else if ($_SESSION["auth_role"] == "teacher") {
-          redirects("/teacher");
-        } else if ($_SESSION["auth_role"] == "alumini") {
-          redirects("/alumini");
+      if ($_SESSION["auth_role"] == "participant") {
+        redirects("/participant");
+      }else{
+        $user = new User();
+        $sql = "SELECT ud.user_id FROM user_details AS ud WHERE user_id=?";
+        $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
+  
+  
+        if ($stmt->rowCount() > 0) {
+  
+          if ($_SESSION["auth_role"] == "student") {
+            redirects("/student");
+          } else if ($_SESSION["auth_role"] == "admin") {
+            redirects("/admin");
+          } else if ($_SESSION["auth_role"] == "teacher") {
+            redirects("/teacher");
+          } else if ($_SESSION["auth_role"] == "alumini") {
+            redirects("/alumini");
+          }
+  
+  
+        } else {
+          $_SESSION["user_setails_status"] = "ON";
+          $_SESSION["error_message"] = "Please complete your profile";
+          redirects("/userdetails");
         }
-
-
-      } else {
-        $_SESSION["user_setails_status"] = "ON";
-        $_SESSION["error_message"] = "Please complete your profile";
-        redirects("/userdetails");
       }
-
     } else {
       $_SESSION["error_message"] = "You are not authenticated";
       redirects("/login");
