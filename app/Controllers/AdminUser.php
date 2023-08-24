@@ -9,7 +9,8 @@ class AdminUser{
   public function manage(){
     $user = new User();
     if(isset($_SESSION["auth_user"])){
-      $data = $user->allexcept("users","username",$_SESSION["auth_user"]);$settings = $user->settings();
+      $data = $user->allexcept("users","username",$_SESSION["auth_user"]);
+      $settings = $user->settings();
       $comapact=[
         "data"=>$data,
         "settings"=>$settings

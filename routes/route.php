@@ -201,6 +201,11 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::post('admin/setting', [SettingController::class, "updateSetting"]);
 
 
+  
+  Router::get('admin/message', [MessageController::class, "messageFetch"]);
+  Router::post('admin/message/status', [MessageController::class, "messageStatus"]);
+
+
 
   Router::get('admin/events', [EventController::class, "events"]);
   Router::get('admin/events/sponsor', [EventController::class, "eventSponsor"]);

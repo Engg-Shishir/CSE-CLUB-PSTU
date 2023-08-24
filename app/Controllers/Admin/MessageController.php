@@ -66,4 +66,41 @@ class MessageController
     return view("Frontend/Contact/index.php",compact("compact"));
   }
 
+  public function messageFetch()
+  {
+    
+    $user = new User();
+    if(isset($_SESSION["auth_user"])  && $_SESSION["auth_user"] !== ""){
+      $data = $user->all("message");
+      $settings = $user->settings();
+      $comapact=[
+        "data"=>$data,
+        "settings"=>$settings
+      ];
+    }
+
+    return view("Backend/Admin/Contact/message.php",compact("comapact"));
+  }
+
+  public function messageStatus(){
+     
+    session_start();
+
+    if ($_POST["isRead"] == 1) {
+      $isRead = 0;
+    } else {
+      $isRead = 1;
+    }
+
+    $DB = new User();
+    $sql = "UPDATE message set isRead=:isRead WHERE id=:id";
+    $data = ["isRead" => $isRead, "id" => $_POST["id"]];
+    // unlinkFile("assets/Upload/Partners/".$fetch["image"]);
+    // $res = $objs->delete("collaborators", "colla_id", $id);
+    $DB->updateTable($sql, $data);
+    $_SESSION["success_message"] = "Status Updated";
+    redirects("/admin/message");
+  }
+
+
 }

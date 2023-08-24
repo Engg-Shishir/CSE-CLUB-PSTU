@@ -102,6 +102,12 @@
         </a>
       </div>
 
+      <div class="accordion__item">
+        <a href="<?= url("/admin/message") ?>" class="accordion__toggle">
+          <i class="far fa-user"></i> Message
+        </a>
+      </div>
+
 
 
 
