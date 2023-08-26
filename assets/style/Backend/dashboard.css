@@ -235,7 +235,7 @@ p {
   flex-direction: column;
   z-index: 40 !important;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background: #313d4c;
   transform: rotate(0deg);
   transition: all 500ms;
@@ -282,6 +282,8 @@ p {
   width: 100%;
   max-width: 768px;
   font-size: 17px;
+  height: auto !important;
+  height: 300vh !important;
 }
 .engg-shishir-fullnav .accordion .accordion__item {
   position: relative;

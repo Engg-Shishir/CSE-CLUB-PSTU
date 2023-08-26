@@ -260,7 +260,6 @@ p {
   justify-content: center;
   z-index: 2 !important;
   width: 100%;
-  min-height: 100vh;
   background: #313d4c;
   -webkit-clip-path: circle(0% at 50% 0);
           clip-path: circle(0% at 50% 0);

@@ -649,7 +649,65 @@ table {
   font-weight: 500;
 }
 
-.select2.select2-container {
-  width: 95% !important;
-  margin-bottom: -30px;
-}/*# sourceMappingURL=city.css.map */
+.imageName img {
+  height: 200px;
+  width: 200px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 1px rgb(209, 213, 219);
+}
+.imageName .name {
+  font-size: 25px;
+  font-family: "DM Serif Display", serif;
+}
+
+.social li {
+  display: inline-block;
+  margin-right: 5px;
+  position: relative;
+}
+.social li a {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.social li a i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 16px;
+}
+.social li a:after {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.5;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+}
+.social li a:hover:after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.social li:nth-child(1) > a {
+  background: #3b579b;
+}
+.social li:nth-child(2) > a {
+  background: #573898;
+}
+.social li:nth-child(3) > a {
+  background: #97325c;
+}
+.social li:nth-child(4) > a {
+  background: #e8ae28;
+}
+.social li:nth-child(5) > a {
+  background: #03687a;
+}/*# sourceMappingURL=dashboard.css.map */

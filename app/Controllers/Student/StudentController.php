@@ -19,52 +19,44 @@ class StudentController
     $user = new User();
     $settings = $user->settings();
 
-    $sql = "SELECT 
-    u.username,
-    ud.*
-    FROM user_details AS ud 
-    INNER JOIN users AS u ON u.user_id =ud.user_id
-    WHERE u.user_id =?";
-    $stmt = $user->execute($sql,[$_SESSION['auth_id']]);
+
+    $sql = "SELECT ud.*,u.username,a.job_title,a.description FROM user_details AS ud
+    INNER JOIN users AS u ON u.user_id=ud.user_id INNER JOIN aluminis AS a ON ud.user_id=a.user_id WHERE ud.user_id=?";
+    $stmt = $user->execute($sql, [$_SESSION["auth_id"]]);
     $data = $stmt->fetchAll();
 
-    $sql = "SELECT * FROM carnivals";
-    $stmt = $user->execute($sql);
-    $carnivals = $stmt->fetchAll();
+
 
     $sql = "SELECT * FROM projects WHERE user_id=?";
-    $stmt = $user->execute($sql,[$_SESSION['auth_id']]);
+    $stmt = $user->execute($sql, [$_SESSION['auth_id']]);
     $projects = $stmt->fetchAll();
 
     $sql = "SELECT colleges.name,colleges.website FROM colleges WHERE college_code=?";
-    $stmt = $user->execute($sql,[$data[0]["college"]]);
+    $stmt = $user->execute($sql, [$data[0]["college"]]);
     $college = $stmt->fetchAll();
 
     $sql = "SELECT countrys.name FROM countrys WHERE country_code=?";
-    $stmt = $user->execute($sql,[$data[0]["country_code"]]);
+    $stmt = $user->execute($sql, [$data[0]["country_code"]]);
     $country = $stmt->fetchAll();
 
     $sql = "SELECT facultys.name FROM facultys WHERE fac_code=?";
-    $stmt = $user->execute($sql,[$data[0]["department"]]);
+    $stmt = $user->execute($sql, [$data[0]["department"]]);
     $faculty = $stmt->fetchAll();
+
+
 
     $settings = $user->settings();
 
     $compact = [
-      "data" => $data, 
-      "settings" => $settings, 
-      "carnivals" => $carnivals,
+      "data" => $data,
+      "settings" => $settings,
       "projects" => $projects,
       "college" => $college,
       "country" => $country,
-      "faculty"=>$faculty
+      "faculty" => $faculty
     ];
 
-
-
-
-
-    return view("Backend/Dashboard/profile.php", compact("compact"));
+    return view("Backend/Student/profile.php", compact("compact"));
   }
 
   public function projects()
@@ -78,7 +70,7 @@ class StudentController
     FROM user_details AS ud 
     INNER JOIN users AS u ON u.user_id =ud.user_id
     WHERE u.user_id =?";
-    $stmt = $user->execute($sql,[$_SESSION['auth_id']]);
+    $stmt = $user->execute($sql, [$_SESSION['auth_id']]);
     $data = $stmt->fetchAll();
 
     $sql = "SELECT * FROM carnivals";
@@ -93,16 +85,18 @@ class StudentController
     $settings = $user->settings();
 
     $compact = [
-      "data" => $data, 
-      "settings" => $settings, 
+      "data" => $data,
+      "settings" => $settings,
       "carnivals" => $carnivals
     ];
 
+    parray($compact);
 
-    return view("pages/User/Dashboard/projects.php", compact("compact"));
+
+    // return view("pages/User/Dashboard/projects.php", compact("compact"));
   }
 
-  
+
 
 
 }

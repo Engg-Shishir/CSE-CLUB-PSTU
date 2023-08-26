@@ -650,6 +650,14 @@ table {
 }
 
 .select2.select2-container {
-  width: 95% !important;
+  width: 100% !important;
   margin-bottom: -30px;
-}/*# sourceMappingURL=city.css.map */
+}
+
+.editBox {
+  height: 500px;
+  width: 100%;
+  background-color: red;
+  display: none;
+  transition: all 650ms;
+}/*# sourceMappingURL=alumini.css.map */

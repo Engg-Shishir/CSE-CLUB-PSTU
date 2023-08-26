@@ -70,16 +70,13 @@ class LoginController
   
         if ($stmt->rowCount() > 0) {
   
-          if ($_SESSION["auth_role"] == "student") {
-            redirects("/student");
+          if ($_SESSION["auth_role"] == "student" || $_SESSION["auth_role"] == "alumini") {
+            redirects("/user");
           } else if ($_SESSION["auth_role"] == "admin") {
             redirects("/admin");
           } else if ($_SESSION["auth_role"] == "teacher") {
             redirects("/teacher");
-          } else if ($_SESSION["auth_role"] == "alumini") {
-            redirects("/alumini");
           }
-  
   
         } else {
           $_SESSION["user_setails_status"] = "ON";

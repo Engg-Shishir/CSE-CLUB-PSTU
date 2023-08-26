@@ -2,7 +2,7 @@
   <div class="engg-shishir-navbar">
 
     <div class="engg-shishir-nav-left">
-      <a  href="<?= url('/'); ?>"><img src="<?= assets('Upload/Settings/'.$navbar["navLogo"]) ?>" alt="" /></a>
+      <a href="<?= url('/'); ?>"><img src="<?= assets('Upload/Settings/' . $navbar["navLogo"]) ?>" alt="" /></a>
     </div>
 
     <div class="engg-shishir-nav-right">
@@ -21,7 +21,7 @@
     <div class="accordion">
 
       <div class="accordion__item">
-        <a href="<?= url("/user/profile") ?>" class="accordion__toggle">
+        <a href="<?= url("/user") ?>" class="accordion__toggle">
           <i class="far fa-user"></i> Profile
         </a>
       </div>
@@ -30,6 +30,17 @@
           <i class="far fa-user"></i> Projects
         </a>
       </div>
+      <?php
+      if (isset($_SESSION["auth_role"]) && $_SESSION["auth_role"]=="alumini") {
+        ?>
+        <div class="accordion__item">
+          <a href="<?= url("/user/alumini") ?>" class="accordion__toggle">
+            <i class="far fa-user"></i> Alumini
+          </a>
+        </div>
+        <?php
+
+      } ?>
       <div class="accordion__item">
         <a href="<?= url("/logout") ?>" class="accordion__toggle">
           <i class="far fa-user"></i> Logout

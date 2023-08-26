@@ -1,4 +1,6 @@
 <?php
+use App\Controllers\Alumini\AluminiControllers;
+use App\Controllers\Admin\AluminiController;
 use App\Controllers\Admin\CityController;
 use App\Controllers\Admin\CollegeController;
 use App\Controllers\Admin\CountryController;
@@ -79,13 +81,18 @@ Router::get('userdetails', [UserController::class, "userdetails"]);
 Router::post('userdetails', [UserController::class, "insertDetails"]);
 
 
-
 // Student route group
 Router::group(['middleware' => \App\Middlewares\Student::class], function () {
-  Router::get('student', [StudentController::class, "profile"]);
-  Router::get('user/profile', [StudentController::class, "profile"]);
+  Router::get('user', [StudentController::class, "profile"]);
   Router::get('user/projects', [StudentController::class, "projects"]);
   Router::get('profile/print/{id}', [PrintController::class, "profile"]);
+  Router::get('user/alumini', [AluminiControllers::class, "alumini"]);
+
+  Router::group(['middleware' => \App\Middlewares\Alumini::class], function () {
+    Router::post('alumini/jobInsert', [AluminiControllers::class, "jobInsert"]);
+  });
+
+  
 });
 
 
@@ -96,6 +103,8 @@ Router::group(['middleware' => \App\Middlewares\Participant::class], function ()
 });
 
 
+
+
 /**
  * 
  * This user email verificatrion route. This route update two field in users table. (token,is_verified)
@@ -103,12 +112,7 @@ Router::group(['middleware' => \App\Middlewares\Participant::class], function ()
 Router::get('mailverify/{sender}/{token}', [MailController::class, "emailVerification"], ['defaultParameterRegex' => '[\w\-\@\#\.]+']);
 
 
-
 Router::get('events', [EventController::class, "events"]);
-
-
-
-
 
 
 
@@ -143,7 +147,6 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/faculty/delete/{code}', [FacultyController::class, "deletefaculty"]);
 
 
-
   Router::get('admin/session', [SessionController::class, "session"]);
   Router::post('admin/session', [SessionController::class, "insertSession"]);
   Router::get('admin/session/delete/{code}', [SessionController::class, "deleteSession"]);
@@ -154,18 +157,14 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/course/delete/{code}', [CourseController::class, "deleteCourse"]);
 
 
-
   Router::get('admin/faq', [FaqController::class, "faq"]);
   Router::post('admin/faq', [FaqController::class, "insertFaq"]);
   Router::get('admin/faq/delete/{code}', [FaqController::class, "deleteFaq"]);
 
 
-
-
   Router::get('admin/gallery', [GalleryController::class, "file"]);
   Router::post('admin/gallery', [GalleryController::class, "insertFile"]);
   Router::get('admin/gallery/delete/{code}', [GalleryController::class, "deleteFile"], ['defaultParameterRegex' => '[\w\-\@\#\.]+']);
-
 
 
   Router::get('admin/notice', [NoticeController::class, "notice"]);
@@ -176,14 +175,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::post('admin/notice/update', [NoticeController::class, "noticeUpdate"]);
 
 
-
   Router::get('admin/home/about', [HomeController::class, "about"]);
   Router::post('admin/home/about', [HomeController::class, "insertAbout"]);
   Router::get('admin/home/about/delete/{code}', [HomeController::class, "homeAboutDelete"]);
-
-
-
-
 
 
   Router::get('admin/partners', [partnerController::class, "partners"]);
@@ -196,15 +190,12 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/project/status/{id}', [ProjectController::class, "statusProject"]);
 
 
-
   Router::get('admin/setting', [SettingController::class, "setting"]);
   Router::post('admin/setting', [SettingController::class, "updateSetting"]);
 
 
-  
   Router::get('admin/message', [MessageController::class, "messageFetch"]);
   Router::post('admin/message/status', [MessageController::class, "messageStatus"]);
-
 
 
   Router::get('admin/events', [EventController::class, "events"]);
@@ -222,25 +213,17 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/event/registration/delete/{id}', [EventController::class, "deleteRegistraton"]);
 
 
-
-
-
-
   Router::get('admin/support/category', [PartnerPageController::class, "partnerPage"]);
   Router::post('admin/partnerpage', [PartnerPageController::class, "insertSpnsortCategory"]);
   Router::get('admin/event/category/status/{id}', [PartnerPageController::class, "statusEventCategory"]);
   Router::get('admin/event/category/delete/{id}', [PartnerPageController::class, "deleteEventCategory"]);
 
 
-
-
-
-
-
-
-
   Router::get('admin/tranjection', [TranjectionController::class, "tranjection"]);
   Router::post('admin/tranjection', [TranjectionController::class, "tranjectionInsert"]);
+
+
+  Router::get('admin/alumini', [AluminiController::class, "show"]);
 
 
 });
