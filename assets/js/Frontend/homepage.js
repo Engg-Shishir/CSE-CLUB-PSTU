@@ -1,6 +1,10 @@
 $(document).ready(function () {
   $(".projects-row-right-box").owlCarousel({
     autoplayHoverPause: true,
+    mouseDrag:true,
+    touchDrag:true,
+    lazyLoad:true,
+    autoplayHoverPause:true,
     rtl: false,
     dots: true,
     slideSpeed: 30,

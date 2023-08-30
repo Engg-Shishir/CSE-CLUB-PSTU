@@ -135,5 +135,16 @@
       }
     }
   }
+  .owl-dot span{
+     background-color: #313d4c !important;
+     opacity: 0.5;
+     transition: all 650ms;
+  }
+  .owl-dot.active span{
+    scale: 1;
+    width: 25px;
+    opacity: 1;
+    transition: all 650ms;
+  }
 }
 

@@ -1401,6 +1401,17 @@ p {
   font-weight: 400;
   line-height: 24px;
 }
+.projects-row .owl-dot span {
+  background-color: #313d4c !important;
+  opacity: 0.5;
+  transition: all 650ms;
+}
+.projects-row .owl-dot.active span {
+  scale: 1;
+  width: 25px;
+  opacity: 1;
+  transition: all 650ms;
+}
 
 .partner-row {
   background-color: #ffffff;
