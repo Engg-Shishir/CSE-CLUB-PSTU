@@ -1,4 +1,5 @@
 <?php
+use App\Controllers\Admin\BlogController;
 use App\Controllers\Alumini\AluminiControllers;
 use App\Controllers\Admin\AluminiController;
 use App\Controllers\Admin\CityController;
@@ -225,5 +226,10 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
   Router::get('admin/alumini', [AluminiController::class, "show"]);
 
+
+
+  
+  Router::get('admin/blogcategory', [BlogController::class, "show"]);
+  Router::post('admin/blogcategory', [BlogController::class, "blogcategoryInsert"]);
 
 });
