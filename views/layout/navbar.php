@@ -26,7 +26,7 @@
       <div class="tabbar">
         <ul class="tabs-menu">
           <li class="tab-li tab-li-active">Programs</li>
-          <li class="tab-li">More</li>
+          <li class="tab-li">More Access</li>
         </ul>
       </div>
       <div class="tab-content">

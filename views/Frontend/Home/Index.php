@@ -32,33 +32,26 @@
     "text" => $settings["partners_section_text"]
   ];
 
-  
-  $navbar=[
-    "navLogo"=>$settings["navLogo"],
-    "carnival"=>[$settings["carTitle"],$settings["carSlug"]],
-    "carnivals"=>$compact["carnivals"]
+
+  $navbar = [
+    "navLogo" => $settings["navLogo"],
+    "carnival" => [$settings["carTitle"], $settings["carSlug"]],
+    "carnivals" => $compact["carnivals"]
   ];
   // Footer variable
   $footer = $settings;
   ?>
 
   <div class="container">
-    <?php view("layout/navbar.php",compact("navbar")) ?>
+    <?php view("layout/navbar.php", compact("navbar")) ?>
     <?php view("Frontend/Home/fixedHero.php", compact("heroSec")) ?>
-    <?php view("Frontend/Home/videoCircle.php",compact("circle")) ?>
+    <?php view("Frontend/Home/videoCircle.php", compact("circle")) ?>
   </div>
   <div class="container content">
-    <?php
-         view("Frontend/Home/about.php", compact("aboutText"))
-      ?>
-    <?php
-
-    view("Frontend/Home/projects.php", compact("projects"))
-      ?>
-
-    <?php
-    view("Frontend/Home/partner.php", compact("partners"))
-      ?>
+    <?php view("Frontend/Home/about.php", compact("aboutText"))  ?>
+    <?php view("Frontend/Home/projects.php", compact("projects")) ?>
+    <?php view("Frontend/Home/blog.php") ?>
+    <?php view("Frontend/Home/partner.php", compact("partners")) ?>
     <?php view("layout/footer.php", compact("footer")) ?>
   </div>
 
