@@ -1,36 +1,56 @@
-<?php  
+<?php
 
 
 namespace App\Controllers;
+
 use App\model\User;
 
-class IndexController{
+class IndexController
+{
 
-  public function home(){
+  public function home()
+  {
     /*************************************************************
-    *?  Linkedin     : engg-shishir
-    *!  Purpose       : Fetch collaborators or partners details
-    *   Details      : 
-    *************************************************************/
+     *?  Linkedin     : engg-shishir
+     *!  Purpose       : Fetch collaborators or partners details
+     *   Details      : 
+     *************************************************************/
     $user = new User();
     $sql = "SELECT c.image,c.web,c.status FROM collaborators AS c";
     $stmt = $user->execute($sql);
     $partners = $stmt->fetchAll();
 
     /*************************************************************
-    *?  Linkedin     : engg-shishir
-    *!  Purpose      : fetch home page project data
-    *   Details      : 
-    *************************************************************/
+     *?  Linkedin     : engg-shishir
+     *!  Purpose      : fetch home page project data
+     *   Details      : 
+     *************************************************************/
     $sql = "SELECT * FROM projects";
     $stmt = $user->execute($sql);
     $projects = $stmt->fetchAll();
 
+
+    $sql = "SELECT * FROM blogs ORDER BY blog_id LIMIT 7";
+
+    $sql = "SELECT  ud.name AS uname,
+                    ud.user_slug AS uslug,
+                    ud.image AS uimage,
+                    ud.user_id AS uid,
+                    bc.name AS bcname,
+                    bc.category_slug AS bcslug,
+                    b.* FROM blogs AS b
+            INNER JOIN user_details AS ud ON ud.user_id=b.user_id
+            INNER JOIN blog_categories AS bc ON bc.category_id=b.category_id 
+            ORDER BY blog_id LIMIT 7";
+
+        $stmt = $user->execute($sql);
+        $blog = $stmt->fetchAll();
+
     /*************************************************************
-    *?  Linkedin     : engg-shishir
-    *!  Purpose      : fetch site settings info
-    *   Details      : 
-    *************************************************************/
+     *?  Linkedin     : engg-shishir
+     *!  Purpose      : fetch site settings info
+     *   Details      : 
+     *************************************************************/
 
 
     $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
@@ -50,20 +70,20 @@ class IndexController{
 
 
     /*************************************************************
-    *?  Linkedin     : engg-shishir
-    *!  Purpose      : Bind all fetching array in a single array
-    *   Details      : since compact support single variable
-    *************************************************************/
-    $compact=["partners"=>$partners,"projects"=>$projects,"settings"=>$settings,"carnivals"=>$carnivals];
+     *?  Linkedin     : engg-shishir
+     *!  Purpose      : Bind all fetching array in a single array
+     *   Details      : since compact support single variable
+     *************************************************************/
+    $compact = ["partners" => $partners, "projects" => $projects, "settings" => $settings, "carnivals" => $carnivals, "blog" => $blog];
 
 
 
     /*************************************************************
-    *?  Linkedin     : engg-shishir
-    *!  Purpose       : return home page with all associated data
-    *   Details      : 
-    *************************************************************/
-    return view("Frontend/Home/Index.php",compact("compact"));
+     *?  Linkedin     : engg-shishir
+     *!  Purpose       : return home page with all associated data
+     *   Details      : 
+     *************************************************************/
+    return view("Frontend/Home/Index.php", compact("compact"));
   }
 
 
@@ -98,11 +118,10 @@ class IndexController{
     (SELECT COUNT(*) FROM collaborators) AS colla_count";
     $stmt = $user->execute($sql);
     $count = $stmt->fetchAll();
-    
 
-    $compact=["category"=>$eventCategorys,"settings"=>$settings,"carnivals"=>$carnivals,"count"=>$count];
 
-    return view("Frontend/Partner/index.php",compact("compact"));
+    $compact = ["category" => $eventCategorys, "settings" => $settings, "carnivals" => $carnivals, "count" => $count];
+
+    return view("Frontend/Partner/index.php", compact("compact"));
   }
 }
-

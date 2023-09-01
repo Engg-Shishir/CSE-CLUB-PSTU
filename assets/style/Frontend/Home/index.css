@@ -1491,7 +1491,6 @@ p {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border: 1px solid red;
   position: relative;
 }
 .blog-row .blog-card .top .topbox .banner {
@@ -1531,12 +1530,18 @@ p {
   color: blue !important;
   font-weight: 600;
 }
+.blog-row .blog-card .bottom-box .box1 .title:hover {
+  text-decoration: underline;
+}
 .blog-row .blog-card .bottom-box .box1 .link {
   color: rgb(9, 9, 12) !important;
   font-weight: 500;
   cursor: pointer;
   font-size: 18px;
   line-height: 24px;
+}
+.blog-row .blog-card .bottom-box .box1 .link:hover {
+  text-decoration: underline;
 }
 .blog-row .blog-card .bottom-box .box2 {
   position: absolute;

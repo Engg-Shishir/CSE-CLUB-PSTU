@@ -115,6 +115,8 @@ Router::get('mailverify/{sender}/{token}', [MailController::class, "emailVerific
 
 Router::get('events', [EventController::class, "events"]);
 
+Router::get('blog/{title}', [BlogController::class, "blogview"]);
+
 
 
 
@@ -232,5 +234,7 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::get('admin/blogcategory', [BlogController::class, "categoryshow"]);
   Router::post('admin/blogcategory', [BlogController::class, "blogcategoryInsert"]);
   Router::get('admin/blog', [BlogController::class, "blogshow"]);
+  Router::get('admin/blogInsert', [BlogController::class, "blogInsertPage"]);
+  Router::post('admin/blog', [BlogController::class, "blogInsert"]);
 
 });

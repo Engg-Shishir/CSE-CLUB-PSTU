@@ -93,9 +93,11 @@ class UserController{
         unlinkFile("assets/Upload/Users/" . $NewFileName);
         fileStore($imageDetails["source"], "assets/Upload/Users/" . $NewFileName);
 
+        $data += ["user_slug"=>userSlug($_POST["name"])];
 
         $user = new User();
-        $sql = "INSERT INTO user_details (`user_id`,`country_code`,`name`,`gender`,`birth`,`nid`,`image`,`college`,`department`,`sid`,`blood`,`facebook`,`linkedin`,`github`,`bio`) VALUES (:user_id,:country_code,:name,:gender,:birth,:nid,:image,:college,:department,:sid,:blood,:facebook,:linkedin,:github,:bio)";
+        $sql = "INSERT INTO user_details (`user_id`,`country_code`,`name`,`gender`,`birth`,`nid`,`image`,`college`,`department`,`sid`,`blood`,`facebook`,`linkedin`,`github`,`bio`,`user_slug`) 
+              VALUES (:user_id,:country_code,:name,:gender,:birth,:nid,:image,:college,:department,:sid,:blood,:facebook,:linkedin,:github,:bio,:user_slug)";
 
         $data["image"] = $NewFileName;
         $data["nid"] = $_POST["nid"];

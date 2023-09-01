@@ -283,6 +283,9 @@ function fileStore(string $source, string $destination):void
 function slug($data){
  return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data)));
 }
+function userSlug($data){
+  return trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data));
+}
 
 function esc($str) 
 { 
@@ -322,7 +325,9 @@ function isBlank(array $data = []):bool
 {
   $errorCheck = 0;
   foreach ($data as $key => $value) {
+    // Set data into session var
     $_SESSION[$key] = $value;
+
     if (strlen(trim($value)) <= 0) {
       $errorCheck = 1;
     }

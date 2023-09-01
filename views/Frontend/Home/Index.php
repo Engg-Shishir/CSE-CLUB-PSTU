@@ -39,7 +39,8 @@
     "carnivals" => $compact["carnivals"]
   ];
   // Footer variable
-  $footer = $settings;
+    $footer = $settings;
+    $blog = $compact["blog"];
   ?>
 
   <div class="container">
@@ -48,9 +49,9 @@
     <?php view("Frontend/Home/videoCircle.php", compact("circle")) ?>
   </div>
   <div class="container content">
-    <?php view("Frontend/Home/about.php", compact("aboutText"))  ?>
+    <?php view("Frontend/Home/about.php", compact("aboutText")) ?>
     <?php view("Frontend/Home/projects.php", compact("projects")) ?>
-    <?php view("Frontend/Home/blog.php") ?>
+    <?php view("Frontend/Home/blog.php", compact("blog")) ?>
     <?php view("Frontend/Home/partner.php", compact("partners")) ?>
     <?php view("layout/footer.php", compact("footer")) ?>
   </div>

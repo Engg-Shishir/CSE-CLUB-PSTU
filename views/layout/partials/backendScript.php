@@ -32,36 +32,55 @@
     });
 
     $(document).ready(function () {
+        // $('.summernote').summernote({
+        //     lineHeights: ['0.5', '1.0'],
+        //     // height: 150,
+        //     toolbar: [
+        //         ['style', ['style']],
+        //         ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+        //         // [ 'fontname', [ 'fontname' ] ],
+        //         ['fontsize', ['fontsize']],
+        //         ['color', ['color']],
+        //         ['para', ['ol', 'ul', 'paragraph']],
+        //         ['table', ['table']],
+        //         ['view', ['undo', 'redo', 'codeview', 'help']]
+        //     ]
+        // });
         $('.summernote').summernote({
-            // height: 150,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-                // [ 'fontname', [ 'fontname' ] ],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ol', 'ul', 'paragraph']],
+            "lineHeight": 1,
+            "height": 200,
+            "fontNames": ["Arial", "Arial Black", "Comic Sans MS", "Courier New", "Georgia", "Impact", "Times New Roman", "Trebuchet MS", "Verdana", "Helvetica", "Calibri", "Palatino Linotype", "Tahoma", "Geneva", "Bookman Old Style", "Century Gothic", "Garamond", "Lucida Console", "Lucida Sans Unicode", "MS Sans Serif"],
+            "lineHeights": ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+            "fontSizes": ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
+            "toolbar": [
+                ["style", ["bold", "italic", "underline", "clear"]],
+                ["font", ["strikethrough",'fontname']],
+                ["fontsize", ["fontsize"]],
+                ["color", ["color"]],
+                ["para", ["ul", "ol", "paragraph"]],
+                ['insert', ['link', 'picture', 'video', 'hr']],
                 ['table', ['table']],
-                ['view', ['undo', 'redo', 'codeview', 'help']]
+                ["height", ["height"]],
+                ['view', ['undo', 'redo', 'codeview','fullscreen']]
             ]
-        });
+        }).summernote('lineHeight', 120);
     });
     toastr.options = {
-      "closeButton": true,
-      "debug": true,
-      "newestOnTop": true,
-      "progressBar": true,
-      "positionClass": "toast-top-full-width",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
+        "closeButton": true,
+        "debug": true,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-full-width",
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
     }
 
 
