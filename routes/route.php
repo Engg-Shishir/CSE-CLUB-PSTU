@@ -229,7 +229,8 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
   
-  Router::get('admin/blogcategory', [BlogController::class, "show"]);
+  Router::get('admin/blogcategory', [BlogController::class, "categoryshow"]);
   Router::post('admin/blogcategory', [BlogController::class, "blogcategoryInsert"]);
+  Router::get('admin/blog', [BlogController::class, "blogshow"]);
 
 });

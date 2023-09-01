@@ -104,7 +104,7 @@
         <div class="accordion__content">
           <div class="accordion__content-container">
             <a class="accordion__a" href="<?= url("/admin/blogcategory"); ?>">Blog Category</a>
-            <a class="accordion__a" href="<?= url("/admin/carnivals"); ?>">All Blogs</a>
+            <a class="accordion__a" href="<?= url("/admin/blog"); ?>">All Blogs</a>
           </div>
         </div>
       </div>
