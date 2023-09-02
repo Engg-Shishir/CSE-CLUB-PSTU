@@ -10,6 +10,7 @@
         <a target="_blank" href="<?= url("/carnival/" . $navbar["carnival"][1]) ?>" class="engg-shishir-nav-right-event"><?= $navbar["carnival"][0] ?></a>
       <?php }
       ?>
+      <a href="<?= url("/blog") ?>" class="engg-shishir-nav-right-login">Blog</a>
       <a href="<?= url("/login") ?>" class="engg-shishir-nav-right-login">Login</a>
       <div class="engg-shishir-nav-right-menu" onclick="hamburger()">
         <span class="text">MENU</span>

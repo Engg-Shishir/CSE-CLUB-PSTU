@@ -122,6 +122,8 @@ Router::get('mailverify/{sender}/{token}', [MailController::class, "emailVerific
 
 Router::get('events', [EventController::class, "events"]);
 
+Router::get('blog', [BlogController::class, "blogBypage"]);
+Router::get('blog/page/{number}', [BlogController::class, "blogBypage"]);
 Router::get('blog/{title}', [BlogController::class, "blogview"]);
 
 
