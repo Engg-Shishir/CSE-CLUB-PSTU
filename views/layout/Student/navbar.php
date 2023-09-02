@@ -30,6 +30,12 @@
           <i class="far fa-user"></i> Projects
         </a>
       </div>
+      <div class="accordion__item">
+        <a href="<?= url("/blogInsert") ?>" class="accordion__toggle">
+          <i class="far fa-user"></i> Create Blog
+        </a>
+      </div>
+      
       <?php
       if (isset($_SESSION["auth_role"]) && $_SESSION["auth_role"]=="alumini") {
         ?>

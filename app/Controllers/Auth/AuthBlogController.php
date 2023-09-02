@@ -1,73 +1,51 @@
 <?php
 
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Auth;
 
 use App\model\User;
 
-class BlogController
+session_start();
+class AuthBlogController
 {
-
-
-    public function categoryshow()
-    {
-        $user = new User();
-        if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
-
-            $blogCategory = $user->all("blog_categories");
-
-
-        }
-        $settings = $user->settings();
-        $compact = [
-            "blogCategory" => $blogCategory,
-            "settings" => $settings
-        ];
-
-
-        return view("Backend/Admin/Blog/blogCategory.php", compact("compact"));
-    }
-
-    public function blogshow()
-    {
-        $user = new User();
-        if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
-            $sql = "SELECT ud.name AS uname,
-                           ud.image AS uimage,
-                           ud.user_id AS uid,
-                           bc.name AS bcname,
-                           b.* FROM blogs AS b
-                    INNER JOIN user_details AS ud ON ud.user_id=b.user_id
-                    INNER JOIN blog_categories AS bc ON bc.category_id=b.category_id";
-
-            $stmt = $user->execute($sql);
-            $blog = $stmt->fetchAll();
-        }
-
-        $settings = $user->settings();
-        $compact = [
-            "blog" => $blog,
-            "settings" => $settings
-        ];
-
-
-        return view("Backend/Admin/Blog/blog.php", compact("compact"));
-    }
 
     public function blogview($title)
     {
+
         $user = new User();
+
+        /**
+         * Query for Admin 
+         * Describe : Admin can view any blog that are avilable in database, 
+         */
         $sql = "SELECT ud.name AS uname,
-                       ud.image AS uimage,
-                       ud.user_id AS uid,
-                       bc.name AS bcname,
-                       b.* FROM blogs AS b
+                        ud.image AS uimage,
+                        ud.user_id AS uid,
+                        bc.name AS bcname,
+                        b.* FROM blogs AS b
                 INNER JOIN user_details AS ud ON ud.user_id=b.user_id
                 INNER JOIN blog_categories AS bc ON bc.category_id=b.category_id
                 WHERE b.blog_slug=?";
 
-        $stmt = $user->execute($sql,[$title]);
+        if (!isset($_SESSION["auth_role"]) && $_SESSION["auth_role"] !== "admin") {
+            /**
+             * Query for general user
+             * Describe : Only active blog can view general user
+             */
+            $sql .= " AND b.blog_status=1";
+        }
+
+        $stmt = $user->execute($sql, [$title]);
         $blog = $stmt->fetchAll();
+        $row = $stmt->rowCount();
+
+        /**
+         * If no record found for avobe query return back into home page
+         * 
+        */
+        if ($row <= 0) {
+            redirects("/");
+        }
 
         $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
         FROM settings
@@ -84,7 +62,7 @@ class BlogController
 
         $blogCategory = $user->all("blog_categories");
 
-        
+
         $sql = "SELECT  b.title AS blogtitle,b.blog_slug FROM blogs AS b
                 INNER JOIN user_details AS ud ON ud.user_id=b.user_id";
         $stmt = $user->execute($sql);
@@ -94,16 +72,13 @@ class BlogController
             "blog" => $blog,
             "settings" => $settings,
             "carnivals" => $carnivals,
-            "blogCategory" =>$blogCategory,
+            "blogCategory" => $blogCategory,
             "authorBlog" => $authorBlog
 
         ];
 
-        // parray($compact);
-
         return view("Frontend/Blog/blogview.php", compact("compact"));
     }
-
 
     public function blogInsertPage()
     {
@@ -124,54 +99,6 @@ class BlogController
     }
 
 
-    public function deleteCollege($code)
-    {
-        $objs = new User();
-        $res = $objs->delete("colleges", "college_code", $code);
-        $_SESSION["success_message"] = "College Delete Successfully";
-        redirects("/admin/college");
-    }
-
-
-
-    public function blogcategoryInsert()
-    {
-        $data = [
-            "name" => $_POST["name"],
-            "description" => $_POST["description"]
-        ];
-
-        if (isBlank($data)) {
-            $_SESSION["error_message"] = "All field required";
-            redirects("/admin/blogcategory");
-        } else {
-
-            $user = new User();
-            if ($user->exists("blog_categories", "name", $_POST["name"])) {
-                $_SESSION["error_message"] = "Category alredy exists";
-                redirects("/admin/blogcategory");
-            }
-
-            $data += ["category_slug" => slug($_POST["name"])];
-
-
-            $sql = "INSERT INTO blog_categories (`name`,`description`,`category_slug`) VALUES (:name,:description,:category_slug)";
-
-            $run = $user->insert($sql, $data); // $run = 1 or 0
-            if ($run) {
-                $_SESSION["success_message"] = "CAtegory Inserted";
-            } else {
-                $_SESSION["error_message"] = "Something going wrong!";
-            }
-
-            redirects("/admin/blogcategory");
-
-        }
-
-
-
-    }
-
     public function blogInsert()
     {
         $imageDetails = fileDetails($_FILES, "banner");
@@ -184,14 +111,14 @@ class BlogController
 
         if (isBlank($data)) {
             $_SESSION["error_message"] = "All field required";
-            redirects("/admin/blogInsert");
+            redirects("/blogInsert");
         } else {
 
             $slug = slug($_POST["title"]);
             $user = new User();
             if ($user->exists("blogs", "title", $_POST["title"])) {
                 $_SESSION["error_message"] = "Blog Title alredy exists";
-                redirects("/admin/blogInsert");
+                redirects("/blogInsert");
             }
 
             $NewFileName = $slug . "." . $imageDetails["fext"];
@@ -216,14 +143,12 @@ class BlogController
                 $_SESSION["error_message"] = "Something going wrong!";
             }
 
-            redirects("/admin/blogInsert");
+            redirects("/blogInsert");
 
         }
 
 
 
     }
-
-
 
 }

@@ -41,6 +41,7 @@ class IndexController
                     b.* FROM blogs AS b
             INNER JOIN user_details AS ud ON ud.user_id=b.user_id
             INNER JOIN blog_categories AS bc ON bc.category_id=b.category_id 
+            WHERE b.blog_status = 1
             ORDER BY blog_id LIMIT 7";
 
         $stmt = $user->execute($sql);

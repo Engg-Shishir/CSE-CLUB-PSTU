@@ -21,7 +21,7 @@
 
     <div class="card-header" style="background-color:none !important;">
       <div class="row">
-        <div class="col-md-12" style="border-right:2px solid #383d59;">
+        <div class="col-md-12">
           <table id="example" class="table table-striped">
             <thead>
               <tr>
@@ -48,11 +48,23 @@
                     <?= $item["bcname"] ?>
                   </td>
                   <td>
-                    <a class="text-info" href="<?= url("/admin/blog/".$item["blog_slug"]); ?>"><?= $item["title"] ?></a>
+                    <a class="text-info" href="<?= url("/blog/".$item["blog_slug"]); ?>"><?= $item["title"] ?></a>
                   </td>
                   <td>
                     <a href="<?= url("/admin/blog/delete/" . $item["blog_id"]) ?>"
                       class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-trash"></i></a>
+                    <a href="<?= url("/blog/" . $item["blog_slug"]) ?>"
+                      class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-eye"></i></a>
+                      
+                    <?php
+                    if ($item["blog_status"] == 1) { ?>
+                      <a href="<?= url("/admin/blog/status/" . $item["blog_id"]) ?>"
+                        class="btn btn-default btn-sm text-success"><i class="fa-solid fa-circle-check"></i></a>
+                    <?php }else{ ?>
+                      <a href="<?= url("/admin/blog/status/" . $item["blog_id"]) ?>"
+                        class="btn btn-default btn-sm text-danger"><i class="fa-solid fa-skull-crossbones"></i></a>
+                    <?php }
+                    ?>
                   </td>
                 </tr>
                 <?php

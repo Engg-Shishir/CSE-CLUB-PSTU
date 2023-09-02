@@ -67,4 +67,14 @@ p {
 }
 .sideBox .category {
   margin-bottom: 60px;
+}
+.sideBox .category h3 {
+  background-color: #313d4c;
+  color: white;
+  padding: 10px 5px;
+  font-size: 15px;
+}
+.sideBox .category h3 span {
+  font-size: 16px !important;
+  color: blue;
 }/*# sourceMappingURL=blog.css.map */

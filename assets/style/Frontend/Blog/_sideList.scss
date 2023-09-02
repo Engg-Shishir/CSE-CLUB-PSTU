@@ -17,5 +17,15 @@
     }
     .category{
         margin-bottom: 60px;
+        h3{
+            background-color: #313d4c;
+            color: white;
+            padding: 10px 5px;
+            font-size: 15px;
+            span{
+                font-size: 16px !important;
+                color: blue;
+            }
+        }
     }
 }

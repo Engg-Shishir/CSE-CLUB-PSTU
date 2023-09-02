@@ -30,9 +30,9 @@
                         </div>
                         <?php view("components/flashMessage.php"); ?>
                         <?php
-                        $url = "/admin/blog";
+                        $url = "/blogInsert";
                         if (isset($data["title"]) && $data["title"] !== "")
-                            $url = "/admin/blog/update";
+                            $url = "/blogUpdate";
                         ?>
                         <form action="<?= url($url); ?>" method="POST" enctype="multipart/form-data">
                             <div class="form-group">

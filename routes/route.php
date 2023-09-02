@@ -1,5 +1,6 @@
 <?php
-use App\Controllers\Admin\BlogController;
+use App\Controllers\Admin\AdminBlogController;
+use App\Controllers\BlogController;
 use App\Controllers\Alumini\AluminiControllers;
 use App\Controllers\Admin\AluminiController;
 use App\Controllers\Admin\CityController;
@@ -22,6 +23,7 @@ use App\Controllers\Admin\TranjectionController;
 use App\Controllers\AdminController;
 use App\Controllers\AdminStaticController;
 use App\Controllers\AdminUser;
+use App\Controllers\Auth\AuthBlogController;
 use App\Controllers\EventsController;
 use App\Controllers\IndexController;
 use App\Controllers\JoinusController;
@@ -75,6 +77,11 @@ Router::group(['middleware' => \App\Middlewares\LoginAuth::class], function () {
   Router::post('dashboard', [LoginController::class, "dashboard"]);
 });
 
+
+Router::group(['middleware' => \App\Middlewares\Auth::class], function () {
+  Router::get('blogInsert', [AuthBlogController::class, "blogInsertPage"]);
+  Router::post('blogInsert', [AuthBlogController::class, "blogInsert"]);
+});
 
 // This url only can access when any user logedin but his profile information
 // is not compleated yet. Without loged in no one can access this route.because a session protection added here. This session only set when user loged in.
@@ -231,10 +238,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
   
-  Router::get('admin/blogcategory', [BlogController::class, "categoryshow"]);
-  Router::post('admin/blogcategory', [BlogController::class, "blogcategoryInsert"]);
-  Router::get('admin/blog', [BlogController::class, "blogshow"]);
-  Router::get('admin/blogInsert', [BlogController::class, "blogInsertPage"]);
-  Router::post('admin/blog', [BlogController::class, "blogInsert"]);
+  Router::get('admin/blogcategory', [AdminBlogController::class, "categoryshow"]);
+  Router::post('admin/blogcategory', [AdminBlogController::class, "blogcategoryInsert"]);
+  Router::get('admin/blog', [AdminBlogController::class, "BlogManage"]);
+  Router::get('admin/blog/status/{id}', [AdminBlogController::class, "BlogStatus"]);
 
 });

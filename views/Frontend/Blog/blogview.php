@@ -49,6 +49,7 @@
   <div class="container-fluid content">
      <div class="row">
         <div class="col-md-9">
+           <img width="100%" src="<?= assets("Upload/Blog/".$blog["banner"]) ?>" alt="">
            <a href="" class="text-info"><?= $blog["bcname"] ?> > </a>
            <p><?= $blog["details"] ?></p>
         </div>
@@ -66,7 +67,7 @@
                     ?>
                 </div>
                 <div class="category">
-                    <h3><?= $blog["uname"] ?> all blog list</h3>
+                    <h3>More blog by <span><?= $blog["uname"] ?></span></h3>
                     <?php   
                       foreach ($authorBlog as $key => $value) {  ?>
                           <a href="<?= url("/blog/".$value["blog_slug"])  ?>">
