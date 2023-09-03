@@ -64,13 +64,13 @@
     @include mainBtn.glowing-left;
 
     h2 {
-      font-size: 3.2em;
       margin-bottom: 15px;
       width: 100%;
       text-align: center;
       color: #313d4c;
       font-family: 'Abril Fatface', cursive;
       font-weight: 400;
+      font-size: 3.2em;
       @include respond(tb-md) {
         text-align: left;
         font-size: 70px;

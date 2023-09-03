@@ -1,4 +1,3 @@
-
 .event-description {
     height: 100%;
     padding: 5px;
@@ -6,6 +5,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+
     @include respond(lp-sm) {
         padding: 20px;
         height: 100vh;
@@ -19,21 +19,24 @@
         width: 100%;
         height: 100%;
         position: relative;
+
         @include respond(lp-sm) {
             width: 60%;
             margin-left: 350px;
         }
-        &::after{
+
+        &::after {
             opacity: 0;
             position: absolute;
             top: 87px;
             left: -398px;
             content: url("https://cdni.iconscout.com/illustration/premium/thumb/man-uploading-file-on-cloud-8949512-7314180.png");
-            
+
             @include respond(lp-sm) {
                 opacity: 1;
             }
         }
+
         .title {
             padding: 10px !important;
             // background-color: #ffeab9;
@@ -42,24 +45,38 @@
             h2 {
                 font-size: 48px;
                 color: #483d99;
-                font-family: 'PT Sans', sans-serif;   
+                font-family: 'PT Sans', sans-serif;
                 font-weight: 700;
             }
         }
-        .title.center{
+
+        .title.center {
             text-align: center;
         }
-        .title.fancy{
+
+        .title.fancy {
             border-radius: 158px 0px 133px 0px;
             -webkit-border-radius: 158px 0px 133px 0px;
             -moz-border-radius: 158px 0px 133px 0px;
+
+            h2 {
+                font-family: 'Abril Fatface', cursive;
+                font-weight: 400;
+                font-size: 5em;
+                letter-spacing: 3px;
+            }
         }
 
         p {
-            font-family: 'PT Sans', sans-serif !important;
-            font-weight: 400;
-            font-size: 16px;
             padding: 10px;
+            line-height: 24px;
+            margin: 10px 0px;
+            // font-family: "Newsreader", serif !important;
+            // font-weight: 500;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            letter-spacing: 3;
         }
     }
 }
