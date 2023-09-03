@@ -124,6 +124,8 @@ Router::get('events', [EventController::class, "events"]);
 
 Router::get('blog', [BlogController::class, "blogBypage"]);
 Router::get('blog/page/{number}', [BlogController::class, "blogBypage"]);
+Router::get('blog/author/{name}', [BlogController::class, "blogByAuthor"]);
+Router::get('blog/author/{name}/page/{number}', [BlogController::class, "blogByAuthor"]);
 Router::get('blog/{title}', [BlogController::class, "blogview"]);
 
 

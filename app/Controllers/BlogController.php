@@ -143,4 +143,71 @@ class BlogController
         return view("Frontend/Blog/blog.php", compact("compact"));
     }
 
+    public function blogByAuthor($name,$number=1){
+        $user = new User();
+
+
+        if(intval($number)<=0){
+            redirects("/blog/author/page/1");
+        }
+
+        $_SESSION["page"]=$number;
+        $_SESSION["author"]=$name;
+        $page_first_result = (intval($number)-1) * 4;
+
+        $sql = "SELECT  ud.name AS uname,
+                        ud.image AS uimage,
+                        ud.user_slug AS uslug,
+                        ud.image AS uimage,
+                        ud.user_id AS uid,
+                        bc.name AS bcname,
+                        bc.category_slug AS bcslug,
+                        b.* FROM blogs AS b
+            INNER JOIN user_details AS ud ON ud.user_id=b.user_id
+            INNER JOIN blog_categories AS bc ON bc.category_id=b.category_id 
+            WHERE ud.user_slug = ? AND b.blog_status = 1
+            ORDER BY blog_id DESC LIMIT ". $page_first_result . ','. 4;
+
+        $stmt = $user->execute($sql,[$name]);
+        $blog = $stmt->fetchAll();
+
+
+
+        $sql = "SELECT  ud.user_slug AS uslug,
+                        b.Blog_id FROM blogs AS b
+            INNER JOIN user_details AS ud ON ud.user_id=b.user_id
+            WHERE ud.user_slug = ? AND b.blog_status = 1
+            ORDER BY blog_id DESC";
+        $stmt = $user->execute($sql,[$name]);
+        $AllBlog =  $stmt->fetchAll();
+        
+
+        
+        $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
+        FROM settings
+        LEFT JOIN carnivals AS ca
+        ON settings.nav_carnival_id = ca.carnival_id";
+        $stmt = $user->execute($sql);
+        $settings = $stmt->fetchAll();
+
+        
+        $user = new User();
+        $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=1";
+        $stmt = $user->execute($sql);
+        $carnivals = $stmt->fetchAll();
+
+
+        $blogCategory = $user->all("blog_categories");
+        
+        $compact = [
+            "blog" => $blog,
+            "AllBlog"=>$AllBlog,
+            "settings" => $settings,
+            "carnivals" => $carnivals,
+            "blogCategory" => $blogCategory
+        ];
+
+        return view("Frontend/Blog/AuthorBlog.php", compact("compact"));
+    }
+
 }

@@ -27,7 +27,6 @@
 
 <body>
   <?php
-  session_start();
   $settings = $compact["settings"][0];
   $footer = [
     "navLogo" => $settings["navLogo"],
@@ -68,7 +67,7 @@
                     ?>
                 </div>
                 <div class="category">
-                    <h3>More blog by <span><?= $blog["uname"] ?></span></h3>
+                    <h3><span><?= $blog["uname"] ?></span> Others Blog</h3>
                     <?php   
                       foreach ($authorBlog as $key => $value) {  ?>
                           <a href="<?= url("/blog/".$value["blog_slug"])  ?>">
