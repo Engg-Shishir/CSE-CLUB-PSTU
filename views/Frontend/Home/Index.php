@@ -12,7 +12,7 @@
 <body>
 
   <?php
-
+   session_start();
   $settings = $compact["settings"][0];
   $heroSec = [
     "logo" => $settings["logo"],

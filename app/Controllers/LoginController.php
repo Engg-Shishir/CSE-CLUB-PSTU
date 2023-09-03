@@ -71,10 +71,14 @@ class LoginController
         if ($stmt->rowCount() > 0) {
   
           if ($_SESSION["auth_role"] == "student" || $_SESSION["auth_role"] == "alumini") {
+            
+						$_SESSION["auth_profile"] = "/user";
             redirects("/user");
           } else if ($_SESSION["auth_role"] == "admin") {
+						$_SESSION["auth_profile"] = "/admin";
             redirects("/admin");
           } else if ($_SESSION["auth_role"] == "teacher") {
+						$_SESSION["auth_profile"] = "/teacher";
             redirects("/teacher");
           }
   

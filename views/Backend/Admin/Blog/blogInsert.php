@@ -46,7 +46,7 @@
                                 ?>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <level><b>Blog Banner</b></level>
                                         <div class="custom-file">
@@ -56,17 +56,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group lg p-0">
                                         <level><b>Blog Category</b></level>
                                         <?= selectForm($blogCategory, "category_id", "select2"); ?>
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <level><b>Read Time </b>(Miniute)</level>
+                                        <input type="number" class="form-control" name="read_time"
+                                            placeholder="0"
+                                            value="<?php if (strlen(ietp("read_time")) > 0)
+                                                echo ietp("read_time");
+                                            else ?>">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <level><b>Blog Title</b></level>
-                                <input type="text" class="form-control" name="title"
-                                        placeholder="Enter Project Name" value="<?php if(strlen(ietp("title"))>0) echo ietp("title"); else ?>">
+                                <input type="text" class="form-control" name="title" placeholder="Enter Project Name"
+                                    value="<?php if (strlen(ietp("title")) > 0)
+                                        echo ietp("title");
+                                    else ?>">
                             </div>
                             <div class="form-group">
                                 <level><b>Blog Description</b></level>

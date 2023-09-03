@@ -1,17 +1,23 @@
 // regular text  -- font-family: 'Roboto', sans-serif;
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
-// Midd heading -- font-family: 'Open Sans', sans-serif;
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
-// Large Heading -- font-family: 'DM Serif Display', serif;
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Lilita+One&family=Noto+Sans:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans&display=swap');
-// font-family: 'Lato', sans-serif; 300,900
-// font-family: 'Lilita One', cursive;  300
-// font-family: 'Noto Sans', sans-serif;  300
-// font-family: 'Open Sans', sans-serif;
-// font-family: 'PT Sans', sans-serif;   36px,400
+// Blog Title 600
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,600;1,500&display=swap');
+// font-family: 'Noto Serif', serif; 
+//font-weight:600 or 500
+
+// Large Title or main heading
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+// font-family: 'Abril Fatface', cursive;
+//font-weight: 400;
+
+
+// General text
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
+//font-family: 'Newsreader', serif;
+//font-weight: 400 or 500
+
+
 
 *,
 *::after,

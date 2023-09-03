@@ -5,7 +5,6 @@ namespace App\Controllers\Auth;
 
 use App\model\User;
 
-session_start();
 class AuthBlogController
 {
 
@@ -109,6 +108,11 @@ class AuthBlogController
             "banner" => $imageDetails["fname"]
         ];
 
+        if(intval($_POST["read_time"]) <= 0){
+            $_SESSION["error_message"] = "Blog reading time is not insert";
+            redirects("/blogInsert");
+        }
+
         if (isBlank($data)) {
             $_SESSION["error_message"] = "All field required";
             redirects("/blogInsert");
@@ -125,6 +129,7 @@ class AuthBlogController
             $data["banner"] = $NewFileName;
             $data += ["blog_slug" => $slug];
             $data += ["user_id" => $_SESSION['auth_id']];
+            $data += ["read_time" => intval($_POST["read_time"])];
 
             $imgExtArray = ["jpg", "png", "svg"];
             foreach ($imgExtArray as $key => $value) {
@@ -133,8 +138,8 @@ class AuthBlogController
             fileStore($imageDetails["source"], "assets/Upload/Blog/" . $NewFileName);
 
 
-            $sql = "INSERT INTO blogs (`title`,`details`,`blog_slug`,`category_id`,`banner`,`user_id`)
-                              VALUES (:title,:details,:blog_slug,:category_id,:banner,:user_id)";
+            $sql = "INSERT INTO blogs (`title`,`details`,`blog_slug`,`category_id`,`banner`,`user_id`,`read_time`)
+                            VALUES (:title,:details,:blog_slug,:category_id,:banner,:user_id,:read_time)";
 
             $run = $user->insert($sql, $data); // $run = 1 or 0
             if ($run) {

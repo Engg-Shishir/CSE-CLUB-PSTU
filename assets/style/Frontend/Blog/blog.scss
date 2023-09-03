@@ -1,27 +1,40 @@
 @import "../../../setting/settings";
 @import "../Home/blog";
-.titleBox{
+
+.titleBox {
     display: flex;
     align-items: center;
     justify-content: center;
-    h1{
-        font-weight: 600;
+
+    h1 {
+        font-family: 'Abril Fatface', cursive;
+        font-weight: 400;
         color: #00156A;
         font-size: 40px;
         line-height: 36px;
     }
+
+    p {
+        font-size: 21px;
+        color: black;
+        font-weight: 500;
+        
+    }
 }
-.searchbox{
+
+.searchbox {
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    .pagination{
+
+    .pagination {
         display: flex;
         align-items: center;
         justify-content: center;
         column-gap: 5px;
-        a{
+
+        a {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 3px;
@@ -35,12 +48,14 @@
             text-align: center;
             text-decoration: none;
             transition: .4s ease-in-out;
-            &:hover{
+
+            &:hover {
                 background-color: #4A42EA;
                 color: #ffff;
             }
         }
-        a.active{
+
+        a.active {
             background-color: #4A42EA;
             color: #ffff;
         }

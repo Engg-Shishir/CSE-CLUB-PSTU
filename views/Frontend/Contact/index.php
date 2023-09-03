@@ -11,6 +11,8 @@
 </head>
 <body>
 <?php 
+
+    session_start();
     $settings = $compact["settings"][0];
     $footer=[
       "navLogo"=>$settings["navLogo"],

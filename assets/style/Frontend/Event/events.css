@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Lilita+One&family=Noto+Sans:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,600;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap");
 *,
 *::after,
 *::before {
@@ -709,7 +708,7 @@ p {
      object-fit: cover;
   margin-bottom: 30px;
   background-color: #ffffff;
-  box-shadow: rgba(252, 252, 252, 0.12) 0px 1px 3px, rgba(252, 252, 252, 0.653) 0px 1px 2px;
+  z-index: 4 !important;
 }
 @media only screen and (min-width: 992px) {
   .row-banner {

@@ -11,7 +11,17 @@
       <?php }
       ?>
       <a href="<?= url("/blog") ?>" class="engg-shishir-nav-right-login">Blog</a>
-      <a href="<?= url("/login") ?>" class="engg-shishir-nav-right-login">Login</a>
+      <?php  
+         if(isset($_SESSION["auth_profile"]) && $_SESSION["auth_profile"]!==""){
+          ?>
+            <a href="<?= url("".$_SESSION["auth_profile"]) ?>" class="engg-shishir-nav-right-login">Profile</a>
+          <?php
+         }else{
+          ?>
+           <a href="<?= url("/login") ?>" class="engg-shishir-nav-right-login">Login</a>
+          <?php
+         }
+      ?>
       <div class="engg-shishir-nav-right-menu" onclick="hamburger()">
         <span class="text">MENU</span>
         <span class="hamburger">
@@ -46,50 +56,44 @@
         <ul class="tab-li-content engg-shishir-fullnav-right-ul">
           <li class="shishir-navitem">
             <a href="" class="shishir-navLink">
-              <p>Alumini</p>
-              <p>Alumini</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
               <p>Executive Member</p>
               <p>Executive Member</p>
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
-              <p>partners</p>
-              <p>partners</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
-              <p>About</p>
-              <p>About</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
+            <a href="<?= url("/contact") ?>" class="shishir-navLink">
               <p>Contact</p>
               <p>Contact</p>
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
+            <a href="<?= url("/faq") ?>" class="shishir-navLink">
               <p>FAQ</p>
               <p>FAQ</p>
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
+            <a href="<?= url("/blog") ?>" class="shishir-navLink">
               <p>Blog</p>
               <p>Blog</p>
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="" class="shishir-navLink">
+            <a href="<?= url("/welcome/partner") ?>" class="shishir-navLink">
               <p>Suport Us</p>
               <p>Suport Us</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="<?= url("/developers") ?>" class="shishir-navLink">
+              <p>Developers</p>
+              <p>Developers</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="<?= url("/privacypolicy") ?>" class="shishir-navLink">
+              <p>Privacy Policy</p>
+              <p>Privacy Policy</p>
             </a>
           </li>
         </ul>

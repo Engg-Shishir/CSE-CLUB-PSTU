@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Lilita+One&family=Noto+Sans:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,600;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap");
 *,
 *::after,
 *::before {
@@ -517,31 +516,46 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.sponsor-row::before {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-image: url("https://www.harvardonline.harvard.edu/themes/custom/vpal/images/section_background/bg_gray_waves.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  content: "";
+  opacity: 0.6;
   z-index: 1;
 }
 .sponsor-row::after {
   position: absolute;
   right: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
+  top: 0px;
+  height: 45%;
+  width: 25%;
+  background-image: url("https://i.postimg.cc/mg68FkgQ/Group-7-removebg-preview.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   content: "";
-  opacity: 0.1;
+  opacity: 0.5;
   z-index: 1;
 }
 .sponsor-row .sponsor-title {
   position: relative;
   padding: 20px;
   color: #00156a;
+  z-index: 2;
 }
 .sponsor-row .sponsor-title span {
   font-size: 2.5rem;
-  line-height: 2.5rem;
-  font-weight: 700;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Abril Fatface", cursive;
+  font-weight: 400;
+  font-size: 20px;
 }
 @media only screen and (min-width: 768px) {
   .sponsor-row .sponsor-title span {
@@ -1038,7 +1052,7 @@ p {
      object-fit: cover;
   margin-bottom: 30px;
   background-color: #ffffff;
-  box-shadow: rgba(252, 252, 252, 0.12) 0px 1px 3px, rgba(252, 252, 252, 0.653) 0px 1px 2px;
+  z-index: 4 !important;
 }
 @media only screen and (min-width: 992px) {
   .row-banner {

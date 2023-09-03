@@ -91,7 +91,7 @@ class BlogController
         }
         $_SESSION["page"]=$number;
 
-        $page_first_result = (intval($number)-1) * 2;
+        $page_first_result = (intval($number)-1) * 4;
 
 
         $sql = "SELECT  ud.name AS uname,
@@ -104,7 +104,7 @@ class BlogController
             INNER JOIN user_details AS ud ON ud.user_id=b.user_id
             INNER JOIN blog_categories AS bc ON bc.category_id=b.category_id 
             WHERE b.blog_status = 1
-            ORDER BY blog_id LIMIT ". $page_first_result . ','. 4;
+            ORDER BY blog_id DESC LIMIT ". $page_first_result . ','. 4;
 
         $stmt = $user->execute($sql);
         $blog = $stmt->fetchAll();
@@ -139,8 +139,6 @@ class BlogController
             "carnivals" => $carnivals,
             "blogCategory" => $blogCategory
         ];
-
-        
 
         return view("Frontend/Blog/blog.php", compact("compact"));
     }

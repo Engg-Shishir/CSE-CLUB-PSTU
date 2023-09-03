@@ -15,17 +15,17 @@
                 <div class="topbox">
                     <img class="banner"
                         src="<?= assets("Upload/Blog/".$value["banner"]) ?>"/>
-                    <img class="profile"
-                        src="<?= assets("Upload/Users/".$value["uimage"]) ?>" />
                 </div>
+                <p class="time">
+                    <?= intval($value["read_time"]) ?> miniute read
+                </p>
             </div>
             <div class="bottom-box">
                 <div class="box1">
-                    <a href="<?= url("/blog/category/".$value["bcslug"]) ?>" class="title">  <?= $value["bcname"] ?> :&nbsp;</a>
                     <a href="<?= url("/blog/".$value["blog_slug"]) ?>" class="link"><?= $value["title"] ?></a>
                 </div>
                 <div class="box2">
-                    <a href="<?= url("/blog/author/".$value["uslug"]) ?>"><span>By</span><?= $value["uname"] ?></a>
+                    <a href="<?= url("/blog/author/".$value["uslug"]) ?>"><span>Author</span><?= $value["uname"] ?></a>
                 </div>
             </div>
         </div>

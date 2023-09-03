@@ -16,9 +16,9 @@
         }
 
         .content {
-            min-height: 200vh;
+            min-height: 120vh;
             height: 100% !important;
-            margin-top: 100px;
+            margin-top: 80px;
             padding: 30px;
             word-wrap: break-word;
             word-break: break-all;
@@ -57,7 +57,7 @@
         </div>
         <div class="row searchbox">
             <div class="col-md-6">
-               
+
             </div>
         </div>
         <div class="row blog-row">
@@ -67,17 +67,17 @@
                     <div class="top">
                         <div class="topbox">
                             <img class="banner" src="<?= assets("Upload/Blog/" . $value["banner"]) ?>" />
-                            <img class="profile" src="<?= assets("Upload/Users/" . $value["uimage"]) ?>" />
                         </div>
+                        <p class="time">
+                            <?= intval($value["read_time"]) ?> miniute read
+                        </p>
                     </div>
                     <div class="bottom-box">
                         <div class="box1">
-                            <a href="<?= url("/blog/category/" . $value["bcslug"]) ?>" class="title"> <?= $value["bcname"] ?>
-                                :&nbsp;</a>
                             <a href="<?= url("/blog/" . $value["blog_slug"]) ?>" class="link"><?= $value["title"] ?></a>
                         </div>
                         <div class="box2">
-                            <a href="<?= url("/blog/author/" . $value["uslug"]) ?>"><span>By</span>
+                            <a href="<?= url("/blog/author/" . $value["uslug"]) ?>"><span>Author</span>
                                 <?= $value["uname"] ?>
                             </a>
                         </div>
@@ -88,23 +88,26 @@
         </div>
         <div class="row searchbox">
             <div class="col-md-6 pagination">
-            <?php
-            $page = ceil(count($AllBlog)/4);
+                <?php
+                $page = ceil(count($AllBlog) / 4);
 
-            if(isset($_SESSION["page"]) && $_SESSION["page"]!==""){
-                for ($i=1; $i <= $page; $i++) {  
-                    if($i==intval($_SESSION["page"])){ ?> <a href="<?= url("/blog/page/".$i) ?>" class="btn btn-default active"><?= $i ?></a> <?php }
-                    else{ ?> <a href="<?= url("/blog/page/".$i) ?>" class="btn btn-default"><?= $i ?></a> <?php }  
-          
-                }   
-            }else{
-                for ($i=1; $i <= $page; $i++) {  
-                    if($i==1){ ?> <a href="<?= url("/blog/page/".$i) ?>" class="btn btn-default active"><?= $i ?></a> <?php }
-                    else{ ?> <a href="<?= url("/blog/page/".$i) ?>" class="btn btn-default"><?= $i ?></a> <?php }  
+                if (isset($_SESSION["page"]) && $_SESSION["page"] !== "") {
+                    for ($i = 1; $i <= $page; $i++) {
+                        if ($i == intval($_SESSION["page"])) { ?> <a href="<?= url("/blog/page/" . $i) ?>"
+                                class="btn btn-default active"><?= $i ?></a>
+                        <?php } else { ?> <a href="<?= url("/blog/page/" . $i) ?>" class="btn btn-default"><?= $i ?></a>
+                        <?php }
+
+                    }
+                } else {
+                    for ($i = 1; $i <= $page; $i++) {
+                        if ($i == 1) { ?> <a href="<?= url("/blog/page/" . $i) ?>" class="btn btn-default active"><?= $i ?></a>
+                        <?php } else { ?> <a href="<?= url("/blog/page/" . $i) ?>" class="btn btn-default"><?= $i ?></a>
+                        <?php }
+                    }
                 }
-            }
 
-            ?>
+                ?>
             </div>
         </div>
     </div>
