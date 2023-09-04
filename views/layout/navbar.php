@@ -36,24 +36,19 @@
     <div class="engg-shishir-fullnav-menu">
       <div class="tabbar">
         <ul class="tabs-menu">
-          <li class="tab-li tab-li-active">Programs</li>
-          <li class="tab-li">More Access</li>
+          <li class="tab-li  tab-li-active">Essential Link</li>
+          <li class="tab-li">Authorized Access</li>
+          <li class="tab-li">It Carnival 2023</li>
         </ul>
       </div>
       <div class="tab-content">
-        <ul class="tab-li-content engg-shishir-fullnav-left-ul tab-li-content-active">
-          <?php
-          foreach ($navbar["carnivals"] as $key => $value) { ?>
-            <li class="shishir-navitem">
-              <a target="_blank" href="<?= url("/carnival/".$value["slug"]) ?>" class="shishir-navLink">
-                <p><?= $value["title"] ?></p>
-                <p><?= $value["title"] ?></p>
-              </a>
-            </li>
-          <?php }
-          ?>
-        </ul>
-        <ul class="tab-li-content engg-shishir-fullnav-right-ul">
+        <ul class="tab-li-content engg-shishir-fullnav-right-ul tab-li-content-active">
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>About Us</p>
+              <p>About Us</p>
+            </a>
+          </li>
           <li class="shishir-navitem">
             <a href="" class="shishir-navLink">
               <p>Executive Member</p>
@@ -68,8 +63,14 @@
           </li>
           <li class="shishir-navitem">
             <a href="<?= url("/faq") ?>" class="shishir-navLink">
-              <p>FAQ</p>
-              <p>FAQ</p>
+              <p>gallery</p>
+              <p>gallery</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="<?= url("/faq") ?>" class="shishir-navLink">
+              <p>Events</p>
+              <p>Events</p>
             </a>
           </li>
           <li class="shishir-navitem">
@@ -96,6 +97,68 @@
               <p>Privacy Policy</p>
             </a>
           </li>
+          <li class="shishir-navitem">
+            <a href="<?= url("/privacypolicy") ?>" class="shishir-navLink">
+              <p>CSE course curicolum</p>
+              <p>CSE course curicolum</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>CSE class schedule</p>
+              <p>CSE class schedule</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>CSE faculty define law</p>
+              <p>CSE faculty define law</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>Batch Wall</p>
+              <p>Batch Wall</p>
+            </a>
+          </li>
+        </ul>
+        <ul class="tab-li-content engg-shishir-fullnav-left-ul">
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>Profile</p>
+              <p>Profile</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>Academic Resource</p>
+              <p>Academic Resource</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>Payment</p>
+              <p>Payment</p>
+            </a>
+          </li>
+          <li class="shishir-navitem">
+            <a href="" class="shishir-navLink">
+              <p>Attendence</p>
+              <p>Attendence</p>
+            </a>
+          </li>
+        </ul>
+        <ul class="tab-li-content engg-shishir-fullnav-left-ul">
+          <?php
+          foreach ($navbar["carnivals"] as $key => $value) { ?>
+            <li class="shishir-navitem">
+              <a target="_blank" href="<?= url("/carnival/".$value["slug"]) ?>" class="shishir-navLink">
+                <p><?= $value["title"] ?></p>
+                <p><?= $value["title"] ?></p>
+              </a>
+            </li>
+          <?php }
+          ?>
         </ul>
       </div>
     </div>
