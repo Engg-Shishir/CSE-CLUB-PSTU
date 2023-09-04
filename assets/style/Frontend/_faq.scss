@@ -1,0 +1,127 @@
+.faq-row {
+    margin-bottom: 200px;
+    background-color: $white;
+    flex-direction: column !important;
+    align-items: center;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+    @include respond(tb-sm) {
+        min-height:100vh;
+    }
+
+    &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        height: 50%;
+        width: 50%;
+        background-image: url("https://i.postimg.cc/k5PWMDqZ/pngtree-speech-bubble-with-question-mark-image-528761-removebg-preview.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        content: "";
+        opacity: 0.5;
+        z-index: 1;
+      }
+
+    h2 {
+        text-align: center !important;
+        font-size: 3.2em;
+        font-family: 'Abril Fatface', cursive;
+        font-weight: 400;
+        letter-spacing: 3px;
+        z-index: 3;
+
+        @include respond(tb-md) {
+            font-size: 50px;
+        }
+
+        font-weight: bold;
+        color: #313d4c;
+        margin-bottom: 50px;
+    }
+
+    .accordion-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;    
+        flex-wrap: wrap;
+        row-gap: 30px;       
+        width: 100%; 
+        height: 100%;
+        z-index: 3;
+        @include respond(tb-md) {
+            column-gap: 10px;
+            flex-direction: row;
+        }
+
+        .accordion{
+            width: 100%;
+            flex: 0 0 100%;
+            max-width:  0 0 100%;
+            width: 100% !important;
+            padding: 10px;
+            position: relative;
+            
+            @include respond(tb-md) {
+                flex: 0 0 45%;
+                max-width:  0 0 45%;
+                width: 45%;
+            }
+            @include respond(lp-sm) {
+                flex: 0 0 30%;
+                max-width:  0 0 30%;
+                width: 30%;
+            }
+            color:white;
+
+            .question{
+                display: flex;
+                align-items: center;
+                justify-content: space-between; 
+                background-color: #281769;
+                padding: 10px;
+                cursor: pointer;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                h3{
+                    font-size: 18px;
+                }
+                i{
+                    font-size: 18px;
+                    transition: .7s;
+                }
+                i.active{
+                    transform: rotate(90deg) !important;
+                }
+                i.angleDown{
+                    transform: rotate(0deg) !important;
+                }
+            }
+            .answer{
+                width: 100%;
+                padding: 10px;
+                display: none;
+                background-color: wheat;
+                color: black;
+                position: absolute;
+                top: 205%;
+                z-index: 8;
+                left: 0;
+                p{
+                    font-size: 16px;
+                }
+            }
+        }
+        .accordion.opacity{
+            opacity: 0.1;
+        }
+        .angleDown{
+            transform: rotate(0deg) !important;
+        }
+        
+    }
+}

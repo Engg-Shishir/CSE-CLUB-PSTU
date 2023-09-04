@@ -9,11 +9,17 @@
   <!-- CSS Part -->
   <?php view("layout/partials/frontendLink.php") ?>
   <link rel="stylesheet" href="<?= assets('style/Frontend/Event/events.css'); ?>" />
+  <style>
+    .faq-row{
+      background-color: #ecebf1 !important;
+      margin-bottom: 50px !important;
+    }
+  </style>
 </head>
 
 <body>
   <?php
-  
+
   session_start();
   $settings = $compact["settings"][0];
   $footer = [
@@ -29,6 +35,7 @@
 
   $sponsor = $compact["sponsor"];
   $events = $compact["events"];
+  $faqs = $compact["faqs"];
 
   //   parray($events);
   ?>
@@ -98,7 +105,7 @@
 
 
   <div class="row banner-btn">
-    <a href="<?=  url("/signup/event")  ?>" class="eventRegistrationBtn">
+    <a href="<?= url("/signup/event") ?>" class="eventRegistrationBtn">
       <button class="glowing-btn" type="submit">
         <span></span>
         <span></span>
@@ -109,10 +116,14 @@
     </a>
   </div>
 
+  
+  <?php view("Frontend/faq.php", compact("faqs")) ?>
+
 
   <?php view("layout/footer.php", compact("footer")); ?>
   </div>
   <?php view("layout/partials/frontendScript.php") ?>
+  <script src="<?= assets('js/faqs.js') ?>"></script>
 
 </body>
 

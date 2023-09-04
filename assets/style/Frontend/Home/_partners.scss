@@ -9,7 +9,8 @@
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-  margin-bottom: 200px;
+  margin-top: 70px;
+  height: 100vh;
   @include respond(tb-md) {
     height: 100vh;
   }

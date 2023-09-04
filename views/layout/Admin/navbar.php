@@ -112,6 +112,18 @@
 
       <div class="accordion__item">
         <a class="accordion__toggle">
+          <i class="far fa-envelope"></i> Faqs
+          <i class="fa-solid fa-chevron-right accordion__icon"></i>
+        </a>
+        <div class="accordion__content">
+          <div class="accordion__content-container">
+            <a class="accordion__a" href="<?= url("/admin/faq"); ?>">Manage Faq</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <a class="accordion__toggle">
           <i class="far fa-envelope"></i> Alumini
           <i class="fa-solid fa-chevron-right accordion__icon"></i>
         </a>

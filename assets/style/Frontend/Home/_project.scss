@@ -7,11 +7,17 @@
   justify-content: center;
   padding: 10px;
   min-height: 100vh;
+  margin-top: 80px;
   @include respond(tb-md) {
     height: 100vh;
+    margin-top: 20px;
   }
   @include respond(tb-sm){
     flex-direction: row !important;
+  }
+  
+  @include respond(lp-sm){
+    margin-top: 0px;
   }
   &-left {
     flex: 0 0 100%;

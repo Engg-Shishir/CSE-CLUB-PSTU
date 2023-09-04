@@ -43,8 +43,13 @@ class EventsController
       $sponsor = $stmt->fetchAll();
     }
 
+    
+    $sql = "SELECT * FROM faqs WHERE faq_category=?";
+    $stmt = $user->execute($sql,["Carnival"]);
+    $faqs = $stmt->fetchAll();
 
-    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor];
+
+    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor,"faqs"=>$faqs];
 
     return view("Frontend/Event/carnival.php", compact("compact"));
   }
@@ -82,7 +87,12 @@ class EventsController
     $stmt = $user->execute($sql, [$events["carnival_id"]]);
     $sponsor = $stmt->fetchAll();
 
-    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor];
+    
+    $sql = "SELECT * FROM faqs WHERE faq_category=?";
+    $stmt = $user->execute($sql,["Event"]);
+    $faqs = $stmt->fetchAll();
+
+    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor,"faqs"=>$faqs];
 
     return view("Frontend/Event/event.php", compact("compact"));
   }

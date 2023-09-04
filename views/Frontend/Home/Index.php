@@ -12,7 +12,7 @@
 <body>
 
   <?php
-   session_start();
+  session_start();
   $settings = $compact["settings"][0];
   $heroSec = [
     "logo" => $settings["logo"],
@@ -39,8 +39,9 @@
     "carnivals" => $compact["carnivals"]
   ];
   // Footer variable
-    $footer = $settings;
-    $blog = $compact["blog"];
+  $footer = $settings;
+  $blog = $compact["blog"];
+  $faqs = $compact["faqs"];
   ?>
 
   <div class="container">
@@ -53,11 +54,34 @@
     <?php view("Frontend/Home/projects.php", compact("projects")) ?>
     <?php view("Frontend/Home/blog.php", compact("blog")) ?>
     <?php view("Frontend/Home/partner.php", compact("partners")) ?>
+    <?php view("Frontend/faq.php", compact("faqs")) ?>
     <?php view("layout/footer.php", compact("footer")) ?>
   </div>
 
   <?php view("layout/partials/frontendScript.php") ?>
   <script src="<?= assets('js/Frontend/homepage.js') ?>"></script>
+  <script src="<?= assets('js/faqs.js') ?>"></script>
+
+
+
+  <!-- <script>
+    $(function () {
+      var number = 0;
+      toggleFaq = function (elm) {
+        // $(elm).siblings(".answer").slideToggle();
+        if(number==elm){
+          $(".answer"+elm).slideToggle();
+          $(".fa-angle-down-"+elm).toggleClass("active");
+        }else{
+          number = elm;
+          $(".answer").slideUp();
+          $(".fa-angle-down").removeClass("active");
+          $(".answer"+elm).slideToggle();
+          $(".fa-angle-down-"+elm).toggleClass("active");
+        }
+      };
+    });
+  </script> -->
 </body>
 
 </html>

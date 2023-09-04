@@ -67,13 +67,25 @@ class IndexController
 
 
 
+    $sql = "SELECT * FROM faqs WHERE faq_category=?";
+    $stmt = $user->execute($sql,["Home"]);
+    $faqs = $stmt->fetchAll();
+
+
+
 
     /*************************************************************
      *?  Linkedin     : engg-shishir
      *!  Purpose      : Bind all fetching array in a single array
      *   Details      : since compact support single variable
      *************************************************************/
-    $compact = ["partners" => $partners, "projects" => $projects, "settings" => $settings, "carnivals" => $carnivals, "blog" => $blog];
+    $compact = ["partners" => $partners, 
+                "projects" => $projects, 
+                "settings" => $settings, 
+                "carnivals" => $carnivals, 
+                "blog" => $blog,
+                "faqs"=>$faqs
+              ];
 
 
 

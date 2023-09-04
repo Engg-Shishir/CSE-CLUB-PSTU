@@ -13,7 +13,7 @@ class FaqController
   {
     $user = new User();
     if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
-    
+
       $sql = "SELECT * FROM faqs";
       $stmt = $user->execute($sql);
       $data = $stmt->fetchAll();
@@ -21,7 +21,7 @@ class FaqController
       $settings = $user->settings();
       $compact = [
         "data" => $data,
-        "settings"=>$settings
+        "settings" => $settings
       ];
     }
     return view("Backend/Admin/Static/faq.php", compact("compact"));
@@ -39,35 +39,42 @@ class FaqController
 
   public function insertFaq()
   {
-    foreach ($_POST as $key => $value) {
-      trim($value);
-      $this->errorCheck = isEmpty($key, $value);
-    }
 
-    if ($this->errorCheck == true) {
+    $data = [
+      "faq_category" => $_POST["faq_category"],
+      "question" => $_POST["question"],
+      "ans" => $_POST["ans"]
+    ];
+
+
+    if (isBlank($data)) {
       $_SESSION["error_message"] = "All field required";
       redirects("/admin/faq");
-    }
+    }else{
+      $user = new User();
+      
+      $sql = "SELECT * FROM faqs WHERE faq_category=? AND question=?";
+      $stmt = $user->execute($sql,[$_POST["faq_category"],$_POST["question"]]);
+      $faqCount = $stmt->rowCount();
 
-
-    $user = new User();
-    if ($user->exists("faqs", "question", $_POST["question"])) {
-      $_SESSION["error_message"] = "Course alredy exists";
+      if ($faqCount>0) {
+        $_SESSION["error_message"] = "Question alredy exists";
+        redirects("/admin/faq");
+      }
+  
+  
+  
+      $sql = "INSERT INTO faqs (`question`,`ans`,`faq_category`) VALUES (:question,:ans,:faq_category)";
+  
+      $run = $user->insert($sql, $data); // $run = 1 or 0
+      if ($run) {
+        $_SESSION["success_message"] = "Faq Inserted";
+      } else {
+        $_SESSION["error_message"] = "Something going wrong!";
+      }
+  
       redirects("/admin/faq");
     }
-
-
-
-    $sql = "INSERT INTO faqs (`question`,`ans`) VALUES (:question,:ans)";
-
-    $run = $user->insert($sql, $_POST); // $run = 1 or 0
-    if ($run) {
-      $_SESSION["success_message"] = "Faq Inserted";
-    } else {
-      $_SESSION["error_message"] = "Something going wrong!";
-    }
-
-    redirects("/admin/faq");
 
   }
 

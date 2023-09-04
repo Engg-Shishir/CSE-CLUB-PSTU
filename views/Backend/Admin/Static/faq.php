@@ -12,19 +12,97 @@
 
 <body>
 
-<?php
-    $navbar = $compact["settings"];
-    $data = $compact["data"];
+  <?php
+  $navbar = $compact["settings"];
+  $data = $compact["data"];
   ?>
   <?php view("./layout/Admin/navbar.php", compact("navbar")); ?>
   <div class="containers content">
 
     <div class="card-header" style="">
       <div class="row">
-        <div class="col-md-8" style="border-right:2px solid #383d59;">
+        <div class="col-md-6">
+          <div class="editBox"></div>
+          <div class="reg-form">
+            <form action="<?= url("/admin/faq"); ?>" method="POST" enctype="multipart/form-data">
+              <div class="form-group small p-0">
+                <label for=""><strong>Which Page ?</strong></label>
+                <select name="faq_category" id="" class="select2 details-select">
+                  <option value="">Select Option</option>
+                  <option value="Home">Home</option>
+                  <option value="Carnival">Carnival</option>
+                  <option value="Event">Event</option>
+                  <option value="Course">Course</option>
+                  <option value="Partner">Partner</option>
+                  <option value="Registration">Registration</option>
+                  <option value="Login">Login</option>
+                </select>
+              </div>
+              <div class="row row-input">
+                <?= textArea("question", "", "Question", "lg postal-code-input"); ?>
+              </div>
+              <div class="row row-input">
+                <?= textArea("ans", "", "Answer", "lg"); ?>
+              </div>
+              <div class="reg-btn-box">
+                <a href="">
+                  <button class="glowing-btn" type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Faq Insert
+                  </button>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="editBox"></div>
+          <div class="reg-form">
+            <?php view("components/flashMessage.php"); ?>
+            <form action="<?= url("/admin/faq"); ?>" method="POST" enctype="multipart/form-data">
+              <div class="form-group small p-0">
+                <label for=""><strong>Which Page ?</strong></label>
+                <select name="faq_category" id="" class="select2 details-select">
+                  <option value="">Select Option</option>
+                  <option value="Home">Home</option>
+                  <option value="Carnival">Carnival</option>
+                  <option value="Event">Event</option>
+                  <option value="Course">Course</option>
+                  <option value="Partner">Partner</option>
+                  <option value="Registration">Registration</option>
+                  <option value="Login">Login</option>
+                </select>
+              </div>
+              <div class="row row-input">
+                <?= textArea("question", "", "Question", "lg postal-code-input"); ?>
+              </div>
+              <div class="row row-input">
+                <?= textArea("ans", "", "Answer", "lg"); ?>
+              </div>
+              <div class="reg-btn-box">
+                <a href="">
+                  <button class="glowing-btn" type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Faq Update
+                  </button>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row"  style="margin-top:100px;">
+        <div class="col-md-12">
           <table id="example" class="table table-striped">
             <thead>
               <tr>
+                <th>For</th>
                 <th>Question</th>
                 <th>Ans</th>
                 <th>Action</th>
@@ -35,6 +113,9 @@
               foreach ($data as $key => $item) {
                 ?>
                 <tr>
+                  <td>
+                    <?= $item["faq_category"] ?>
+                  </td>
                   <td>
                     <?= $item["question"] ?>
                   </td>
@@ -53,33 +134,6 @@
               ?>
             </tbody>
           </table>
-        </div>
-        <div class="col-md-4">
-          <div class="editBox"></div>
-          <div class="reg-form">
-            <?php view("components/flashMessage.php"); ?>
-            <form action="<?= url("/admin/faq"); ?>" method="POST" enctype="multipart/form-data">
-
-              <div class="row row-input">
-                <?= textArea("question", "", "Question", "lg course-form-field"); ?>
-              </div>
-              <div class="row row-input">
-                <?= textArea("ans", "", "Answer", "lg course-form-field"); ?>
-              </div>
-
-              <div class="reg-btn-box">
-                <a href="">
-                  <button class="glowing-btn" type="submit">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Add Faq
-                  </button>
-                </a>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
