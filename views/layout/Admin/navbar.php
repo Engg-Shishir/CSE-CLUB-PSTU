@@ -107,7 +107,7 @@
           ],
           [
             "name" => "Events",
-            "href" => "admin/events"
+            "href" => "/admin/events"
           ],
           [
             "name" => "Registration",
@@ -168,7 +168,7 @@
 
             } else {
               ?>
-              <a href="<?= $value ?>" class="accordion__toggle">
+              <a href="<?= url($value); ?>" class="accordion__toggle">
                 <i class="far fa-envelope"></i>
                 <?= $key ?>
               </a>

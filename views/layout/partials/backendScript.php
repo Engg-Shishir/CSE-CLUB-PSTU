@@ -32,23 +32,9 @@
     });
 
     $(document).ready(function () {
-        // $('.summernote').summernote({
-        //     lineHeights: ['0.5', '1.0'],
-        //     // height: 150,
-        //     toolbar: [
-        //         ['style', ['style']],
-        //         ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-        //         // [ 'fontname', [ 'fontname' ] ],
-        //         ['fontsize', ['fontsize']],
-        //         ['color', ['color']],
-        //         ['para', ['ol', 'ul', 'paragraph']],
-        //         ['table', ['table']],
-        //         ['view', ['undo', 'redo', 'codeview', 'help']]
-        //     ]
-        // });
         $('.summernote').summernote({
             "lineHeight": 1,
-            "height": 200,
+            "height": 500,
             "fontNames": ["Arial", "Arial Black", "Comic Sans MS", "Courier New", "Georgia", "Impact", "Times New Roman", "Trebuchet MS", "Verdana", "Helvetica", "Calibri", "Palatino Linotype", "Tahoma", "Geneva", "Bookman Old Style", "Century Gothic", "Garamond", "Lucida Console", "Lucida Sans Unicode", "MS Sans Serif"],
             "lineHeights": ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
             "fontSizes": ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
@@ -63,7 +49,7 @@
                 ["height", ["height"]],
                 ['view', ['undo', 'redo', 'codeview','fullscreen']]
             ]
-        }).summernote('lineHeight', 120);
+        });
     });
     toastr.options = {
         "closeButton": true,

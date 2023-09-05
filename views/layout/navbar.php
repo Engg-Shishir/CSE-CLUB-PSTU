@@ -69,9 +69,9 @@
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="<?= url("/gallery") ?>" class="shishir-navLink">
-              <p>gallery</p>
-              <p>gallery</p>
+            <a href="<?= url("/activity") ?>" class="shishir-navLink">
+              <p>Activity Gallery</p>
+              <p>Activity Gallery</p>
             </a>
           </li>
           <li class="shishir-navitem">

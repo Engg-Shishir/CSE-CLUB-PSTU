@@ -57,7 +57,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlTextarea3">Description</label>
-                    <textarea class="form-control" name="description" rows="3"><?= ietp("description") ?></textarea>
+                    <textarea class="form-control summernote" name="description" rows="3"><?= ietp("description") ?></textarea>
                   </div>
                 </div>
               </div>

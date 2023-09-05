@@ -1,6 +1,7 @@
 <?php
 use App\Controllers\AboutController;
 use App\Controllers\Admin\AdminBlogController;
+use App\Controllers\Admin\ClubRulesController;
 use App\Controllers\BlogController;
 use App\Controllers\Alumini\AluminiControllers;
 use App\Controllers\Admin\AluminiController;
@@ -39,6 +40,7 @@ use App\master\Router;
 
 Router::get('/', [IndexController::class, "home"]);
 Router::get('about', [AboutController::class, "about"]);
+Router::get('cselaw', [AboutController::class, "cselaw"]);
 Router::get('welcome/partner', [IndexController::class, "welcomePartner"]);
 Router::post('message', [MessageController::class, "send"]);
 Router::get('contact', [MessageController::class, "conatctPage"]);
@@ -260,5 +262,9 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   
 Router::get('admin/about', [\App\Controllers\Admin\AboutController::class,"about"]);
 Router::post('admin/about', [\App\Controllers\Admin\AboutController::class,"insertAbout"]);
+
+
+Router::get('admin/facultylaw', [ClubRulesController::class,"rulesPage"]);
+Router::post('admin/facultylaw', [ClubRulesController::class,"insertRules"]);
 
 });
