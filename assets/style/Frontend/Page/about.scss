@@ -5,19 +5,19 @@
 
 .containers {
     font-size: 100% !important;
-    height: 100%;
+    height:auto;
     margin-top: 66px !important;
     margin: 0 auto;
-    margin-bottom: 300px;
+    // margin-bottom: 300px;
+        margin-bottom: 200px;
     @include respond(tb-sm) {
     }
     @include respond(tb-md) {
-        height: 230vh !important;
+        // height: 230vh !important;
     }
     @include respond(lp-sm) {
         width: 80%;
-        height: 170vh;
-        margin-bottom: 200px;
+        // height: 170vh;
     }
 }
 
@@ -26,7 +26,7 @@
 
 .row-banner {
     width: 100%;
-    height: 100%;
+    height:auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -54,7 +54,7 @@
 }
 
 .descriptionBox {
-    height: 100%;
+    height:auto;
     padding: 20px;
     h3{
         color: rgb(25, 25, 70);
