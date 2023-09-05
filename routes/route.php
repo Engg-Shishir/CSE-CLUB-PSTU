@@ -1,4 +1,5 @@
 <?php
+use App\Controllers\AboutController;
 use App\Controllers\Admin\AdminBlogController;
 use App\Controllers\BlogController;
 use App\Controllers\Alumini\AluminiControllers;
@@ -37,6 +38,7 @@ use App\master\Router;
 
 
 Router::get('/', [IndexController::class, "home"]);
+Router::get('about', [AboutController::class, "about"]);
 Router::get('welcome/partner', [IndexController::class, "welcomePartner"]);
 Router::post('message', [MessageController::class, "send"]);
 Router::get('contact', [MessageController::class, "conatctPage"]);
@@ -252,5 +254,11 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
   Router::post('admin/blogcategory', [AdminBlogController::class, "blogcategoryInsert"]);
   Router::get('admin/blog', [AdminBlogController::class, "BlogManage"]);
   Router::get('admin/blog/status/{id}', [AdminBlogController::class, "BlogStatus"]);
+
+
+
+  
+Router::get('admin/about', [\App\Controllers\Admin\AboutController::class,"about"]);
+Router::post('admin/about', [\App\Controllers\Admin\AboutController::class,"insertAbout"]);
 
 });
