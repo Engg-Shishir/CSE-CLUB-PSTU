@@ -534,12 +534,18 @@ CREATE TABLE gallerys (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE rulespage (
-  id int(10) UNSIGNED NOT NULL,
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   description text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-
+CREATE TABLE activity (
+  id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  image varchar(300) NOT NULL,
+  event_name varchar(100) NOT NULL,
+  description text DEFAULT NULL,
+  year varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 

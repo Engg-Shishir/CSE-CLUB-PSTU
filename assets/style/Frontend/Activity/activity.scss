@@ -1,0 +1,126 @@
+@use "../../../components/mainBtn";
+// @use "../../../components/select2";
+@import "../../../setting/settings";
+@import "../../../layout/NavBar/fixedTopbar";
+@import "../../../layout/NavBar/fullNav";
+@import "../../../layout/Footer/footer";
+@import "./card";
+.content {
+    font-size: 100%;
+    height: auto;
+    height: 100% !important;
+    margin-top: 80px;
+    padding: 12px;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 100% !important;
+    @include respond(lp-sm) {
+        padding: 30px;
+    }
+}
+.blog-card{
+    border-radius: 0 !important;
+    .top{
+        border-radius: 0 !important;
+        .topbox{
+            .banner{
+                border-top-left-radius: 0px !important;
+                border-top-right-radius: 0px !important;
+            }
+        }
+    }
+    @include respond(lp-md) {
+        flex: 0 0 45% !important;
+        min-width: 0 0 45% !important;
+        width: 45% !important;
+    }
+}
+
+.titleBox {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    .seasrch{
+        width: 80%;
+        margin-top: 10px;
+        @include respond(tb-md) {
+            width: 50%;
+        }
+        
+        @include respond(lp-sm) {
+            width: 30%;
+        }
+    }
+
+    @include respond(tb-md) {
+        flex-direction: row !important;
+    }
+
+    @include respond(lp-sm) {
+        width: 80%;
+    }
+
+    h1 {
+        font-family: 'Abril Fatface', cursive;
+        font-weight: 400;
+        color: #00156A;
+        font-size: 40px;
+        line-height: 36px;
+    }
+
+    p {
+        font-size: 21px;
+        color: black;
+        font-weight: 500;
+
+    }
+
+}
+
+.paginationBox {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 300px;
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 5px;
+
+        a {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: content-box;
+            color: #212121;
+            display: block;
+            margin-left: -1px;
+            min-height: 30px;
+            min-width: 30px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: .4s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+
+            &:hover {
+                background-color: #4A42EA;
+                color: #ffff;
+            }
+        }
+
+        a.active {
+            background-color: #4A42EA;
+            color: #ffff;
+        }
+    }
+}
+

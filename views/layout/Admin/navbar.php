@@ -85,6 +85,10 @@
             "name" => "Faculty Law",
             "href" => "/admin/facultylaw"
           ],
+          [
+            "name" => "Club Activity",
+            "href" => "/admin/clubactivity"
+          ],
         ],
         "Payment" => [
           [

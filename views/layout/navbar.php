@@ -57,12 +57,6 @@
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="<?= url("/executive") ?>" class="shishir-navLink">
-              <p>Executive Member</p>
-              <p>Executive Member</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
             <a href="<?= url("/contact") ?>" class="shishir-navLink">
               <p>Contact</p>
               <p>Contact</p>

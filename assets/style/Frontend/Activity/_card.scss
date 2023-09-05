@@ -1,5 +1,5 @@
 .blog-row {
-    padding: 15px;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,6 +7,7 @@
     width: 100%;
     row-gap: 20px;
     column-gap: 1%;
+
 
 
     @include respond(lp-sm) {
@@ -25,38 +26,30 @@
         min-width: 0 0 100%;
         width: 100%;
         transition: border-color .2s, box-shadow .2s;
-        height: 400px;
+        height: 600px;
         border: 1px solid hsla(210, 5%, 93%, .5);
         border-radius: 15px;
-        box-shadow: 0 2px 4px rgba(100, 100, 100, 0.5);
+        // box-shadow: 0 2px 4px rgba(100, 100, 100, 0.5);
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
         display: flex;
         flex-direction: column;
         position: relative;
         transition: border-color .2s,
-            box-shadow .2s;
+        box-shadow .2s;
         position: relative;
 
         &:hover {
             box-shadow: 0 1px 3px #313d4c;
         }
 
-        @include respond(tb-sm) {
+        @include respond(tb-md) {
             flex: 0 0 45%;
             min-width: 0 0 45%;
             width: 45%;
         }
 
-        @include respond(lp-sm) {
-            flex: 0 0 30%;
-            min-width: 0 0 30%;
-            width: 30%;
-        }
 
-        @include respond(lp-md) {
-            flex: 0 0 22%;
-            min-width: 0 0 22%;
-            width: 22%;
-        }
+
 
 
         .top {
@@ -64,10 +57,23 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 150px;
+            height: 400px;
             object-fit: cover;
 
             border-radius: 15px;
+            .timeCatgoty{
+                padding: 0px 20px 0px 10px;
+                display: flex; align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                // background-color: #313d4c;
+                .title{
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #5338dc;
+                    margin: 10px;
+                }
+            }
 
             .topbox {
                 width: 100%;
@@ -107,7 +113,7 @@
 
         .bottom-box {
             position: relative;
-            top: 180px;
+            top: 430px;
             left: 0;
             padding: 15px;
             width: 100%;

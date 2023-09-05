@@ -1,6 +1,7 @@
 <?php
 use App\Controllers\AboutController;
 use App\Controllers\Admin\AdminBlogController;
+use App\Controllers\Admin\ClubActivityController;
 use App\Controllers\Admin\ClubRulesController;
 use App\Controllers\BlogController;
 use App\Controllers\Alumini\AluminiControllers;
@@ -41,6 +42,10 @@ use App\master\Router;
 Router::get('/', [IndexController::class, "home"]);
 Router::get('about', [AboutController::class, "about"]);
 Router::get('cselaw', [AboutController::class, "cselaw"]);
+
+Router::get('activity', [AboutController::class, "activityBypage"]);
+Router::get('activity/page/{number}', [AboutController::class, "activityBypage"]);
+
 Router::get('welcome/partner', [IndexController::class, "welcomePartner"]);
 Router::post('message', [MessageController::class, "send"]);
 Router::get('contact', [MessageController::class, "conatctPage"]);
@@ -266,5 +271,9 @@ Router::post('admin/about', [\App\Controllers\Admin\AboutController::class,"inse
 
 Router::get('admin/facultylaw', [ClubRulesController::class,"rulesPage"]);
 Router::post('admin/facultylaw', [ClubRulesController::class,"insertRules"]);
+
+
+Router::get('admin/clubactivity', [ClubActivityController::class,"clubactivity"]);
+Router::post('admin/clubactivity', [ClubActivityController::class,"insertActivity"]);
 
 });
