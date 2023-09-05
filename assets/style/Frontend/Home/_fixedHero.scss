@@ -83,11 +83,17 @@
         color: $blue;
         text-align: center;
         text-transform: uppercase;
+        font-family: 'Abril Fatface', cursive;
+        letter-spacing: 7px;
+        font-weight: 400;
+        color: #313d4c;
         @include respond(tb-md) {
           font-size: 1.8rem;
+          letter-spacing: 10px;
         }
         @include respond(lp-sm) {
           font-size: 2rem;
+          letter-spacing: 14px;
         }
       }
       .title-des {
