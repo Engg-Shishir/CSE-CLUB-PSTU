@@ -24,8 +24,45 @@ class FaqController
         "settings" => $settings
       ];
     }
-    return view("Backend/Admin/Static/faq.php", compact("compact"));
+    return view("Backend/Admin/Faq/faq.php", compact("compact"));
   }
+
+  public function faqByType($type)
+  {
+    $user = new User();
+    if (isset($_SESSION["auth_user"]) && $_SESSION["auth_user"] !== "") {
+      $settings = $user->settings();
+
+      $sql = "SELECT * FROM faqs";
+      $stmt = $user->execute($sql);
+      $data = $stmt->fetchAll();
+
+
+      $selectType=NULL;
+      if($type=="carnival"){
+        $sql = "SELECT carnivals.slug,carnivals.title FROM carnivals";
+        $stmt = $user->execute($sql);
+        $selectType = $stmt->fetchAll();
+        $_SESSION["faqProcede"]="carnival";
+      }else if($type=="events"){
+        $sql = "SELECT events.event_slug,events.event_name FROM events";
+        $stmt = $user->execute($sql);
+        $selectType = $stmt->fetchAll();
+        $_SESSION["faqProcede"]="events";
+      }else{
+        $selectType = $type;
+        $_SESSION["faqProcede"]=$type;
+      }
+
+      $compact =[
+        "settings"=>$settings,
+        "data"=>$data,
+        "selectType"=>$selectType
+      ];
+    }
+    return view("Backend/Admin/Faq/insertFaq.php", compact("compact"));
+  }
+  
 
   public function deleteFaq($code)
   {
@@ -49,7 +86,7 @@ class FaqController
 
     if (isBlank($data)) {
       $_SESSION["error_message"] = "All field required";
-      redirects("/admin/faq");
+      redirects("/admin/faq/".$_SESSION["faqProcede"]);
     }else{
       $user = new User();
       
@@ -59,7 +96,7 @@ class FaqController
 
       if ($faqCount>0) {
         $_SESSION["error_message"] = "Question alredy exists";
-        redirects("/admin/faq");
+        redirects("/admin/faq/".$_SESSION["faqProcede"]);
       }
   
   
@@ -73,7 +110,7 @@ class FaqController
         $_SESSION["error_message"] = "Something going wrong!";
       }
   
-      redirects("/admin/faq");
+      redirects("/admin/faq/".$_SESSION["faqProcede"]);
     }
 
   }

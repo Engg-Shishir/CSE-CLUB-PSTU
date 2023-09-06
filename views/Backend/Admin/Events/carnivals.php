@@ -21,7 +21,54 @@
   <div class="containers content">
     <div class="card-header" style="background-color:none !important;">
       <div class="row">
-        <div class="col-md-8" style="border-right:2px solid #383d59;">
+        <div class="col-md-8 offset-md-2">
+          <?php view("components/flashMessage.php"); ?>
+          <form action="<?= url("/admin/carnivals"); ?>" method="POST" enctype="multipart/form-data">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Carnival Name</label>
+                <input type="text" class="form-control" name="title" placeholder="Enter carnival name"
+                  value="<?= ietp("title") ?>">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Carnival Banner</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="banner">
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-0">
+                <div class="col-md-6 p-1">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Start Date</label>
+                    <input type="date" class="form-control" name="start">
+                  </div>
+                </div>
+                <div class="col-md-6 p-1">
+                  <div class="form-group p-0">
+                    <label for="exampleInputEmail1">End Date</label>
+                    <input type="date" class="form-control" name="end">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label><strong>Activity Details</strong></label>
+                <textarea name="description" class="form-control summernote" name="description" rows="4" spellcheck="true"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style="border-right:2px solid #383d59;">
           <table id="example" class="table table-striped">
             <thead>
               <tr>
@@ -53,7 +100,7 @@
                     if ($item["status"] == 1) {
                       ?>
                       <a href="<?= url("/admin/carnival/status/" . $item["carnival_id"]) ?>"
-                        class="btn btn-default btn-sm"><i class="fa-solid fa-circle-check text-success" ></i></a>
+                        class="btn btn-default btn-sm"><i class="fa-solid fa-circle-check text-success"></i></a>
                       <?php
                     } else {
                       ?>
@@ -69,50 +116,6 @@
               ?>
             </tbody>
           </table>
-        </div>
-        <div class="col-md-4">
-          <?php view("components/flashMessage.php"); ?>
-          <form action="<?= url("/admin/carnivals"); ?>" method="POST" enctype="multipart/form-data">
-            <div class="card-body">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Carnival Name</label>
-                <input type="text" class="form-control" name="title" placeholder="Enter carnival name"
-                  value="<?= ietp("title") ?>">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputFile">Carnival Banner</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="banner">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Start Date</label>
-                    <input type="date" class="form-control" name="start">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">End Date</label>
-                    <input type="date" class="form-control" name="end">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
     </div>

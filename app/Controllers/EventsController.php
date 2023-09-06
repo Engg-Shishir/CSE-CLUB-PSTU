@@ -13,13 +13,27 @@ class EventsController
 
     $user = new User();
 
-    $sql = "SELECT events.*,c.*
+    //  Select main carnival
+    $sql = "SELECT c.* FROM carnivals AS c  WHERE c.slug=? AND c.status=?";
+    $stmt = $user->execute($sql, [$carnival, 1]);
+    $carnivalData = $stmt->fetchAll();
+
+    // Select carinival all events
+    $sql = "SELECT events.*
     FROM events INNER JOIN carnivals AS c ON c.carnival_id =events.carnival_id
     WHERE c.slug=? AND events.status=?";
     $stmt = $user->execute($sql, [$carnival, 1]);
     $events = $stmt->fetchAll();
 
 
+    //  Select sponsor who are agree to sponsor for specific carnival
+    $sql = "SELECT es.function,c.image,c.web FROM collaborators AS c
+    INNER JOIN event_sponsor AS es ON es.colla_id= c.colla_id
+    WHERE es.carnival_id=?";
+    $stmt = $user->execute($sql, [$carnivalData[0]["carnival_id"]]);
+    $sponsor = $stmt->fetchAll();
+
+    // Page header, footer aditional settings data
     $sql = "SELECT settings.*,ca.title AS carTitle,ca.slug AS carSlug
     FROM settings
     LEFT JOIN carnivals AS ca
@@ -27,31 +41,42 @@ class EventsController
     $stmt = $user->execute($sql);
     $settings = $stmt->fetchAll();
 
-
+    //  Select all active carnival list, to show in the navbar, for quick access
     $user = new User();
     $sql = "SELECT c.title,c.slug FROM carnivals AS c WHERE status=?";
     $stmt = $user->execute($sql, [1]);
     $carnivals = $stmt->fetchAll();
 
-    $sponsor=[];
-    if (count($events)) {
-
-      $sql = "SELECT * FROM collaborators AS c
-      INNER JOIN event_sponsor AS es ON es.colla_id= c.colla_id
-      WHERE es.carnival_id=?";
-      $stmt = $user->execute($sql, [$events[0]["carnival_id"]]);
-      $sponsor = $stmt->fetchAll();
-    }
-
-    
+    // Select related faqs
     $sql = "SELECT * FROM faqs WHERE faq_category=?";
-    $stmt = $user->execute($sql,["Carnival"]);
+    $stmt = $user->execute($sql,[$carnival]);
     $faqs = $stmt->fetchAll();
 
 
-    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor,"faqs"=>$faqs];
 
-    return view("Frontend/Event/carnival.php", compact("compact"));
+
+    if (count($events) > 0) {
+      $compact = [
+        "events" => $events,
+        "settings" => $settings,
+        "carnivals" => $carnivals,
+        "sponsor" => $sponsor,
+        "faqs" => $faqs,
+        "carnival" => $carnivalData
+      ];
+      // parray($compact);
+      return view("Frontend/Event/carnival.php", compact("compact"));
+    } else {
+      $compact = [
+        "settings" => $settings,
+        "carnivals" => $carnivals,
+        "sponsor" => $sponsor,
+        "faqs" => $faqs,
+        "carnival" => $carnivalData
+      ];
+      return view("Frontend/Event/directEvents.php", compact("compact"));
+    }
+
   }
 
 
@@ -87,12 +112,12 @@ class EventsController
     $stmt = $user->execute($sql, [$events["carnival_id"]]);
     $sponsor = $stmt->fetchAll();
 
-    
+
     $sql = "SELECT * FROM faqs WHERE faq_category=?";
-    $stmt = $user->execute($sql,["Event"]);
+    $stmt = $user->execute($sql, [$event]);
     $faqs = $stmt->fetchAll();
 
-    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor,"faqs"=>$faqs];
+    $compact = ["events" => $events, "settings" => $settings, "carnivals" => $carnivals, "sponsor" => $sponsor, "faqs" => $faqs];
 
     return view("Frontend/Event/event.php", compact("compact"));
   }
@@ -124,14 +149,15 @@ class EventsController
 
 
 
-    $compact = [ "settings" => $settings, "colleges" => $colleges, "carnivals" => $carnivals];
+    $compact = ["settings" => $settings, "colleges" => $colleges, "carnivals" => $carnivals];
 
     // parray($compact);
 
     return view("Frontend/Event/registration.php", compact("compact"));
   }
 
-  public function fetchEvent(){
+  public function fetchEvent()
+  {
     $user = new User();
 
     $sql = "SELECT carnival_id FROM `carnivals` WHERE `slug`=?";
@@ -147,7 +173,7 @@ class EventsController
     return json_encode($events);
   }
 
-  
+
 
 
   public function welcomePartner()
@@ -183,31 +209,32 @@ class EventsController
 
 
 
-  public function insertEventRegData(){
+  public function insertEventRegData()
+  {
     session_start();
 
     $user = new User();
     $sql = "SELECT * FROM event_reg  WHERE email=?  && token=?";
-    $stmt = $user->execute($sql, [$_POST["email"],$_POST["token"]]);
+    $stmt = $user->execute($sql, [$_POST["email"], $_POST["token"]]);
 
     $sql2 = "SELECT reg_fee FROM events WHERE event_id=?";
     $stmt2 = $user->execute($sql2, [$_POST["event_id"]]);
     $fee = $stmt2->fetchColumn();
 
     $sql1 = "SELECT * FROM payment WHERE tno=? && status=? && amount>=?";
-    $stmt1 = $user->execute($sql1, [$_POST["tranjection"],0,$fee]);
+    $stmt1 = $user->execute($sql1, [$_POST["tranjection"], 0, $fee]);
 
 
     if ($stmt->rowCount() > 0) {
-      if($stmt1->rowCount() > 0){
+      if ($stmt1->rowCount() > 0) {
 
         $sqls = "UPDATE payment SET status =:status WHERE tno=:tno";
         $pass = [
-          "status" =>1,
+          "status" => 1,
           "tno" => $_POST["tranjection"]
         ];
-        $user->updateTable($sqls,$pass);
-        
+        $user->updateTable($sqls, $pass);
+
 
         $imageDetails = fileDetails($_FILES, "image");
         $data = [
@@ -230,24 +257,24 @@ class EventsController
             $_SESSION["error_message"] = "Wrong file selected";
             redirects("/signup/event");
           } else {
-    
+
             $slug = slug($data["student_id"]);
             $NewFileName = $slug . "." . $imageDetails["fext"];
             unlinkFile("assets/Upload/EventRegister/" . $NewFileName);
             fileStore($imageDetails["source"], "assets/Upload/EventRegister/" . $NewFileName);
-    
-    
-            $data["image"]=$NewFileName;
-  
-  
-            $data["token"]=null;
-            $data +=["verified"=>1];
-  
-            $sql="UPDATE event_reg SET event_id=:event_id,college_code=:college_code,student_id=:student_id,name=:name,
+
+
+            $data["image"] = $NewFileName;
+
+
+            $data["token"] = null;
+            $data += ["verified" => 1];
+
+            $sql = "UPDATE event_reg SET event_id=:event_id,college_code=:college_code,student_id=:student_id,name=:name,
                            current_edu=:current_edu,password=:password,image=:image,tranjection=:tranjection,token=:token,verified=:verified WHERE email=:email";
-                           
-  
-            $run = $user->updateTable($sql,$data);
+
+
+            $run = $user->updateTable($sql, $data);
             if ($run) {
               $_SESSION["success_message"] = "You Registered Successfully";
               unsetAll($data);
@@ -258,14 +285,14 @@ class EventsController
             }
           }
         }
-      }else{
+      } else {
         $_SESSION["error_message"] = "Invalid tranjection number";
         redirects("/signup/event");
       }
-    }else{
+    } else {
       $_SESSION["error_message"] = "Email and Verification code is not match";
       redirects("/signup/event");
     }
-    
+
   }
 }

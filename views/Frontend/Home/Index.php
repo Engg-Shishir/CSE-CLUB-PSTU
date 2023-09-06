@@ -54,7 +54,11 @@
     <?php view("Frontend/Home/projects.php", compact("projects")) ?>
     <?php view("Frontend/Home/blog.php", compact("blog")) ?>
     <?php view("Frontend/Home/partner.php", compact("partners")) ?>
-    <?php view("Frontend/faq.php", compact("faqs")) ?>
+
+    <?php 
+      if(count($faqs)>0)
+      view("Frontend/faq.php", compact("faqs")) 
+    ?>
     <?php view("layout/footer.php", compact("footer")) ?>
   </div>
 
@@ -63,25 +67,6 @@
   <script src="<?= assets('js/faqs.js') ?>"></script>
 
 
-
-  <!-- <script>
-    $(function () {
-      var number = 0;
-      toggleFaq = function (elm) {
-        // $(elm).siblings(".answer").slideToggle();
-        if(number==elm){
-          $(".answer"+elm).slideToggle();
-          $(".fa-angle-down-"+elm).toggleClass("active");
-        }else{
-          number = elm;
-          $(".answer").slideUp();
-          $(".fa-angle-down").removeClass("active");
-          $(".answer"+elm).slideToggle();
-          $(".fa-angle-down-"+elm).toggleClass("active");
-        }
-      };
-    });
-  </script> -->
 </body>
 
 </html>

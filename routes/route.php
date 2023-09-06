@@ -47,6 +47,7 @@ Router::get('activity', [PageController::class, "activityBypage"]);
 Router::get('activity/page/{number}', [PageController::class, "activityBypage"]);
 Router::get('activity/year/{year}', [PageController::class, "activityYear"]);
 Router::post('activity/year', [PageController::class, "activityByYear"]);
+Router::get('events', [PageController::class, "eventsPage"]);
 
 Router::get('welcome/partner', [IndexController::class, "welcomePartner"]);
 Router::post('message', [MessageController::class, "send"]);
@@ -131,7 +132,6 @@ Router::group(['middleware' => \App\Middlewares\Participant::class], function ()
 Router::get('mailverify/{sender}/{token}', [MailController::class, "emailVerification"], ['defaultParameterRegex' => '[\w\-\@\#\.]+']);
 
 
-Router::get('events', [EventController::class, "events"]);
 
 Router::get('blog', [BlogController::class, "blogBypage"]);
 Router::get('blog/page/{number}', [BlogController::class, "blogBypage"]);
@@ -189,6 +189,7 @@ Router::group(['middleware' => \App\Middlewares\Admin::class], function () {
 
 
   Router::get('admin/faq', [FaqController::class, "faq"]);
+  Router::get('admin/faq/{type}', [FaqController::class, "faqByType"]);
   Router::post('admin/faq', [FaqController::class, "insertFaq"]);
   Router::get('admin/faq/delete/{code}', [FaqController::class, "deleteFaq"]);
 

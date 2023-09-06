@@ -136,6 +136,22 @@
           [
             "name" => "Manage Faq",
             "href" => "/admin/faq"
+          ],
+          [
+            "name" => "Faq for Carnivals",
+            "href" => "/admin/faq/carnival"
+          ],
+          [
+            "name" => "Faq for Events",
+            "href" => "/admin/faq/events"
+          ],
+          [
+            "name" => "Home Faqs",
+            "href" => "/admin/faq/home"
+          ],
+          [
+            "name" => "Support Us Faqs",
+            "href" => "/admin/faq/supportus"
           ]
         ],
         "Alumini" => [

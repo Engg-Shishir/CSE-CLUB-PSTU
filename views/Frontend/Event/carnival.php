@@ -29,17 +29,26 @@
   $sponsor = $compact["sponsor"];
   $events = $compact["events"];
   $faqs = $compact["faqs"];
-
+  $carnival = $compact["carnival"][0];
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
     <div class="row row-banner"
-      style='background-image: url(<?= assets("Upload/Carnivals/" . $events[0]["banner"]) ?>);'> </div>
+      style='background-image: url(<?= assets("Upload/Carnivals/" . $carnival["banner"]) ?>);'> </div>
+   
+
+    <?php 
+      if(count($sponsor) > 0)
+      view("Frontend/Event/partials/sponsor.php", compact("sponsor")); 
+    ?>
+    <?php 
+      if(count($events) > 0)
+       view("Frontend/Event/partials/eventCard.php", compact("events"));
+    ?>
 
 
-    <?php view("Frontend/Event/partials/sponsor.php", compact("sponsor")); ?>
-    <?php view("Frontend/Event/partials/eventCard.php", compact("events")); ?>
 
+<!-- faq niye kaz korte hobe -->
     <div class="row banner-btn">
       <a href="<?= url("/signup/event") ?>" class="eventRegistrationBtn">
         <button class="glowing-btn" type="submit">
@@ -53,7 +62,10 @@
     </div>
 
     
-    <?php view("Frontend/faq.php", compact("faqs")) ?>
+    <?php 
+      if(count($faqs)>0)
+      view("Frontend/faq.php", compact("faqs")) 
+    ?>
 
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>

@@ -9,12 +9,6 @@
   <!-- CSS Part -->
   <?php view("layout/partials/frontendLink.php") ?>
   <link rel="stylesheet" href="<?= assets('style/Frontend/Event/events.css'); ?>" />
-  <style>
-    .faq-row{
-      background-color: #ecebf1 !important;
-      margin-bottom: 50px !important;
-    }
-  </style>
 </head>
 
 <body>
@@ -117,7 +111,10 @@
   </div>
 
   
-  <?php view("Frontend/faq.php", compact("faqs")) ?>
+    <?php
+      if (count($faqs) > 0)
+      view("Frontend/faq.php", compact("faqs"))
+    ?>
 
 
   <?php view("layout/footer.php", compact("footer")); ?>

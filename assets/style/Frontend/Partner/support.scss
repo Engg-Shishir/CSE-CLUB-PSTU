@@ -2,6 +2,7 @@
 @import "../../../setting/settings";
 @import "../../../layout/NavBar/fixedTopbar";
 @import "../../../layout/NavBar/fullNav";
+@import "../faq";
 @import "../../../layout/Footer/footer";
 
 
@@ -226,7 +227,6 @@
     }
   }
   .btnbox{
-    margin-bottom: 250px !important;
     z-index: 9;
     @include mainBtn.glowing-left;
   }

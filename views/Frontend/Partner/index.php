@@ -29,6 +29,8 @@
 
   $category = $compact["category"];
   $count = $compact["count"];
+  
+  $faqs = $compact["faqs"];
   ?>
   <?php view("layout/navbar.php", compact("navbar")); ?>
   <div class="container content">
@@ -51,6 +53,11 @@
     </div>
 
     <?php view("Frontend/Partner/form.php"); ?>
+    <?php
+      if (count($faqs) > 0)
+      view("Frontend/faq.php", compact("faqs"))
+    ?>
+
     <?php view("layout/footer.php", compact("footer")); ?>
   </div>
 
@@ -58,6 +65,7 @@
 
 
   <?php view("layout/partials/frontendScript.php") ?>
+  <script src="<?= assets('js/faqs.js') ?>"></script>
   <script>
     $(document).ready(function () {
       $("#messageFormBtn").click(function (e) {

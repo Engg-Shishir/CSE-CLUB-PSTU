@@ -4,7 +4,7 @@
 @import "../../../layout/NavBar/fixedTopbar";
 @import "../../../layout/NavBar/fullNav";
 @import "../../../layout/Footer/footer";
-@import "./card";
+@import "./partials/card";
 .content {
     font-size: 100%;
     height: auto;
@@ -36,27 +36,7 @@
 }
 
 .titleBox {
-    display: flex;
-    flex-direction: column !important;
-    align-items: center;
-    justify-content: space-between;
     margin: 0 auto;
-    .seasrch{
-        width: 80%;
-        margin-top: 10px;
-        @include respond(tb-md) {
-            width: 50%;
-        }
-        
-        @include respond(lp-sm) {
-            width: 30%;
-        }
-        .searchBtn{
-            background-color: #00156a !important;
-            border-color: #00156a !important;
-            color: #FFFFFF !important;
-        }
-    }
 
     @include respond(tb-md) {
         flex-direction: row !important;

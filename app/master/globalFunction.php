@@ -343,3 +343,32 @@ function unsetAll(array $data = []): void
     unset($_SESSION[$key]);
   }
 }
+
+function interval($date){
+  $now = time();
+
+  // Get the future timestamp of your event
+  $event = strtotime($date);
+
+  // Calculate the difference in seconds
+  $difference = $event - $now;
+  $days = floor($difference / (60 * 60 * 24));
+  $hours = floor(($difference % (60 * 60 * 24)) / (60 * 60));
+  $minutes = floor(($difference % (60 * 60)) / 60);
+  $seconds = floor($difference % 60);
+  $date=[$days,$hours,$minutes,$seconds];
+  // Check if the event has not passed
+  if ($difference > 0) {
+      // Format the difference into days, hours, minutes, and seconds
+
+
+      // Display the countdown timer
+      $date=[$days,$hours,$minutes,$seconds];
+  
+      return $date;
+
+  } else {
+      // Display a message if the event has passed
+      return $date;
+  }
+}

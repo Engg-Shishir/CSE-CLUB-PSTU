@@ -201,11 +201,16 @@ class EventController
         fileStore($imageDetails["source"], "assets/Upload/Carnivals/" . $NewFileName);
 
 
-        $user = new User();
-        $sql = "INSERT INTO carnivals (`title`,`start`,`end`,`banner`,`slug`) VALUES (:title,:start,:end,:banner,:slug)";
-
         $data["banner"] = $NewFileName;
         $data +=["slug"=>$slug];
+        if($_POST["description"] !=="") {
+           $data +=["description"=>$_POST["description"]];
+        }else{
+          $data +=["description"=>NULL];
+        }
+
+        $user = new User();
+        $sql = "INSERT INTO carnivals (`title`,`start`,`end`,`banner`,`slug`,`description`) VALUES (:title,:start,:end,:banner,:slug,:description)";
 
         $run = $user->insert($sql, $data); // $run = 1 or 0
         if ($run) {

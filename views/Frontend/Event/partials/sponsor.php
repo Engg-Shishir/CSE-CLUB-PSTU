@@ -1,5 +1,7 @@
 <div class="row sponsor-row">
-  <div class="sponsor-title">
+
+
+<div class="sponsor-title">
     <span>Sponsors & Partners</span>
     <span class="line"></span>
   </div>

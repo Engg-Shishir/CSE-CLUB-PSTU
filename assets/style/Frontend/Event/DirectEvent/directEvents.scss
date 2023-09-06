@@ -1,0 +1,83 @@
+@import "../../../../setting/settings";
+@import "../../../../layout/NavBar/fixedTopbar";
+@import "../../../../layout/NavBar/fullNav";
+@import "./sponsor";
+@import "../../faq";
+@import "../../../../layout/Footer/footer";
+
+.containers {
+    font-size: 100% !important;
+    height:auto;
+    margin-top: 66px !important;
+    margin: 0 auto;
+    // margin-bottom: 300px;
+        margin-bottom: 200px;
+    @include respond(tb-sm) {
+    }
+    @include respond(tb-md) {
+        // height: 230vh !important;
+    }
+    @include respond(lp-sm) {
+        width: 80%;
+        // height: 170vh;
+    }
+}
+
+
+.row-banner {
+    width: 100%;
+    height:auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: cover;
+    margin-bottom: 100px;
+    margin: 0 auto;
+    // border: 2px solid rgb(122, 180, 14);
+    background-color: #ffffff;
+    z-index: 4 !important;
+
+    // background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg");
+    @include respond(mb-sm) {
+        height: 200px;
+        //   background-size: cover !important;
+    }
+
+    @include respond(tb-sm) {
+        height: 300px;
+    }
+
+    @include respond(tb-md) {
+        height: 500px;
+    }
+
+}
+
+.descriptionBox {
+    height:auto;
+    padding: 20px;
+    h3{
+        color: rgb(25, 25, 70);
+        font-family: 'Abril Fatface', cursive;
+        font-weight: 400;
+        font-size: 24px;
+        position: relative;
+        &::after{
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            background-color: rgb(79, 4, 4);
+            content: "";
+            width: 100px;
+            // height: 3px;
+        }
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 24px;
+        margin: 10px 0px;
+        font-family: "Newsreader", serif !important;
+        font-weight: 500;
+    }
+}

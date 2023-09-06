@@ -68,7 +68,7 @@ class IndexController
 
 
     $sql = "SELECT * FROM faqs WHERE faq_category=?";
-    $stmt = $user->execute($sql,["Home"]);
+    $stmt = $user->execute($sql,["home"]);
     $faqs = $stmt->fetchAll();
 
 
@@ -123,6 +123,11 @@ class IndexController
     $stmt = $user->execute($sql);
     $eventCategorys = $stmt->fetchAll();
 
+    
+    $sql = "SELECT * FROM faqs WHERE faq_category=?";
+    $stmt = $user->execute($sql, ["supportus"]);
+    $faqs = $stmt->fetchAll();
+
     $sql = "SELECT
     (SELECT COUNT(*) FROM users) AS user_count,
     (SELECT COUNT(*) FROM events) AS event_count,
@@ -131,7 +136,8 @@ class IndexController
     $count = $stmt->fetchAll();
 
 
-    $compact = ["category" => $eventCategorys, "settings" => $settings, "carnivals" => $carnivals, "count" => $count];
+    $compact = ["category" => $eventCategorys,
+     "settings" => $settings, "carnivals" => $carnivals, "count" => $count,"faqs"=>$faqs];
 
     return view("Frontend/Partner/index.php", compact("compact"));
   }
