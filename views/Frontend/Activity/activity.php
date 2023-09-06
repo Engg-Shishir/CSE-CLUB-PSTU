@@ -34,20 +34,18 @@
     <div class="containers content">
         <div class="row titleBox">
             <h1>Recent Events</h1>
-            <div class="input-group input-group seasrch p-2">
-                <input type="number" class="form-control" style="padding: 18px; font-size: 16px;" min="1900" max="2099"
-                    step="1" placeholder="2023" />
-                <span class="input-group-append">
-                    <button type="button" class="btn btn-info btn-flat" style="font-size: 16px;">Year Search</button>
-                </span>
-            </div>
+            <form action="<?= url("/activity/year") ?>" method="POST" class="seasrch">
+                <div class="input-group input-group  p-2">
+                    <input type="number" class="form-control" style="padding: 18px; font-size: 16px;" min="1900"
+                        max="2099" step="1" placeholder="Enter year" name="year" />
+                    <span class="input-group-append">
+                        <input type="submit" class="btn btn-flat searchBtn" style="font-size: 16px;" value="Search" />
+                    </span>
+                </div>
+            </form>
+           <?php view("components/flashMessage.php"); ?>
         </div>
         <hr>
-        <div class="row searchbox">
-            <div class="col-md-6">
-
-            </div>
-        </div>
         <div class="row blog-row">
             <?php
             foreach ($activity as $key => $value) { ?>
@@ -65,7 +63,9 @@
                                 // echo $dt->format('d/m/Y');
                                 ?>
                             </p>
-                            <p class="title"><?= $value["event_name"] ?></p>
+                            <p class="title">
+                                <?= $value["event_name"] ?>
+                            </p>
                         </div>
                     </div>
                     <div class="bottom-box">
@@ -82,25 +82,36 @@
         <div class="row paginationBox">
             <div class="col-md-6 pagination">
                 <?php
-                $page = ceil(count($AllActivity) / 8);
-
-                if (isset($_SESSION["page"]) && $_SESSION["page"] !== "") {
-                    for ($i = 1; $i <= $page; $i++) {
-                        if ($i == intval($_SESSION["page"])) { ?> <a href="<?= url("/activity/page/" . $i) ?>"
-                                class="btn btn-default active"><?= $i ?></a>
-                        <?php } else { ?> <a href="<?= url("/activity/page/" . $i) ?>" class="btn btn-default"><?= $i ?></a>
+                if (isset($_SESSION["year"])) {
+                    foreach ($AllActivity as $key => $value) {
+                        if ($value["year"] == $_SESSION["year"]) { ?> 
+                            <a href="<?= url("/activity/year/" . $value["year"]) ?>" class="btn btn-default active"><?= $value["year"] ?></a>
+                        <?php } else { ?> 
+                            <a href="<?= url("/activity/year/" . $value["year"]) ?>" class="btn btn-default"><?= $value["year"] ?></a>
                         <?php }
-
                     }
+                    unset($_SESSION["year"]);
                 } else {
-                    for ($i = 1; $i <= $page; $i++) {
-                        if ($i == 1) { ?> <a href="<?= url("/activity/page/" . $i) ?>"
-                                class="btn btn-default active"><?= $i ?></a>
-                        <?php } else { ?> <a href="<?= url("/activity/page/" . $i) ?>" class="btn btn-default"><?= $i ?></a>
-                        <?php }
+                    $page = ceil(count($AllActivity) / 8);
+                    if (isset($_SESSION["page"]) && $_SESSION["page"] !== "") {
+                        for ($i = 1; $i <= $page; $i++) {
+                            if ($i == intval($_SESSION["page"])) { ?> <a href="<?= url("/activity/page/" . $i) ?>"
+                                    class="btn btn-default active"><?= $i ?></a>
+                            <?php } else { ?> <a href="<?= url("/activity/page/" . $i) ?>" class="btn btn-default"><?= $i ?></a>
+                            <?php }
+    
+                        }
+                    } else {
+                        for ($i = 1; $i <= $page; $i++) {
+                            if ($i == 1) { ?> <a href="<?= url("/activity/page/" . $i) ?>"
+                                    class="btn btn-default active"><?= $i ?></a>
+                            <?php } else { ?> <a href="<?= url("/activity/page/" . $i) ?>" class="btn btn-default"><?= $i ?></a>
+                            <?php }
+                        }
                     }
+                    
+                    unset($_SESSION["page"]);
                 }
-
                 ?>
             </div>
         </div>

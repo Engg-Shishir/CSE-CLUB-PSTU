@@ -52,6 +52,11 @@
         @include respond(lp-sm) {
             width: 30%;
         }
+        .searchBtn{
+            background-color: #00156a !important;
+            border-color: #00156a !important;
+            color: #FFFFFF !important;
+        }
     }
 
     @include respond(tb-md) {

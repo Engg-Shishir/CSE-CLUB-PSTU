@@ -1,5 +1,5 @@
 <?php
-use App\Controllers\AboutController;
+use App\Controllers\PageController;
 use App\Controllers\Admin\AdminBlogController;
 use App\Controllers\Admin\ClubActivityController;
 use App\Controllers\Admin\ClubRulesController;
@@ -40,11 +40,13 @@ use App\master\Router;
 
 
 Router::get('/', [IndexController::class, "home"]);
-Router::get('about', [AboutController::class, "about"]);
-Router::get('cselaw', [AboutController::class, "cselaw"]);
+Router::get('about', [PageController::class, "about"]);
+Router::get('cselaw', [PageController::class, "cselaw"]);
 
-Router::get('activity', [AboutController::class, "activityBypage"]);
-Router::get('activity/page/{number}', [AboutController::class, "activityBypage"]);
+Router::get('activity', [PageController::class, "activityBypage"]);
+Router::get('activity/page/{number}', [PageController::class, "activityBypage"]);
+Router::get('activity/year/{year}', [PageController::class, "activityYear"]);
+Router::post('activity/year', [PageController::class, "activityByYear"]);
 
 Router::get('welcome/partner', [IndexController::class, "welcomePartner"]);
 Router::post('message', [MessageController::class, "send"]);
