@@ -46,8 +46,7 @@
                     $date="Finished";
                 }
             ?>
-                <div class="blog-card <?php if ($value["status"] == 1)
-                    echo "active"; ?>">
+                <div class="blog-card">
                     <div class="top">
                         <div class="topbox">
                             <img class="banner" src="<?= assets("Upload/Carnivals/" . $value["banner"]) ?>" />

@@ -10,21 +10,6 @@
     <?php view("layout/partials/backendLink.php") ?>
     <link rel="stylesheet" href="<?= assets('style/Frontend/Event/events.css'); ?>" />
     <link rel="stylesheet" href="<?= assets('style/Frontend/Blog/blog.css'); ?>" />
-    <style>
-        html {
-            font-size: 100%;
-        }
-
-        .content {
-            min-height: 120vh;
-            height: 100% !important;
-            margin-top: 80px;
-            padding: 30px;
-            word-wrap: break-word;
-            word-break: break-all;
-            height: 100% !important;
-        }
-    </style>
 </head>
 
 <body>

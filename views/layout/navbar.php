@@ -45,7 +45,7 @@
               <?php
             }
           ?>
-          <li class="tab-li">It Carnival 2023</li>
+          <li class="tab-li">Events</li>
         </ul>
       </div>
       <div class="tab-content">
@@ -87,27 +87,9 @@
             </a>
           </li>
           <li class="shishir-navitem">
-            <a href="<?= url("/developers") ?>" class="shishir-navLink">
-              <p>Developers</p>
-              <p>Developers</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="<?= url("/curicolum") ?>" class="shishir-navLink">
-              <p>CSE course curicolum</p>
-              <p>CSE course curicolum</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
-            <a href="<?= url("/schedule") ?>" class="shishir-navLink">
-              <p>CSE class schedule</p>
-              <p>CSE class schedule</p>
-            </a>
-          </li>
-          <li class="shishir-navitem">
             <a href="<?= url("/cselaw") ?>" class="shishir-navLink">
-              <p>CSE faculty define law</p>
-              <p>CSE faculty define law</p>
+              <p>Norms and Regulations</p>
+              <p>Norms and Regulations</p>
             </a>
           </li>
           <li class="shishir-navitem">
@@ -116,13 +98,19 @@
               <p>Batch Wall</p>
             </a>
           </li>
+          <li class="shishir-navitem">
+            <a href="<?= url("/developers") ?>" class="shishir-navLink">
+              <p>Developers</p>
+              <p>Developers</p>
+            </a>
+          </li>
         </ul>
         <?php
         if (isset($_SESSION["auth_profile"])) {
           ?>
           <ul class="tab-li-content engg-shishir-fullnav-left-ul">
             <li class="shishir-navitem">
-              <a href="" class="shishir-navLink">
+              <a href="<?= url("".$_SESSION["auth_profile"]) ?>" class="shishir-navLink">
                 <p>Profile</p>
                 <p>Profile</p>
               </a>

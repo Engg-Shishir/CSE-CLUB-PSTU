@@ -30,20 +30,6 @@ $authorBlog = $compact["authorBlog"];
   <?php view("layout/partials/backendLink.php") ?>
   <link rel="stylesheet" href="<?= assets('style/Frontend/Event/events.css'); ?>" />
   <link rel="stylesheet" href="<?= assets('style/Frontend/Blog/blog.css'); ?>" />
-  <style>
-    html {
-      font-size: 100%;
-    }
-
-    .content {
-      min-height: 500vh;
-      height: 100% !important;
-      margin-top: 100px;
-      padding: 30px;
-      word-wrap: break-word;
-      word-break: break-all;
-    }
-  </style>
 </head>
 
 <body>
