@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:5222
--- Generation Time: Aug 16, 2023 at 01:06 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 20, 2024 at 04:42 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `club`
+-- Database: `php-mvc-database`
 --
 
 -- --------------------------------------------------------
@@ -73,7 +73,8 @@ CREATE TABLE `blogs` (
   `user_id` int(10) UNSIGNED DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `details` text NOT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `creation_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `blog_status` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -86,7 +87,8 @@ CREATE TABLE `blog_categories` (
   `category_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(200) NOT NULL,
   `description` text DEFAULT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `creation_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `category_slug` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -511,18 +513,19 @@ CREATE TABLE `events` (
   `event_loc` text DEFAULT NULL,
   `event_image` varchar(255) DEFAULT NULL,
   `participants` int(11) DEFAULT 0,
-  `status` tinyint(5) NOT NULL DEFAULT 1
+  `status` tinyint(5) NOT NULL DEFAULT 1,
+  `event_slug` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`event_id`, `carnival_id`, `event_name`, `event_des`, `reg_date`, `event_date`, `event_time`, `event_loc`, `event_image`, `participants`, `status`) VALUES
-(7, 2, 'Hackathon', 'An inter university 24-hour competition where participants will be given a problem to solve using the development skills they have.', '2023-08-19', '2023-08-22', '06:23:00', 'PSTU Auditorium', 'hackathon.jpg', 0, 1),
-(8, 2, 'Deep Learning Sprint 2.0', 'A month long deep learning competition where participants will be given a problem and a dataset and the competition will be held in Kaggle.', '2023-08-17', '2023-08-18', '21:28:00', 'PSTU Auditorium', 'deep-learning-sprint-2-0.jpg', 0, 1),
-(9, 2, 'Capture the Flag', 'Capture The Flag (CTF) is a thrilling cybersecurity contest where participants use their computer skills to find and exploit weaknesses in systems, competing to capture virtual flags and earn points.', '2023-08-11', '2023-08-31', '21:31:00', 'On Campus', 'capture-the-flag.png', 0, 1),
-(10, 2, 'GameJam', 'A Gamejam competition is an event where participants, typically game developers or enthusiasts, come together to create playable games within a set timeframe of 72 hours', '2023-08-18', '2023-08-18', '22:34:00', 'CSE Building', 'gamejam.jpg', 0, 1);
+INSERT INTO `events` (`event_id`, `carnival_id`, `event_name`, `event_des`, `reg_date`, `event_date`, `event_time`, `event_loc`, `event_image`, `participants`, `status`, `event_slug`) VALUES
+(7, 2, 'Hackathon', 'An inter university 24-hour competition where participants will be given a problem to solve using the development skills they have.', '2023-08-19', '2023-08-22', '06:23:00', 'PSTU Auditorium', 'hackathon.jpg', 0, 1, NULL),
+(8, 2, 'Deep Learning Sprint 2.0', 'A month long deep learning competition where participants will be given a problem and a dataset and the competition will be held in Kaggle.', '2023-08-17', '2023-08-18', '21:28:00', 'PSTU Auditorium', 'deep-learning-sprint-2-0.jpg', 0, 1, NULL),
+(9, 2, 'Capture the Flag', 'Capture The Flag (CTF) is a thrilling cybersecurity contest where participants use their computer skills to find and exploit weaknesses in systems, competing to capture virtual flags and earn points.', '2023-08-11', '2023-08-31', '21:31:00', 'On Campus', 'capture-the-flag.png', 0, 1, NULL),
+(10, 2, 'GameJam', 'A Gamejam competition is an event where participants, typically game developers or enthusiasts, come together to create playable games within a set timeframe of 72 hours', '2023-08-18', '2023-08-18', '22:34:00', 'CSE Building', 'gamejam.jpg', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -609,7 +612,8 @@ INSERT INTO `facultys` (`fac_id`, `fac_code`, `name`) VALUES
 CREATE TABLE `faqs` (
   `faq_id` int(10) UNSIGNED NOT NULL,
   `question` varchar(50) NOT NULL,
-  `ans` varchar(50) NOT NULL
+  `ans` varchar(50) NOT NULL,
+  `faq_category` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -693,6 +697,20 @@ INSERT INTO `notices` (`notice_id`, `title`, `des`, `file_source`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `tid` int(11) NOT NULL,
+  `tno` varchar(50) NOT NULL,
+  `pay_type` varchar(50) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `tr_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `polls`
 --
 
@@ -740,20 +758,6 @@ CREATE TABLE `projects` (
   `status` int(50) NOT NULL DEFAULT 1,
   `sourcecode` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-CREATE TABLE `payment` (
-  `tid` int(11) NOT NULL AUTO_INCREMENT,
-  `tno` varchar(50) NOT NULL UNIQUE,
-  `pay_type` varchar(50) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `tr_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`tid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-
-
-
 
 --
 -- Dumping data for table `projects`
@@ -915,16 +919,17 @@ CREATE TABLE `users` (
   `registration_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `last_login` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_slug` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `fade_password`, `role`, `status`, `token`, `is_verified`, `two_factor`, `registration_date`, `last_login`, `created_at`, `updated_at`) VALUES
-(1, 'shishir.cse.pstu@gmail.com', '$2y$10$j1jtJziW16xBGbd.cYC7TeesswXtTOSGE6QxPOKeCSF1b4JGxUPo6', NULL, '2', 0, NULL, 1, 0, '2023-07-31 11:19:51', '2023-07-31 11:19:51', '2023-07-31 11:19:51', '2023-07-31 11:19:51'),
-(2, 'shishir@gmail.com', '$2y$10$uz.f5ubgy2k8yLEdCdKbPecihtW1hP6CNnQkf8Uu.yy3iiuns660q', NULL, '1', 1, NULL, 1, 0, '2023-08-15 13:23:48', '2023-08-15 13:23:48', '2023-08-15 13:23:48', '2023-08-15 13:23:48');
+INSERT INTO `users` (`user_id`, `username`, `password`, `fade_password`, `role`, `status`, `token`, `is_verified`, `two_factor`, `registration_date`, `last_login`, `created_at`, `updated_at`, `user_slug`) VALUES
+(1, 'shishir.cse.pstu@gmail.com', '$2y$10$j1jtJziW16xBGbd.cYC7TeesswXtTOSGE6QxPOKeCSF1b4JGxUPo6', NULL, '2', 0, NULL, 1, 0, '2023-07-31 11:19:51', '2023-07-31 11:19:51', '2023-07-31 11:19:51', '2023-07-31 11:19:51', NULL),
+(2, 'shishir@gmail.com', '$2y$10$uz.f5ubgy2k8yLEdCdKbPecihtW1hP6CNnQkf8Uu.yy3iiuns660q', NULL, '1', 1, NULL, 1, 0, '2023-08-15 13:23:48', '2023-08-15 13:23:48', '2023-08-15 13:23:48', '2023-08-15 13:23:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -948,16 +953,17 @@ CREATE TABLE `user_details` (
   `facebook` varchar(100) DEFAULT NULL,
   `linkedin` varchar(100) DEFAULT NULL,
   `github` varchar(100) DEFAULT NULL,
-  `bio` text DEFAULT NULL
+  `bio` text DEFAULT NULL,
+  `user_slug` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`id`, `user_id`, `country_code`, `name`, `gender`, `birth`, `nid`, `image`, `college`, `department`, `sid`, `blood`, `facebook`, `linkedin`, `github`, `bio`) VALUES
-(1, 1, NULL, 'yuiuiuiui', 'Male', 'uiuiui', 'uiuiui', 'uiuiui', NULL, '', NULL, 'uiuui', 'uiui', NULL, 'uiui', 'uuiui'),
-(5, 2, 'BD', 'Shishir Bhuiyan', 'male', '2020-06-05', '8651311444', '2.jpg', '1780', 'CSIT', '1802043', 'B+', ' https://www.facebook.com/Engg.Shishir/', 'nkedin.com/in/engg-shishir/', 'https://github.com/Engg-Shishir ', 'I\'m Shishir and interested in doing positive things about every aspect of life. I love projects with challenges. I like working to make an impact in the real world. I always try to work for my world with my community. I learn to extend. Also, I specialize in Front-End and Back-End web Development. At the end of the day, I believe Code never lies');
+INSERT INTO `user_details` (`id`, `user_id`, `country_code`, `name`, `gender`, `birth`, `nid`, `image`, `college`, `department`, `sid`, `blood`, `facebook`, `linkedin`, `github`, `bio`, `user_slug`) VALUES
+(1, 1, NULL, 'yuiuiuiui', 'Male', 'uiuiui', 'uiuiui', 'uiuiui', NULL, '', NULL, 'uiuui', 'uiui', NULL, 'uiui', 'uuiui', NULL),
+(5, 2, 'BD', 'Shishir Bhuiyan', 'male', '2020-06-05', '8651311444', '2.jpg', '1780', 'CSIT', '1802043', 'B+', ' https://www.facebook.com/Engg.Shishir/', 'nkedin.com/in/engg-shishir/', 'https://github.com/Engg-Shishir ', 'I\'m Shishir and interested in doing positive things about every aspect of life. I love projects with challenges. I like working to make an impact in the real world. I always try to work for my world with my community. I learn to extend. Also, I specialize in Front-End and Back-End web Development. At the end of the day, I believe Code never lies', NULL);
 
 -- --------------------------------------------------------
 
@@ -1145,6 +1151,13 @@ ALTER TABLE `notices`
   ADD PRIMARY KEY (`notice_id`);
 
 --
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`tid`),
+  ADD UNIQUE KEY `tno` (`tno`);
+
+--
 -- Indexes for table `polls`
 --
 ALTER TABLE `polls`
@@ -1315,6 +1328,12 @@ ALTER TABLE `message`
 --
 ALTER TABLE `notices`
   MODIFY `notice_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `polls`
